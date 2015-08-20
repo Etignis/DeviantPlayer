@@ -1,0 +1,66 @@
+* {
+  box-sizing: border-box;
+}
+html {
+    height:100%;
+	margin: 0;
+	padding:0;
+	color: #555;
+}
+body {
+    margin-left: 0px;
+	margin-top: 0px;
+	margin-right: 0px;
+	margin-bottom: 0px;	
+	background-color: @d-gray;
+	color: #555;
+	width: 100%;
+	height: 100%;
+	
+	position: relative;
+	
+	font-size: 16px;
+	font-family: Comic Sans MS, Comic Sans MS5, cursive; /* you can delete this =) */
+}
+img{
+	border: none;
+}
+
+
+.bt{
+    .fr-convex;
+    background: @m-gray;
+    padding: .2em;
+    display: inline-block;
+    cursor: pointer;
+    text-align: center;
+    
+    &:hover{
+        background: @m-gray + #111;    
+    }
+    &:active{
+        background:  @m-gray - #111;    
+    }
+}
+.mod_win{
+    .fr-concave;
+    display: block;
+    position: fixed;
+    width: 20em;
+    height: 15em;
+    top: 1em;
+    //margin: 0 auto;
+    z-index: 999;
+}
+#dbg{
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    z-index: 88;
+    background: rgba(0,0,0,.7);
+}
