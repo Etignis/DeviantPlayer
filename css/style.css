@@ -1,4 +1,3 @@
-/* CSS crunched with Crunch - http://crunchapp.net/ */
 .clear {
   float: none!important;
   clear: both!important;
@@ -172,7 +171,7 @@ input[type=range] {
   border-bottom-width: 2px;
   text-decoration: none;
   border-color: #555555;
-  color: #ffffff;
+  color: #fff;
   background: #666666;
   box-shadow: 0 1px 0px 0px rgba(255, 255, 255, 0.2) inset;
   cursor: pointer;
@@ -204,8 +203,8 @@ input[type=range] {
   border-style: solid;
   border-bottom-width: 2px;
   text-decoration: none;
-  border-color: #777777;
-  color: #ffffff;
+  border-color: #777;
+  color: #fff;
   background: #666666;
   box-shadow: 0 1px 0px 0px rgba(0, 0, 0, 0.2) inset;
   cursor: pointer;
@@ -235,7 +234,7 @@ body {
   margin-top: 0px;
   margin-right: 0px;
   margin-bottom: 0px;
-  background-color: #222222;
+  background-color: #222;
   color: #555;
   width: 100%;
   height: 100%;
@@ -264,7 +263,7 @@ img {
   border-bottom-width: 2px;
   text-decoration: none;
   border-color: #555555;
-  color: #ffffff;
+  color: #fff;
   background: #666666;
   box-shadow: 0 1px 0px 0px rgba(255, 255, 255, 0.2) inset;
   -webkit-transition: all 0.3s ease;
@@ -278,7 +277,7 @@ img {
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
-  background: #777777;
+  background: #777;
   padding: .2em;
   display: inline-block;
   cursor: pointer;
@@ -306,8 +305,8 @@ img {
   border-style: solid;
   border-bottom-width: 2px;
   text-decoration: none;
-  border-color: #777777;
-  color: #ffffff;
+  border-color: #777;
+  color: #fff;
   background: #666666;
   box-shadow: 0 1px 0px 0px rgba(0, 0, 0, 0.2) inset;
   cursor: pointer;
@@ -345,6 +344,7 @@ img {
   overflow: auto;
   width: 100%;
   padding: .1em;
+  padding-right: 2.4em;
 }
 .tracksafter,
 .tracksbefore {
@@ -373,8 +373,8 @@ img {
   border-style: solid;
   border-bottom-width: 2px;
   text-decoration: none;
-  border-color: #777777;
-  color: #ffffff;
+  border-color: #777;
+  color: #fff;
   background: #666666;
   box-shadow: 0 1px 0px 0px rgba(0, 0, 0, 0.2) inset;
   cursor: pointer;
@@ -391,7 +391,7 @@ img {
   user-select: none;
   float: left;
   width: 12em;
-  background: #777777;
+  background: #777;
   padding: .1em;
   position: relative;
 }
@@ -411,8 +411,8 @@ img {
   border-style: solid;
   border-bottom-width: 2px;
   text-decoration: none;
-  border-color: #777777;
-  color: #ffffff;
+  border-color: #777;
+  color: #fff;
   background: #666666;
   box-shadow: 0 1px 0px 0px rgba(0, 0, 0, 0.2) inset;
   cursor: pointer;
@@ -451,7 +451,7 @@ img {
   border-bottom-width: 2px;
   text-decoration: none;
   border-color: #555555;
-  color: #ffffff;
+  color: #fff;
   background: #666666;
   box-shadow: 0 1px 0px 0px rgba(255, 255, 255, 0.2) inset;
   cursor: pointer;
@@ -501,7 +501,7 @@ img {
   border-bottom-width: 2px;
   text-decoration: none;
   border-color: #555555;
-  color: #ffffff;
+  color: #fff;
   background: #666666;
   box-shadow: 0 1px 0px 0px rgba(255, 255, 255, 0.2) inset;
   cursor: pointer;
@@ -517,12 +517,13 @@ img {
   -ms-user-select: none;
   user-select: none;
   background: #888888;
+  padding: .3em;
 }
 .player_form .pf_sett .mix:hover {
   background: #999999;
 }
 .player_form .pf_sett .mix:active {
-  background: #777777;
+  background: #777;
 }
 .player_form .pf_sett input.hide {
   display: none;
@@ -544,7 +545,7 @@ img {
   border-bottom-width: 2px;
   text-decoration: none;
   border-color: #555555;
-  color: #ffffff;
+  color: #fff;
   background: #666666;
   box-shadow: 0 1px 0px 0px rgba(255, 255, 255, 0.2) inset;
   cursor: pointer;
@@ -568,7 +569,7 @@ img {
   background: #999999;
 }
 .player_form .pf_sett input.hide + label:active {
-  background: #777777;
+  background: #777;
 }
 .player_form .pf_sett input.hide + label input {
   display: none;
@@ -589,8 +590,8 @@ img {
   border-style: solid;
   border-bottom-width: 2px;
   text-decoration: none;
-  border-color: #777777;
-  color: #ffffff;
+  border-color: #777;
+  color: #fff;
   background: #666666;
   box-shadow: 0 1px 0px 0px rgba(0, 0, 0, 0.2) inset;
   cursor: pointer;
@@ -628,7 +629,7 @@ img {
   border-bottom-width: 2px;
   text-decoration: none;
   border-color: #555555;
-  color: #ffffff;
+  color: #fff;
   background: #666666;
   box-shadow: 0 1px 0px 0px rgba(255, 255, 255, 0.2) inset;
   cursor: pointer;
@@ -652,7 +653,7 @@ img {
   background: #999999;
 }
 .player_form .pf_sett input.cycle + label:active {
-  background: #777777;
+  background: #777;
 }
 .player_form .pf_sett input.cycle + label input {
   display: none;
@@ -673,8 +674,8 @@ img {
   border-style: solid;
   border-bottom-width: 2px;
   text-decoration: none;
-  border-color: #777777;
-  color: #ffffff;
+  border-color: #777;
+  color: #fff;
   background: #666666;
   box-shadow: 0 1px 0px 0px rgba(0, 0, 0, 0.2) inset;
   cursor: pointer;
@@ -698,7 +699,7 @@ img {
   -webkit-appearance: slider-vertical;
   /* WebKit */
   width: 2em;
-  height: 7em;
+  height: 5em;
   padding: 0 5px;
   cursor: pointer;
 }
@@ -729,7 +730,7 @@ img {
   border-bottom-width: 2px;
   text-decoration: none;
   border-color: #555555;
-  color: #ffffff;
+  color: #fff;
   background: #666666;
   box-shadow: 0 1px 0px 0px rgba(255, 255, 255, 0.2) inset;
   cursor: pointer;
@@ -766,7 +767,7 @@ img {
   border-bottom-width: 2px;
   text-decoration: none;
   border-color: #555555;
-  color: #ffffff;
+  color: #fff;
   background: #666666;
   box-shadow: 0 1px 0px 0px rgba(255, 255, 255, 0.2) inset;
   -webkit-transition: all 0.3s ease;
@@ -791,7 +792,7 @@ img {
   background: #999999;
 }
 .player_form .pf_play button.pf_play_bt:active {
-  background: #777777;
+  background: #777;
 }
 .player_form .pf_play button.pf_next_bt {
   -webkit-border-radius: 3px 3px 3px 3px;
@@ -810,7 +811,7 @@ img {
   border-bottom-width: 2px;
   text-decoration: none;
   border-color: #555555;
-  color: #ffffff;
+  color: #fff;
   background: #666666;
   box-shadow: 0 1px 0px 0px rgba(255, 255, 255, 0.2) inset;
   -webkit-transition: all 0.3s ease;
@@ -834,7 +835,7 @@ img {
   background: #999999;
 }
 .player_form .pf_play button.pf_next_bt:active {
-  background: #777777;
+  background: #777;
 }
 .player_form .pf_name {
   -webkit-border-radius: 3px 3px 3px 3px;
@@ -853,7 +854,7 @@ img {
   border-bottom-width: 2px;
   text-decoration: none;
   border-color: #555555;
-  color: #ffffff;
+  color: #fff;
   background: #666666;
   box-shadow: 0 1px 0px 0px rgba(255, 255, 255, 0.2) inset;
   cursor: pointer;
@@ -871,6 +872,7 @@ img {
   padding: .2em;
   margin: .1em;
   cursor: default;
+  font-size: 120%;
   text-align: center;
 }
 .player_form .pf_img {
@@ -890,7 +892,7 @@ img {
   border-bottom-width: 2px;
   text-decoration: none;
   border-color: #555555;
-  color: #ffffff;
+  color: #fff;
   background: #666666;
   box-shadow: 0 1px 0px 0px rgba(255, 255, 255, 0.2) inset;
   cursor: pointer;
@@ -928,7 +930,7 @@ img {
   border-bottom-width: 2px;
   text-decoration: none;
   border-color: #555555;
-  color: #ffffff;
+  color: #fff;
   background: #666666;
   box-shadow: 0 1px 0px 0px rgba(255, 255, 255, 0.2) inset;
   cursor: pointer;
@@ -969,7 +971,7 @@ img {
   border-bottom-width: 2px;
   text-decoration: none;
   border-color: #555555;
-  color: #ffffff;
+  color: #fff;
   background: #666666;
   box-shadow: 0 1px 0px 0px rgba(255, 255, 255, 0.2) inset;
   cursor: pointer;
@@ -1005,7 +1007,7 @@ img {
   border-bottom-width: 2px;
   text-decoration: none;
   border-color: #555555;
-  color: #ffffff;
+  color: #fff;
   background: #666666;
   box-shadow: 0 1px 0px 0px rgba(255, 255, 255, 0.2) inset;
   cursor: pointer;
@@ -1105,8 +1107,8 @@ img {
   border-style: solid;
   border-bottom-width: 2px;
   text-decoration: none;
-  border-color: #777777;
-  color: #ffffff;
+  border-color: #777;
+  color: #fff;
   background: #666666;
   box-shadow: 0 1px 0px 0px rgba(0, 0, 0, 0.2) inset;
   cursor: pointer;
@@ -1145,7 +1147,7 @@ img {
   border-bottom-width: 2px;
   text-decoration: none;
   border-color: #555555;
-  color: #ffffff;
+  color: #fff;
   background: #666666;
   box-shadow: 0 1px 0px 0px rgba(255, 255, 255, 0.2) inset;
   cursor: pointer;
@@ -1168,7 +1170,7 @@ img {
   background: #999999;
 }
 #top_panel input[type='checkbox'] + label:active {
-  background: #777777;
+  background: #777;
 }
 #top_panel input[type='checkbox'] + label input {
   display: none;
@@ -1189,8 +1191,8 @@ img {
   border-style: solid;
   border-bottom-width: 2px;
   text-decoration: none;
-  border-color: #777777;
-  color: #ffffff;
+  border-color: #777;
+  color: #fff;
   background: #666666;
   box-shadow: 0 1px 0px 0px rgba(0, 0, 0, 0.2) inset;
   cursor: pointer;
@@ -1223,3 +1225,66 @@ img {
   max-width: 100%;
   height: 10em;
 }
+#sounds_container {
+  position: fixed;
+  right: 0;
+  top: 0;
+  width: 2.8em;
+  counter-reset: tracks -1;
+}
+#sounds_container .soundButton {
+  -webkit-border-radius: 3px 3px 3px 3px;
+  -moz-border-radius: 3px 3px 3px 3px;
+  border-radius: 3px 3px 3px 3px;
+  overflow: visible;
+  background: #fff;
+  border: 0px solid #d8d8d8;
+  border-top-width: 0px;
+  /*display: inline-block;*/
+  font-weight: bold;
+  padding: 0.7em;
+  margin: 0.3em;
+  border-width: 1px;
+  border-style: solid;
+  border-bottom-width: 2px;
+  text-decoration: none;
+  border-color: #555555;
+  color: #fff;
+  background: #666666;
+  box-shadow: 0 1px 0px 0px rgba(255, 255, 255, 0.2) inset;
+  -webkit-transition: all 0.3s ease;
+  -moz-transition: all 0.3s ease;
+  -o-transition: all 0.3s ease;
+  -ms-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  width: 2.4em;
+  height: 2.4em;
+  padding: .1em;
+  cursor: pointer;
+  display: block;
+  margin: 0 auto;
+  background: #888888;
+  position: relative;
+  font-size: 120%;
+  counter-increment: tracks;
+}
+#sounds_container .soundButton:hover {
+  background: #999999;
+}
+#sounds_container .soundButton:active {
+  background: #777;
+}
+#sounds_container .soundButton:before {
+  content: counter(tracks);
+  position: absolute;
+  left: .1em;
+  top: 0.1em;
+}
+
+/*# sourceMappingURL=style.css.map */

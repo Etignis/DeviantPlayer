@@ -1,0 +1,36 @@
+#sounds_container{
+    @sz: @sidePanelWidth;
+    position: fixed;
+    right: 0;
+    top: 0;
+    width: @sz + 0.4em;
+    counter-reset: tracks -1;
+    
+    .soundButton{
+        .fr-convex;
+        width: @sz;
+        height: @sz;
+        padding: .1em;
+        cursor: pointer;
+        display: block;     
+        margin: 0 auto;  
+        background: @m-gray + #111; 
+        position: relative;
+        font-size: 120%;
+            counter-increment: tracks;
+        
+        &:hover{
+            background: @m-gray + #222;    
+        }
+        &:active{
+            background:  @m-gray;    
+        }
+        
+        &:before{
+            content: counter(tracks);
+            position: absolute;
+            left: .1em;
+            top: 0.1em;
+        }
+    }
+}

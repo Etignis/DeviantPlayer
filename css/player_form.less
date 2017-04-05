@@ -2,6 +2,7 @@
     overflow: auto;    
     width: 100%;
     padding: .1em;
+    padding-right: @sidePanelWidth;
     &after, &before{
         .clear();
     }
@@ -52,7 +53,7 @@
         .mix{
             .fr-convex;           
             background: @m-gray + #111;
-            
+            padding: .3em;
             &:hover{
                 background: @m-gray + #222;    
             }
@@ -117,7 +118,7 @@
             writing-mode: bt-lr; /* IE */
             -webkit-appearance: slider-vertical; /* WebKit */
             width: 2em;
-            height: 7em;
+            height: 5em;
             padding: 0 5px;
             cursor: pointer;
         }
@@ -129,7 +130,7 @@
         .blank();
         text-align: center;
         button.pf_play_bt{
-             .fr-convex;
+            .fr-convex;
             @sz: 5em;
             width: @sz;
             height: @sz;
@@ -164,6 +165,7 @@
     }
     .pf_name{
         .blank(); 
+        font-size: 120%;
         text-align: center;
     }
     .pf_img{
