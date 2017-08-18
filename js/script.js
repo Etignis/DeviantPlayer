@@ -66,6 +66,8 @@ class soundsClass{
 			"warning": "fa-exclamation-triangle",
 			"eye": "fa-eye",
 			"magic": "fa-magic",
+			"puff": "fa-street-view",
+			"undead": "fa-snapchat-ghost",
 			"default": "fa-play"
 		};
 		
@@ -510,7 +512,8 @@ var lt=[];
 		
 		$("#"+audioID).attr("src", arr[randd(0, arr.length-1)]);
 	}
-	var audio = document.getElementById(audioID)
+	var audio = document.getElementById(audioID);
+		audio.volume = 1;
 		audio.play();
 		
  });
@@ -543,6 +546,14 @@ var lt=[];
  player[player_i].create("Спокойное", lt[player_i-1]);
  Folder = 'спокойно/';
 
+player[player_i].add_track(ROOT+Folder+'Geoff Knorr - America (The Industrial Era).mp3');
+player[player_i].add_track(ROOT+Folder+'Joe Hisaishi - Chihiro no Warutsu.mp3');
+player[player_i].add_track(ROOT+Folder+'GoodTheme.mp3');
+player[player_i].add_track(ROOT+Folder+'Final Fantasy III [DS] - Elia, the Maiden of Water.mp3');
+player[player_i].add_track(ROOT+Folder+'Final Fantasy III [DS] - The Boundless Ocean.mp3');
+player[player_i].add_track(ROOT+Folder+'Final Fantasy III [DS] - The Road to the Mountain Top.mp3');
+player[player_i].add_track(ROOT+Folder+'Final Fantasy III [DS] - Town of Alm.mp3');
+player[player_i].add_track(ROOT+Folder+'Final Fantasy III [DS] - Memory of the Wind Legend of the Eternal Wind.mp3');
 player[player_i].add_track(ROOT+Folder+'1 - Ваше первое путешествие. Вы зеленый авантюрист-новичок.mp3');
 player[player_i].add_track(ROOT+Folder+'Yasunori Mitsuda - Schalas Theme (Chrono Trigger).mp3');
 player[player_i].add_track(ROOT+Folder+'Yasunori Mitsuda - Corridors of Time (Chrono Trigger).mp3');
@@ -949,12 +960,37 @@ player[player_i].add_track(ROOT+Folder+'Zanzarah The Hidden Portal OST - Dunmore
 player[player_i].add_track(ROOT+Folder+'Joe Hisaishi (Laputa Castle in the Sky OST) - The Girl Who Fell from the Sky.mp3');
 player[player_i].add_track(ROOT+Folder+'Stephen Rippy - Get Off My Band.mp3');
 player[player_i].add_track(ROOT+Folder+'Titan Quest IT OST - Saving Persephone.mp3');
+player[player_i].add_track(ROOT+Folder+'Lind Erebros - The Legend Of The Knight.mp3');
+player[player_i].add_track(ROOT+Folder+'Lind Erebros - To the Horizon.mp3');
+player[player_i].add_track(ROOT+Folder+'Lind Erebros - Under the Shadow of the Oak.mp3');
+player[player_i].add_track(ROOT+Folder+'Knut Avenstroup Haugen - Favoured by Thorr.mp3');
+player[player_i].add_track(ROOT+Folder+'Ressa M. Schwarzwald - Legendary.mp3');
+player[player_i].add_track(ROOT+Folder+'Trevor Jones - The Game Is On.mp3');
 player_i++;
 // / спокойно
 
 player[player_i] = new PlayerForm();
  player[player_i].create("Бодро", lt[player_i-1]);
   Folder = 'бодро/';
+ player[player_i].add_track(ROOT+Folder+'Boris Salchow - Fighting the Chimera.mp3');
+ player[player_i].add_track(ROOT+Folder+'Boris Salchow - The Fall of Haven Town.mp3');
+ player[player_i].add_track(ROOT+Folder+'Корсары II - Битва 3.mp3');
+ player[player_i].add_track(ROOT+Folder+'Корсары II - Битва 2.mp3');
+ player[player_i].add_track(ROOT+Folder+'Корсары II - Битва.mp3');
+ player[player_i].add_track(ROOT+Folder+'Trevor Jones - Storming The Fortress.mp3');
+ player[player_i].add_track(ROOT+Folder+'Tyler Bates - Madness of the Fury Queen.mp3');
+ player[player_i].add_track(ROOT+Folder+'Tyler Bates Gerard Marino - Warriors Truth.mp3');
+ player[player_i].add_track(ROOT+Folder+'Max Lade - Ghost Warrior.mp3');
+ player[player_i].add_track(ROOT+Folder+'Max Lade - Fugitive.mp3');
+ player[player_i].add_track(ROOT+Folder+'Max Lade - Exit Wound.mp3');
+ player[player_i].add_track(ROOT+Folder+'Jamie Christopherson - Darkness Falls.mp3');
+ player[player_i].add_track(ROOT+Folder+'Ron Fish - Pandoran Cyclopes Attack.mp3');
+ player[player_i].add_track(ROOT+Folder+'Gerard Marino - Kratos Evil Past.mp3');
+ player[player_i].add_track(ROOT+Folder+'Gerard Marino - Athens Rooftops Fighting.mp3');
+ player[player_i].add_track(ROOT+Folder+'Mike Reagan - Mind the Cyclops.mp3');
+ player[player_i].add_track(ROOT+Folder+'Gerard Marino - The Vengeful Spartan.mp3');
+ player[player_i].add_track(ROOT+Folder+'Jack Wall - Empire at War.mp3');
+ player[player_i].add_track(ROOT+Folder+'Jack Wall - Torment (The Way of the Closed Fist).mp3');
  player[player_i].add_track(ROOT+Folder+'Mark Griskey - Fighting the Gorog.mp3');
  player[player_i].add_track(ROOT+Folder+'Garry Schyman Jim Bonney - Battle For Columbia I.mp3');
  player[player_i].add_track(ROOT+Folder+'Silverfall OST - Part 6.mp3');
@@ -1167,6 +1203,7 @@ player[player_i].add_track(ROOT+Folder+'Darkest Dungeon OST - Combat in Ruins.mp
 player[player_i].add_track(ROOT+Folder+'Darkest Dungeon OST - Battle in the Warrens.mp3');
 player[player_i].add_track(ROOT+Folder+'Lind Erebros - The cross Combination.mp3');
 player[player_i].add_track(ROOT+Folder+'Сфера Перерождение Sphere reload - battle_2.mp3');
+player[player_i].add_track(ROOT+Folder+'Might Magic Heroes VI Shades of Darkness - Combat Siege Dungeon 001.mp3');
 player_i++;
 // бодро
 
@@ -1188,6 +1225,10 @@ player[player_i] = new PlayerForm();
  player[player_i].create("Мрачно", lt[player_i-1]);
  Folder = 'мрачно/';
  
+ player[player_i].add_track(ROOT+Folder+'Satanic Ceremony - Reconquering The Spirit Of Mother Earth.mp3');
+ player[player_i].add_track(ROOT+Folder+'Satanic Ceremony - Unveiling Evil Mysteries.mp3');
+ player[player_i].add_track(ROOT+Folder+'Satanic Ceremony - Summoning Satan.mp3'); 
+ player[player_i].add_track(ROOT+Folder+'07.Satanic Ceremony - Deathwish.mp3'); 
  player[player_i].add_track(ROOT+Folder+'Russell Shaw - Sams organ performance.mp3'); 
  player[player_i].add_track(ROOT+Folder+'Martin_Linda_-_Church_Underground.mp3'); 
  player[player_i].add_track(ROOT+Folder+'Phantawalker_-_Path_to_the_Necropolis.mp3'); 
@@ -1223,6 +1264,37 @@ player[player_i].add_track(ROOT+Folder+'Shunsuke_Kida_-_The_Nexus.mp3');
 player[player_i].add_track(ROOT+Folder+'Shunsuke_Kida_-_Old_King_Allant.mp3');
 player_i++; 
 //мрачно/
+/**/
+
+/**/
+
+player[player_i] = new PlayerForm();
+ player[player_i].create("Орган", lt[player_i-1]);
+ Folder = 'Орган/';
+ 
+ player[player_i].add_track(ROOT+Folder+'Satanic Ceremony - Deathwish.mp3');
+ player[player_i].add_track(ROOT+Folder+'Satanic Ceremony - Fairy Dance.mp3');
+ player[player_i].add_track(ROOT+Folder+'Satanic Ceremony - Hailing The Master.mp3'); 
+ player[player_i].add_track(ROOT+Folder+'Satanic Ceremony - Inspired By Hatred.mp3'); 
+ player[player_i].add_track(ROOT+Folder+'Satanic Ceremony - Reconquering The Spirit Of Mother Earth.mp3'); 
+ player[player_i].add_track(ROOT+Folder+'Satanic Ceremony - Summoning Satan.mp3'); 
+ player[player_i].add_track(ROOT+Folder+'Satanic Ceremony - Unveiling Evil Mysteries.mp3'); 
+ player[player_i].add_track(ROOT+Folder+'Органная музыка - красивая мелодия.mp3');  
+ player[player_i].add_track(ROOT+Folder+'Alice In Wonderland - органная музыка.mp3'); 
+ player[player_i].add_track(ROOT+Folder+'Неизвестен - Ватиканская органная музыка.mp3'); 
+ player[player_i].add_track(ROOT+Folder+'Орган - Органная музыка.mp3'); 
+ player[player_i].add_track(ROOT+Folder+'Бах - Органная музыка.mp3'); 
+ player[player_i].add_track(ROOT+Folder+'Органная музыка - Без названия.mp3'); 
+ player[player_i].add_track(ROOT+Folder+'Органная музыка - Дорожка 2.mp3'); 
+ player[player_i].add_track(ROOT+Folder+'Органная музыка - 100110_018_Саболч Самоши- Импровизация.mp3'); 
+ player[player_i].add_track(ROOT+Folder+'Органная музыка 1.mp3'); 
+ player[player_i].add_track(ROOT+Folder+'Классическая музыка - Клависин.mp3'); 
+ player[player_i].add_track(ROOT+Folder+'Людвиг ван Бетховен - Сурок (клависин).mp3'); 
+ player[player_i].add_track(ROOT+Folder+'Иоганн Себастьян Бах - Хорошо темперированый клавир 1-том. Прелюдия и Фуга c-moll 2 (клависин).mp3'); 
+ player[player_i].add_track(ROOT+Folder+'Георг Фридрих Гендель - Пассакалия (клависин).mp3'); 
+ player[player_i].add_track(ROOT+Folder+'J hann Seb stian Bach - BWV 1052 - Allegro (Клависин, D minor)3 часть.mp3'); 
+player_i++; 
+//Орган/
 /**/
 
 /*/
@@ -1361,6 +1433,20 @@ player[player_i] = new PlayerForm();
  player[player_i].create("Данж", lt[player_i-1]);
  Folder = 'Данж/';
   
+player[player_i].add_track(ROOT+Folder+'Gustaf Grefberg - Divided City (Light).mp3');
+player[player_i].add_track(ROOT+Folder+'Phantawalker - Messenger of Apocalypse.mp3');
+player[player_i].add_track(ROOT+Folder+'Matt Uelmen - Monastery.mp3');
+player[player_i].add_track(ROOT+Folder+'Matt Uelmen - Tombs (1).mp3');
+player[player_i].add_track(ROOT+Folder+'Matt Uelmen - Crypt.mp3');
+player[player_i].add_track(ROOT+Folder+'Matt Uelmen - Toru.mp3');
+player[player_i].add_track(ROOT+Folder+'Matt Uelmen - Spider.mp3');
+player[player_i].add_track(ROOT+Folder+'Fate - Dungeon II.mp3');
+player[player_i].add_track(ROOT+Folder+'Fate - Dungeon I.mp3');
+player[player_i].add_track(ROOT+Folder+'Michiel van den Bos - Dwarf Village.mp3');
+player[player_i].add_track(ROOT+Folder+'Michiel van den Bos - Dwarf Dark.mp3');
+player[player_i].add_track(ROOT+Folder+'Might Magic Heroes VI Shades of Darkness - Adventure Terrain Chaos 002.mp3');
+player[player_i].add_track(ROOT+Folder+'Might Magic Heroes VI Shades of Darkness - Adventure Terrain Abyss 002.mp3');
+player[player_i].add_track(ROOT+Folder+'Might Magic Heroes VI Shades of Darkness - Adventure Town Dungeon 001.mp3');
 player[player_i].add_track(ROOT+Folder+'3 - Спуск в канализации в поисках оборотня, который вас укусил.mp3');
 player[player_i].add_track(ROOT+Folder+'Silverfall OST - Part 5.mp3');
 player[player_i].add_track(ROOT+Folder+'Silverfall OST - Part 1.mp3');
@@ -1583,6 +1669,8 @@ player[player_i] = new PlayerForm();
  player[player_i].create("Недра", lt[player_i-1]);
  Folder = 'недра/'; 
  
+player[player_i].add_track(ROOT+Folder+'395066__chaoticcycles__real-sound-of-saturn.mp3');
+player[player_i].add_track(ROOT+Folder+'Klangsegler - Shadows in motion.mp3');
 player[player_i].add_track(ROOT+Folder+'Jason Graves - The Enduring Pride.mp3');
 player[player_i].add_track(ROOT+Folder+'Kai Rosenkranz - The Old Mine.mp3');
 player[player_i].add_track(ROOT+Folder+'Страшная музыка - 5.mp3');
@@ -1616,7 +1704,7 @@ player[player_i].add_track(ROOT+Folder+'Звуки_-_Падающие_капли
 player[player_i].add_track(ROOT+Folder+'Звуки_природы_-_Капли.mp3');
 player_i++; 
 
-/**/
+/*/
 player[player_i] = new PlayerForm();
  player[player_i].create("Ветер", lt[player_i-1]);
  Folder = 'звуки природы/'; 
@@ -1888,6 +1976,7 @@ player[player_i] = new PlayerForm();
  player[player_i].create("Эпик", lt[player_i-1]);
  Folder = 'Эпик/'; 
  
+player[player_i].add_track(ROOT+Folder+'Epic Score - Ruthless Queen.mp3');
 player[player_i].add_track(ROOT+Folder+'Pitch Hammer - Waves Of Immortals.mp3');
 player[player_i].add_track(ROOT+Folder+'Pitch Hammer Music - Titan Armor.mp3');
 player[player_i].add_track(ROOT+Folder+'Phil Rey - Renaissance.mp3');
@@ -1928,6 +2017,19 @@ player[player_i] = new PlayerForm();
  player[player_i].create("Начало", lt[player_i-1]);
  Folder = 'начало/'; 
  
+player[player_i].add_track(ROOT+Folder+'Phantawalker - Robert Bruces Army.mp3');
+player[player_i].add_track(ROOT+Folder+'Phantawalker - Battle for Highlands.mp3');
+player[player_i].add_track(ROOT+Folder+'Phantawalker - Battle of Gibraltar.mp3');
+player[player_i].add_track(ROOT+Folder+'Phantawalker - Dwarf Commanders.mp3');
+player[player_i].add_track(ROOT+Folder+'Phantawalker - Onslaught.mp3');
+player[player_i].add_track(ROOT+Folder+'Gothic Storm Music - On Holy Ground.mp3');
+player[player_i].add_track(ROOT+Folder+'Sub Pub Music - Mists of Avalon.mp3');
+player[player_i].add_track(ROOT+Folder+'Christopher Tin - Sogno di Volare ( The Dream of Flight ).mp3');
+player[player_i].add_track(ROOT+Folder+'Inon Zur - Baldurs Gate II Throne Of Bhaal.mp3');
+player[player_i].add_track(ROOT+Folder+'Ryo Koike, Hiroaki Takahashi, Riichiro Kuwabara - A Hero Unmasked.mp3');
+player[player_i].add_track(ROOT+Folder+'Lind Erebros - Balrog.mp3');
+player[player_i].add_track(ROOT+Folder+'Lind Erebros - Sacred Campaign.mp3');
+player[player_i].add_track(ROOT+Folder+'Lind Erebros - Army of the Dawn.mp3');
 player[player_i].add_track(ROOT+Folder+'Songs To Your Eyes - Magic Rainbow.mp3');
 player[player_i].add_track(ROOT+Folder+'Songs To Your Eyes - Incredible Journey.mp3');
 player[player_i].add_track(ROOT+Folder+'Songs To Your Eyes - Gulliver.mp3');
@@ -1955,11 +2057,12 @@ player_i++;
 // начало /
 
 
-
+/**/
 player[player_i] = new PlayerForm();
  player[player_i].create("Нагнетание", lt[player_i-1]);
  Folder = 'нагнетание/'; 
  
+player[player_i].add_track(ROOT+Folder+'ОСТ Бригада - Тень.mp3');
 player[player_i].add_track(ROOT+Folder+'7 - Вы впервые оказались на теневом плане. Трудно дышать.mp3');
 player[player_i].add_track(ROOT+Folder+'Must Save Jane - Teens in the Woods.mp3');
 player[player_i].add_track(ROOT+Folder+'Must Save Jane - Congealed Blood.mp3');
@@ -2031,7 +2134,29 @@ player[player_i].add_track(ROOT+Folder+'Страшная музыка.. - Ала
 
 
 player_i++; 
-// начало /
+
+// нагнетание /
+
+
+player[player_i] = new PlayerForm();
+ player[player_i].create("Шёпот", lt[player_i-1]);
+ Folder = 'шепот/'; 
+ 
+player[player_i].add_track(ROOT+Folder+'wispers_hellhound.wav');
+player[player_i].add_track(ROOT+Folder+'wispers__muttering-final.wav');
+player[player_i].add_track(ROOT+Folder+'whispering-2-wecho.wav');
+
+player_i++; 
+// шепот /
+
+player[player_i] = new PlayerForm();
+ player[player_i].create("Культ", lt[player_i-1]);
+ Folder = 'пение/'; 
+ 
+player[player_i].add_track(ROOT+Folder+'Cult of the Damned.mp3');
+
+player_i++; 
+// Культ /
 /**/
 
 ///////////////////
@@ -2054,27 +2179,67 @@ sounds.add(
 sounds.add(ROOT+Folder+'Опыт 6.mp3', "expa");
 sounds.add(ROOT+Folder+'Монеты.wav', "money");
 sounds.add(ROOT+Folder+'таймер2.wav', "time");
-//sounds.add(ROOT+Folder+'портал 0.wav', "portal");
-sounds.add(ROOT+Folder+'Гонг2.mp3', "warning");
 sounds.add(
 	[
+	ROOT+Folder+'Гонг2.mp3',
+	ROOT+Folder+'гудок 1.wav',
+	ROOT+Folder+'гудок 2.wav'	
+	], "warning");
+sounds.add(
+	[
+		ROOT+Folder+'Поворот.mp3',
 		ROOT+Folder+'Поворот.mp3',
 		ROOT+Folder+'Звуки для видео - Супрайз мазафака.mp3',
 		ROOT+Folder+'Звуки для видео - ТА ДА ДА ДАААМ.mp3',
 		ROOT+Folder+'Звуки для видео - Внезапный звук.mp3',
 		ROOT+Folder+'Звуки Для Видео - Тревожная музыка.mp3',
+		ROOT+Folder+'внезапно.wav',
+		ROOT+Folder+'внезапно.wav'
 	]
 		, "eye"
 	); 
 sounds.add(
 	[
 		ROOT+Folder+'вжух.wav',
+		ROOT+Folder+'вжух.wav',
+		ROOT+Folder+'вжух.wav',
+		ROOT+Folder+'вжух.wav',
 		ROOT+Folder+'Звуки для видео - Превращение.mp3',
 		ROOT+Folder+'Звуки для видео - Волшебство.mp3',
+		ROOT+Folder+'магия.wav',
+		ROOT+Folder+'магия 2.wav',
+		ROOT+Folder+'магия 3.wav'
 	]
 	, "magic"
 	);
 
+sounds.add([
+	ROOT+Folder+'портал 0.wav',
+	ROOT+Folder+'Портал большой 3.wav',
+	ROOT+Folder+'Портал Большой 2.wav'	
+	], "portal");
+	
+sounds.add([
+	ROOT+Folder+'Телепортация 2.wav',
+	ROOT+Folder+'Телепортация.wav',
+	ROOT+Folder+'Телепортация.wav',
+	ROOT+Folder+'Телепортация.wav'
+	], "puff");
+	// ,
+	//ROOT+Folder+'Портал 6.wav'	
+
+/*/	
+sounds.add([
+	ROOT+Folder+'undead01.wav',
+	ROOT+Folder+'undead02.wav',
+	ROOT+Folder+'undead03.wav',
+	ROOT+Folder+'undead04.wav',
+	ROOT+Folder+'undead05.wav',
+	ROOT+Folder+'undead06.wav',
+	ROOT+Folder+'undead07.wav',
+	ROOT+Folder+'undead08.wav'
+	], "undead");
+/**/
 // проверка файлов
 mus_check();
 
@@ -2179,11 +2344,17 @@ player_i++;
 		var folder = "<input type='text' class='folder' placeholder='папка' >";
 		var block = "<textarea class='blck'></textarea>";
 		var btns = "<hr><div class='bt cnsl'>Отменить</div><div class='bt doit_new'>Создать</div>";
+		
+		var sName = "<input type='text' placeholder='Название' id='newGroupName'>";
+		var fileInput = "<input type='file' multiple name='audios[]' id='newGroupsMusic'accept='audio/*'>";
 		if($("#dbg").length<1)			
-			$("body").append("<div id='dbg'></div><div class='mod_win' id='mw_add_tracks'>"+path+folder+block+btns+"</div>");
+			$("body").append("<div id='dbg'></div><div class='mod_win' id='mw_add_tracks'>"+sName+fileInput+btns+"</div>");
 	});
 	
 	$("body").on("click", "#mw_add_tracks .doit_new", function(){
+		var aFiles = $("#newGroupsMusic").val();
+		debugger;
+		/*/
 		var path=$("#mw_add_tracks .path").val();
 		var folder=$("#mw_add_tracks .folder").val();
 		var list=$("#mw_add_tracks .blck").val();
@@ -2210,6 +2381,7 @@ player_i++;
 		player_i++; 
 		$("#dbg").remove();
 		$("#mw_add_tracks").remove();
+		/**/
 	});
 	
 	// / список
