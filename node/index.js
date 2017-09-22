@@ -8,7 +8,7 @@ const sMusicPath = "D:/Cloud/DnD/Музыка";
 const sDBpath = "../js/db.js"
 
 function createBD() {
-  let db = {};
+  let db = {}; // object exist
   console.log("Start working in " + sMusicPath);
   fs.readdirSync(sMusicPath).forEach(way => {
     const sInnerPath = path.join(sMusicPath, way);
@@ -26,11 +26,13 @@ function createBD() {
             aList.push(file);
           }
         });
+        // aList contain right data
         db[way] = aList;
       }
     });
   });
 
+    //db is empty. 0_o !?
   const resultJSON = JSON.stringify(db, null, 4);
 
   fs.writeFile(sDBpath, resultJSON, function(err) {
