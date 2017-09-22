@@ -9,45 +9,33 @@ const sMusicPath = "D:/Cloud/DnD/Музыка";
 const sDBpath = "../js/db.js"
 
 function createBD() {
-  let db = {}; // object exist
+  let db = {}; 
   console.log("Start working in " + sMusicPath);
   fs.readdirSync(sMusicPath).forEach(folder => {
     const sInnerPath = path.join(sMusicPath, folder);
-    fs.lstat(sInnerPath, (err, stats) => {
-      if(err)
-        return console.log(err); //Handle error
-      
-      // only for folders with music
-      if(stats.isDirectory() && !(/^!/.test(folder))) {
-        console.log(sInnerPath);
-        let aList= [];
+    const isDir = fs.lstatSync(sInnerPath);
+    // only for folders with music
+    if(isDir.isDirectory() && !(/^!/.test(folder))) {
+      let aList= [];
         fs.readdirSync(sInnerPath).forEach(file => {
           // music?
           if(path.extname(file) === mp3Ext || path.extname(file) === wavExt) {
             aList.push(file);
           }
         });
-        // aList contain right data
         db[folder] = aList;
-      }
-    });
+    }   
   });
-
-    //db is empty. 0_o !?
-  const resultJSON = JSON.stringify(db, null, 4);
-
+   
+  const resultJSON = "var musicDB = " + JSON.stringify(db, null, 2);
+  //console.log(resultJSON);
   fs.writeFile(sDBpath, resultJSON, function(err) {
     if(err) {
         return console.log(err);
     }
 
     console.log("The file was saved!");
-});
-
+  });
 }
 
 createBD();
-
-
-
-
