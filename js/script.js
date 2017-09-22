@@ -546,6 +546,7 @@ var lt=[];
  player[player_i].create("Спокойное", lt[player_i-1]);
  Folder = 'спокойно/';
 
+player[player_i].add_track(ROOT+Folder+'Jean Jacques Goldman - La Serpe Dor.mp3');
 player[player_i].add_track(ROOT+Folder+'Geoff Knorr - America (The Industrial Era).mp3');
 player[player_i].add_track(ROOT+Folder+'Joe Hisaishi - Chihiro no Warutsu.mp3');
 player[player_i].add_track(ROOT+Folder+'GoodTheme.mp3');
@@ -966,12 +967,17 @@ player[player_i].add_track(ROOT+Folder+'Lind Erebros - Under the Shadow of the O
 player[player_i].add_track(ROOT+Folder+'Knut Avenstroup Haugen - Favoured by Thorr.mp3');
 player[player_i].add_track(ROOT+Folder+'Ressa M. Schwarzwald - Legendary.mp3');
 player[player_i].add_track(ROOT+Folder+'Trevor Jones - The Game Is On.mp3');
+player[player_i].add_track(ROOT+Folder+'Czech Philharmonic Orchestra - Cave of the Mind (From Howl#39;s Moving Castle).mp3');
+player[player_i].add_track(ROOT+Folder+'Jeremy Soule - The Walls of Ebonhawke.mp3');
+player[player_i].add_track(ROOT+Folder+'Jeremy Soule - Out of the Dream.mp3');
+player[player_i].add_track(ROOT+Folder+'Patrick Doyle - Saphira#39;s First Flight (OST Eragon (2006).mp3');
 player_i++;
 // / спокойно
 
 player[player_i] = new PlayerForm();
  player[player_i].create("Бодро", lt[player_i-1]);
   Folder = 'бодро/';
+ player[player_i].add_track(ROOT+Folder+'Alan Silvestri - 5. Attacking Brides (OST Van Helsing).mp3');
  player[player_i].add_track(ROOT+Folder+'Boris Salchow - Fighting the Chimera.mp3');
  player[player_i].add_track(ROOT+Folder+'Boris Salchow - The Fall of Haven Town.mp3');
  player[player_i].add_track(ROOT+Folder+'Корсары II - Битва 3.mp3');
@@ -1976,6 +1982,9 @@ player[player_i] = new PlayerForm();
  player[player_i].create("Эпик", lt[player_i-1]);
  Folder = 'Эпик/'; 
  
+player[player_i].add_track(ROOT+Folder+'Unstoppable Music - Intro [httpsvk.comappzona] 10.mp3');
+player[player_i].add_track(ROOT+Folder+'Montage MX - Ironbark.mp3');
+player[player_i].add_track(ROOT+Folder+'Tybercore - Vicarious.mp3');
 player[player_i].add_track(ROOT+Folder+'Epic Score - Ruthless Queen.mp3');
 player[player_i].add_track(ROOT+Folder+'Pitch Hammer - Waves Of Immortals.mp3');
 player[player_i].add_track(ROOT+Folder+'Pitch Hammer Music - Titan Armor.mp3');
@@ -2017,6 +2026,8 @@ player[player_i] = new PlayerForm();
  player[player_i].create("Начало", lt[player_i-1]);
  Folder = 'начало/'; 
  
+player[player_i].add_track(ROOT+Folder+'Hitoshi Sakimoto - Desperate Fight.mp3');
+player[player_i].add_track(ROOT+Folder+'Motoi Sakuraba - Beyond the Earth (Tales of Berseria OST).mp3');
 player[player_i].add_track(ROOT+Folder+'Phantawalker - Robert Bruces Army.mp3');
 player[player_i].add_track(ROOT+Folder+'Phantawalker - Battle for Highlands.mp3');
 player[player_i].add_track(ROOT+Folder+'Phantawalker - Battle of Gibraltar.mp3');
