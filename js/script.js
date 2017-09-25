@@ -68,7 +68,8 @@ class soundsClass{
 			"magic": "fa-magic",
 			"puff": "fa-street-view",
 			"undead": "fa-snapchat-ghost",
-			"default": "fa-play"
+			"default": "fa-play",
+      "silence": "fa-microphone-slash"
 		};
 		
 		if($("#sounds_container").lenght>0) {
@@ -555,16 +556,23 @@ var lt=[];
     "огонь",
     "Храм",
     "Эпик",
-    "нагнетание"
+    "нагнетание",
+    "скрытность",
+    "Темное",
+    "Фейри",
+    "Путешествие"
     ]
+    function getTitle(s) {
+      s = s.replace("_", "")
+      return s.charAt(0).toUpperCase() + s.substr(1);
+    }
   if(musicDB){
     var player_i = 1;
     list.forEach(function(el){
       var Folder='';
-
-
+      el = el.toLowerCase();
       player[player_i] = new PlayerForm();
-      player[player_i].create(el, lt[player_i-1]);
+      player[player_i].create(getTitle(el) , lt[player_i-1]);
       Folder = el+'/';
       musicDB[el].forEach(function(track){
         player[player_i].add_track(ROOT+Folder+track);
@@ -642,7 +650,12 @@ sounds.add([
 	ROOT+Folder+'Телепортация.wav',
 	ROOT+Folder+'Телепортация.wav',
 	ROOT+Folder+'Телепортация.wav'
-	], "puff");
+	], "puff");	
+  
+sounds.add([
+	ROOT+Folder+'сверчки 01-0-1.7.mp3',
+	ROOT+Folder+'Лягушка-1.8-4.9.mp3'
+	], "silence");
 	// ,
 	//ROOT+Folder+'Портал 6.wav'	
 

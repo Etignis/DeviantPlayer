@@ -246,7 +246,7 @@ var musicDB = {
     "Steven Seagal - Dark Angel.mp3",
     "Traffic - The Low Spark Of High-Heeled Boys.mp3"
   ],
-  "_Бодро": [
+  "_бодро": [
     "1471ed8fcf1b26.mp3",
     "30 Seconds to Mars - Edge of the Earth.mp3",
     "3e3ed483160a.mp3",
@@ -466,7 +466,7 @@ var musicDB = {
     "Обитель зла - Junkie XL - Supplementary Soundscapes (The Ubmined RE-Make) [Zona].mp3",
     "Обитель зла - Spineshank - Cyanide 2600 [Zona].mp3"
   ],
-  "_Бодро_Эпик": [
+  "_бодро_эпик": [
     "Brand X Music - Interceptor.mp3",
     "Epic Score - Full Armor Full Force [httpsvk.comappzona] 16.mp3",
     "Epic Score - Give #39;Em Hell [httpsvk.comappzona] 16.mp3",
@@ -897,7 +897,7 @@ var musicDB = {
     "Неизвестен - Без названия (1).mp3",
     "Неизвестен - Без названия.mp3"
   ],
-  "_Напряженно_Эпик": [
+  "_напряженно_эпик": [
     "Christopher Drake - Arkham Origins Main Titles.mp3",
     "Christopher Drake - Assassins.mp3",
     "Christopher Drake - Deathstroke.mp3",
@@ -934,7 +934,7 @@ var musicDB = {
     "Leonard Cohen - Nevermind.mp3",
     "The Handsome Family - Far From Any Road (OST Настоящий детектив 1 сезон).mp3"
   ],
-  "_Погоня": [
+  "_погоня": [
     "7b4ace4c381360.mp3",
     "Airbourne - Hellfire.mp3",
     "Alexander Brandon - Three Wheels Turning.mp3",
@@ -1019,11 +1019,11 @@ var musicDB = {
     "Weezer - Ruling Me.mp3",
     "Мадагаскар - The Ventures - Hawaii Five-O [Zona].mp3"
   ],
-  "_Позитифф": [
+  "_позитифф": [
     "Deborah Harry - Rush Rush.mp3",
     "Jimi Hendrix - Johnny B. Goode.mp3"
   ],
-  "_Тактика": [
+  "_тактика": [
     "Alexander Brandon - Unreal Tournament Menu.mp3",
     "Borderlands_2_OST_-_The_Dust_Combat.mp3",
     "Borderlands_2_OST_-_Vog_Fight.mp3",
@@ -1078,7 +1078,7 @@ var musicDB = {
     "Неизвестен - Без названия (1).mp3",
     "Неизвестен - Без названия.mp3"
   ],
-  "_Фон": [
+  "_фон": [
     "01cdefff252087.mp3",
     "04baa34ddd8737.mp3",
     "079e57c8c5ec7d.mp3",
@@ -1788,7 +1788,7 @@ var musicDB = {
     "Суперг рл. Сезон 1 - Carl Carlton - Shes A Bad Mama Jama (Shes Built, Shes Stacked) [Zona].mp3",
     "Суперг рл. Сезон 1 - Pat Benatar - Hit Me With Your Best Shot [Zona].mp3"
   ],
-  "_Фон 50": [
+  "_фон 50": [
     "Andrej Hermlin and his Swing Dance Orchestra - Bei Mir Bist Du Schoen.mp3",
     "Andrej Hermlin And His Swing Dance Orchestra - Jump, Jumps Here.mp3",
     "Andrej Hermlin and his Swing Dance Orchestra - Moonlight Serenade.mp3",
@@ -1903,7 +1903,7 @@ var musicDB = {
     "Боб Кросби - Way Back Home.mp3",
     "Музыка 50х - Perry Como - Maybe.mp3"
   ],
-  "_Фон 80": [
+  "_фон 80": [
     "60s 70s 80s 90s Hits - I Love Rock n Roll.mp3",
     "a-ha - Take On Me.mp3",
     "Alphaville - Big In Japan.mp3",
@@ -2007,7 +2007,7 @@ var musicDB = {
     "ΣƶɦĂk_-_聴くListen_to_Me.mp3",
     "マクロスMACROSS_82-99_-_ABOUT_U_(Feat._オウムのジャングルPARROT_JUNGLE_95).mp3"
   ],
-  "_Хиппи": [
+  "_хиппи": [
     "Chuck Berry - Johnny B. Goode.mp3",
     "Jefferson Airplane - Lets Get Together.mp3",
     "John Lennon - Imagine.mp3",
@@ -2018,13 +2018,13 @@ var musicDB = {
     "The Mamas And The Papas - Creeque Alley.mp3",
     "The Who - Im Free.mp3"
   ],
-  "_Хэви": [],
-  "_Хэппи": [
+  "_хэви": [],
+  "_хэппи": [
     "American Authors - Best Day of My Life.mp3",
     "American Authors - Hit It.mp3",
     "Sly And The Family Stone - Hot Fun In The Summertime.mp3"
   ],
-  "_Чикаго": [
+  "_чикаго": [
     "CASSANDRA_WILSON_-_Vietnam_Blues.mp3",
     "Chuck Berry - You Never Can Tell.mp3",
     "Melanie_De_Biasio_-_With_All_My_Love.mp3",
@@ -2106,10 +2106,10 @@ var musicDB = {
     "The Toxic Avenger - Superheroes.mp3",
     "Оборотень. Сезон 1 - Kids 0f 88 - Just A Little Bit [Zona].mp3"
   ],
-  "Активно": [
+  "активно": [
     "Peter_McConnell_-_01_The_Meat_Circus.mp3"
   ],
-  "Баронства": [
+  "баронства": [
     "Jeremy Soule - The Old Republic.mp3",
     "Nobuo Uematsu - Four Valiant Hearts.mp3"
   ],
@@ -2358,7 +2358,7 @@ var musicDB = {
     "Сфера Перерождение Sphere reload - battle_1.mp3",
     "Сфера Перерождение Sphere reload - battle_2.mp3"
   ],
-  "Болото": [
+  "болото": [
     "Erdenstern - The Swamp (отличная тема болота).mp3",
     "Erdenstern - The Swamp.mp3",
     "Heroes Of Might And Magic 2 - Cracked Ground.mp3",
@@ -2393,14 +2393,14 @@ var musicDB = {
     "Звуки для видео - музыка.mp3",
     "Унес нные призраками...Joe Hisaishi - The House at Swamp Bottom.mp3"
   ],
-  "Ведьмы": [
+  "ведьмы": [
     "Path to the Necropolis.mp3",
     "The Twilight Witch.mp3"
   ],
   "военное": [
     "Duane Decker - Galleons.mp3"
   ],
-  "Восток": [
+  "восток": [
     "Abandoned temple of the Incas.mp3",
     "Geoff Knorr - China (The Atomic Era).mp3",
     "Guild Wars Factions OST - Assassins Theme.mp3",
@@ -2431,7 +2431,7 @@ var musicDB = {
     "Китайская классическая музыка - 7.mp3",
     "Китайская классическая музыка - 9.mp3"
   ],
-  "Гномы": [
+  "гномы": [
     "Scandinavian folk - Islandsljod.mp3",
     "Scandinavian folk - Klevabergselden. Kleveberg s Fire.mp3"
   ],
@@ -2448,7 +2448,7 @@ var musicDB = {
     "рынок-толпа.mp3",
     "толпа кафе.mp3"
   ],
-  "Данж": [
+  "данж": [
     "07 INSIDEP2 Inside the Pyramid 2 (11-22kj).mp3",
     "19 )Shunsuke Kida - Armor Spider.mp3",
     "19 IGBGND2 The Crystal Rose (11-22kj).mp3",
@@ -2715,7 +2715,7 @@ var musicDB = {
     "Звуки природы - Деревня.mp3",
     "Звуки природы - Рассвет в деревне.mp3"
   ],
-  "Джунгли": [
+  "джунгли": [
     "1. David Steve Gordon - Ancient Way.mp3",
     "2. David Steve Gordon - Dancing for a Vision.mp3",
     "3. David Steve Gordon - Within the Cloud Lodge.mp3",
@@ -2761,7 +2761,7 @@ var musicDB = {
     "Корсары 2 - Джунгли.mp3",
     "Корсары II - Джунгли.mp3"
   ],
-  "Дивнолесье": [
+  "дивнолесье": [
     "2008 - Fable II Original Soundtrack - Oakfield.mp3",
     "2008 - Fable II Original Soundtrack - Old Town.mp3",
     "2008 - Fable II Original Soundtrack - Westcliff.mp3",
@@ -2801,7 +2801,7 @@ var musicDB = {
     "Звуки природы - Шум грозы.mp3",
     "Звуки природы. - Буря с дождем..mp3"
   ],
-  "Египет": [
+  "египет": [
     "Anubis - Arbiters Ground.mp3",
     "Anubis - Cleopatra.mp3",
     "Anubis - Coffin Of Thuya.mp3",
@@ -2812,7 +2812,7 @@ var musicDB = {
     "Anubis - Mummy of Pharaoh.mp3",
     "Anubis - Obelisk Of Khamoon.mp3"
   ],
-  "звуки Болото": [
+  "звуки болото": [
     "6023_25.wav",
     "6023_40.wav",
     "WavLibraryNet_Sound4025.mp3",
@@ -2847,7 +2847,7 @@ var musicDB = {
     "Звуки природы - сверчки и вода.mp3",
     "Звуки природы - Спокойствие леса.mp3"
   ],
-  "Зима": [
+  "зима": [
     "Anoice - White Paper.mp3",
     "Arath_-_The_Airs_Of_The_Barbaric_Lands.mp3",
     "Asya_Sergeeva_-_Birds_of_February.mp3",
@@ -2931,7 +2931,7 @@ var musicDB = {
     "Kevin MacLeod - Move Forward.mp3",
     "Overlord 2 OST - Minion Band Main.mp3"
   ],
-  "Исследование": [
+  "исследование": [
     "08 Zanzarah The Hidden Portal OST - Monagham (Extended Version).mp3"
   ],
   "историчная": [
@@ -2960,11 +2960,11 @@ var musicDB = {
     "Katzenjammer - To the sea.mp3",
     "Katzenjammer Kabarett - Demon Kitty Rag.mp3"
   ],
-  "Лирика": [
+  "лирика": [
     "Michael W. Smith - Joy Follows Suffering.mp3",
     "Twelve Titans Music - Dust And Light.mp3"
   ],
-  "Море": [
+  "море": [
     "Balmorhea - Wind And Sea.mp3",
     "Geoff Knorr - Greece (The Medieval Era).mp3",
     "Kenta Nagata, Hajime Wakai, Toru Minegishi, Koji Kondo - Pirates.mp3",
@@ -3204,7 +3204,7 @@ var musicDB = {
     "Звуки Природы - Шум ночи.mp3",
     "Сверчки - (звуки природы).mp3"
   ],
-  "Нуар": [
+  "нуар": [
     "Morphine - Buena.mp3",
     "Morphine - Cure For Pain.mp3",
     "Morphine - Empty Box.mp3",
@@ -3221,7 +3221,7 @@ var musicDB = {
     "Звуки природы - Потрескивание поленьев.mp3",
     "Звуки природы - Треск костра.mp3"
   ],
-  "Орган": [
+  "орган": [
     "Alice In Wonderland - органная музыка.mp3",
     "J hann Seb stian Bach - BWV 1052 - Allegro (Клависин, D minor)3 часть.mp3",
     "Satanic Ceremony - Deathwish.mp3",
@@ -3244,7 +3244,7 @@ var musicDB = {
     "Органная музыка - красивая мелодия.mp3",
     "Органная музыка 1.mp3"
   ],
-  "Паншуры": [
+  "паншуры": [
     "Novemthree - To Breathe in the Trees.mp3",
     "Percival Schuttenbach - Dead Mans Party.mp3",
     "Rodrigo y Gabriela - Fram.mp3",
@@ -3254,7 +3254,7 @@ var musicDB = {
     "Rodrigo y Gabriela - The Soundmaker.mp3",
     "Rodrigo y Gabriela - Torito.mp3"
   ],
-  "Париж": [
+  "париж": [
     "Joe Hisaishi - Howl#39;s Moving Castle Theme (вальс из аниме Ходячий замок Хаула - оркестровая версия).mp3",
     "L#39;Orchestra Cinematique - Merry-Go-Round of Life (From Howl#39;s Moving Castle).mp3",
     "OST Howl#39;s Moving Castle - Wandering Sophie.mp3",
@@ -3285,7 +3285,7 @@ var musicDB = {
     "Wakfu Music - Sidimote Moors.mp3",
     "В поисках Дори - Thomas Newman - Becky Flies [Zona].mp3"
   ],
-  "Пустыня": [
+  "пустыня": [
     "4 - Исследуете древний город в пустыне. Тут шепчутся призраки.mp3",
     "7dc233a7fc7e67.mp3",
     "Abaco Music Library - Kabul.mp3",
@@ -3345,7 +3345,7 @@ var musicDB = {
     "Сфера Перерождение Sphere reload - desert_1n.mp3",
     "Фентези-Музыка_-_В_Степи.mp3"
   ],
-  "Путешествие": [
+  "путешествие": [
     "Black Desert Online OST - Classes.mp3",
     "BrunuhVille - Heros Journey.mp3",
     "Matt Uelmen - Wilderness.mp3",
@@ -3360,11 +3360,11 @@ var musicDB = {
     "Звуки_природы_-_медленное_течение.mp3",
     "Звуки_природы_-_Река.mp3"
   ],
-  "Рутения": [
+  "рутения": [
     "Geoff Knorr - Russia (The Medieval Era).mp3",
     "High Priestess - Gratitude.mp3"
   ],
-  "Сантар": [
+  "сантар": [
     "Duane Decker - Sri Lanka.mp3"
   ],
   "светло": [
@@ -3838,7 +3838,7 @@ var musicDB = {
   "страшный дом": [
     "Benjamin Wallfisch - Every 27 Years.mp3"
   ],
-  "Таверна": [
+  "таверна": [
     "34 STARTPUB The Yawning Portal (11-22kj).mp3",
     "AC4BF_(Tavern)_-_William_Taylor.mp3",
     "Adam_Skorupa_-_11._Evening_In_The_Tavern_(OST-HD_Ведьмак__The_Witcher)_The_Witcher_Score_(Vk.ComOstHD).mp3",
@@ -3929,7 +3929,7 @@ var musicDB = {
     "Trevor Jones - Task Requires Heroes (OST The League of Extraordinary Gentlemen Лига выдающихся джентельменов) 2003 official (Vk.Com OstHD).mp3",
     "Аллоды Печать Тайны - Аллод Умойр.mp3"
   ],
-  "Темное": [
+  "темное": [
     "George Strezov - Crypts.mp3",
     "George Strezov - Mysterious Forest.mp3",
     "George Strezov - Searching.mp3",
@@ -3943,7 +3943,7 @@ var musicDB = {
     "Kota Suzuki, Hideki Okugawa, Akihiko Narita, Seiko Kobuchi - An Emergency (Digital Ver.) (Resident Evil 5).mp3",
     "Kota Suzuki, Hideki Okugawa, Akihiko Narita, Seiko Kobuchi - Majinis Trap I (Resident Evil 5).mp3"
   ],
-  "Фейри": [
+  "фейри": [
     "Adiemus_-_Saint_Declan_s_Drone,_2001.mp3",
     "Ancient World of Dreams.mp3",
     "Bruno Coulais - Les Rivi res pourpres (OST Багровые реки).mp3",
@@ -3989,7 +3989,7 @@ var musicDB = {
     "Красный_(лето)_-_(_Mushishi_-_Phosphorescence_).mp3",
     "Фентези_-_Зачарованный_Лес.mp3"
   ],
-  "Храм": [
+  "храм": [
     "Alla_Francesca_-_Landini_,_Ballata_-_Lasso!_Di_Donna.mp3",
     "Dominique_Vellard_&_Emmanuel_Bonnardot_-_Da_laudis,_homo,_nova_cantica_(Conductus).mp3",
     "Ensemble_Labyrinthus_-_Ecce_torpet_probitas.mp3",
@@ -4023,7 +4023,7 @@ var musicDB = {
     "wispers_hellhound.wav",
     "wispers__muttering-final.wav"
   ],
-  "Эльфы": [
+  "эльфы": [
     "Adrian_von_Ziegler_-_2_Hours_of_Celtic_Music.mp3",
     "Alizbar & Christian Amin Varkonyi - Melting snowflakes on her hand (Celtic harp & Hang Drum).mp3",
     "Alizbar (Кельтская арфа) - Красота севера.mp3",
@@ -4111,7 +4111,7 @@ var musicDB = {
     "Аллоды Онлайн - Русские Аллоды (OST-HD Аллоды Онлайн) Рингтон (Vk.Com OstHD).mp3",
     "Эльф - Эльфийская музыка.mp3"
   ],
-  "Эпик": [
+  "эпик": [
     "AudioActive - Unleash Hell (1).mp3",
     "Audiomachine - Death Mask.mp3",
     "Audiomachine - Legions of Doom.mp3",
@@ -4175,7 +4175,7 @@ var musicDB = {
     "Шоу_Барабаны_Мира_-_Ритм_Сердца.mp3",
     "Шоу_Барабаны_мира_-_Шаманский.mp3"
   ],
-  "Ярмарка": [
+  "ярмарка": [
     "Alexandre Desplat - 20. Busy Workshop (OST-HD Хранители Снов The Rise Of The Guardians) (Vk.Com OstHD).mp3",
     "Hellblinki - Kerosene.mp3",
     "Nicolas Marquis - Main Attraction.mp3",

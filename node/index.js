@@ -23,7 +23,13 @@ function createBD() {
             aList.push(file);
           }
         });
-        db[folder] = aList;
+        const sPathName = "Folder \""+folder+"\": ";
+        //console.log(sPathName);
+        var l = 40 - (sPathName.length);
+        //console.log(l);
+        l = (l<0)? 0: l;
+        console.log(sPathName + Array(l).join(".") + aList.length + " tracks");
+        db[folder.toLowerCase()] = aList;
     }   
   });
    
