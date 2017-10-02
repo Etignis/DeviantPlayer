@@ -295,37 +295,16 @@ img {
   border-radius: 3px 3px 3px 3px;
   overflow: visible;
   background: #fff;
-  border: 0px solid #d8d8d8;
-  border-top-width: 0px;
-  /*display: inline-block;*/
-  font-weight: bold;
-  padding: 0.7em;
-  margin: 0.3em;
-  border-width: 1px;
-  border-style: solid;
+  border: 1px solid #d8d8d8;
   border-bottom-width: 2px;
-  text-decoration: none;
-  border-color: #777;
-  color: #fff;
-  background: #666666;
-  box-shadow: 0 1px 0px 0px rgba(0, 0, 0, 0.2) inset;
-  cursor: pointer;
-  -webkit-transition: all 0.3s ease;
-  -moz-transition: all 0.3s ease;
-  -o-transition: all 0.3s ease;
-  -ms-transition: all 0.3s ease;
-  transition: all 0.3s ease;
-  -webkit-touch-callout: none;
-  -webkit-user-select: none;
-  -khtml-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
+  border-top-width: 1px;
   display: block;
-  position: fixed;
-  width: 20em;
-  height: 15em;
+  position: absolute;
+  min-width: 20em;
+  min-height: 15em;
   top: 1em;
+  left: 1em;
+  right: 1em;
   z-index: 999;
 }
 #dbg {
@@ -1285,6 +1264,18 @@ img {
   position: absolute;
   left: .1em;
   top: 0.1em;
+}
+#mw_playlists_manage input[type='checkbox'] + label {
+  cursor: pounter;
+}
+#mw_playlists_manage input[type='checkbox']:checked + label {
+  color: #487EC5;
+}
+#mw_playlists_manage .buttonsPlace {
+  margin: .3em 0;
+}
+#mw_playlists_manage .buttonsPlace button {
+  margin: .1em .2em;
 }
 
 /*# sourceMappingURL=style.css.map */

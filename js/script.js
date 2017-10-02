@@ -10,6 +10,7 @@ function add_track(pf_id){
 */
 
 var ROOT = 'D:/Cloud/DnD/Музыка/';
+var aSelectedPlaylists = [];
 //var ROOT = 'D:/DnD/Музыка/';
 
 function randd(min, max) {
@@ -541,8 +542,9 @@ var lt=[];
  
  
  var player = [];
- function addTrackListsFromDB() {
-   var list = [
+ function addTrackListsFromDB(aList) {
+   if(!aList){
+     aList = [
     "спокойно",
     "бодро",
     "светло",
@@ -561,7 +563,10 @@ var lt=[];
     "Темное",
     "Фейри",
     "Путешествие"
-    ]
+    ];
+   }
+   var list = aSelectedPlaylists = aList;
+   
     function getTitle(s) {
       s = s.replace("_", "")
       return s.charAt(0).toUpperCase() + s.substr(1);
@@ -696,6 +701,67 @@ function clickTopButtons() {
 	},500);
 }
 clickTopButtons();
+
+// manage playlists
+function openPlaylistsWindow() {
+  var aFolders = [];
+  var nIndex = 0
+  for (folder in musicDB) {
+    var bChecked = "";
+    if(aSelectedPlaylists.indexOf(folder)>-1){
+      bChecked = " checked";
+    }
+      
+    aFolders.push("<input type='checkbox' "+bChecked+" id='pli_"+nIndex+"'><label for='pli_"+nIndex+"'>"+folder+"</label><br>");
+    nIndex++;
+  }
+  var playlistsCheckList = aFolders.join("");
+  var oButtons = "<div class='buttonsPlace'><button id='mw_pl_CancelButton'>Отменить</button><button id='mw_pl_OkButton'>ОК</button></div>";
+  if($("#dbg").length<1)	{		
+    $("body").append("<div id='dbg'></div><div class='mod_win' id='mw_playlists_manage' ><div class='columns'>"+playlistsCheckList+"</div>"+oButtons+"</div>");
+  }
+  var nWidth = $("#mw_playlists_manage").width();
+  var nColumnsNum = ~~(nWidth / 170)
+  $("#mw_playlists_manage .columns").css("column-count", nColumnsNum);
+}
+function closePlaylistsWindow() {
+  $("#dbg").fadeOut().remove();
+  $(".mod_win").fadeOut().remove();
+}
+function applyPlaylistsWindow(){
+  var aSelected = [];
+  
+  // collect seelcted playlist
+  $("#mw_playlists_manage input[type='checkbox']:checked").each(function(){
+    aSelected.push($(this).next("label").text());
+  });
+  
+  // delete playlists from curren if it unselected
+  for(var i=0; i<aSelectedPlaylists.length; i++) {
+    if(aSelected.indexOf(aSelectedPlaylists[i])<0){
+      aSelectedPlaylists.splice(i, 1);
+    }
+  }
+  
+  //add new playlists 
+  for(var i=0; i<aSelected.length; i++) {
+    if(aSelectedPlaylists.indexOf(aSelected[i])<0){
+      aSelectedPlaylists.push(aSelected[i]);
+    }
+  }
+  $(".tracks").empty();
+  addTrackListsFromDB(aSelectedPlaylists) ;
+}
+$("body").on("click", "#p_config", function(){
+  openPlaylistsWindow();
+});
+$("body").on("click", "#mw_pl_CancelButton", function(){
+  closePlaylistsWindow();
+});
+$("body").on("click", "#mw_pl_OkButton", function(){
+  applyPlaylistsWindow();
+  closePlaylistsWindow();
+});
 
 	// создание списка воспроизведение
 	

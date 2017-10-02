@@ -21,6 +21,7 @@
 				"mods.less",
 				"panel.less",
 				"player_form.less",
+				"playlistConfig.less",
 				"sceleton.less",
 				"sideSounds.less",
 				"usefull.less",
