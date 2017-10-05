@@ -694,7 +694,7 @@ function clickTopButtons() {
 		if(buttonsToClick.length>0) {
 			var btn = buttonsToClick.pop();
 			$("#"+btn).click();
-			console.log("#"+btn+" clicked!");
+			//console.log("#"+btn+" clicked!");
 		} else {
 			clearInterval(timer)
 		}
