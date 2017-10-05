@@ -734,6 +734,10 @@ function applyPlaylistsWindow(){
 
   // apply root
   ROOT = $("#mw_playlist_rootpath").val();
+  if(ROOT[ROOT.length-1] != "/") {
+  	ROOT += "/";
+  }
+  console.log("ROOT: "+ROOT);
 
   // collect seelcted playlist
   $("#mw_playlists_manage input[type='checkbox']:checked").each(function(){
