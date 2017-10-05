@@ -1,4 +1,4 @@
-		/*			
+		/*
 function add_player_form(){
 	num = $(".player_form").length;
 	$(".tracks").append(player_form);
@@ -10,8 +10,8 @@ function add_track(pf_id){
 */
 
 var ROOT = 'D:/Cloud/DnD/Музыка/';
-var aSelectedPlaylists = [];
 //var ROOT = 'D:/DnD/Музыка/';
+var aSelectedPlaylists = [];
 
 function randd(min, max) {
   return Math.floor(arguments.length > 1 ? (max - min + 1) * Math.random() + min : (min + 1) * Math.random());
@@ -51,7 +51,7 @@ var onEvent = function(e) {
 var events = 'abort,canplay,canplaythrough,durationchange,emptied,ended,error,loadeddata,loadedmetadata,loadstart,pause,play,playing,progress,ratechange,seeked,seeking,stalled,suspend,timeupdate,volumechange,waiting'.split(',');
 
 $(document).ready(function(){
-	
+
 	// класс звуков
 class soundsClass{
 	constructor() {
@@ -72,9 +72,9 @@ class soundsClass{
 			"default": "fa-play",
       "silence": "fa-microphone-slash"
 		};
-		
+
 		if($("#sounds_container").lenght>0) {
-			
+
 		} else {
 			$("body").append(this.container);
 		}
@@ -120,11 +120,11 @@ function TrLine()
 	this.time = 0;
 	this.url  = 0;
 	TrLine.prototype.create = function(pf_id, url) //D:/Cloud\DnD\Музыка\спокойно\Arcanum of... (OST) - Caladon (by Ben Houge).mp3');
-		{	
-		
-		}	
+		{
+
+		}
 	}// трек
-	
+
 	// класс музыкальный столбик
 function PlayerForm(){
 	this.mus_vol   = 0.5; //50%
@@ -134,13 +134,13 @@ function PlayerForm(){
 	this.num       = 0;
 	// create
 	PlayerForm.prototype.create = function(name, lt, type)
-		{			
+		{
 		num = $(".player_form").length;
 		this.name = name;
-		
+
 		if(type === undefined)
 			type="usual";
-		
+
 		var pf_lt  		   = "<div class='pf_lt'>"+lt+"</div>";
 		if(lt === undefined)
 			pf_lt="";
@@ -178,12 +178,12 @@ function PlayerForm(){
 						pf_l_sett+
 						pf_mng+
 					"</div>";
-						
+
 			$(".tracks").append(player_form);
 			$(".player_form:last").attr('data-name', num+1);
 			$(".player_form:last").attr('data-form-name', this.name);
 			$(".player_form:last").attr('id', 'player_'+(num+1));
-			this.num = num+1;	
+			this.num = num+1;
 			}
 		if(type == 'min')
 			{
@@ -193,19 +193,19 @@ function PlayerForm(){
 						pf_play_button+
 						pf_name+
 					"</div>";
-						
+
 			$(".tracks").append(player_form);
 			$(".player_form:last").attr('data-name', num+1);
 			$(".player_form:last").attr('data-form-name', this.name);
 			$(".player_form:last").attr('id', 'player_'+(num+1));
-			this.num = num+1;	
+			this.num = num+1;
 			}
-		
+
 		}
 	// add track
 	PlayerForm.prototype.add_track = function(url)
 	{
-		var url=url;		
+		var url=url;
 		smth=url.split('/');
 		smth.reverse();
 		var name = smth[0];
@@ -223,7 +223,7 @@ function PlayerForm(){
 					"</tr>"+
 				"</table>"+
 			  "</div>";
-			  
+
 		$(".player_form[data-name='"+this.num+"']").children(".pf_list").append(tr_line);
 	}
 	// play
@@ -249,13 +249,13 @@ function start_play(id){
 	var _player = $(".player_form[data-name="+id+"]").children("audio");
 	if(_player.attr("src")!=audio_url)
 		_player.attr("src", audio_url);
-	//$(".player_form[data-name="+id+"]").children("audio").attr("src", audio_url);		
+	//$(".player_form[data-name="+id+"]").children("audio").attr("src", audio_url);
 	a_id="a_"+id;
 	/*if(id<10)
 		a_id="a_0"+id;*/
 	//console.log(a_id);
 	//document.getElementById(a_id).play();
-	
+
 	// плавное увеличение звука
 	if($("#p_smooth").prop("checked"))
 		{
@@ -272,34 +272,34 @@ function start_play(id){
 					//alert(1);
 					//console.log(document.getElementById(a_id).volume+" < "+c_vol);
 					if(document.getElementById(a_id).volume<c_vol)
-						{	
+						{
 						if(document.getElementById(a_id).volume + nnum<1)
-							document.getElementById(a_id).volume += nnum;	
+							document.getElementById(a_id).volume += nnum;
 						else
 							document.getElementById(a_id).volume = c_vol;
 						}
 					else
-					{					
+					{
 						document.getElementById(a_id).volume = c_vol;
 						clearInterval(timer);
 					}
 					//console.log("vol: "+document.getElementById(a_id).volume);
 					}, 300);
-					
-		
-		
+
+
+
 		//console.log("vol2: "+document.getElementById(a_id).volume);
 		}
 		else
 		{
 			$("#"+a_id).trigger('play');
 		}
-	
+
 			//console.log("id: "+id);
 	// вид кнопки
 	if(player[id].f_play==0)
 		{
-		player[id].f_play=1; 
+		player[id].f_play=1;
 		$(".player_form[data-name="+id+"]").find(".pf_play_bt").html("<i class='fa fa-pause'></i>");
 		}
 }
@@ -309,11 +309,11 @@ function change_active_track(id, i){
 	if(player[id].track_num > $(".player_form[data-name="+id+"]").children(".pf_list").children(".tr_line").length && $(".player_form[data-name="+id+"]").find(".cycle").prop("checked"))
 		player[id].track_num=1;
 	//console.log("tr_num after = "+player[id].track_num);
-	
+
 	//переключаем активный элемент
 	$(".player_form[data-name="+id+"]").children(".pf_list").children(".tr_line").removeClass("active");
 	$(".player_form[data-name="+id+"]").children(".pf_list").children(".tr_line").eq(player[id].track_num-1).addClass("active");
-	
+
 	// переключаем трек
 	start_play(id);
 }
@@ -323,24 +323,24 @@ function next_active_track(id){ // id - номер столбика
 	index = $(".player_form[data-name="+id+"]").children(".pf_list").children(".active").index()+1;
 	//console.log("smth="+ index);
 	//console.log("tr_num before = "+player[id].track_num);
-	
+
 	// меняем номер активного трека в объекте плеера
 	player[id].track_num=index+1;
 	if(player[id].track_num > $(".player_form[data-name="+id+"]").children(".pf_list").children(".tr_line").length)
 		player[id].track_num=1;
 	//console.log("tr_num after = "+player[id].track_num);
-	
+
 	//переключаем активный элемент
 	$(".player_form[data-name="+id+"]").children(".pf_list").children(".tr_line").removeClass("active");
 	$(".player_form[data-name="+id+"]").children(".pf_list").children(".tr_line").eq(player[id].track_num-1).addClass("active");
-	
+
 	// переключаем трек
 	start_play(id);
 }
 function volume(id, vol){
-	var el = $(".player_form[data-name="+id+"]").find("input[type=range]");	
+	var el = $(".player_form[data-name="+id+"]").find("input[type=range]");
 	 //console.log("el.val: "+el.val());
-	
+
 	min=el.attr("min");
 	max=el.attr("max");
 	if(vol === undefined)
@@ -355,12 +355,12 @@ function volume(id, vol){
 		}
 		cur=parseInt(cur);
 	//console.log("cur: "+cur);
-	 
+
 	 t_max=max-min;
 	 t_cur=cur-min;
 	 need = t_cur*100/t_max;
 	 //console.log("el.val: "+el.val());
-	 
+
 	 el.next(".vol_num").text(need+"%");
 	 player[id].mus_vol=need/100;
 	 if( player[id].mus_vol>1)
@@ -370,14 +370,14 @@ function volume(id, vol){
 	 //console.log("player[id].mus_vol: "+player[id].mus_vol);
 	a_id="a_"+id;
 	/*if(id<10)
-		a_id="a_0"+id;*/	
+		a_id="a_0"+id;*/
 	el.val(cur);
 	document.getElementById(a_id).volume=player[id].mus_vol;
 }
 function a_ended(){
 	console.log("music ended");
 	var id=$(this).closest(".player_form").attr("data-name");
-	
+
 	/////
 	/////
 	/////
@@ -391,15 +391,15 @@ function a_ended(){
 		}
 	else
 		{
-		// stop 
+		// stop
 		//player[id].f_play=1;
 		$(".player_form[data-name="+id+"]").find(".pf_play_bt").html("<i class='fa fa-play'></i>");
-		}		
+		}
 }
 //// /функции
 
 var lt=[];
-	
+
 	lt[0]="1 Q A Z";
 	lt[1]="2 W S X";
 	lt[2]="3 E D C";
@@ -415,28 +415,28 @@ var lt=[];
 	// alert(1);
 	 var id = $(this).closest(".player_form").attr("data-name");
 	 //console.log("id form ="+id);
-	
+
 	 // играем
 	 if(player[id].f_play==0)
 		{
 		// если не выделен начальный трек
 		if(player[id].track_num==0)
 			{
-			$(".player_form[data-name="+id+"]").children(".pf_list").children(".tr_line").eq(0).addClass("active");			
+			$(".player_form[data-name="+id+"]").children(".pf_list").children(".tr_line").eq(0).addClass("active");
 			}
 		start_play(id);
 		}
 	 // ставим на паузу
 	 else
 		{
-		player[id].f_play=0; 
+		player[id].f_play=0;
 		$(this).html("<i class='fa fa-play'></i>");
-		
+
 		a_id="a_"+id;
 		/*if(id<10)
 			a_id="a_0"+id;*/
 		//console.log("element for pause: "+a_id);
-		
+
 		if($("#p_smooth").prop("checked"))
 			{
 			// плавное evtymitybt звука
@@ -453,39 +453,39 @@ var lt=[];
 						//alert(1);
 						//console.log(document.getElementById(a_id).volume+" < "+c_vol);
 						if(document.getElementById(a_id).volume>0)
-							{	
+							{
 							if(document.getElementById(a_id).volume - nnum > 0)
-								document.getElementById(a_id).volume -= nnum;	
+								document.getElementById(a_id).volume -= nnum;
 							else
 								document.getElementById(a_id).volume = 0;
 							}
 						else
-							{					
+							{
 							document.getElementById(a_id).volume = 0;
-							
+
 							document.getElementById(a_id).pause();
 							document.getElementById(a_id).volume = c_vol;
 							clearInterval(timer);
 							}
 						//console.log("vol: "+document.getElementById(a_id).volume);
 						}, 200);
-						
-			
-			
+
+
+
 			//console.log("vol2: "+document.getElementById(a_id).volume);
 			}
 		else
-			document.getElementById(a_id).pause();	
+			document.getElementById(a_id).pause();
 		}
-	 
+
  });
- 
+
  // кнопка следующего трека
  $("body").on('click', ".pf_next_bt", function(){
 	 var id = $(this).closest(".player_form").attr("data-name");
 	 next_active_track(id);
  });
- 
+
  // изменение громкости
  $("body").on("change", ".volume", function(){
 	var id = $(this).closest(".player_form").attr("data-name");
@@ -495,9 +495,9 @@ var lt=[];
 	var id = $(this).closest(".player_form").attr("data-name");
 	volume(id);
  });
- 
-										
-												
+
+
+
  // двойной клик для воспроизведения
 	$("body").on('dblclick', ".tr_line", function(){
 		var id = $(this).closest(".player_form").attr("data-name");
@@ -510,17 +510,17 @@ var lt=[];
 	var audioID = $(this).find("audio").attr("id");
 	var audio_array = $("#"+audioID).parent().attr("data-audio-array");
 	if(audio_array) {
-		var arr = audio_array.split("|");		
-		
+		var arr = audio_array.split("|");
+
 		$("#"+audioID).attr("src", arr[randd(0, arr.length-1)]);
 	}
 	var audio = document.getElementById(audioID);
 		audio.volume = 1;
 		audio.play();
-		
+
  });
- 	
-	
+
+
 	//// /события
  // проврим путь
  function findPath(path){
@@ -539,8 +539,8 @@ var lt=[];
 			}
 	});
  }
- 
- 
+
+
  var player = [];
  function addTrackListsFromDB(aList) {
    if(!aList){
@@ -566,7 +566,7 @@ var lt=[];
     ];
    }
    var list = aSelectedPlaylists = aList;
-   
+
     function getTitle(s) {
       s = s.replace("_", "")
       return s.charAt(0).toUpperCase() + s.substr(1);
@@ -585,8 +585,8 @@ var lt=[];
       player_i++;
     });
   }
- } 
- 
+ }
+
 addTrackListsFromDB();
 
 
@@ -594,19 +594,19 @@ addTrackListsFromDB();
 
 // Звуки
 
-Folder = '!звуки/'; 
+Folder = '!звуки/';
 var sounds = new soundsClass();
 sounds.add(
 	[
-		ROOT+Folder+'Ералаш.mp3', 
-		ROOT+Folder+'Звуки для видео - Барабаны Бадум-тссс.mp3', 
-		ROOT+Folder+'смех1.wav', 
-		ROOT+Folder+'смех2.wav', 
-		ROOT+Folder+'смех3.wav', 
-		ROOT+Folder+'смех4.wav' 
+		ROOT+Folder+'Ералаш.mp3',
+		ROOT+Folder+'Звуки для видео - Барабаны Бадум-тссс.mp3',
+		ROOT+Folder+'смех1.wav',
+		ROOT+Folder+'смех2.wav',
+		ROOT+Folder+'смех3.wav',
+		ROOT+Folder+'смех4.wav'
 	],
 		"LOL"
-	); 
+	);
 sounds.add(ROOT+Folder+'Опыт 6.mp3', "expa");
 sounds.add(ROOT+Folder+'Монеты.wav', "money");
 sounds.add(ROOT+Folder+'таймер2.wav', "time");
@@ -614,7 +614,7 @@ sounds.add(
 	[
 	ROOT+Folder+'Гонг2.mp3',
 	ROOT+Folder+'гудок 1.wav',
-	ROOT+Folder+'гудок 2.wav'	
+	ROOT+Folder+'гудок 2.wav'
 	], "warning");
 sounds.add(
 	[
@@ -628,7 +628,7 @@ sounds.add(
 		ROOT+Folder+'внезапно.wav'
 	]
 		, "eye"
-	); 
+	);
 sounds.add(
 	[
 		ROOT+Folder+'вжух.wav',
@@ -647,24 +647,24 @@ sounds.add(
 sounds.add([
 	ROOT+Folder+'портал 0.wav',
 	ROOT+Folder+'Портал большой 3.wav',
-	ROOT+Folder+'Портал Большой 2.wav'	
+	ROOT+Folder+'Портал Большой 2.wav'
 	], "portal");
-	
+
 sounds.add([
 	ROOT+Folder+'Телепортация 2.wav',
 	ROOT+Folder+'Телепортация.wav',
 	ROOT+Folder+'Телепортация.wav',
 	ROOT+Folder+'Телепортация.wav'
-	], "puff");	
-  
+	], "puff");
+
 sounds.add([
 	ROOT+Folder+'сверчки 01-0-1.7.mp3',
 	ROOT+Folder+'Лягушка-1.8-4.9.mp3'
 	], "silence");
 	// ,
-	//ROOT+Folder+'Портал 6.wav'	
+	//ROOT+Folder+'Портал 6.wav'
 
-/*/	
+/*/
 sounds.add([
 	ROOT+Folder+'undead01.wav',
 	ROOT+Folder+'undead02.wav',
@@ -711,14 +711,15 @@ function openPlaylistsWindow() {
     if(aSelectedPlaylists.indexOf(folder)>-1){
       bChecked = " checked";
     }
-      
+
     aFolders.push("<input type='checkbox' "+bChecked+" id='pli_"+nIndex+"'><label for='pli_"+nIndex+"'>"+folder+"</label><br>");
     nIndex++;
   }
-  var playlistsCheckList = aFolders.join("");
+  var playlistsCheckList = "<div class='columns'>"+aFolders.join("")+"</div>";
+  var oRootPath = "<div>Полный путь к папке с папками: <input id='mw_playlist_rootpath' type='text' value='"+ ROOT +"' style='width:60%; min-width:10em'></div>";
   var oButtons = "<div class='buttonsPlace'><button id='mw_pl_CancelButton'>Отменить</button><button id='mw_pl_OkButton'>ОК</button></div>";
-  if($("#dbg").length<1)	{		
-    $("body").append("<div id='dbg'></div><div class='mod_win' id='mw_playlists_manage' ><div class='columns'>"+playlistsCheckList+"</div>"+oButtons+"</div>");
+  if($("#dbg").length<1)	{
+    $("body").append("<div id='dbg'></div><div class='mod_win' id='mw_playlists_manage' >"+oRootPath+playlistsCheckList+oButtons+"</div>");
   }
   var nWidth = $("#mw_playlists_manage").width();
   var nColumnsNum = ~~(nWidth / 170)
@@ -730,20 +731,23 @@ function closePlaylistsWindow() {
 }
 function applyPlaylistsWindow(){
   var aSelected = [];
-  
+
+  // apply root
+  ROOT = $("#mw_playlist_rootpath").val();
+
   // collect seelcted playlist
   $("#mw_playlists_manage input[type='checkbox']:checked").each(function(){
     aSelected.push($(this).next("label").text());
   });
-  
-  // delete playlists from curren if it unselected
+
+  // delete playlists from current if it unselected
   for(var i=0; i<aSelectedPlaylists.length; i++) {
     if(aSelected.indexOf(aSelectedPlaylists[i])<0){
       aSelectedPlaylists.splice(i, 1);
     }
   }
-  
-  //add new playlists 
+
+  //add new playlists
   for(var i=0; i<aSelected.length; i++) {
     if(aSelectedPlaylists.indexOf(aSelected[i])<0){
       aSelectedPlaylists.push(aSelected[i]);
@@ -764,7 +768,7 @@ $("body").on("click", "#mw_pl_OkButton", function(){
 });
 
 	// создание списка воспроизведение
-	
+
 	$("body").on("click", ".make_list", function(){
 		// модальное окно
 		var f_name = $(this).closest(".player_form").find(".pf_name").text();
@@ -773,35 +777,35 @@ $("body").on("click", "#mw_pl_OkButton", function(){
 		var block = "<textarea class='blck'></textarea>";
 		var btns = "<hr><div class='bt cnsl'>Отменить</div><div class='bt doit'>Применить</div>";
 		var p_num = $(this).closest(".player_form").attr("data-name");
-		if($("#dbg").length<1)			
+		if($("#dbg").length<1)
 			$("body").append("<div id='dbg'></div><div class='mod_win' id='mw_add_tracks' data-player_num='"+p_num+"'>"+path+folder+block+btns+"</div>");
 	});
-	
+
 	$("body").on("click", "#mw_add_tracks .cnsl", function(){
 		$("#dbg").remove();
 		$("#mw_add_tracks").remove();
 	});
-	
+
 	$("body").on("click", "#mw_add_tracks .doit", function(){
 		var path=$("#mw_add_tracks .path").val();
 		var folder=$("#mw_add_tracks .folder").val();
 		var list=$("#mw_add_tracks .blck").val();
 		var strs = list.split("\n");
 		var p_num=$("#mw_add_tracks").attr("data-player_num");
-		
+
 		//console.log(strs[1]);
 		if(path.slice(-1)!="/")
 			path+="/";
 		if(folder.slice(-1)!="/")
 			folder+="/";
-		
+
 		// список существующего
 		var is_mus =[], m_i=0;;
 		$(".player_form[data-name='"+p_num+"']").find(".tr_line").each(function(){
 				is_mus[m_i] = $(this).attr("data-url");
-				m_i++;				
+				m_i++;
 			})
-		
+
 		var result = [];
 		for(i=0; i< strs.length && strs[i].length>0; i++)
 		{
@@ -820,31 +824,31 @@ $("body").on("click", "#mw_pl_OkButton", function(){
 				player[p_num].add_track(result[i]);
 		}
 		//console.log(result[1]);
-		
+
 		$("#dbg").remove();
 		$("#mw_add_tracks").remove();
 	});
-	
+
 	$("body").on("click", "#p_add", function(){
 		// модальное окно
 		var path = "<input type='text' class='path' placeholder='path' value=ROOT+''>";
 		var folder = "<input type='text' class='folder' placeholder='папка' >";
 		var block = "<textarea class='blck'></textarea>";
 		var btns = "<hr><div class='bt cnsl'>Отменить</div><div class='bt doit_new'>Создать</div>";
-		
+
 		var sName = "<input type='text' placeholder='Название' id='newGroupName'>";
 		var fileInput = "<input type='file' multiple name='audios[]' id='newGroupsMusic'accept='audio/*'>";
-		if($("#dbg").length<1)			
+		if($("#dbg").length<1)
 			$("body").append("<div id='dbg'></div><div class='mod_win' id='mw_add_tracks'>"+sName+fileInput+btns+"</div>");
 	});
-	
+
 	$("body").on("click", "#mw_add_tracks .doit_new", function(){
 		var aFiles = $("#newGroupsMusic").val();
 		debugger;
 	});
-	
+
 	// / список
-	
+
 
 	// скрыть
 	$("body").on("click", ".btn.hide", function(){
@@ -855,7 +859,7 @@ $("body").on("click", "#mw_pl_OkButton", function(){
 			$(this).closest(".player_form").find(".pf_l_sett").hide();
 			$(this).closest(".player_form").find(".pf_mng").hide();
 		}
-		else			
+		else
 		{
 			$(this).closest(".player_form").find(".pf_img").show();
 			$(this).closest(".player_form").find(".pf_list").show();
@@ -863,7 +867,7 @@ $("body").on("click", "#mw_pl_OkButton", function(){
 			$(this).closest(".player_form").find(".pf_mng").show();
 		}
 	});
-	
+
 	// / скрыть
 	$("body").on("click", "#p_em_up", function(){
 		var fs=$(".tracks").css('font-size');
@@ -888,8 +892,8 @@ $("body").on("click", "#mw_pl_OkButton", function(){
 			$(this).click();
 		});
 	});
-	
-	// перемешать 
+
+	// перемешать
 	(function($){
 	   $.fn.shuffle = function() {
 		  var allElems = this.get(),
@@ -907,7 +911,7 @@ $("body").on("click", "#mw_pl_OkButton", function(){
 		  });
 		  return $(shuffled);
 	   };
-	})(jQuery);		
+	})(jQuery);
 	$("body").on("click", ".btn.mix", function(){
 	//var ar=[];
 	$(this).closest(".player_form").find(".tr_line").shuffle();
@@ -918,8 +922,8 @@ $("body").on("click", "#mw_pl_OkButton", function(){
 		});
 	});
 	// / преремешать
-	
-	
+
+
 	// управление кнопками
 	$("body").keyup(function(eventObject){
 		var id=0, ev=0, nm=0;
@@ -947,8 +951,8 @@ $("body").on("click", "#mw_pl_OkButton", function(){
 				break;
 			case 48: id=10; ev="vol_up"; //0
 				break;
-				
-		  //vol dn	
+
+		  //vol dn
 			case 81: id=1; ev="vol_dn"; //Q
 				break;
 			case 87: id=2; ev="vol_dn"; //W
@@ -969,8 +973,8 @@ $("body").on("click", "#mw_pl_OkButton", function(){
 				break;
 			case 80: id=10; ev="vol_dn"; //P
 				break;
-				
-		  //play pause	
+
+		  //play pause
 			case 65: id=1; ev="pp"; //Q
 				break;
 			case 83: id=2; ev="pp"; //W
@@ -991,7 +995,7 @@ $("body").on("click", "#mw_pl_OkButton", function(){
 				break;
 			case 186: id=10; ev="pp"; //P
 				break;
-				
+
 		  //next
 			case 90: id=1; ev="nx"; //Q
 				break;
@@ -1013,12 +1017,12 @@ $("body").on("click", "#mw_pl_OkButton", function(){
 				break;
 			case 191: id=10; ev="nx"; //P
 				break;
-				
+
 			// soundx
-			case 45: 
+			case 45:
 			case 96: id=0, ev="sound";
 				break;
-			case 35: 
+			case 35:
 			case 97: id=1, ev="sound";
 				break;
 			case 40:
@@ -1045,7 +1049,7 @@ $("body").on("click", "#mw_pl_OkButton", function(){
 			case 33:
 			case 105: id=9, ev="sound";
 				break;
-				
+
 			// top panel
 			case 189: // -
 				$("#p_em_dn").click();
@@ -1090,7 +1094,7 @@ $("body").on("click", "#mw_pl_OkButton", function(){
 		return false;
 	});
 	// / кнопки
-	
+
 function a_fail(e){
 		// audio playback failed - show a message saying why
    // to get the source of the audio element use $(this).src
@@ -1111,7 +1115,7 @@ function a_fail(e){
        console.error('An unknown error occurred.');
        break;
    }
-};	
+};
 var auds=document.getElementsByTagName('audio');
 	for (var i=0;i<auds.length;i++){
         addEvent(auds[i], 'ended', a_ended);
@@ -1125,6 +1129,6 @@ var auds=document.getElementsByTagName('audio');
 // invalidate audio source (will fire abort, emptied, and error)
 var emptyAudio = function() {
     console.error("Проблема с аудио");
-};	
+};
 
-}); 
+});
