@@ -133,18 +133,23 @@ function PlayerForm(){
 	this.name      = "имя потока";
 	this.num       = 0;
 	// create
-	PlayerForm.prototype.create = function(name, lt, type)
-		{
+	PlayerForm.prototype.create = function(name, lt, type) {
+		$(".pf_name").each(function(){
+			if($(this).text() == name) {
+				return false;
+			}
+		});
+
 		num = $(".player_form").length;
 		this.name = name;
 
 		if(type === undefined)
 			type="usual";
 
-		var pf_lt  		   = "<div class='pf_lt'>"+lt+"</div>";
+		var pf_lt = "<div class='pf_lt'>"+lt+"</div>";
 		if(lt === undefined)
 			pf_lt="";
-		var pf_sett        = "<div class='pf_sett'>"+
+		var pf_sett = "<div class='pf_sett'>"+
 								"<div class='btns'>"+
 									"<input type='checkbox' checked='checked' id='ch_"+this.name+"' class='btn cycle'><label for='ch_"+this.name+"' ><i class='fa fa-retweet'></i></label>"+
 									"<button class='btn mix'><i class='fa fa-random'></i></button>"+
