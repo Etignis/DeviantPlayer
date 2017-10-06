@@ -566,6 +566,18 @@ var lt=[];
     "Фейри",
     "Путешествие"
  */
+ function savePlaylists(){
+    var sLists = JSON.stringify(aSelectedPlaylists);
+    if(sLists) {
+      localStorage.setItem('aPlayLists', sLists);      
+    }
+ }
+ function loadPlayLists(){
+    var sLists = localStorage.getItem('aPlayLists', sLists);
+    if(sLists != "undefined"){
+      aSelectedPlaylists = JSON.parse(sLists);
+    }
+ }
  function clearTracks(aList){
   $(".tracks .player_form").each(function(){
     if(aList.indexOf($(this).attr("data-form-name")) < 0) {
@@ -576,15 +588,21 @@ var lt=[];
  var player = [];
  function addTrackListsFromDB(aList) {
    if(!aList){
-     aList = [
-    "спокойно",
-    "бодро",
-    "светло",
-    "данж",
-    "недра",
-    "таверна",
-    "эпик"
-    ];
+     loadPlayLists();
+     if(!(aSelectedPlaylists && aSelectedPlaylists.length>0)) {
+      aList = [
+        "спокойно",
+        "бодро",
+        "светло",
+        "данж",
+        "недра",
+        "таверна",
+        "эпик"
+        ];
+     } else{
+       aList = aSelectedPlaylists;
+     }
+
    }
    var list = aSelectedPlaylists = aList;
    clearTracks(list);
@@ -607,6 +625,7 @@ var lt=[];
         player_i++;
       }
     });
+    savePlaylists();
   }
  }
 
