@@ -186,7 +186,7 @@ function PlayerForm(){
 
 			$(".tracks").append(player_form);
 			$(".player_form:last").attr('data-name', num+1);
-			$(".player_form:last").attr('data-form-name', this.name);
+			$(".player_form:last").attr('data-form-name', this.name.toLowerCase());
 			$(".player_form:last").attr('id', 'player_'+(num+1));
 			this.num = num+1;
 			}
@@ -545,12 +545,9 @@ var lt=[];
 	});
  }
 
-
- var player = [];
- function addTrackListsFromDB(aList) {
-   if(!aList){
-     aList = [
-    "спокойно",
+ 
+ /*
+     "спокойно",
     "бодро",
     "светло",
     "Данж",
@@ -568,10 +565,29 @@ var lt=[];
     "Темное",
     "Фейри",
     "Путешествие"
+ */
+ function clearTracks(aList){
+  $(".tracks .player_form").each(function(){
+    if(aList.indexOf($(this).attr("data-form-name")) < 0) {
+      $(this).remove();
+    }
+  });
+ }
+ var player = [];
+ function addTrackListsFromDB(aList) {
+   if(!aList){
+     aList = [
+    "спокойно",
+    "бодро",
+    "светло",
+    "данж",
+    "недра",
+    "таверна",
+    "эпик"
     ];
    }
    var list = aSelectedPlaylists = aList;
-
+   clearTracks(list);
     function getTitle(s) {
       s = s.replace("_", "")
       return s.charAt(0).toUpperCase() + s.substr(1);
@@ -581,13 +597,15 @@ var lt=[];
     list.forEach(function(el){
       var Folder='';
       el = el.toLowerCase();
-      player[player_i] = new PlayerForm();
-      player[player_i].create(getTitle(el) , lt[player_i-1]);
-      Folder = el+'/';
-      musicDB[el].forEach(function(track){
-        player[player_i].add_track(ROOT+Folder+track);
-      });
-      player_i++;
+      if($(".tracks .player_form[data-form-name='"+el+"']").length<1) {
+        player[player_i] = new PlayerForm();
+        player[player_i].create(getTitle(el) , lt[player_i-1]);
+        Folder = el+'/';
+        musicDB[el].list.forEach(function(track){
+          player[player_i].add_track(ROOT+Folder+track);
+        });
+        player_i++;
+      }
     });
   }
  }
@@ -710,14 +728,16 @@ clickTopButtons();
 // manage playlists
 function openPlaylistsWindow() {
   var aFolders = [];
-  var nIndex = 0
+  var nIndex = 0;  
+  var aSelectedFolders = aSelectedPlaylists.map(x => x.toLowerCase());
   for (folder in musicDB) {
     var bChecked = "";
-    if(aSelectedPlaylists.indexOf(folder)>-1){
+    //var folderKey = (folder.toLowerCase().trim());
+    if(aSelectedFolders.indexOf(folder)>-1){
       bChecked = " checked";
     }
 
-    aFolders.push("<input type='checkbox' "+bChecked+" id='pli_"+nIndex+"'><label for='pli_"+nIndex+"'>"+folder+"</label><br>");
+    aFolders.push("<input type='checkbox' "+bChecked+" id='pli_"+nIndex+"'><label for='pli_"+nIndex+"'><span class='folderName'>"+folder+ "</span> ("+musicDB[folder].number+")</label><br>");
     nIndex++;
   }
   var playlistsCheckList = "<div class='columns'>"+aFolders.join("")+"</div>";
@@ -726,9 +746,14 @@ function openPlaylistsWindow() {
   if($("#dbg").length<1)	{
     $("body").append("<div id='dbg'></div><div class='mod_win' id='mw_playlists_manage' >"+oRootPath+playlistsCheckList+oButtons+"</div>");
   }
-  var nWidth = $("#mw_playlists_manage").width();
-  var nColumnsNum = ~~(nWidth / 170)
-  $("#mw_playlists_manage .columns").css("column-count", nColumnsNum);
+  recountMWPlaylistsWindow();
+}
+function recountMWPlaylistsWindow(){
+  if($("#mw_playlists_manage").length>0){
+    var nWidth = $("#mw_playlists_manage").width();
+    var nColumnsNum = ~~(nWidth / 190)
+    $("#mw_playlists_manage .columns").css("column-count", nColumnsNum);
+  }
 }
 function closePlaylistsWindow() {
   $("#dbg").fadeOut().remove();
@@ -744,25 +769,46 @@ function applyPlaylistsWindow(){
   }
   console.log("ROOT: "+ROOT);
 
-  // collect seelcted playlist
+  // collect selected playlist
   $("#mw_playlists_manage input[type='checkbox']:checked").each(function(){
-    aSelected.push($(this).next("label").text());
+    aSelected.push($(this).next("label").find(".folderName").text());
   });
 
-  // delete playlists from current if it unselected
-  for(var i=0; i<aSelectedPlaylists.length; i++) {
-    if(aSelected.indexOf(aSelectedPlaylists[i])<0){
+  /**/
+ // delete old 
+  for (var i=0; i < aSelectedPlaylists.length;) {
+    var fIs = false;
+    for (var j=0; j < aSelected.length; j++) {
+      if(aSelectedPlaylists[i].toLowerCase() == aSelected[j].toLowerCase()) {
+        fIs = true;
+        break;
+      }
+    }
+    if(!fIs){
       aSelectedPlaylists.splice(i, 1);
+    } else {
+       i++;
     }
   }
 
   //add new playlists
-  for(var i=0; i<aSelected.length; i++) {
-    if(aSelectedPlaylists.indexOf(aSelected[i])<0){
-      aSelectedPlaylists.push(aSelected[i]);
+   for (var i=0; i < aSelected.length; i++) {
+    var fIs = false;
+    for (var j=0; j < aSelectedPlaylists.length; j++) {
+      if(aSelected[i].toLowerCase() == aSelectedPlaylists[j].toLowerCase()) {
+        fIs = true;
+        break;
+      }
     }
+    if(!fIs){
+      aSelectedPlaylists.push(aSelected[i]);
+    } 
   }
-  $(".tracks").empty();
+
+  /**/
+  
+  //aSelectedPlaylists = aSelected;
+
   addTrackListsFromDB(aSelectedPlaylists) ;
 }
 $("body").on("click", "#p_config", function(){
@@ -1125,6 +1171,13 @@ function a_fail(e){
        break;
    }
 };
+
+function onWindowResize() {
+  recountMWPlaylistsWindow();
+}
+onWindowResize();
+window.onresize = onWindowResize;
+
 var auds=document.getElementsByTagName('audio');
 	for (var i=0;i<auds.length;i++){
         addEvent(auds[i], 'ended', a_ended);

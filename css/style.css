@@ -1266,7 +1266,7 @@ img {
   top: 0.1em;
 }
 #mw_playlists_manage input[type='checkbox'] + label {
-  cursor: pounter;
+  cursor: pointer;
 }
 #mw_playlists_manage input[type='checkbox']:checked + label {
   color: #487EC5;

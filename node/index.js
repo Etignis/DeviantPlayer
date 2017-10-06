@@ -29,7 +29,14 @@ function createBD() {
         //console.log(l);
         l = (l<0)? 0: l;
         console.log(sPathName + Array(l).join(".") + aList.length + " tracks");
-        db[folder.toLowerCase()] = aList;
+        db[folder.toLowerCase()] = {
+          number: aList.length,
+          list: aList
+        }
+        if(/[A-ZА-ЯЁ]/.test(folder)){
+          console.log("rename: "+sInnerPath+" -> "+path.join(sMusicPath, folder.toLowerCase()))
+          fs.renameSync(sInnerPath, path.join(sMusicPath, folder.toLowerCase()));
+        } 
     }   
   });
    
