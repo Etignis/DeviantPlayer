@@ -13,6 +13,8 @@ var ROOT = 'D:/Cloud/DnD/Музыка/';
 //var ROOT = 'D:/DnD/Музыка/';
 var aSelectedPlaylists = [];
 
+var Drug;
+
 function randd(min, max) {
   return Math.floor(arguments.length > 1 ? (max - min + 1) * Math.random() + min : (min + 1) * Math.random());
 };
@@ -571,11 +573,16 @@ var lt=[];
     if(sLists) {
       localStorage.setItem('aPlayLists', sLists);      
     }
+    localStorage.setItem("sROOT", ROOT);
  }
  function loadPlayLists(){
-    var sLists = localStorage.getItem('aPlayLists', sLists);
+    var sLists = localStorage.getItem('aPlayLists');
     if(sLists != "undefined"){
       aSelectedPlaylists = JSON.parse(sLists);
+    }
+    sTMProot = localStorage.getItem('sROOT');
+    if(sTMProot && sTMProot != 'undefined') {
+      ROOT = sTMProot;
     }
  }
  function clearTracks(aList){
@@ -584,6 +591,14 @@ var lt=[];
       $(this).remove();
     }
   });
+ }
+ function onTracklistsReordered() {
+   var aNewList = [];
+   $(".player_form").each(function(){
+     aNewList.push($(this).attr('data-form-name'));
+   });
+   aSelectedPlaylists = aNewList;
+   savePlaylists();
  }
  var player = [];
  function addTrackListsFromDB(aList) {
@@ -626,6 +641,14 @@ var lt=[];
       }
     });
     savePlaylists();
+    
+    var list = document.getElementById("TrackListsList");
+    Sortable.create(list, {
+      handle: ".pf_name",
+      ghostClass: "tracklist_ghost",
+      onEnd: onTracklistsReordered
+    }); 
+    
   }
  }
 
