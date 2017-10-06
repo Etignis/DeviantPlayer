@@ -339,6 +339,10 @@ img {
   opacity: .4;
   transform: scale(0.95);
 }
+.tracklist_drag {
+  box-shadow: 0 0 10px 3px #487EC5;
+  transform: scale(1.1);
+}
 .player_form {
   display: block;
   -webkit-border-radius: 3px 3px 3px 3px;

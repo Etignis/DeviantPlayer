@@ -646,6 +646,7 @@ var lt=[];
     Sortable.create(list, {
       handle: ".pf_name",
       ghostClass: "tracklist_ghost",
+      dragClass: "tracklist_drag",
       onEnd: onTracklistsReordered
     }); 
     
