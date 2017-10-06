@@ -1,4 +1,4 @@
-		/*
+﻿		/*
 function add_player_form(){
 	num = $(".player_form").length;
 	$(".tracks").append(player_form);
@@ -806,7 +806,7 @@ function applyPlaylistsWindow(){
   var aSelected = [];
 
   // apply root
-  ROOT = $("#mw_playlist_rootpath").val();
+  ROOT = $("#mw_playlist_rootpath").val().replace("\\", "/");
   if(ROOT[ROOT.length-1] != "/") {
   	ROOT += "/";
   }
