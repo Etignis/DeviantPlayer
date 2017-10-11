@@ -542,8 +542,15 @@ var lt=[];
 		$(".player_form").each(function(){
 			var sAudioID = $(this).find("audio").attr('id');
 			var oAudio =  document.getElementById(sAudioID);
-			var nVolume = $(this).find('input[type="range"]').val() || 0.5;
-			oAudio.volume = nVolume;
+			var nVolume = ($(this).find('input[type="range"]').val() * 0.02) || 0.5;
+      var oInterval = setInterval(function(){
+        if(oAudio.volume < nVolume) {
+          oAudio.volume+=0.05
+        }else {
+          oAudio.volume = nVolume;   
+          clearInterval(oInterval);
+        }     
+      }, 50);
 		});
 	}
 
@@ -646,19 +653,24 @@ var lt=[];
     }
   if(musicDB){
     var player_i = 1;
-    list.forEach(function(el){
-      var Folder='';
-      el = el.toLowerCase();
-      if($(".tracks .player_form[data-form-name='"+el+"']").length<1) {
-        player[player_i] = new PlayerForm();
-        player[player_i].create(getTitle(el) , lt[player_i-1]);
-        Folder = el+'/';
-        musicDB[el].list.forEach(function(track){
-          player[player_i].add_track(ROOT+Folder+track);
-        });
-        player_i++;
-      }
-    });
+    try{
+      list.forEach(function(el){
+        var Folder='';
+        el = el.toLowerCase();
+        if($(".tracks .player_form[data-form-name='"+el+"']").length<1) {
+          player[player_i] = new PlayerForm();
+          player[player_i].create(getTitle(el) , lt[player_i-1]);
+          Folder = el+'/';
+
+          musicDB[el].list.forEach(function(track){
+            player[player_i].add_track(ROOT+Folder+track);
+          });
+          player_i++;
+        }
+      });
+    } catch (err) {
+      console.dir(err);
+    }
     savePlaylists();
 
     var list = document.getElementById("TrackListsList");

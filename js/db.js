@@ -1,12 +1,20 @@
 var musicDB = {
   "_16-bit": {
-    "number": 47,
+    "number": 55,
     "list": [
       "Dan Forden - The Balcony, The Pit III The Lost Bridge.mp3",
       "Dan Forden - The Bank River Kombat.mp3",
       "Dan Forden - The Rooftop, Shao Khan Tower Jades Desert.mp3",
       "Dan Forden - The Subway.mp3",
       "Don Veca - Title Screen.mp3",
+      "Hiroshi Kobayashi - Aliens Den.mp3",
+      "Hiroshi Kobayashi - Contra Overdrive.mp3",
+      "Hiroshi Kobayashi - Format X.mp3",
+      "Hiroshi Kobayashi - Last Springsteen.mp3",
+      "Hiroshi Kobayashi - Locked Loaded.mp3",
+      "Hiroshi Kobayashi - Moonlit Army.mp3",
+      "Hiroshi Kobayashi - The Dawn.mp3",
+      "Hiroshi Kobayashi - The Hard Corps.mp3",
       "Jake Kaufman - Final Boss Battle.mp3",
       "Jake Kaufman - Harvest Yard.mp3",
       "Jake Kaufman - Laboratory.mp3",
@@ -210,19 +218,57 @@ var musicDB = {
     ]
   },
   "_активно": {
-    "number": 13,
+    "number": 51,
     "list": [
+      "01. Toshiro Masuda - Beautiful Green Wild Beast (1).mp3",
+      "02. Yasuharu Takanashi - Good Condition.mp3",
+      "03. Yasuharu Takanashi - Yondaime Hokage.mp3",
+      "04. Yasuharu Takanashi - Super animal false picture.mp3",
+      "05. Toshiro Masuda - Rock Lees Theme.mp3",
+      "07. Toshiro Masuda - The Rising Fighting Spirit.mp3",
+      "07. Toshiro Masuda - Ultimate Secrets.mp3",
+      "09. Takanashi Yasuharu - Anger.mp3",
+      "09. Yasuharu Takanashi - Crescent Moon.mp3",
+      "09. Yasuharu Takanashi - Shadow.mp3",
+      "12. Yasuharu Takanashi - Blaze.mp3",
+      "12. Yasuharu Takanashi - Excision.mp3",
+      "13. Yasuharu Takanashi - Nankoufuraku.mp3",
+      "13. Yasuharu Takanashi - Water Above Cut.mp3",
+      "14. 634 Project and Toshiro Masuda - Shusei.mp3",
+      "14. Toshiro Masuda - Tough Fight in the Third Quarter Win in One Shot.mp3",
+      "14. Yasuharu Takanashi - Shikkuu.mp3",
+      "14. Yasuharu Takanashi - Violent Fluctuation.mp3",
+      "16. Toshiro Masuda - Ripple.mp3",
+      "16. Toshiro Masuda - Thunder Break.mp3",
+      "18. Yasuharu Takanashi - Big And Sudden Change.mp3",
+      "18. Yasuharu Takanashi - Eien ni Nemure.mp3",
+      "18. Yasuharu Takanashi - Kokuten.mp3",
+      "19. Yasuharu Takanashi - Hero.mp3",
+      "20. Yasuharu Takanashi - Clash.mp3",
+      "21. Toshiro Masuda - The 5ths Fight.mp3",
+      "21. Yasuharu Takanashi - Benibara.mp3",
+      "23. Yasuharu Takanashi - Military Affairs Effigy.mp3",
+      "25. Takanashi Yasuharu - Risking it All.mp3",
+      "25. Yasuharu Takanashi - Thunder.mp3",
+      "28. Toshiro Masuda - All-Out War.mp3",
+      "29. Yaiba - Spin and Burst.mp3",
+      "30. Yasuharu Takanashi - Recapture.mp3",
+      "33. Yasuharu Takanashi - Counterattack.mp3",
+      "33. Yasuharu Takanashi - Flames.mp3",
       "Akito Matsuda - Kami Sou Kiryuu.mp3",
       "Akito Matsuda - Kikiippatsu.mp3",
       "Andrew Hulshult - Forgotten Rulers.mp3",
       "Andrew Hulshult - Supremacy.mp3",
       "Blue Stahli - Secret Agent Business [httpsvk.comappzona] 23.mp3",
+      "Carpenter Brut - Turbo Killer.mp3",
       "Chuck Doud - Anton Girdeux Battle.mp3",
       "Chuck Doud - Georgia Street Danger.mp3",
       "Chuck Doud - Tunnels.mp3",
       "Danny Baranowsky - Divine Combat.mp3",
       "Dave Rodgers - Space Boy.mp3",
       "M.O.V.E - Around The World.mp3",
+      "Position Music (Damned Anthem) - Deathless.mp3",
+      "Selectracks - Boss Fight.mp3",
       "Skyforge OST - Battle theme Alpha 7.mp3",
       "SkyForge OST - Training Hall Combat.mp3"
     ]
@@ -240,8 +286,9 @@ var musicDB = {
     ]
   },
   "_бар": {
-    "number": 16,
+    "number": 18,
     "list": [
+      "12. Yasuharu Takanashi - Hyouhaku.mp3",
       "Akira Yamaoka - My Dying Concubine.mp3",
       "bain wolfkind - black john.mp3",
       "Bain Wolfkind - Drinkin At The Crowbar.mp3",
@@ -257,7 +304,8 @@ var musicDB = {
       "Gene Vincent - Be-Bop-A-Lula.mp3",
       "Jeremy Soule LAM - The Cantina Band.mp3",
       "Jimi Hendrix - Once I Had A Woman.mp3",
-      "Koji Kondo - Staff Roll.mp3"
+      "Koji Kondo - Staff Roll.mp3",
+      "OST Ворон - Stone Temple Pilots - - Big Empty.mp3"
     ]
   },
   "_блюз": {
@@ -582,16 +630,21 @@ var musicDB = {
     ]
   },
   "_восток": {
-    "number": 3,
+    "number": 6,
     "list": [
+      "03. Toshiro Masuda - Confrontment.mp3",
+      "06. Toshiro Masuda - Dance.mp3",
+      "16. Takanashi Yasuharu - Unparalleled Throughout History.mp3",
       "Live A Live - Secret Mission.mp3",
       "Paul Hertzog - First Day (Ceremony First Fight Good, Bad, Ugly Dux vs. Arab).mp3",
       "Paul Hertzog - Kumite.mp3"
     ]
   },
   "_заброшка": {
-    "number": 54,
+    "number": 59,
     "list": [
+      "15. Yasuharu Takanashi - Change.mp3",
+      "20. Yasuharu Takanashi - Head Wind.mp3",
       "Bebopovsky And The Orkestry Podyezdov - The Night Shift.mp3",
       "Bebopovsky And The Orkestry Podyezdov - Билет Домой Калибра .22.mp3",
       "Borislav Slavov - New York - Aftermath.mp3",
@@ -605,6 +658,8 @@ var musicDB = {
       "Garry Schyman - Empty Houses.mp3",
       "Garry Schyman - The Engine City.mp3",
       "Guns N Roses - Welcome to the jungle.mp3",
+      "H-Pi - Heights of Akenash - Part III.mp3",
+      "Hans Zimmer  Benjamin Wallfisch - Wallace.mp3",
       "Hans Zimmer Benjamin Wallfisch - Her Eyes Were Green.mp3",
       "Hans Zimmer Benjamin Wallfisch - Hijack.mp3",
       "Harry Gregson-Williams Norihiko Hibino - Mission Briefing.mp3",
@@ -635,6 +690,7 @@ var musicDB = {
       "Mikolai Stroinski - Here To Kill.mp3",
       "Mikolai Stroinski - Nearing The Camp.mp3",
       "Mikolai Stroinski - Uninvited Guest.mp3",
+      "MoozE - Dead Cities Pt.2.mp3",
       "Nightcrawler - House of Mirrors (feat. Buio Mondo).mp3",
       "Nightcrawler - Macabre Serenade.mp3",
       "Ola Strandh - Mortuary.mp3",
@@ -705,8 +761,10 @@ var musicDB = {
     ]
   },
   "_киберпанк": {
-    "number": 146,
+    "number": 159,
     "list": [
+      "04. Yasuharu Takanashi - Technology.mp3",
+      "08. Yasuharu Takanashi - Tension.mp3",
       "11.mp3",
       "12.mp3",
       "13.mp3",
@@ -731,6 +789,11 @@ var musicDB = {
       "Blastromen - Transition Time.mp3",
       "Blue Stahli - Smackdown.mp3",
       "Brian Reitzell - Donovan.mp3",
+      "Carpenter Brut - Anarchy Road (1).mp3",
+      "Carpenter Brut - Anarchy Road.mp3",
+      "Carpenter Brut - Le perv.mp3",
+      "Carpenter Brut - Obituary.mp3",
+      "Carpenter Brut - Roller Mobster.mp3",
       "Chuck Doud - Expocenter.mp3",
       "Chuck Doud - Georgia Street.mp3",
       "da071de749a5.mp3",
@@ -744,6 +807,7 @@ var musicDB = {
       "Dance_With_The_Dead_-_Theres_A_Storm_Coming.mp3",
       "Dance_With_The_Dead_-_Watching_You.mp3",
       "Daniel Deluxe - Brute Force.mp3",
+      "Daniel Deluxe - Star Eater.mp3",
       "Danny Baranowsky - Repentant.mp3",
       "Division - Into the Void.mp3",
       "Fixions - Maniac.mp3",
@@ -807,6 +871,7 @@ var musicDB = {
       "Neuro - Sin Generation.mp3",
       "NewTone - Run.mp3",
       "Olivaw - Insect.mp3",
+      "Overdog - The Last Star Killer.mp3",
       "Pertubator - Sentient (Feat. Hayley Stewart).mp3",
       "Perturbator - Assault.mp3",
       "Perturbator - Miami Disco.mp3",
@@ -834,6 +899,7 @@ var musicDB = {
       "Scattle - Love and Madness.mp3",
       "Skyforge - Некромант.mp3",
       "Sonic Mayhem - Apex Towers.mp3",
+      "Speed Machine - Confrontation.mp3",
       "The Enigma TNG - Code Blood.mp3",
       "The Enigma TNG - Junkyard Katz.mp3",
       "The Enigma TNG - Nimata.mp3",
@@ -842,6 +908,9 @@ var musicDB = {
       "The Morphism - Robophobia [BBZ].mp3",
       "The Toxic Avenger - Angst Two.mp3",
       "The Toxic Avenger - You Were There.mp3",
+      "Tim Wynn - A Survivor Returns.mp3",
+      "Tomas Dvorak - Mr. Handagote.mp3",
+      "Tomas Dvorak - Nanorobot Tune.mp3",
       "Tricky - Escape.mp3",
       "Vectorman 2 (Jon Holland) - Bog (Scene 3_ Bog Jam).mp3",
       "Vectorman 2 (Jon Holland) - Lava Falls Race (Scene 6_ Magma P_I_, Bonus Level_ Tubular).mp3",
@@ -856,7 +925,7 @@ var musicDB = {
     ]
   },
   "_клуб": {
-    "number": 27,
+    "number": 28,
     "list": [
       "5 Место - Dzeko - Fluxland 2017.mp3",
       "7 Место - Abel Ramos, Albert Neve - Flat Beat.mp3",
@@ -864,6 +933,7 @@ var musicDB = {
       "Baauer - Night Out (feat. Chaki Zulu KEPHA JB kZm PETZ (YENTOWN)).mp3",
       "Better Living DJs - KNTKT.mp3",
       "Breton - Got Well Soon.mp3",
+      "Carpenter Brut - Maniac.mp3",
       "Chris Walsh and Dave Beran - Shake (Revolt Clogrock Remix).mp3",
       "Jasper Byrne - Decade Dance (Hotline Miami 2 Wrong Number OST).mp3",
       "Kavinsky - First Blood.mp3",
@@ -888,8 +958,9 @@ var musicDB = {
     ]
   },
   "_космос": {
-    "number": 57,
+    "number": 58,
     "list": [
+      "28. Yasuharu Takanashi - Wailing.mp3",
       "65daysofstatic - Hypersleep.mp3",
       "Ailedski - Nebula.mp3",
       "Aleks Michalski - Objects In Space.mp3",
@@ -950,8 +1021,10 @@ var musicDB = {
     ]
   },
   "_лирика": {
-    "number": 26,
+    "number": 28,
     "list": [
+      "08. Toshiro Masuda - Sadness and Sorrow.mp3",
+      "18. Toshiro Masuda - Alone.mp3",
       "Aerosmith - I Dont Want to Miss a Thing (OST Армагеддон).mp3",
       "Alice Cooper - I Never Cry.mp3",
       "Bonnie Tyler - Total Eclipse Of The Heart [https vk.com appzona] 035.mp3",
@@ -981,8 +1054,9 @@ var musicDB = {
     ]
   },
   "_мрачно": {
-    "number": 7,
+    "number": 8,
     "list": [
+      "05. Toshiro Masuda - A Storm is Coming.mp3",
       "Machine Vandals(Hybrid Themes Volume Two) - Black Dawn (Full).mp3",
       "Machine Vandals(Hybrid Themes Volume Two) - CassA (Full Mix One).mp3",
       "Machine Vandals(Hybrid Themes Volume Two) - Flawed Destiny (Full).mp3",
@@ -993,12 +1067,50 @@ var musicDB = {
     ]
   },
   "_напряженно": {
-    "number": 75,
+    "number": 115,
     "list": [
+      "01. Toshiro Masuda - Sandstorm.mp3",
+      "02. Yasuharu Takanashi - Kyuubi Hatsudou.mp3",
+      "04. Toshiro Masuda - A Crisis After Another.mp3",
+      "05. Takanashi Yasuharu - Lightning Speed.mp3",
+      "05. Toshiro Masuda - Ruins.mp3",
+      "05. Yasuharu Takanashi - Lunar Eclipse.mp3",
+      "06. Toshiro Masuda - Survival Examination.mp3",
+      "07. Yasuharu Takanashi - Kakuzu.mp3",
+      "09. 634 Project and Toshiro Masuda - Serran no Youkan.mp3",
+      "09. Toshiro Masuda - Attack in the First Quarter.mp3",
+      "09. Yasuharu Takanashi - Ranpatsu.mp3",
+      "09. Yasuharu Takanashi - Shuradou.mp3",
+      "10. Yasuharu Takanashi - Anger.mp3",
+      "11. Toshiro Masuda - Distant Memories.mp3",
+      "12. Takanashi Yasuharu - Jinchuuriki.mp3",
       "12.mp3",
+      "13. 634 Project and Toshiro Masuda - Kyuushuu.mp3",
+      "13. Toshiro Masuda - Tough Fight in the Third Quarter Mutual Glare.mp3",
+      "13. Yasuharu Takanashi - Coursing Cloud.mp3",
+      "14. Toshiro Masuda - Avenger.mp3",
+      "15. Takanashi Yasuharu - Hidden Will to Fight.mp3",
+      "15. Toshiro Masuda - Tough Fight in the Third Quarter Poisonous Fog.mp3",
+      "16. Toshiro Masuda - Need to Be Strong.mp3",
+      "17. 634 Project and Toshiro Masuda - Masumi Kirara.mp3",
+      "17. Toshiro Masuda - Bad Situation.mp3",
+      "17. Toshiro Masuda - Minister of Evil - Shabadaba.mp3",
+      "18. Yasuharu Takanashi - Scene of Violence.mp3",
       "18.mp3",
+      "19. 634 Project and Toshiro Masuda - Okiro Bakekitsune.mp3",
+      "19. Toshiro Masuda - Gallows.mp3",
+      "19. Yasuharu Takanashi - Himonji.mp3",
       "2.mp3",
+      "20. Takanashi Yasuharu - Dark Clouds.mp3",
+      "20. Toshiro Masuda - Rematch under the New Moon Eyes within Eyes.mp3",
       "201a8afeabfe.mp3",
+      "21. Toshiro Masuda - Rematch under the New Moon Everyones Battles.mp3",
+      "23. Toshiro Masuda - Rematch under the New Moon Tough Fight.mp3",
+      "23. Toshiro Masuda - Shikamaru vs Fugai.mp3",
+      "24. Yasuharu Takanashi - Momoshiki and Kinshiki.mp3",
+      "27. Toshiro Masuda - Fate of the Deceased.mp3",
+      "27. Yasuharu Takanashi - Narukami.mp3",
+      "38. Toshiro Masuda - Out of Control.mp3",
       "3e62c554b30d.mp3",
       "7c2705260d6c.mp3",
       "Akito Matsuda - Taiketsu Shisei.mp3",
@@ -1030,6 +1142,7 @@ var musicDB = {
       "Henry Jackman - Ambushed.mp3",
       "Henry Jackman - Shift Change.mp3",
       "Henry Jackman - The Insurgency.mp3",
+      "Jared Emerson-Johnson - Cliffhanger.mp3",
       "Jason Graves - A Call For Help.mp3",
       "Jason Graves - Entering Himiko#39;s Tomb.mp3",
       "Jason Graves - Scaling the Ziggurat.mp3",
@@ -1068,14 +1181,30 @@ var musicDB = {
       "Tim Wynn - Hope Is Lost.mp3",
       "Tim Wynn - Lethal Assault.mp3",
       "Tim Wynn - Shadow Domain.mp3",
+      "Tim Wynn - The Gollop Device.mp3",
       "Неизвестен - Без названия (1).mp3",
       "Неизвестен - Без названия.mp3"
     ]
   },
   "_напряженно_эпик": {
-    "number": 24,
+    "number": 43,
     "list": [
+      "03. Yasuharu Takanashi - Invasion.mp3",
+      "08. Yasuharu Takanashi - Bee sparrow.mp3",
+      "08. Yasuharu Takanashi - Kouen.mp3",
+      "13 Yasuharu Takanashi - Gouchini Tatsu.mp3",
+      "15. Yasuharu Takanashi - Cave.mp3",
+      "16. Toshiro Masuda - Tough Fight in the Third Quarter Damned Nine-Tailed Demon Fox Power.mp3",
+      "16. Yasuharu Takanashi - Night Stroll.mp3",
+      "23. Yasuharu Takanashi - Kaze to Honoo no Rondo.mp3",
+      "24. Yasuharu Takanashi - Muddy stream.mp3",
+      "25. Yasuharu Takanashi - Hard Battle.mp3",
+      "26. Yasuharu Takanashi - Burned Down.mp3",
+      "29. Yasuharu Takanashi - Stardust.mp3",
+      "37. Yasuharu Takanashi - Moonset.mp3",
       "Akito Matsuda - Zettai Zetsumei.mp3",
+      "BeyondAwakening - Darkness Below.mp3",
+      "Brand X Music (Modern Rock Hybrid Volume 2) - Throw Down.mp3",
       "Christopher Drake - Arkham Origins Main Titles.mp3",
       "Christopher Drake - Assassins.mp3",
       "Christopher Drake - Deathstroke.mp3",
@@ -1088,13 +1217,17 @@ var musicDB = {
       "E.S. Posthumus - Varuna.mp3",
       "Fired Earth Music - Destroyer.mp3",
       "Immediate Music - Firebender.mp3",
+      "Jo Blankenburg - Hyde.mp3",
+      "Jo Blankenburg - Lords of Arkhmar.mp3",
       "Mark Petrie - Puma Punku [httpsvk.comappzona] 16.mp3",
       "Motoi Sakuraba - Justice of the Knight.mp3",
       "Motoi Sakuraba - The Empyrean#39;s Throne.mp3",
       "Motoi Sakuraba - The Great Sea Gate.mp3",
       "Phantom Power Music - Never Surrender [httpsvk.comappzona] 22.mp3",
       "Q-Factory Music - Mars Rover [httpsvk.comappzona] 22.mp3",
+      "Revolt Production Music - Experiment 12.mp3",
       "Steve Jablonsky - Honor to the End [httpsvk.comappzona] 22.mp3",
+      "Tony Fiala - Reckless Renegade.mp3",
       "Unstoppable Music - Male mori quam foedari#65279; [httpsvk.comappzona] 10.mp3",
       "Unstoppable Music - Red Sun [httpsvk.comappzona] 10.mp3",
       "X-Ray Dog - Titans.mp3",
@@ -1114,10 +1247,14 @@ var musicDB = {
     ]
   },
   "_нуар": {
-    "number": 15,
+    "number": 19,
     "list": [
       "Black Rebel Motorcycle Club - Beat The Devils Tattoo.mp3",
       "David Clynick - Pause Game.mp3",
+      "Jared Emerson-Johnson - Bigbys Place.mp3",
+      "Jared Emerson-Johnson - Feeling.mp3",
+      "Jared Emerson-Johnson - Ill Be Fine.mp3",
+      "Jared Emerson-Johnson - Relax.mp3",
       "Johnny Cash - Gods Gonna Cut You Down.mp3",
       "Leonard Cohen - Nevermind.mp3",
       "Morphine - Empty Box.mp3",
@@ -1134,8 +1271,9 @@ var musicDB = {
     ]
   },
   "_погоня": {
-    "number": 94,
+    "number": 97,
     "list": [
+      "16. Yasuharu Takanashi - Lightning Speed.mp3",
       "7b4ace4c381360.mp3",
       "Airbourne - Hellfire.mp3",
       "Akito Matsuda - Kyodai Kyouteki.mp3",
@@ -1152,6 +1290,7 @@ var musicDB = {
       "Coppelius - Charlotte The Harlot.mp3",
       "Coppelius - Rightful King.mp3",
       "Cute Is What We Aim For - Theres A Class For This.mp3",
+      "Dance With The Dead - Snapped.mp3",
       "Dead by April - Stronger.mp3",
       "Diesel Boy feat. Kaos - Barrier Break.mp3",
       "DMC_OST_02.mp3",
@@ -1188,6 +1327,7 @@ var musicDB = {
       "NFS - HotWire - Invisible [Zona].mp3",
       "NFS -Rancid - Out of Control [Zona].mp3",
       "Nickelback - Animals.mp3",
+      "OST Ворон - My Life With The Thrill Kill Kult - - After The Flesh.mp3",
       "Pain - Follow Me (feat. Anette OlzonNightwish).mp3",
       "Panic At The Disco - Crazy Genius.mp3",
       "Persona 5 - Blooming Villain.mp3",
@@ -1233,8 +1373,9 @@ var musicDB = {
     ]
   },
   "_позитифф": {
-    "number": 2,
+    "number": 3,
     "list": [
+      "10. Toshiro Masuda - Its The Training.mp3",
       "Deborah Harry - Rush Rush.mp3",
       "Jimi Hendrix - Johnny B. Goode.mp3"
     ]
@@ -1296,7 +1437,7 @@ var musicDB = {
     ]
   },
   "_тревожно": {
-    "number": 22,
+    "number": 23,
     "list": [
       "Angelo Badalamenti - Audreys Dance (Твин Пикс) (OST Twin Peaks).mp3",
       "Atrium Carceri - Reselected.mp3",
@@ -1312,6 +1453,7 @@ var musicDB = {
       "Garry Schyman - Out The Airlock.mp3",
       "Garry Schyman - Protecting His Charge.mp3",
       "Garry Schyman - Ten Years Later.mp3",
+      "Jared Emerson-Johnson - Opening Credits.mp3",
       "Jessica Curry - Machine for Pigs (OST Amnesia A Machine for Pigs.mp3",
       "Jessica Curry - New Years Eve (A Machine for Pigs).mp3",
       "Mike Zarin  Tony Hajjar - Contaminated Water.mp3",
@@ -1323,7 +1465,7 @@ var musicDB = {
     ]
   },
   "_фон": {
-    "number": 776,
+    "number": 782,
     "list": [
       "01cdefff252087.mp3",
       "04baa34ddd8737.mp3",
@@ -1447,6 +1589,7 @@ var musicDB = {
       "Caprice_-_Fae_Fae_Fae_Fae_Fae_Fae_Fae.mp3",
       "Caprice_-_Kywitt!_Kywitt!.mp3",
       "Caprice_-_Philomel,_With_Melody.mp3",
+      "Carpenter Brut - Night Stalker.mp3",
       "Cat Stevens - Father And Son.mp3",
       "CCR - Bad Moon Rising.mp3",
       "CCR - Have You Ever Seen The Rain.mp3",
@@ -1531,6 +1674,7 @@ var musicDB = {
       "Elton John - Crocodile Rock.mp3",
       "Elvis Presley - A Little Less Conversation.mp3",
       "Elvis Presley - Hound Dog.mp3",
+      "Elvis Presley - Suspicious Minds [https vk.com appzona] 072.mp3",
       "Emilie Autumn - Shalott.mp3",
       "Emma Bunton - What Took You So Long.mp3",
       "Eric Clapton - After Midnight.mp3",
@@ -1767,6 +1911,10 @@ var musicDB = {
       "OK Go - Here It Goes Again [Zona].mp3",
       "Oliver - Electrify.mp3",
       "One Hundred Years - Let Go.mp3",
+      "OST Ворон - Medicine - - Time Baby III.mp3",
+      "OST Ворон - Rollins Band - - Ghostrider.mp3",
+      "OST Ворон - The Cure - - Burn.mp3",
+      "OST Ворон - The Jesus And Mary Chain - - Snakedriver.mp3",
       "OST_Borderlands_2_-_Cage_The_Elephant_-_Ain’t_No_Rest_For_The_Wicked.mp3",
       "OST_Люцифер._Сезон_1_-_Edwyn_Collins_-_-_I_Never_Met_A_Girl_Like_You_Before_[Zona].mp3",
       "OST_Люцифер._Сезон_1_-_Gareth_Dunlop_-_-_Devil_like_you_[Zona].mp3",
@@ -2104,7 +2252,7 @@ var musicDB = {
     ]
   },
   "_фон 50": {
-    "number": 152,
+    "number": 154,
     "list": [
       "Andrej Hermlin and his Swing Dance Orchestra - Bei Mir Bist Du Schoen.mp3",
       "Andrej Hermlin And His Swing Dance Orchestra - Jump, Jumps Here.mp3",
@@ -2136,6 +2284,8 @@ var musicDB = {
       "Elvis Presley - Soldier Boy (Digitally Remastered).mp3",
       "Elvis Presley - Such A Night.mp3",
       "Evelyn Evelyn - Have You Seen My Sister Evelyn.mp3",
+      "Frank Sinatra - One For My Baby.mp3",
+      "Frank Sinatra - Summer Wind.mp3",
       "Hal David and John Cacavas - The Way To Your Heart.mp3",
       "Iron_Horse_-_Whole_Lotta_Love_(Led_Zeppelin_cover).mp3",
       "Jack Scott - My True Love.mp3",
@@ -2371,11 +2521,21 @@ var musicDB = {
     ]
   },
   "_фон спокойно": {
-    "number": 3,
+    "number": 13,
     "list": [
+      "05. Toshiro Masuda - Sasukes Theme.mp3",
+      "07. Toshiro Masuda - Afternoon of Konoha.mp3",
+      "09. Toshiro Masuda - Konohamarus Theme.mp3",
+      "11. Toshiro Masuda - Gais Theme.mp3",
+      "11. Toshiro Masuda - Kakashis Theme.mp3",
+      "12. Yasuharu Takanashi - Winds and Clouds.mp3",
+      "15. Yasuharu Takanashi - Heaven and Hell.mp3",
       "Akito Matsuda - Zatsuyou Ouji.mp3",
       "Light Club - Blizzard (Hotline Miami 2 Wrong Number OST).mp3",
-      "Scattle - Bloodline (Hotline Miami 2 Wrong Number OST).mp3"
+      "Scattle - Bloodline (Hotline Miami 2 Wrong Number OST).mp3",
+      "Tomas Dvorak - Clockwise Operetta.mp3",
+      "Tomas Dvorak - The Black Cap Brotherhood Theme.mp3",
+      "Tomas Dvorak - The Bottom.mp3"
     ]
   },
   "_хиппи": {
@@ -2419,6 +2579,12 @@ var musicDB = {
       "Zara_McFarlane_-_The_Games_We_Played.mp3"
     ]
   },
+  "_чувственное": {
+    "number": 1,
+    "list": [
+      "12. Toshiro Masuda - Sexiness.mp3"
+    ]
+  },
   "_шпион": {
     "number": 3,
     "list": [
@@ -2428,10 +2594,11 @@ var musicDB = {
     ]
   },
   "_электро бодро": {
-    "number": 71,
+    "number": 75,
     "list": [
       "92db2389f4c7ca.mp3",
       "Alexander Brandon - Save Me.mp3",
+      "Artemus Gordon - Deathrace2000.mp3",
       "Ben Wheeler - Sunshine High (Miller) [https vk.com appzona].mp3",
       "Carpenter Brut - Turbo killer (original mix).mp3",
       "Carpenter Brut - Youre Mine.mp3",
@@ -2442,7 +2609,10 @@ var musicDB = {
       "Da Octopusss - The 8th Day.mp3",
       "DA OCTOPUSSS - The Hunt.mp3",
       "Da Octopusss - Time.mp3",
+      "Dance With The Dead - Battle.mp3",
       "Dance with the Dead - Poison.mp3",
+      "Dance With The Dead - That House.mp3",
+      "Dance With The Dead - The Man Who Made a Monster.mp3",
       "Deadmau5 Feat. Sofia Toufa - Sofi Needs A Ladder (Fractal System remix).mp3",
       "Dex Arson - Machina.mp3",
       "Draggs Connor - READY.mp3",
@@ -2838,14 +3008,39 @@ var musicDB = {
     ]
   },
   "военное": {
-    "number": 1,
+    "number": 4,
     "list": [
+      "11. Yasuharu Takanashi - On and On.mp3",
+      "22. Toshiro Masuda - Hero.mp3",
+      "38. Yasuharu Takanashi - Sunrise.mp3",
       "Duane Decker - Galleons.mp3"
     ]
   },
   "восток": {
-    "number": 29,
+    "number": 51,
     "list": [
+      "01. 634 Project and Toshiro Masuda - Konoha Densetsu.mp3",
+      "03. Takanashi Yasuharu - Homecoming.mp3",
+      "03. Yasuharu Takanashi - Silent Song.mp3",
+      "05. Yasuharu Takanashi - Yawarakana Te.mp3",
+      "08. Yasuharu Takanashi - Ashura - Indra.mp3",
+      "09. Yasuharu Takanashi - Memory.mp3",
+      "10. Yasuharu Takanashi - Flight.mp3",
+      "11. Yasuharu Takanashi - Shirotsumekusa.mp3",
+      "12. Toshiro Masuda - Hinata vs Neji.mp3",
+      "14. Toshiro Masuda - Evening.mp3",
+      "15. Yasuharu Takanashi - Reflection Fire.mp3",
+      "17. Yasuharu Takanashi - Close to You.mp3",
+      "17. Yasuharu Takanashi - Guren.mp3",
+      "19. Toshiro Masuda - Tea Country (1).mp3",
+      "24. Yasuharu Takanashi - Genshi.mp3",
+      "26. Yasuharu Takanashi - Ochibabune.mp3",
+      "27. Yasuharu Takanashi - Remember You.mp3",
+      "28. Yasuharu Takanashi - Bond.mp3",
+      "28. Yasuharu Takanashi - Samidare.mp3",
+      "35. Yasuharu Takanashi - Summer Breeze.mp3",
+      "39. Toshiro Masuda - Temujin.mp3",
+      "40. Toshiro Masuda - Bonds.mp3",
       "Abandoned temple of the Incas.mp3",
       "Geoff Knorr - China (The Atomic Era).mp3",
       "Guild Wars Factions OST - Assassins Theme.mp3",
@@ -2901,9 +3096,11 @@ var musicDB = {
     ]
   },
   "данж": {
-    "number": 243,
+    "number": 247,
     "list": [
       "07 INSIDEP2 Inside the Pyramid 2 (11-22kj).mp3",
+      "10. Yasuharu Takanashi - The Mark.mp3",
+      "14. Yasuharu Takanashi - A Rule.mp3",
       "19 )Shunsuke Kida - Armor Spider.mp3",
       "19 IGBGND2 The Crystal Rose (11-22kj).mp3",
       "3 - Спуск в канализации в поисках оборотня, который вас укусил.mp3",
@@ -2978,6 +3175,8 @@ var musicDB = {
       "Grant_Kirkhope_-_Mines_and_Caves.mp3",
       "Grant_Kirkhope_-_Warsworn.mp3",
       "Gustaf Grefberg - Divided City (Light).mp3",
+      "H-Pi - Bowels of Truth - Part II.mp3",
+      "H-Pi - Heights of Akenash - Part I.mp3",
       "Harry Gregson-Williams - Parasites (ost MGS 5 PP).mp3",
       "Ilya_Pechersky_-_Музыка_из_игры_The_LoD_-_Подземелье.mp3",
       "Inon_Zur_-_Of_Green_and_Grey.mp3",
@@ -3494,8 +3693,9 @@ var musicDB = {
     ]
   },
   "море": {
-    "number": 33,
+    "number": 34,
     "list": [
+      "03. Toshiro Masuda - To Crescent Moon Island.mp3",
       "Balmorhea - Wind And Sea.mp3",
       "Geoff Knorr - Greece (The Medieval Era).mp3",
       "Kenta Nagata, Hajime Wakai, Toru Minegishi, Koji Kondo - Pirates.mp3",
@@ -3576,9 +3776,10 @@ var musicDB = {
     ]
   },
   "нагнетание": {
-    "number": 79,
+    "number": 85,
     "list": [
       "148760__daphne-in-wonderland__piano-inside-glissando-2.wav",
+      "18. Yasuharu Takanashi - Shadow.mp3",
       "7 - Вы впервые оказались на теневом плане. Трудно дышать.mp3",
       "Craig Conner - Manhunt 2 Main Theme.mp3",
       "Cris Velasco Sascha Dikiciyan - Mass Effect 2 The Arrival Suite.mp3",
@@ -3590,6 +3791,11 @@ var musicDB = {
       "Greg Chandler - Prologue (Arkham Asylum).mp3",
       "Greg Chandler - They Know My Name.mp3",
       "Greg Chandler - Title Calling.mp3",
+      "H-Pi - Evil Roots - Part II.mp3",
+      "H-Pi - Evil Roots - Part III.mp3",
+      "H-Pi - Falls from Utopia - Part II.mp3",
+      "H-Pi - Heights of Akenash - Part II.mp3",
+      "H-Pi - Of Blood and Amber - Part I.mp3",
       "Inon Zur - Before The Citadel Gate.mp3",
       "Inon Zur - Into The Heart Of The Storm.mp3",
       "Jason Graves - Airborne Pursuit.mp3",
@@ -3660,8 +3866,12 @@ var musicDB = {
     ]
   },
   "начало": {
-    "number": 71,
+    "number": 75,
     "list": [
+      "04. Yasuharu Takanashi - Chichi to Haha.mp3",
+      "18. Yasuharu Takanashi - Bounce.mp3",
+      "23. Toshiro Masuda - Those Who Inherit The Will of Fire.mp3",
+      "31. Yasuharu Takanashi - Trust Me.mp3",
       "Akela Sun - Hope Never Dies.mp3",
       "Akito Matsuda - Fukuryou Houkou.mp3",
       "Akito Matsuda - Oukoku Kiryuu.mp3",
@@ -3736,7 +3946,7 @@ var musicDB = {
     ]
   },
   "недра": {
-    "number": 23,
+    "number": 27,
     "list": [
       "395066__chaoticcycles__real-sound-of-saturn.mp3",
       "Alexander Brandon Rik Schaffer - kelemvortemple.mp3",
@@ -3749,9 +3959,13 @@ var musicDB = {
       "Mark_Morgan_-_Flame_of_the_Ancient_World.mp3",
       "Martin_Linda_-_Clairvoyance.mp3",
       "Martin_Linda_-_Eternity.mp3",
+      "MoozE - Cold Freezing Out.mp3",
       "MoozE - Cold-Freezing Out.mp3",
+      "MoozE - Elemental Room.mp3",
       "MoozE - Mutation.mp3",
       "MoozE - Tunnels.mp3",
+      "Roland Rizzo - Hidden Movement.mp3",
+      "Roland Rizzo - Otherworldly Dissonance.mp3",
       "Звуки_Космоса_-_Земля.mp3",
       "Звуки_космоса_NASA_-_Магнитосфера_Земли.mp3",
       "звуки_планет_-_Гул_Земли.mp3",
@@ -3867,8 +4081,11 @@ var musicDB = {
     ]
   },
   "пронырливо": {
-    "number": 13,
+    "number": 16,
     "list": [
+      "02. Toshiro Masuda - Nerugui.mp3",
+      "03. Toshiro Masuda - The Great Capture Strategy.mp3",
+      "12. 634 Project and Toshiro Masuda - Joyuu - Tomio Fuuun kai.mp3",
       "Akito Matsuda - Ashimoto Houraku.mp3",
       "Jeremy_Soule_-_Phoenix.mp3",
       "Kevin MacLeod - In the Hall of the Mountain King.mp3",
@@ -4028,8 +4245,9 @@ var musicDB = {
     ]
   },
   "скрытность": {
-    "number": 4,
+    "number": 5,
     "list": [
+      "H-Pi - Hideout.mp3",
       "Mateo Pascual - Menu.mp3",
       "Nathan Grigg - M1 CS2.mp3",
       "Nathan Grigg - M4 CS1.mp3",
@@ -4037,12 +4255,22 @@ var musicDB = {
     ]
   },
   "спокойно": {
-    "number": 448,
+    "number": 458,
     "list": [
+      "02. Toshiro Masuda - Wealth of Obesity.mp3",
+      "03. Yasuharu Takanashi - Friend.mp3",
+      "03. Yasuharu Takanashi - My Father.mp3",
+      "04. Toshiro Masuda - Morning.mp3",
+      "05. Toshiro Masuda - Narutos Daily Life.mp3",
+      "08. Toshiro Masuda - Forever Friends.mp3",
       "1 - Ваше первое путешествие. Вы зеленый авантюрист-новичок.mp3",
+      "10. Toshiro Masuda - Sakuras Theme.mp3",
+      "10. Yasuharu Takanashi - Bad Boy.mp3",
+      "12. Yasuharu Takanashi - Jump.mp3",
       "15 - Steve Jablonsky - Rays Theme (Steamboy OST).mp3",
       "16 Zanzarah The Hidden Portal OST - Prophecy Theme.mp3",
       "17 - Steve Jablonsky - Fly in the sky (Steamboy OST).mp3",
+      "36. Yasuharu Takanashi - Journey.mp3",
       "Aaron_Dunn_-_Beginning_of_Days.mp3",
       "Aaron_Dunn_-_The_Music_of_the_Ainur.mp3",
       "Aaron_Dunn_-_The_Union_of_the_Two_Kindreds.mp3",
@@ -4490,13 +4718,18 @@ var musicDB = {
     ]
   },
   "страшный дом": {
-    "number": 5,
+    "number": 10,
     "list": [
+      "10. 634 Project and Toshiro Masuda - Kazahana Koyuki.mp3",
+      "19. Toshiro Masuda - Genjutsu.mp3",
       "Akito Matsuda - Inbou Taidou.mp3",
       "Akito Matsuda - Kodai Iseki.mp3",
       "Akito Matsuda - Kyouki Hatsuga.mp3",
       "Benjamin Wallfisch - Every 27 Years.mp3",
-      "Craig Conner - The Insane Asylum -Red-.mp3"
+      "Craig Conner - The Insane Asylum -Red-.mp3",
+      "H-Pi - Bowels of Truth - Part III.mp3",
+      "H-Pi - Of Blood and Amber - Part II.mp3",
+      "H-Pi - Of Blood and Amber - Part III.mp3"
     ]
   },
   "таверна": {
@@ -4586,8 +4819,13 @@ var musicDB = {
     ]
   },
   "таинственно": {
-    "number": 8,
+    "number": 13,
     "list": [
+      "04. Yasuharu Takanashi - Will-O-The-Wisp.mp3",
+      "05. Yasuharu Takanashi - Wanderer.mp3",
+      "22. Yasuharu Takanashi - Black Spots.mp3",
+      "22. Yasuharu Takanashi - Darkness labyrinth.mp3",
+      "28. Yasuharu Takanashi - Blue Black.mp3",
       "Akito Matsuda - Kinchou Seppaku.mp3",
       "Akito Matsuda - Kodoku Kokuu.mp3",
       "James Hannigan - Professor Umbridge.mp3",
@@ -4599,21 +4837,35 @@ var musicDB = {
     ]
   },
   "темное": {
-    "number": 5,
+    "number": 8,
     "list": [
+      "04. Toshiro Masuda - Evil.mp3",
+      "26. Yasuharu Takanashi - Cache.mp3",
       "George Strezov - Crypts.mp3",
       "George Strezov - Mysterious Forest.mp3",
       "George Strezov - Searching.mp3",
       "George Strezov - Spiders.mp3",
-      "George Strezov - Victor Vran Main Title.mp3"
+      "George Strezov - Victor Vran Main Title.mp3",
+      "H-Pi - Evil Roots - Part I.mp3"
     ]
   },
   "тревожно": {
-    "number": 10,
+    "number": 21,
     "list": [
+      "03 - Toshiro Masuda - Nine Tail Demon Fox.mp3",
+      "04. Toshiro Masuda - Battle Introduction.mp3",
+      "05. Yasuharu Takanashi - Serpent.mp3",
+      "06. Toshiro Masuda - Nervous.mp3",
+      "13. Toshiro Masuda - Orochimaru no Theme.mp3",
+      "14. Toshiro Masuda - Private Investigation.mp3",
+      "15. Toshiro Masuda - Glued State.mp3",
+      "17. Toshiro Masuda - Destruction.mp3",
+      "18. 634 Project and Toshiro Masuda - Ore wa zettai, akiramenai.mp3",
+      "20. Toshiro Masuda - Sneaking Nightmare.mp3",
       "Akito Matsuda - Densetsu Kiryuu.mp3",
       "Akito Matsuda - Kyouteki Kourin.mp3",
       "Akito Matsuda - Kyouteki Toujou.mp3",
+      "H-Pi - The Atrium - Part II.mp3",
       "Inon Zur - Between Hammer And Anvil.mp3",
       "Inon Zur - Ghosts Of The Grey Mountains.mp3",
       "Jamie Christopherson - Destroy the Heroes.mp3",
@@ -4624,8 +4876,14 @@ var musicDB = {
     ]
   },
   "фейри": {
-    "number": 45,
+    "number": 51,
     "list": [
+      "02. Yasuharu Takanashi - New Moon.mp3",
+      "06. Yasuharu Takanashi - Evening Moon.mp3",
+      "07. Yasuharu Takanashi - Fire Drops.mp3",
+      "14. Yasuharu Takanashi - Fire Run.mp3",
+      "16. Yasuharu Takanashi - Caution.mp3",
+      "21. Yasuharu Takanashi - Light Of A Firefly.mp3",
       "Adiemus_-_Saint_Declan_s_Drone,_2001.mp3",
       "Ancient World of Dreams.mp3",
       "Bruno Coulais - Les Rivi res pourpres (OST Багровые реки).mp3",
