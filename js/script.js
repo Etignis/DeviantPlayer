@@ -626,7 +626,7 @@ var lt=[];
    aSelectedPlaylists = aNewList;
    savePlaylists();
  }
- var player = [];
+ var player = {};
  function addTrackListsFromDB(aList) {
    if(!aList){
      loadPlayLists();
