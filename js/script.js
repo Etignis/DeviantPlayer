@@ -521,12 +521,31 @@ var lt=[];
 
 		$("#"+audioID).attr("src", arr[randd(0, arr.length-1)]);
 	}
+	onPalylistsVolumDown();
 	var audio = document.getElementById(audioID);
-		audio.volume = 1;
-		audio.play();
-
+	audio.volume = 1;
+	audio.play();
+	audio.onended = function() {
+		onPalylistsVolumUp();
+	};
  });
 
+	function onPalylistsVolumDown() {
+		$(".player_form").each(function(){
+			var sAudioID = $(this).find("audio").attr('id');
+			var oAudio =  document.getElementById(sAudioID);
+			oAudio.volume = 0.1;
+		});
+	}
+
+	function onPalylistsVolumUp() {
+		$(".player_form").each(function(){
+			var sAudioID = $(this).find("audio").attr('id');
+			var oAudio =  document.getElementById(sAudioID);
+			var nVolume = $(this).find('input[type="range"]').val() || 0.5;
+			oAudio.volume = nVolume;
+		});
+	}
 
 	//// /события
  // проврим путь
@@ -547,7 +566,7 @@ var lt=[];
 	});
  }
 
- 
+
  /*
      "спокойно",
     "бодро",
@@ -571,7 +590,7 @@ var lt=[];
  function savePlaylists(){
     var sLists = JSON.stringify(aSelectedPlaylists);
     if(sLists) {
-      localStorage.setItem('aPlayLists', sLists);      
+      localStorage.setItem('aPlayLists', sLists);
     }
     localStorage.setItem("sROOT", ROOT);
  }
@@ -641,15 +660,15 @@ var lt=[];
       }
     });
     savePlaylists();
-    
+
     var list = document.getElementById("TrackListsList");
     Sortable.create(list, {
       handle: ".pf_name",
       ghostClass: "tracklist_ghost",
       dragClass: "tracklist_drag",
       onEnd: onTracklistsReordered
-    }); 
-    
+    });
+
   }
  }
 
@@ -771,7 +790,7 @@ clickTopButtons();
 // manage playlists
 function openPlaylistsWindow() {
   var aFolders = [];
-  var nIndex = 0;  
+  var nIndex = 0;
   var aSelectedFolders = aSelectedPlaylists.map(x => x.toLowerCase());
   for (folder in musicDB) {
     var bChecked = "";
@@ -818,7 +837,7 @@ function applyPlaylistsWindow(){
   });
 
   /**/
- // delete old 
+ // delete old
   for (var i=0; i < aSelectedPlaylists.length;) {
     var fIs = false;
     for (var j=0; j < aSelected.length; j++) {
@@ -845,11 +864,11 @@ function applyPlaylistsWindow(){
     }
     if(!fIs){
       aSelectedPlaylists.push(aSelected[i]);
-    } 
+    }
   }
 
   /**/
-  
+
   //aSelectedPlaylists = aSelected;
 
   addTrackListsFromDB(aSelectedPlaylists) ;
