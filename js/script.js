@@ -222,7 +222,7 @@ function PlayerForm(){
 				"<table>"+
 					"<tr>"+
 						"<td class='count'></td>"+
-						"<td><input type='checkbox' class='f_ch'></td>"+
+						"<!--td><input type='checkbox' class='f_ch'></td-->"+
 						"<td><input type='checkbox' class='f_pl'></td>"+
 						"<td class='name_place'>"+
 							"<div class='name' title='"+name+"'>"+name+"</div>"+
@@ -825,7 +825,7 @@ function openPlaylistsWindow() {
 function recountMWPlaylistsWindow(){
   if($("#mw_playlists_manage").length>0){
     var nWidth = $("#mw_playlists_manage").width();
-    var nColumnsNum = ~~(nWidth / 190)
+    var nColumnsNum = ~~(nWidth / 260)
     $("#mw_playlists_manage .columns").css("column-count", nColumnsNum);
   }
 }
