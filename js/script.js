@@ -109,7 +109,12 @@ class soundsClass{
 			} else {
 				deafault_audio = this.sounds_arr[item].url;
 			}
-			var sound_item = "<button class='soundButton' "+audio_list+"><i class='fa "+img+"'></i><audio id='audio_sound_"+item+"' src='" + deafault_audio + "'></audio></button>";
+			var sound_button = "<button class='soundButton' "+audio_list+"><i class='fa "+img+"'></i><audio id='audio_sound_"+item+"' src='" + deafault_audio + "'></audio></button>";
+			var sound_list = (audio_arr.length>1)? "<ul style='position: absolute; width: 150px; left: -150px; display: flex; display: none; flex-direction: column'>"+audio_arr.map(function(el){
+				var aSounbPath = el.split("/");
+				return "<li><button class='soundListItem' style='width: 100%; text-align: right' data-soundpath='"+el+"'>"+aSounbPath[aSounbPath.length-1].split(".")[0]+"</button></li>";
+			}).join("")+"</ul>" : "";
+			var sound_item = "<div style='position: relative'>"+sound_list+sound_button+"</div>";
 			$("#sounds_container").append(sound_item);
 		}
 	}
@@ -547,9 +552,9 @@ var lt=[];
         if(oAudio.volume < nVolume) {
           oAudio.volume+=0.05
         }else {
-          oAudio.volume = nVolume;   
+          oAudio.volume = nVolume;
           clearInterval(oInterval);
-        }     
+        }
       }, 50);
 		});
 	}
