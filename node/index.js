@@ -9,7 +9,8 @@ const sMusicPath = "D:/Cloud/DnD/Музыка";
 const sDBpath = "../js/db.js"
 
 function createBD() {
-  let db = {}; 
+  let db = {};
+  let sounds = [];
   console.log("Start working in " + sMusicPath);
   fs.readdirSync(sMusicPath).forEach(folder => {
     const sInnerPath = path.join(sMusicPath, folder);
@@ -36,11 +37,20 @@ function createBD() {
         if(/[A-ZА-ЯЁ]/.test(folder)){
           console.log("rename: "+sInnerPath+" -> "+path.join(sMusicPath, folder.toLowerCase()))
           fs.renameSync(sInnerPath, path.join(sMusicPath, folder.toLowerCase()));
-        } 
-    }   
+        }
+    } else { // sounds
+      let aList= [];
+      fs.readdirSync(sInnerPath).forEach(file => {
+        // music?
+        if(path.extname(file) === mp3Ext || path.extname(file) === wavExt) {
+          aList.push(file);
+        }
+      });
+      sounds = aList;
+    }
   });
-   
-  const resultJSON = "var musicDB = " + JSON.stringify(db, null, 2);
+
+  const resultJSON = "var soundsDB = " + JSON.stringify(sounds, null, 2) + "\n\nvar musicDB = " + JSON.stringify(db, null, 2);
   //console.log(resultJSON);
   fs.writeFile(sDBpath, resultJSON, function(err) {
     if(err) {

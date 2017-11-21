@@ -75,6 +75,7 @@ class soundsClass{
 			"default": "fa-play",
       "silence": "fa-microphone-slash"
 		};
+		this.path="";
 
 		if($("#sounds_container").lenght>0) {
 
@@ -84,11 +85,15 @@ class soundsClass{
 	}
 	add(URL, IMG) {
 		var new_sound = {
-			url: URL,
+			url: this.path+URL,
 			img: IMG
 		};
 		this.sounds_arr.push(new_sound);
 		this.rerender();
+	}
+	setPath(sPath){
+		if(sPath)
+			this.path = sPath;
 	}
 	rerender(){
 		$("#sounds_container").empty();
@@ -752,7 +757,7 @@ function saveSoundlists(){
   if(musicDB){
     //var player_i = 1;
     try{
-
+    	sounds.setPath(ROOT+Folder);
     	var soundDB = [
     		{
 				title: "",
