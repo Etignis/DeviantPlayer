@@ -1104,6 +1104,140 @@ $("body").on("click", "#mw_pl_OkButton", function(){
 	// / список
 
 
+// manage sounds
+function openSoundlistsWindow() {
+  var aFolders = [];
+
+  //var playlistsCheckList = "<div class='columns'>"+aFolders.join("")+"</div>";
+  var oRootPath = "<div>Полный путь к папке со звуками: <input id='mw_playlist_rootpath' type='text' value='"+ ROOT +"/!звуки' style='width:60%; min-width:10em'></div>";
+  var oButtons = "<div class='buttonsPlace'><button id='mw_sl_CancelButton'>Отменить</button><button id='mw_sl_OkButton'>ОК</button></div>";
+
+  var oSoundList = "<ul class='soundColumn'><li class='item'></li><li class='add'></li></ul>";
+
+  var oSoundTitle = "<input type='text' class='soundTitle'>";
+  var oSoundIco = "<input type='text' class='soundIco'>";
+  var oSoundArr = "<ul class='soundArr'><li></li></ul>";
+  var oSoundInfo = "<div class='soundInfo'>"+oSoundTitle+oSoundIco+oSoundArr+"</div>";
+
+  var oContent = "<div>"+oSoundInfo+"</div>";
+
+  if($("#dbg").length<1)	{
+    $("body").append("<div id='dbg'></div><div class='mod_win' id='mw_soundlists_manage' >"+oRootPath+oContent+oButtons+"</div>");
+  }
+  //recountMWPlaylistsWindow();
+}
+function recountMWSoundlistsWindow(){
+  if($("#mw_playlists_manage").length>0){
+    var nWidth = $("#mw_playlists_manage").width();
+    var nColumnsNum = ~~(nWidth / 260)
+    $("#mw_playlists_manage .columns").css("column-count", nColumnsNum);
+  }
+}
+function closeSoundlistsWindow() {
+  $("#dbg").fadeOut().remove();
+  $(".mod_win").fadeOut().remove();
+}
+function applySoundlistsWindow(){
+
+
+ // addTrackListsFromDB(aSelectedPlaylists) ;
+}
+$("body").on("click", "#p_config", function(){
+  openPlaylistsWindow();
+});
+$("body").on("click", "#mw_pl_CancelButton", function(){
+  closePlaylistsWindow();
+});
+$("body").on("click", "#mw_pl_OkButton", function(){
+  applyPlaylistsWindow();
+  closePlaylistsWindow();
+});
+
+	// создание списка воспроизведение
+
+	$("body").on("click", ".make_list", function(){
+		// модальное окно
+		var f_name = $(this).closest(".player_form").find(".pf_name").text();
+		var path = "<input type='text' class='path' placeholder='path' value=ROOT+''>";
+		var folder = "<input type='text' class='folder' placeholder='папка' value='"+f_name+"'>";
+		var block = "<textarea class='blck'></textarea>";
+		var btns = "<hr><div class='bt cnsl'>Отменить</div><div class='bt doit'>Применить</div>";
+		var p_num = $(this).closest(".player_form").attr("data-name");
+		if($("#dbg").length<1)
+			$("body").append("<div id='dbg'></div><div class='mod_win' id='mw_add_tracks' data-player_num='"+p_num+"'>"+path+folder+block+btns+"</div>");
+	});
+
+	$("body").on("click", "#mw_add_tracks .cnsl", function(){
+		$("#dbg").remove();
+		$("#mw_add_tracks").remove();
+	});
+
+	$("body").on("click", "#mw_add_tracks .doit", function(){
+		var path=$("#mw_add_tracks .path").val();
+		var folder=$("#mw_add_tracks .folder").val();
+		var list=$("#mw_add_tracks .blck").val();
+		var strs = list.split("\n");
+		var p_num=$("#mw_add_tracks").attr("data-player_num");
+
+		//console.log(strs[1]);
+		if(path.slice(-1)!="/")
+			path+="/";
+		if(folder.slice(-1)!="/")
+			folder+="/";
+
+		// список существующего
+		var is_mus =[], m_i=0;;
+		$(".player_form[data-name='"+p_num+"']").find(".tr_line").each(function(){
+				is_mus[m_i] = $(this).attr("data-url");
+				m_i++;
+			})
+
+		var result = [];
+		for(i=0; i< strs.length && strs[i].length>0; i++)
+		{
+			result[i]=path+folder+strs[i];
+			f_is=0;
+			for(h=0;h<m_i;h++)
+				{
+					//console.log(is_mus[h]+"="+result[i]);
+				if(is_mus[h]==result[i])
+					{
+					f_is=1;
+					//console.log("f_is")
+					}
+				}
+			if(f_is==0&&result[i].length>0)
+				player[p_num].add_track(result[i]);
+		}
+		//console.log(result[1]);
+
+		$("#dbg").remove();
+		$("#mw_add_tracks").remove();
+	});
+
+	$("body").on("click", "#p_add", function(){
+		// модальное окно
+		var path = "<input type='text' class='path' placeholder='path' value=ROOT+''>";
+		var folder = "<input type='text' class='folder' placeholder='папка' >";
+		var block = "<textarea class='blck'></textarea>";
+		var btns = "<hr><div class='bt cnsl'>Отменить</div><div class='bt doit_new'>Создать</div>";
+
+		var sName = "<input type='text' placeholder='Название' id='newGroupName'>";
+		var fileInput = "<input type='file' multiple name='audios[]' id='newGroupsMusic'accept='audio/*'>";
+		if($("#dbg").length<1)
+			$("body").append("<div id='dbg'></div><div class='mod_win' id='mw_add_tracks'>"+sName+fileInput+btns+"</div>");
+	});
+
+	$("body").on("click", "#mw_add_tracks .doit_new", function(){
+		var aFiles = $("#newGroupsMusic").val();
+		debugger;
+	});
+
+	// / список
+
+
+
+
 	// скрыть
 	$("body").on("click", ".btn.hide", function(){
 		if($(this).prop("checked"))
