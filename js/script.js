@@ -758,7 +758,7 @@ function saveSoundlists(){
     //var player_i = 1;
     try{
     	sounds.setPath(ROOT+Folder);
-    	var soundDB = [
+    	aList = [
     		{
 				title: "",
 				image: "",
@@ -774,7 +774,7 @@ function saveSoundlists(){
     	]
     	/**/
 
-    	soundDB.forEach(function(snd){
+    	aList.forEach(function(snd){
     		sounds.add(
     			snd.list,
     			snd.image
