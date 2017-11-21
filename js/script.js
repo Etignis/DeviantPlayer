@@ -12,6 +12,7 @@ function add_track(pf_id){
 var ROOT = 'D:/Cloud/DnD/Музыка/';
 //var ROOT = 'D:/DnD/Музыка/';
 var aSelectedPlaylists = [];
+var aSelectedSoundlists = [];
 
 var Drug;
 
@@ -691,78 +692,192 @@ var lt=[];
 
 addTrackListsFromDB();
 
+// sounds
+Folder = '!звуки/';
+var sounds = new soundsClass();
+function saveSoundlists(){
+    var sLists = JSON.stringify(aSelectedPlaylists);
+    if(sLists) {
+      localStorage.setItem('aSoundLists', sLists);
+    }
+    localStorage.setItem("sROOT", ROOT);
+ }
+ function loadSoundLists(){
+    var sLists = localStorage.getItem('aSoundLists');
+    if(sLists != "undefined"){
+      aSelectedPlaylists = JSON.parse(sLists);
+    }
+    sTMProot = localStorage.getItem('sROOT');
+    if(sTMProot && sTMProot != 'undefined') {
+      ROOT = sTMProot;
+    }
+ }
+ function clearSounds(aList){
+  // $(".tracks .player_form").each(function(){
+  //   if(aList.indexOf($(this).attr("data-form-name")) < 0) {
+  //     $(this).remove();
+  //   }
+  // });
+ }
+ function onSoundlistsReordered() {
+   var aNewList = [];
+   // fix!!
+   $(".player_form").each(function(){
+     aNewList.push($(this).attr('data-form-name'));
+   });
+   aSelectedSoundlists = aNewList;
+   saveSoundlists();
+ }
+ var sounds = new soundsClass();;
+ function addSoundListsFromDB(aList) {
+   if(!aList){
+     loadSoundLists();
+     if(!(aSelectedPlaylists && aSelectedPlaylists.length>0)) {
+      aList = [
+        "спокойно",
+        "бодро",
+        "светло",
+        "данж",
+        "недра",
+        "таверна",
+        "эпик"
+        ];
+     } else{
+       aList = aSelectedPlaylists;
+     }
+
+   }
+   var list = aSelectedPlaylists = aList;
+   clearTracks(list);
+  if(musicDB){
+    //var player_i = 1;
+    try{
+
+    	var soundDB = [
+    		{
+				title: "",
+				image: "",
+				list: [
+					'Ералаш.mp3',
+					'Звуки для видео - Барабаны Бадум-тссс.mp3',
+					'смех1.wav',
+					'смех2.wav',
+					'смех3.wav',
+					'смех4.wav'
+				]
+    		}
+    	]
+    	/**/
+
+    	soundDB.forEach(function(snd){
+    		sounds.add(
+    			snd.list,
+    			snd.image
+    		)
+    	})
+    // 	sounds.add(
+				// [
+				// 	ROOT+Folder+'Ералаш.mp3',
+				// 	ROOT+Folder+'Звуки для видео - Барабаны Бадум-тссс.mp3',
+				// 	ROOT+Folder+'смех1.wav',
+				// 	ROOT+Folder+'смех2.wav',
+				// 	ROOT+Folder+'смех3.wav',
+				// 	ROOT+Folder+'смех4.wav'
+				// ],
+				// 	"LOL"
+				// );
+    } catch (err) {
+      console.dir(err);
+    }
+    saveSoundlists();
+
+
+//fix!!
+    var list = document.getElementById("sounds_container");
+    Sortable.create(list, {
+      handle: ".pf_name",
+      ghostClass: "tracklist_ghost",
+      dragClass: "tracklist_drag",
+      onEnd: onTracklistsReordered
+    });
+
+  }
+ }
+
+addSoundListsFromDB();
+
 
 ///////////////////
 
 // Звуки
 
-Folder = '!звуки/';
-var sounds = new soundsClass();
-sounds.add(
-	[
-		ROOT+Folder+'Ералаш.mp3',
-		ROOT+Folder+'Звуки для видео - Барабаны Бадум-тссс.mp3',
-		ROOT+Folder+'смех1.wav',
-		ROOT+Folder+'смех2.wav',
-		ROOT+Folder+'смех3.wav',
-		ROOT+Folder+'смех4.wav'
-	],
-		"LOL"
-	);
-sounds.add(ROOT+Folder+'Опыт 6.mp3', "expa");
-sounds.add(ROOT+Folder+'Монеты.wav', "money");
-sounds.add(ROOT+Folder+'таймер2.wav', "time");
-sounds.add(
-	[
-	ROOT+Folder+'Гонг2.mp3',
-	ROOT+Folder+'гудок 1.wav',
-	ROOT+Folder+'гудок 2.wav'
-	], "warning");
-sounds.add(
-	[
-		ROOT+Folder+'Поворот.mp3',
-		ROOT+Folder+'Поворот.mp3',
-		ROOT+Folder+'Звуки для видео - Супрайз мазафака.mp3',
-		ROOT+Folder+'Звуки для видео - ТА ДА ДА ДАААМ.mp3',
-		ROOT+Folder+'Звуки для видео - Внезапный звук.mp3',
-		ROOT+Folder+'Звуки Для Видео - Тревожная музыка.mp3',
-		ROOT+Folder+'внезапно.wav',
-		ROOT+Folder+'внезапно.wav'
-	]
-		, "eye"
-	);
-sounds.add(
-	[
-		ROOT+Folder+'вжух.wav',
-		ROOT+Folder+'вжух.wav',
-		ROOT+Folder+'вжух.wav',
-		ROOT+Folder+'вжух.wav',
-		ROOT+Folder+'Звуки для видео - Превращение.mp3',
-		ROOT+Folder+'Звуки для видео - Волшебство.mp3',
-		ROOT+Folder+'магия.wav',
-		ROOT+Folder+'магия 2.wav',
-		ROOT+Folder+'магия 3.wav'
-	]
-	, "magic"
-	);
+// Folder = '!звуки/';
+// var sounds = new soundsClass();
+// sounds.add(
+// 	[
+// 		ROOT+Folder+'Ералаш.mp3',
+// 		ROOT+Folder+'Звуки для видео - Барабаны Бадум-тссс.mp3',
+// 		ROOT+Folder+'смех1.wav',
+// 		ROOT+Folder+'смех2.wav',
+// 		ROOT+Folder+'смех3.wav',
+// 		ROOT+Folder+'смех4.wav'
+// 	],
+// 		"LOL"
+// 	);
+// sounds.add(ROOT+Folder+'Опыт 6.mp3', "expa");
+// sounds.add(ROOT+Folder+'Монеты.wav', "money");
+// sounds.add(ROOT+Folder+'таймер2.wav', "time");
+// sounds.add(
+// 	[
+// 	ROOT+Folder+'Гонг2.mp3',
+// 	ROOT+Folder+'гудок 1.wav',
+// 	ROOT+Folder+'гудок 2.wav'
+// 	], "warning");
+// sounds.add(
+// 	[
+// 		ROOT+Folder+'Поворот.mp3',
+// 		ROOT+Folder+'Поворот.mp3',
+// 		ROOT+Folder+'Звуки для видео - Супрайз мазафака.mp3',
+// 		ROOT+Folder+'Звуки для видео - ТА ДА ДА ДАААМ.mp3',
+// 		ROOT+Folder+'Звуки для видео - Внезапный звук.mp3',
+// 		ROOT+Folder+'Звуки Для Видео - Тревожная музыка.mp3',
+// 		ROOT+Folder+'внезапно.wav',
+// 		ROOT+Folder+'внезапно.wav'
+// 	]
+// 		, "eye"
+// 	);
+// sounds.add(
+// 	[
+// 		ROOT+Folder+'вжух.wav',
+// 		ROOT+Folder+'вжух.wav',
+// 		ROOT+Folder+'вжух.wav',
+// 		ROOT+Folder+'вжух.wav',
+// 		ROOT+Folder+'Звуки для видео - Превращение.mp3',
+// 		ROOT+Folder+'Звуки для видео - Волшебство.mp3',
+// 		ROOT+Folder+'магия.wav',
+// 		ROOT+Folder+'магия 2.wav',
+// 		ROOT+Folder+'магия 3.wav'
+// 	]
+// 	, "magic"
+// 	);
 
-sounds.add([
-	ROOT+Folder+'портал 0.wav',
-	ROOT+Folder+'Портал большой 3.wav',
-	ROOT+Folder+'Портал Большой 2.wav'
-	], "portal");
+// sounds.add([
+// 	ROOT+Folder+'портал 0.wav',
+// 	ROOT+Folder+'Портал большой 3.wav',
+// 	ROOT+Folder+'Портал Большой 2.wav'
+// 	], "portal");
 
-sounds.add([
-	ROOT+Folder+'Телепортация 2.wav',
-	ROOT+Folder+'Телепортация.wav',
-	ROOT+Folder+'Телепортация.wav',
-	ROOT+Folder+'Телепортация.wav'
-	], "puff");
+// sounds.add([
+// 	ROOT+Folder+'Телепортация 2.wav',
+// 	ROOT+Folder+'Телепортация.wav',
+// 	ROOT+Folder+'Телепортация.wav',
+// 	ROOT+Folder+'Телепортация.wav'
+// 	], "puff");
 
-sounds.add([
-	ROOT+Folder+'сверчки 01-0-1.7.mp3',
-	ROOT+Folder+'Лягушка-1.8-4.9.mp3'
-	], "silence");
+// sounds.add([
+// 	ROOT+Folder+'сверчки 01-0-1.7.mp3',
+// 	ROOT+Folder+'Лягушка-1.8-4.9.mp3'
+// 	], "silence");
 	// ,
 	//ROOT+Folder+'Портал 6.wav'
 
