@@ -16,8 +16,9 @@ function createBD() {
     const sInnerPath = path.join(sMusicPath, folder);
     const isDir = fs.lstatSync(sInnerPath);
     // only for folders with music
-    if(isDir.isDirectory() && !(/^!/.test(folder))) {
-      let aList= [];
+    if(isDir.isDirectory()) {
+      if(!(/^!/.test(folder))) {
+        let aList= [];
         fs.readdirSync(sInnerPath).forEach(file => {
           // music?
           if(path.extname(file) === mp3Ext || path.extname(file) === wavExt) {
@@ -29,7 +30,14 @@ function createBD() {
         var l = 40 - (sPathName.length);
         //console.log(l);
         l = (l<0)? 0: l;
-        console.log(sPathName + Array(l).join(".") + aList.length + " tracks");
+        var sPoints = "";
+        if(aList.length < 100) { 
+          sPoints+=".";
+        }
+        if(aList.length < 10) { 
+          sPoints+=".";
+        }
+        console.log(sPathName + Array(l).join(".") + sPoints  + aList.length+ " tracks");
         db[folder.toLowerCase()] = {
           number: aList.length,
           list: aList
@@ -38,15 +46,16 @@ function createBD() {
           console.log("rename: "+sInnerPath+" -> "+path.join(sMusicPath, folder.toLowerCase()))
           fs.renameSync(sInnerPath, path.join(sMusicPath, folder.toLowerCase()));
         }
-    } else { // sounds
-      let aList= [];
-      fs.readdirSync(sInnerPath).forEach(file => {
-        // music?
-        if(path.extname(file) === mp3Ext || path.extname(file) === wavExt) {
-          aList.push(file);
-        }
-      });
-      sounds = aList;
+      } else { // sounds
+        let aList= [];
+        fs.readdirSync(sInnerPath).forEach(file => {
+          // music?
+          if(path.extname(file) === mp3Ext || path.extname(file) === wavExt) {
+            aList.push(file);
+          }
+        });
+        sounds = aList;
+      }
     }
   });
 
