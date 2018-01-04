@@ -8,9 +8,13 @@ const wavExt = '.wav';
 const sMusicPath = "D:/Cloud/DnD/Музыка";
 const sDBpath = "../js/db.js"
 
+function getData() {
+  
+}
+
 function createBD() {
   let db = {};
-  let sounds = [];
+  let sounds = {};
   console.log("Start working in " + sMusicPath);
   fs.readdirSync(sMusicPath).forEach(folder => {
     const sInnerPath = path.join(sMusicPath, folder);
@@ -26,9 +30,7 @@ function createBD() {
           }
         });
         const sPathName = "Folder \""+folder+"\": ";
-        //console.log(sPathName);
         var l = 40 - (sPathName.length);
-        //console.log(l);
         l = (l<0)? 0: l;
         var sPoints = "";
         if(aList.length < 100) { 
@@ -47,20 +49,53 @@ function createBD() {
           fs.renameSync(sInnerPath, path.join(sMusicPath, folder.toLowerCase()));
         }
       } else { // sounds
-        let aList= [];
-        fs.readdirSync(sInnerPath).forEach(file => {
-          // music?
-          if(path.extname(file) === mp3Ext || path.extname(file) === wavExt) {
-            aList.push(file);
-          }
-        });
-        sounds = aList;
+        //console.log("sound: "+sInnerPath);
+        const isDir1 = fs.lstatSync(sInnerPath);
+        if(isDir1.isDirectory()){
+          fs.readdirSync(sInnerPath).forEach(file => {
+            let aList= [];
+            const sInnerSoundPath = path.join(sInnerPath, file);
+            const isDir2 = fs.lstatSync(sInnerSoundPath);
+            //console.log("sInnerSoundPath: "+sInnerSoundPath);
+            if(isDir2.isDirectory()) {
+              fs.readdirSync(sInnerSoundPath).forEach(sound => {
+                // music?
+                if(path.extname(sound) === mp3Ext || path.extname(sound) === wavExt) {
+                  aList.push(sound);
+                }
+              });
+              const sPathName = "Sound folder \""+file+"\": ";
+              var l = 40 - (sPathName.length);
+              l = (l<0)? 0: l;
+              var sPoints = "";
+              if(aList.length < 100) { 
+                sPoints+=".";
+              }
+              if(aList.length < 10) { 
+                sPoints+=".";
+              }
+              console.log(sPathName + Array(l).join(".") + sPoints  + aList.length+ " tracks");
+              sounds[file.toLowerCase()] = {
+                number: aList.length,
+                list: aList
+              }
+              /*
+              // music?
+              if(path.extname(file) === mp3Ext || path.extname(file) === wavExt) {
+                aList.push(file);
+              }
+              */
+            }
+            
+          });
+        }
+        //sounds = aList;
       }
     }
   });
-
+  //console.dir(db);
+  //.dir(JSON.stringify(db, null, 2));
   const resultJSON = "var soundsDB = " + JSON.stringify(sounds, null, 2) + "\n\nvar musicDB = " + JSON.stringify(db, null, 2);
-  //console.log(resultJSON);
   fs.writeFile(sDBpath, resultJSON, function(err) {
     if(err) {
         return console.log(err);

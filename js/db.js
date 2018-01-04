@@ -1,128 +1,100 @@
-var soundsDB = [
-  "362926__shaderrow__scream.wav",
-  "BUILDTWN.wav",
-  "CHAINLTE.wav",
-  "CHAT.wav",
-  "DRAGON.wav",
-  "EXPERNCE.mp3",
-  "EXPERNCE.wav",
-  "FLAGMINE.wav",
-  "ghost 01 haunting.mp3",
-  "ghost 02 monstermoan.mp3",
-  "ghost 03 SUPER nmh_scream1.mp3",
-  "ghost 04 SCREAM_4.mp3",
-  "ghost 05 woscream4.mp3",
-  "ghost mrwinter__spooky-scream.wav",
-  "GOODLUCK.wav",
-  "LUCK.wav",
-  "MORALE.wav",
-  "MYSTERY.wav",
-  "NWHEROLV.wav",
-  "PICKUP01.wav",
-  "PICKUP02.wav",
-  "PICKUP03.wav",
-  "PICKUP04.wav",
-  "PICKUP05.wav",
-  "PICKUP06.wav",
-  "PICKUP07.wav",
-  "STORE.wav",
-  "TREASURE.wav",
-  "undead01.wav",
-  "undead02.wav",
-  "undead03.wav",
-  "undead04.wav",
-  "undead05.wav",
-  "undead06.wav",
-  "undead07.wav",
-  "undead08.wav",
-  "witch.mp3",
-  "XP1.mp3",
-  "Армия бой орут.mp3",
-  "Бенни Хил.mp3",
-  "вжух.wav",
-  "Взрыв.mp3",
-  "Вляпался, раздавил.mp3",
-  "внезапно.wav",
-  "Вода бульк.mp3",
-  "Гонг.mp3",
-  "Гонг2.mp3",
-  "гудок 1.wav",
-  "гудок 2.wav",
-  "дверной звонок 1.wav",
-  "дверной звонок 2.wav",
-  "дверной звонок 3.wav",
-  "Деревянная дверь закрыть 01.mp3",
-  "дзиньк.mp3",
-  "Ералаш.mp3",
-  "Замок.mp3",
-  "Запуск шаровой молнии.mp3",
-  "Звонок касса.wav",
-  "Звуки для видео - Барабаны Бадум-тссс.mp3",
-  "Звуки для видео - Внезапный звук.mp3",
-  "Звуки для видео - Волшебство.mp3",
-  "Звуки для видео - Превращение.mp3",
-  "Звуки для видео - Супрайз мазафака.mp3",
-  "Звуки для видео - ТА ДА ДА ДАААМ.mp3",
-  "Звуки Для Видео - Тревожная музыка.mp3",
-  "лол.mp3",
-  "Лягушка-1.8-4.9.mp3",
-  "Лягушка.mp3",
-  "магия 2.wav",
-  "магия 3.wav",
-  "Магия снаряд.mp3",
-  "магия.wav",
-  "Монеты 2.wav",
-  "Монеты 3.wav",
-  "Монеты 4.wav",
-  "Монеты 5.wav",
-  "Монеты 6.wav",
-  "монеты.mp3",
-  "Монеты.wav",
-  "опыт 2.wav",
-  "Опыт 3.wav",
-  "Опыт 4.wav",
-  "Опыт 5.wav",
-  "Опыт 6.mp3",
-  "Опыт 7.mp3",
-  "Опыт 9.mp3",
-  "опыт.wav",
-  "Оружие удар.mp3",
-  "Поворот.mp3",
-  "Поп.mp3",
-  "портал 0.wav",
-  "Портал 10.mp3",
-  "Портал 2.wav",
-  "Портал 3.wav",
-  "Портал 4.wav",
-  "Портал 5.wav",
-  "Портал 6.wav",
-  "Портал 7.wav",
-  "Портал 8.mp3",
-  "Портал 9.mp3",
-  "Портал Большой 2.wav",
-  "Портал большой 3.wav",
-  "портал.mp3",
-  "пролетело.mp3",
-  "Рык.mp3",
-  "сверчки 01-0-1.7.mp3",
-  "сверчки 01.mp3",
-  "Скрип половица.mp3",
-  "Смерть гоблин.mp3",
-  "смех.wav",
-  "смех1.wav",
-  "смех2.wav",
-  "смех3.wav",
-  "смех4.wav",
-  "Стрела попала.mp3",
-  "стрела попала02.mp3",
-  "таймер.wav",
-  "таймер2.wav",
-  "Телепортация 2.wav",
-  "Телепортация.wav",
-  "Тиканье часов.mp3",
-  "Удар молнии 01.mp3",
-  "Что-то пролетело.mp3"
-]
+var soundsDB = {
+  "battle suspence": {
+    "number": 9,
+    "list": [
+      "Mark Griskey - Battle Suspense 1.mp3",
+      "Mark Griskey - Battle Suspense 2.mp3",
+      "Mark Griskey - Battle Suspense 3.mp3",
+      "Mark Griskey - Battle Suspense 4.mp3",
+      "Mark Griskey - Battle Suspense 5.mp3",
+      "Mark Griskey - Battle Suspense 6.mp3",
+      "Mark Griskey - Battle Suspense 7.mp3",
+      "Mark Griskey - Battle Suspense 8.mp3",
+      "Mark Griskey - Battle Suspense 9.mp3"
+    ]
+  },
+  "ахаха": {
+    "number": 6,
+    "list": [
+      "Барабаны Бадум-тссс.mp3",
+      "Ералаш.mp3",
+      "смех1.wav",
+      "смех2.wav",
+      "смех3.wav",
+      "смех4.wav"
+    ]
+  },
+  "внезапно": {
+    "number": 6,
+    "list": [
+      "внезапно.wav",
+      "Внезапный звук.mp3",
+      "Поворот.mp3",
+      "Супрайз мазафака.mp3",
+      "ТА ДА ДА ДАААМ.mp3",
+      "Тревожная музыка.mp3"
+    ]
+  },
+  "гудок": {
+    "number": 3,
+    "list": [
+      "Гонг2.mp3",
+      "гудок 1.wav",
+      "гудок 2.wav"
+    ]
+  },
+  "магия": {
+    "number": 6,
+    "list": [
+      "вжух.wav",
+      "Волшебство.mp3",
+      "магия 2.wav",
+      "магия 3.wav",
+      "магия.wav",
+      "Превращение.mp3"
+    ]
+  },
+  "монеты": {
+    "number": 1,
+    "list": [
+      "Монеты.wav"
+    ]
+  },
+  "неловко": {
+    "number": 2,
+    "list": [
+      "Лягушка-1.8-4.9.mp3",
+      "сверчки 01-0-1.7.mp3"
+    ]
+  },
+  "опыт": {
+    "number": 1,
+    "list": [
+      "Опыт 6.mp3"
+    ]
+  },
+  "портал": {
+    "number": 3,
+    "list": [
+      "портал 0.wav",
+      "Портал Большой 2.wav",
+      "Портал большой 3.wav"
+    ]
+  },
+  "таймер": {
+    "number": 1,
+    "list": [
+      "таймер2.wav"
+    ]
+  },
+  "телепортация": {
+    "number": 2,
+    "list": [
+      "Телепортация 2.wav",
+      "Телепортация.wav"
+    ]
+  }
+}
 
 var musicDB = {
   "18 век": {
@@ -156,7 +128,7 @@ var musicDB = {
     ]
   },
   "xmass": {
-    "number": 50,
+    "number": 58,
     "list": [
       "07. Günter Noris - Jingle bells  Fröhliche Weihnacht überall  Oh Tannenbaum.mp3",
       "08. Günter Noris - Stille Nacht, heilige Nacht.mp3",
@@ -164,6 +136,7 @@ var musicDB = {
       "10. Günter Noris - White Christmas.mp3",
       "Abba - Happy New Year.mp3",
       "Alexandre Desplat - 20. Busy Workshop (OST-HD Хранители Снов  The Rise Of The Guardians) (Vk.ComOstHD).mp3",
+      "Andy Williams - It#39;s the Most Wonderful Time of the Year.mp3",
       "Andy Williams - Winter Wonderland (реклама конфет Коркунов- Новогодняя классика).mp3",
       "Beatles - Last Christmas (Rare).mp3",
       "Big Bad Voodoo Daddy - All I Want For Christmas (Is My Two Front Teeth).mp3",
@@ -175,14 +148,17 @@ var musicDB = {
       "Bing Crosby And David Bowie - The Little Drummer Boy.mp3",
       "Bing Crosby, Les Brown  His Orchestra - Christmas is here to stay.mp3",
       "Bobby Helms - Jingle Bell Rock.mp3",
+      "Brenda Lee - Rockin#39; Around the Christmas Tree.mp3",
       "Brenda Lee - Rockin' Around The Christmas Tree.mp3",
       "Bryan Adams - Christmas Time.mp3",
       "Chuck Berry - Run Rudolph Run.mp3",
       "Dean Martin - Baby, It#39;s Cold Outside.mp3",
+      "Dean Martin - Let It Snow.mp3",
       "Dean Martin - The Christmas Blues.mp3",
       "Ella Fitzgerald - Let It Snow#33; Let It Snow#33; Let It Snow#33;.mp3",
       "Elvis Presley - Blue Christmas.mp3",
       "Enya - We Wish You A Merry Christmas and Happy New Year.mp3",
+      "Ferrante  TeicherLes Baxter - Sleigh RideSanta Claus#39; Party (Medley).mp3",
       "Frank Sinatra - Have Yourself A Merry Little Christmas.mp3",
       "Frank Sinatra - I Wish You A Merry Christmas.mp3",
       "Frank Sinatra - Let It Snow! Let It Snow! Let It Snow! (Remastered).mp3",
@@ -195,6 +171,8 @@ var musicDB = {
       "Jason Mraz - Winter Wonderland.mp3",
       "Jessica Simpson - Here Comes Santa Claus  Santa Claus Is Coming To Town.mp3",
       "John Lennon - Happy Xmas (War Is Over).mp3",
+      "Johnny Mercer  The Capitol Studio Orchestra - Jingle Bells.mp3",
+      "Kay Starr - (Everybody#39;s Waitin#39; For) The Man With The Bag.mp3",
       "Lady Antebellum - A Holly Jolly Christmas.mp3",
       "Louis Armstrong - White Christmas.mp3",
       "Louis Armstrong - Zat You Santa Claus.mp3",
@@ -202,10 +180,12 @@ var musicDB = {
       "Marilyn Monro - Santa baby (Christmas Songs).mp3",
       "Nat King Cole - Jingle Bells.mp3",
       "Paul Mauriat - 11.White Christmas.mp3",
+      "Perry Como and The Fontane Sisters with Mitchell Ayres  His Orchestra - It#39;s Beginning To Look Like Christmas (with The Fontaine Sisters).mp3",
       "Pomplamoose - Jingle Bells.mp3",
       "Pomplamoose - Mister Sandman.mp3",
       "Richard Marx - Christmas Spirit.mp3",
       "Stevie Wonder - What Christmas Means To Me.mp3",
+      "The Beach Boys - Little Saint Nick.mp3",
       "The Shins - Wonderful Christmastime.mp3",
       "Джордж Майкл - Last Christmas.mp3"
     ]
@@ -423,7 +403,7 @@ var musicDB = {
     ]
   },
   "_hell": {
-    "number": 40,
+    "number": 42,
     "list": [
       "Angelspit - Devilicious.mp3",
       "Avanged Sevenfold - Second Heartbeat.mp3",
@@ -446,6 +426,8 @@ var musicDB = {
       "Korpiklaani - Petoel imen Kuola.mp3",
       "Kreator - Pleasure To Kill.mp3",
       "Lewory Elsone - I HATE HATE HATE BITCH WORLD,DIE IN YOUR DREAMS,I BROUGHT SUFFERING BITCH.mp3",
+      "Lies Of The Machine - Psychocircus.mp3",
+      "Lies Of The Machine - Z-Waltz.mp3",
       "Mastodon - Blood And Thunder (Leviathan 04).mp3",
       "Mastodon - Blood And Thunder.mp3",
       "Mick Gordon - Gargos Theme.mp3",
@@ -690,7 +672,7 @@ var musicDB = {
     ]
   },
   "_бодро": {
-    "number": 260,
+    "number": 265,
     "list": [
       "1471ed8fcf1b26.mp3",
       "30 Seconds to Mars - Edge of the Earth.mp3",
@@ -883,6 +865,11 @@ var musicDB = {
       "Skillet - Back From The Dead.mp3",
       "Skillet - Feel Invincible.mp3",
       "Sonic the Hedgehog 2 - Mystic Cave Zone on guitar.mp3",
+      "Stormhold - Black Death.mp3",
+      "Stormhold - Exile.mp3",
+      "Stormhold - God#39;s Crusade.mp3",
+      "Stormhold - Heart Of A Hero.mp3",
+      "Stormhold - We, March.mp3",
       "Styles Of Beyond - Nine Thou [httpsvk.comappzona] 7.mp3",
       "Styles_Of_Beyond_-_Nine_Thou.mp3",
       "Supercharger - Widemouth.mp3",
@@ -1174,7 +1161,7 @@ var musicDB = {
     ]
   },
   "_киберпанк": {
-    "number": 323,
+    "number": 324,
     "list": [
       "01 DEATHCITY.mp3",
       "03 soul-eater (reprise).mp3",
@@ -1317,6 +1304,7 @@ var musicDB = {
       "Haujobb - Slugbait.mp3",
       "Haujobb - Yearning.mp3",
       "Holon - Sentinel.mp3",
+      "Holy Grin - Diabolism At Its Finest.mp3",
       "Hybrid - All Torque.mp3",
       "Hybrid - Enjoy the Silence.mp3",
       "iamthekidyouknowwhatimean - Vulvasaur Rex.mp3",
@@ -2228,7 +2216,7 @@ var musicDB = {
     ]
   },
   "_фон": {
-    "number": 853,
+    "number": 854,
     "list": [
       "01. Live to Rise.mp3",
       "01cdefff252087.mp3",
@@ -2336,6 +2324,7 @@ var musicDB = {
       "Blue yster Cult - Dont Fear The Reaper (OST Сверхъестественное, Добро пожаловать в Зомбилэнд).mp3",
       "Blues Saraceno - Grave Digger.mp3",
       "Blues Saraceno - Pumpin Irony.mp3",
+      "Blur - Girls And Boys.mp3",
       "Blur - M.O.R..mp3",
       "Blur - song 2.mp3",
       "Blur_-_Coffee_&_TV_(OST_Жестокие_игры).mp3",
@@ -3649,7 +3638,7 @@ var musicDB = {
     ]
   },
   "бодро": {
-    "number": 291,
+    "number": 296,
     "list": [
       "1M1 Music(Vol.2) - Cannonball.mp3",
       "Adam Skorupa Krzysztof Wierzynkiewicz - Easier Said than Killed.mp3",
@@ -3816,6 +3805,10 @@ var musicDB = {
       "Magicka_OST_-_Battle_of_the_Wizards.mp3",
       "Magicka_OST_-_Boss_Battle.mp3",
       "Marcin Przyby owicz - The House Of The Borsodis.mp3",
+      "Marcin Przybylowicz  Mikolai Stroinski - Forged in Fire.mp3",
+      "Marcin Przybylowicz  Mikolai Stroinski - On the Champs-Desoles.mp3",
+      "Marcin Przybylowicz  Mikolai Stroinski - Silver for Monsters....mp3",
+      "Marcin Przybylowicz  Mikolai Stroinski - Tesham Mutna.mp3",
       "Marika Suzuki, Akiyuki Morimoto - The Akrid Appear.mp3",
       "Mark Griskey - Fighting the Gorog.mp3",
       "Markus_Schmidt_(The_Cursed_Crusade_OST)_-_The_Fourth_Crusade.mp3",
@@ -3859,6 +3852,7 @@ var musicDB = {
       "ost Angel Sanctuary - Golem Form.mp3",
       "OST L2 - Baiums Battle.mp3",
       "OST The Elder Scrolls V Skyrim - Battle 4.mp3",
+      "Percival  Marcin Przyby#322;owicz - Jomsborg.mp3",
       "Peter_McConnell_-_Duel_With_The_Critic.mp3",
       "Pfeifer Broz. Music - Absolute Anthropoid.mp3",
       "Pillars of Eternity - The Dragon Thrashed and Wailed.mp3",
@@ -4585,10 +4579,13 @@ var musicDB = {
     ]
   },
   "зима": {
-    "number": 80,
+    "number": 83,
     "list": [
       "Adrian von Ziegler - Queen of the Gaels.mp3",
       "Anoice - White Paper.mp3",
+      "Antti Martikainen - Frozen Sun.mp3",
+      "Antti Martikainen - Northland.mp3",
+      "Antti Martikainen - To Valhalla#33;.mp3",
       "Arath_-_The_Airs_Of_The_Barbaric_Lands.mp3",
       "Asya_Sergeeva_-_Birds_of_February.mp3",
       "Asya_Sergeeva_-_Heart_of_Winter.mp3",
@@ -5383,7 +5380,7 @@ var musicDB = {
     ]
   },
   "спокойно": {
-    "number": 500,
+    "number": 502,
     "list": [
       "02. Toshiro Masuda - Wealth of Obesity.mp3",
       "03. Yasuharu Takanashi - Friend.mp3",
@@ -5792,6 +5789,8 @@ var musicDB = {
       "Russell_Brower,_Neal_Acree,_Sam_Cardon,_Edo_Guidotti_&_Jeremy_Soule_-_The_August_Celestials.mp3",
       "Scandinavian folk - Skellige.mp3",
       "Sequentia_-_Instrumental_piece.mp3",
+      "Sequestered Keep - Dragons Circle Distant Peaks.mp3",
+      "Sequestered Keep - Magic Led My Way.mp3",
       "Shining Force II - Lively Town.mp3",
       "Shining Force II - Warrior of the Reviving Light.mp3",
       "Sirion_-_Throught_the_Lands_and_Forests.mp3",
