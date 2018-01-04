@@ -15,3 +15,72 @@
 		}
 	}
 }
+
+#mw_soundlists_manage {
+  max-width: 41rem;
+  margin: 0 auto;
+  .row {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  .column {
+
+  }
+  .soundColumn {
+    list-style-type: none;
+    margin: 0;
+    padding: 0.3em;
+    border-right: 1px solid @l-gray;
+    li{
+      .row();
+    }
+    label{
+      cursor: pointer;
+      transition: background .2s;
+      display: block;
+      background: @white;
+      padding: .1em;
+      flex-grow: 99;
+      &:hover{
+        background: @l-gray;
+      }
+      &.selected{
+        background: darken(@l-gray, 10%);
+      }
+    }
+  }
+  .soundInfo{
+    padding: 0.1em 0.5em;
+  }
+  .soundArr{
+    list-style-type: none;
+    margin: 0;
+    padding: 0.3em;
+    li{
+      display: flex;
+      justify-content: space-between;
+    }
+    input {
+      width: 2rem;
+      margin-left: 0.5em;
+    }
+  }
+  .icoSample{
+    min-width: 1.5em;
+    //border: 1px solid lighten(@m-gray, 4%);
+    //border-left: none;
+    //border-radius: 0 3px 3px 0;
+    //margin-right: 0.4em;
+    position: relative;
+    left: -1.5em;
+    z-index: 9;
+  }
+
+  .buttonsPlace {
+    margin: .3em 0;
+    button {
+      margin: .1em .2em;
+
+    }
+  }
+}

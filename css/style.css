@@ -1285,3 +1285,63 @@ img {
 #mw_playlists_manage .buttonsPlace button {
   margin: .1em .2em;
 }
+#mw_soundlists_manage {
+  max-width: 41rem;
+  margin: 0 auto;
+}
+#mw_soundlists_manage .row {
+  display: flex;
+  flex-wrap: wrap;
+}
+#mw_soundlists_manage .soundColumn {
+  list-style-type: none;
+  margin: 0;
+  padding: 0.3em;
+  border-right: 1px solid #ddd;
+}
+#mw_soundlists_manage .soundColumn li {
+  display: flex;
+  flex-wrap: wrap;
+}
+#mw_soundlists_manage .soundColumn label {
+  cursor: pointer;
+  transition: background .2s;
+  display: block;
+  background: #fff;
+  padding: .1em;
+  flex-grow: 99;
+}
+#mw_soundlists_manage .soundColumn label:hover {
+  background: #ddd;
+}
+#mw_soundlists_manage .soundColumn label.selected {
+  background: #c4c4c4;
+}
+#mw_soundlists_manage .soundInfo {
+  padding: 0.1em 0.5em;
+}
+#mw_soundlists_manage .soundArr {
+  list-style-type: none;
+  margin: 0;
+  padding: 0.3em;
+}
+#mw_soundlists_manage .soundArr li {
+  display: flex;
+  justify-content: space-between;
+}
+#mw_soundlists_manage .soundArr input {
+  width: 2rem;
+  margin-left: 0.5em;
+}
+#mw_soundlists_manage .icoSample {
+  min-width: 1.5em;
+  position: relative;
+  left: -1.5em;
+  z-index: 9;
+}
+#mw_soundlists_manage .buttonsPlace {
+  margin: .3em 0;
+}
+#mw_soundlists_manage .buttonsPlace button {
+  margin: .1em .2em;
+}

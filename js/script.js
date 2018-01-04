@@ -10,9 +10,13 @@ function add_track(pf_id){
 */
 
 var ROOT = 'D:/Cloud/DnD/Музыка/';
+var SOUNDS = '!звуки';
 //var ROOT = 'D:/DnD/Музыка/';
 var aSelectedPlaylists = [];
 var aSelectedSoundlists = [];
+var aSoundlistsData = [];
+
+var fKeyListen = true;
 
 var Drug;
 
@@ -622,6 +626,41 @@ var lt=[];
       ROOT = sTMProot;
     }
  }
+ function saveSoundListsData(oData){
+   //aSoundlistsData
+   if(oData) {
+     /*/
+     {
+       checked: true,
+       name: "",
+       ico: "",
+       list: [
+        {
+          name: "",
+          number: 1
+        }
+       ]
+     }
+     /**/
+     if(aSoundlistsData){
+       var aItem = aSoundlistsData.filter(item => (item.name == oData.name))
+       if (aItem.length == 0){
+         aSoundlistsData.push(oData);
+       } else {
+         aItem = oData;
+       }
+     }
+   }
+   if(aSoundlistsData){
+     localStorage.setItem('aSoundlistsData', aSoundlistsData);
+   }
+ }
+ function loadSoundListsData(){
+  var aSounds = localStorage.getItem('aSoundlistsData');
+  if(aSounds != "undefined"){
+    aSoundlistsData = JSON.parse(aSounds);
+  } 
+ }
  function clearTracks(aList){
   $(".tracks .player_form").each(function(){
     if(aList.indexOf($(this).attr("data-form-name")) < 0) {
@@ -903,29 +942,10 @@ sounds.add([
 
 // start//
 
-var buttonsToClick = [
-	"p_em_dn",
-	"p_em_dn",
-	"p_hide",
-	"p_rand",
-	"p_smooth"
-];
-
-function clickTopButtons() {
-	var timer = setInterval(function(){
-		if(buttonsToClick.length>0) {
-			var btn = buttonsToClick.pop();
-			$("#"+btn).click();
-			//console.log("#"+btn+" clicked!");
-		} else {
-			clearInterval(timer)
-		}
-	},500);
-}
-clickTopButtons();
 
 // manage playlists
 function openPlaylistsWindow() {
+  fKeyListen = false;
   var aFolders = [];
   var nIndex = 0;
   var aSelectedFolders = aSelectedPlaylists.map(x => x.toLowerCase());
@@ -957,6 +977,7 @@ function recountMWPlaylistsWindow(){
 function closePlaylistsWindow() {
   $("#dbg").fadeOut().remove();
   $(".mod_win").fadeOut().remove();
+  fKeyListen = true;
 }
 function applyPlaylistsWindow(){
   var aSelected = [];
@@ -1103,23 +1124,69 @@ $("body").on("click", "#mw_pl_OkButton", function(){
 
 	// / список
 
-/*/
+/**/
 // manage sounds
+function getSoundsInfo(oData) {
+  aSoundArr = oData.aSoundArr.map(item => "<li><span>"+item+"</span> <input type='number' min='0' value='1'></li>").join("");
+  //var oSoundTitle = "<div><input type='text' class='soundTitle' placeholder='Название'></div>";
+  var oSoundIco = "<div class='row'><input type='text' class='soundIco' placeholder='Название иконки'> <span class='icoSample'> </span>  <acronym title='Название иконки из шрифта Font Awesome, например \"fa-cog\"'><a href='http://fontawesome.io/icons/' target='_blanc'> (?) </a></acronym></div>";
+  var oSoundArr = "<ul class='soundArr'>"+aSoundArr+"</ul>";
+  var oSoundInfo = oSoundIco+oSoundArr
+  return oSoundInfo;
+}
+function cloneSoundsDataFromDB(){
+  // add to 'aSoundlistsData' data from 'soundsDB'
+  aSoundlistsData.forEach(item => {
+    // found element in global DB
+    if(soundDB[item.name]){
+      // check sound in local DB
+      if(item.list){
+        // delete old 
+        for(var i=0; i < item.list.length; i++) {
+          if(soundDB[item.name].list.indexOf(item.list[i].name)<0) {
+            item.list.splice(i, 1);
+          }
+        }        
+        
+      } 
+      // add new
+      soundDB[item.name].list.forEach(sound => {
+        if(item.list.indexOf(sound) < 0) {
+          item.list.push({
+            name: sound
+          });
+        }
+      });
+    }
+  });
+}
 function openSoundlistsWindow() {
+  fKeyListen = false;
   var aFolders = [];
 
   //var playlistsCheckList = "<div class='columns'>"+aFolders.join("")+"</div>";
-  var oRootPath = "<div>Полный путь к папке со звуками: <input id='mw_playlist_rootpath' type='text' value='"+ ROOT +"/!звуки' style='width:60%; min-width:10em'></div>";
-  var oButtons = "<div class='buttonsPlace'><button id='mw_sl_CancelButton'>Отменить</button><button id='mw_sl_OkButton'>ОК</button></div>";
+  var oRootPath = "<div>Полный путь к папке со звуками: "+ ROOT +"<input id='mw_playlist_rootpath' type='text' value='"+SOUNDS+"' style='width:10%; min-width:10em'></div>";
+  var oButtons = "<div class='buttonsPlace'><!--button id='mw_sl_CancelButton'>Отменить</button--><button id='mw_sl_OkButton'>ОК</button></div>";
 
-  var oSoundList = "<ul class='soundColumn'><li class='item'></li><li class='add'></li></ul>";
+  var aListFromSoundDB = [];
+  var aSoundArr = [];
+  //aSoundlistsData
+  cloneSoundsDataFromDB();
+  for (var folder in soundsDB) {
+    let selected = '';
+    if(aSoundArr.length == 0) {
+      selected = ' class="selected"';
+      aSoundArr= soundsDB[folder].list;
+    }
+    aListFromSoundDB.push("<li class='item'><input type='checkbox'><label "+selected+">"+folder+"</label></li>");
+  }
+  aListFromSoundDB = aListFromSoundDB.join("");
+  
+  var oSoundList = "<div class='column'><ul class='soundColumn'>"+aListFromSoundDB+"<!--li class='add'></li--></ul></div>";
+  
+  var oSoundInfo = "<div class='column soundInfo'>"+getSoundsInfo({aSoundArr: aSoundArr})+"</div>";;
 
-  var oSoundTitle = "<input type='text' class='soundTitle'>";
-  var oSoundIco = "<input type='text' class='soundIco'>";
-  var oSoundArr = "<ul class='soundArr'><li></li></ul>";
-  var oSoundInfo = "<div class='soundInfo'>"+oSoundTitle+oSoundIco+oSoundArr+"</div>";
-
-  var oContent = "<div>"+oSoundInfo+"</div>";
+  var oContent = "<div class='row'>"+oSoundList+oSoundInfo+"</div>";
 
   if($("#dbg").length<1)	{
     $("body").append("<div id='dbg'></div><div class='mod_win' id='mw_soundlists_manage' >"+oRootPath+oContent+oButtons+"</div>");
@@ -1136,22 +1203,106 @@ function recountMWSoundlistsWindow(){
 function closeSoundlistsWindow() {
   $("#dbg").fadeOut().remove();
   $(".mod_win").fadeOut().remove();
+  fKeyListen = true;
 }
 function applySoundlistsWindow(){
+  var aSelected = [];
+  // apply root
+  SOUNDS = $("#mw_playlist_rootpath").val().replace("\\", "/");
+  if(SOUNDS[SOUNDS.length-1] != "/") {
+  	SOUNDS += "/";
+  }
+  console.log("SOUNDS: "+SOUNDS);
+  
+  // collect selected soundlist
+  $("#mw_soundlists_manage .soundColumn input[type='checkbox']:checked").each(function(){
+    aSelected.push($(this).next("label").text());
+  });
+  
+  // collect all existed
+  var aAllSoundlists = [];
+  $("#mw_soundlists_manage .soundColumn label").each(function(){
+    var sName = $(this).text().trim();
+    aAllSoundlists.push(sName);
+    saveSoundListsData({
+      name: sName,
+      checked: false
+    });
+  });
+  // delete old from memory
+  for (var i=0; i < aSoundlistsData.length; i++) {
+    if(aAllSoundlists.indexOf(aSoundlistsData[i].name) < 0){
+      aSoundlistsData.splice(i, 1);
+    }
+  }
+  aSoundlistsData.forEach(item => {
+    if(aSelected.indexOf(item.name) >= 0) {
+      item.checked = true;
+    } else {
+      item.checked = false;
+    }
+  });
 
-
- // addTrackListsFromDB(aSelectedPlaylists) ;
+  //addSoundListsFromDB(aSoundlistsData) ;
 }
 /**/
 $("body").on("click", "#p_config", function(){
   openPlaylistsWindow();
 });
-$("body").on("click", "#mw_pl_CancelButton", function(){
-  closePlaylistsWindow();
+$("body").on("click", "#p_configSounds", function(){
+  openSoundlistsWindow();
 });
-$("body").on("click", "#mw_pl_OkButton", function(){
-  applyPlaylistsWindow();
-  closePlaylistsWindow();
+$("body").on("click", "#mw_sl_CancelButton", function(){
+  closeSoundlistsWindow();
+});
+$("body").on("click", "#mw_sl_OkButton", function(){
+  applySoundlistsWindow();
+  closeSoundlistsWindow();
+});
+$("body").on("click", ".soundColumn label", function(){
+  // save data
+  var oSoundData = getDataFromSoundInfo();
+  saveSoundListsData(oSoundData);
+  
+  $(".soundColumn label").removeClass('selected');
+  $(this).addClass('selected');
+  var sFolder = $(this).text().trim();
+  aSoundArr= soundsDB[sFolder].list;
+  var oSoundInfo = getSoundsInfo({aSoundArr: aSoundArr});
+  $('#mw_soundlists_manage .soundInfo').empty().html(oSoundInfo);
+});
+
+function getDataFromSoundInfo() {
+  var fChecked = $('#mw_soundlists_manage .soundColumn .selected').parent().find('input').prop('checked');
+  var sName = $('#mw_soundlists_manage .soundColumn .selected').text();
+  var sIco  = $('#mw_soundlists_manage .soundIco').val();
+  var aSounds = [];
+  $('#mw_soundlists_manage .soundArr li').each(function() {
+    aSounds.push({
+      name: $(this).find("span").text().trim(),
+      number: $(this).find("input").val()
+    });
+  });
+  var oData = {
+    checked: fChecked,
+    name: sName,
+    ico: sIco,
+    list: aSounds
+  };
+  return oData;
+}
+
+// ico change
+$("body").on("keyup", "#mw_soundlists_manage .soundIco", function(){
+  var sIco = $(this).val();
+  var oIco = '<i class="fa '+sIco+' fa-lg"></i>';
+  $("#mw_soundlists_manage .icoSample").html(oIco);
+  
+});
+// sound num change 
+$("body").on("keyup", "#mw_soundlists_manage .soundArr input", function(){
+  //var sNum = $(this).val();
+   
 });
 
 	// создание списка воспроизведение
@@ -1237,6 +1388,26 @@ $("body").on("click", "#mw_pl_OkButton", function(){
 	// / список
 
 
+var buttonsToClick = [
+	"p_em_dn",
+	"p_em_dn",
+	"p_hide",
+	"p_rand",
+	"p_smooth"
+];
+
+function clickTopButtons() {
+	var timer = setInterval(function(){
+		if(buttonsToClick.length>0) {
+			var btn = buttonsToClick.pop();
+			$("#"+btn).click();
+			//console.log("#"+btn+" clicked!");
+		} else {
+			clearInterval(timer)
+		}
+	},500);
+}
+clickTopButtons();
 
 
 	// скрыть
@@ -1315,171 +1486,174 @@ $("body").on("click", "#mw_pl_OkButton", function(){
 
 	// управление кнопками
 	$("body").keyup(function(eventObject){
-		var id=0, ev=0, nm=0;
-		var keyCode = eventObject.which;
-		//alert(keyCode);
-		switch(keyCode)
-		{ //vol up
-			case 49: id=1; ev="vol_up"; //1
-				break;
-			case 50: id=2; ev="vol_up"; //2
-				break;
-			case 51: id=3; ev="vol_up"; //3
-				break;
-			case 52: id=4; ev="vol_up"; //4
-				break;
-			case 53: id=5; ev="vol_up"; //5
-				break;
-			case 54: id=6; ev="vol_up"; //6
-				break;
-			case 55: id=7; ev="vol_up"; //7
-				break;
-			case 56: id=8; ev="vol_up"; //8
-				break;
-			case 57: id=9; ev="vol_up"; //9
-				break;
-			case 48: id=10; ev="vol_up"; //0
-				break;
+    if(fKeyListen){
+            var id=0, ev=0, nm=0;
+      var keyCode = eventObject.which;
+      //alert(keyCode);
+      switch(keyCode)
+      { //vol up
+        case 49: id=1; ev="vol_up"; //1
+          break;
+        case 50: id=2; ev="vol_up"; //2
+          break;
+        case 51: id=3; ev="vol_up"; //3
+          break;
+        case 52: id=4; ev="vol_up"; //4
+          break;
+        case 53: id=5; ev="vol_up"; //5
+          break;
+        case 54: id=6; ev="vol_up"; //6
+          break;
+        case 55: id=7; ev="vol_up"; //7
+          break;
+        case 56: id=8; ev="vol_up"; //8
+          break;
+        case 57: id=9; ev="vol_up"; //9
+          break;
+        case 48: id=10; ev="vol_up"; //0
+          break;
 
-		  //vol dn
-			case 81: id=1; ev="vol_dn"; //Q
-				break;
-			case 87: id=2; ev="vol_dn"; //W
-				break;
-			case 69: id=3; ev="vol_dn"; //E
-				break;
-			case 82: id=4; ev="vol_dn"; //R
-				break;
-			case 84: id=5; ev="vol_dn"; //T
-				break;
-			case 89: id=6; ev="vol_dn"; //Y
-				break;
-			case 85: id=7; ev="vol_dn"; //U
-				break;
-			case 73: id=8; ev="vol_dn"; //I
-				break;
-			case 79: id=9; ev="vol_dn"; //O
-				break;
-			case 80: id=10; ev="vol_dn"; //P
-				break;
+        //vol dn
+        case 81: id=1; ev="vol_dn"; //Q
+          break;
+        case 87: id=2; ev="vol_dn"; //W
+          break;
+        case 69: id=3; ev="vol_dn"; //E
+          break;
+        case 82: id=4; ev="vol_dn"; //R
+          break;
+        case 84: id=5; ev="vol_dn"; //T
+          break;
+        case 89: id=6; ev="vol_dn"; //Y
+          break;
+        case 85: id=7; ev="vol_dn"; //U
+          break;
+        case 73: id=8; ev="vol_dn"; //I
+          break;
+        case 79: id=9; ev="vol_dn"; //O
+          break;
+        case 80: id=10; ev="vol_dn"; //P
+          break;
 
-		  //play pause
-			case 65: id=1; ev="pp"; //Q
-				break;
-			case 83: id=2; ev="pp"; //W
-				break;
-			case 68: id=3; ev="pp"; //E
-				break;
-			case 70: id=4; ev="pp"; //R
-				break;
-			case 71: id=5; ev="pp"; //T
-				break;
-			case 72: id=6; ev="pp"; //Y
-				break;
-			case 74: id=7; ev="pp"; //U
-				break;
-			case 75: id=8; ev="pp"; //I
-				break;
-			case 76: id=9; ev="pp"; //O
-				break;
-			case 186: id=10; ev="pp"; //P
-				break;
+        //play pause
+        case 65: id=1; ev="pp"; //Q
+          break;
+        case 83: id=2; ev="pp"; //W
+          break;
+        case 68: id=3; ev="pp"; //E
+          break;
+        case 70: id=4; ev="pp"; //R
+          break;
+        case 71: id=5; ev="pp"; //T
+          break;
+        case 72: id=6; ev="pp"; //Y
+          break;
+        case 74: id=7; ev="pp"; //U
+          break;
+        case 75: id=8; ev="pp"; //I
+          break;
+        case 76: id=9; ev="pp"; //O
+          break;
+        case 186: id=10; ev="pp"; //P
+          break;
 
-		  //next
-			case 90: id=1; ev="nx"; //Q
-				break;
-			case 88: id=2; ev="nx"; //W
-				break;
-			case 67: id=3; ev="nx"; //E
-				break;
-			case 86: id=4; ev="nx"; //R
-				break;
-			case 66: id=5; ev="nx"; //T
-				break;
-			case 78: id=6; ev="nx"; //Y
-				break;
-			case 77: id=7; ev="nx"; //U
-				break;
-			case 188: id=8; ev="nx"; //I
-				break;
-			case 190: id=9; ev="nx"; //O
-				break;
-			case 191: id=10; ev="nx"; //P
-				break;
+        //next
+        case 90: id=1; ev="nx"; //Q
+          break;
+        case 88: id=2; ev="nx"; //W
+          break;
+        case 67: id=3; ev="nx"; //E
+          break;
+        case 86: id=4; ev="nx"; //R
+          break;
+        case 66: id=5; ev="nx"; //T
+          break;
+        case 78: id=6; ev="nx"; //Y
+          break;
+        case 77: id=7; ev="nx"; //U
+          break;
+        case 188: id=8; ev="nx"; //I
+          break;
+        case 190: id=9; ev="nx"; //O
+          break;
+        case 191: id=10; ev="nx"; //P
+          break;
 
-			// soundx
-			case 45:
-			case 96: id=0, ev="sound";
-				break;
-			case 35:
-			case 97: id=1, ev="sound";
-				break;
-			case 40:
-			case 98: id=2, ev="sound";
-				break;
-			case 34:
-			case 99: id=3, ev="sound";
-				break;
-			case 37:
-			case 100: id=4, ev="sound";
-				break;
-			case 12:
-			case 101: id=5, ev="sound";
-				break;
-			case 39:
-			case 102: id=6, ev="sound";
-				break;
-			case 36:
-			case 103: id=7, ev="sound";
-				break;
-			case 38:
-			case 104: id=8, ev="sound";
-				break;
-			case 33:
-			case 105: id=9, ev="sound";
-				break;
+        // soundx
+        case 45:
+        case 96: id=0, ev="sound";
+          break;
+        case 35:
+        case 97: id=1, ev="sound";
+          break;
+        case 40:
+        case 98: id=2, ev="sound";
+          break;
+        case 34:
+        case 99: id=3, ev="sound";
+          break;
+        case 37:
+        case 100: id=4, ev="sound";
+          break;
+        case 12:
+        case 101: id=5, ev="sound";
+          break;
+        case 39:
+        case 102: id=6, ev="sound";
+          break;
+        case 36:
+        case 103: id=7, ev="sound";
+          break;
+        case 38:
+        case 104: id=8, ev="sound";
+          break;
+        case 33:
+        case 105: id=9, ev="sound";
+          break;
 
-			// top panel
-			case 189: // -
-				$("#p_em_dn").click();
-				break;
-			case 187: // +
-				$("#p_em_up").click();
-				break;
-			case 219: // hide
-				$("#p_hide").click();
-				break;
-			case 221: // random
-				$("#p_rand").click();
-				break;
-		}
-		//console.log("id: "+id+" ev: "+ev);
-		if(ev=="vol_up")
-			{
-			player[id].mus_vol += 0.05;
-			console.log("m_vol: "+player[id].mus_vol);
-			volume(id, player[id].mus_vol);
-			}
-		if(ev=="vol_dn")
-			{
-			player[id].mus_vol -= 0.05;
-			console.log("m_vol: "+player[id].mus_vol);
-			volume(id, player[id].mus_vol);
-			}
-		if(ev=='pp')
-			{
-				$(".player_form[data-name='"+id+"']").find(".pf_play_bt").click();
-			}
-		if(ev=='nx')
-			{
-				$(".player_form[data-name='"+id+"']").find(".pf_next_bt").click();
-			}
-		if(ev=='sound')
-			{
-				var i = id;
-					//alert(i);
-				$("#sounds_container .soundButton").eq(i).click();
-			}
+        // top panel
+        case 189: // -
+          $("#p_em_dn").click();
+          break;
+        case 187: // +
+          $("#p_em_up").click();
+          break;
+        case 219: // hide
+          $("#p_hide").click();
+          break;
+        case 221: // random
+          $("#p_rand").click();
+          break;
+      }
+      //console.log("id: "+id+" ev: "+ev);
+      if(ev=="vol_up")
+        {
+        player[id].mus_vol += 0.05;
+        console.log("m_vol: "+player[id].mus_vol);
+        volume(id, player[id].mus_vol);
+        }
+      if(ev=="vol_dn")
+        {
+        player[id].mus_vol -= 0.05;
+        console.log("m_vol: "+player[id].mus_vol);
+        volume(id, player[id].mus_vol);
+        }
+      if(ev=='pp')
+        {
+          $(".player_form[data-name='"+id+"']").find(".pf_play_bt").click();
+        }
+      if(ev=='nx')
+        {
+          $(".player_form[data-name='"+id+"']").find(".pf_next_bt").click();
+        }
+      if(ev=='sound')
+        {
+          var i = id;
+            //alert(i);
+          $("#sounds_container .soundButton").eq(i).click();
+        }
+
+    }
 		return false;
 	});
 	// / кнопки
