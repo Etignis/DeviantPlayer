@@ -1288,6 +1288,11 @@ img {
   left: -11rem;
   top: 0;
   width: 11rem;
+  opacity: 0.5;
+  transition: opacity .2s;
+}
+#sounds_container .soundSublist:hover {
+  opacity: 1;
 }
 #sounds_container .soundSublist li {
   cursor: pointer;
