@@ -32,5 +32,34 @@
             left: .1em;
             top: 0.1em;
         }
+      &:hover{
+        .soundSublist{
+          display: flex;
+        }
+      }
+    }
+    .soundSublist{
+      list-style-type: none;
+      margin: 0;
+      padding: 0 0.2rem;
+      font-size: 14px;
+      display: none;
+      flex-direction: column;
+      background: darken(@m-gray, 10%);
+      position: absolute;
+      left: -11rem;
+      top: 0;
+      width: 11rem;
+
+      li{
+        cursor: pointer;
+        transition: background .2s;
+        margin: 0.2rem 0;
+        padding: 0.2rem;
+        background: lighten(@m-gray, 5%);
+        &:hover {
+          background: lighten(@m-gray, 10%);
+        }
+      }
     }
 }

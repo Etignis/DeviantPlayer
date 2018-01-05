@@ -532,14 +532,20 @@ var lt=[];
 	});
 
 // клик на звуке
- $("body").on('click', ".soundButton", function(){
+ $("body").on('click', ".soundButton", function(oEvent, sPath){
 	var audioID = $(this).find("audio").attr("id");
-	var audio_array = $("#"+audioID).parent().attr("data-audio-array") ;
-	if(audio_array) {
-		var arr = audio_array.split("|");
+  var sOnePath = oEvent.originalEvent.path[0].getAttribute('data-path');
+  if(sOnePath) {
+    $("#"+audioID).attr("src", sOnePath);
+  } else {
+    var audio_array = $("#"+audioID).parent().attr("data-audio-array") ;
+    if(audio_array) {
+      var arr = audio_array.split("|");
 
-		$("#"+audioID).attr("src", arr[randd(0, arr.length-1)]);
-	}
+      $("#"+audioID).attr("src", arr[randd(0, arr.length-1)]);
+    }
+  }
+
 	onPalylistsVolumDown();
 	var audio = document.getElementById(audioID);
 	audio.volume = 1;
@@ -1365,9 +1371,13 @@ function createSoundColumn() {
           aSounds.push(ROOT+SOUNDS+oName+"/"+sPath);
         }
       });
+      
+      var oUl = (oList.length>1)?"<ul class='soundSublist'>"+oList.map(sound => "<li data-path='"+ROOT+SOUNDS+oName+"/"+sound.name+"'>"+sound.name+"</li>").join("")+"</ul>" : ""; 
+      
       var sURL = aSounds.join("|");
       var oSound = '<div style="position: relative">\
         <button class="soundButton" title="'+oName+'" data-audio-array="'+sURL+'">\
+          '+oUl+'\
           <i class="fa '+oIco+'"></i>\
           <audio id="audio_sound_'+i+'" src="'+aSounds[0]+'"></audio>\
         </button>\
@@ -1489,6 +1499,10 @@ $("body").on("change", "#mw_soundlists_manage .soundArr input", function(){
     }
   });
 
+  $("body").on('click', ".soundSublist li", function(){
+    var sName = $(this).attr('data-path').trim();
+    $(this).closest(".soundButton").click(null, sName);
+  });
 	// / список
 
 

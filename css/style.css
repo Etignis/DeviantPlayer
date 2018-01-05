@@ -1273,6 +1273,32 @@ img {
   left: .1em;
   top: 0.1em;
 }
+#sounds_container .soundButton:hover .soundSublist {
+  display: flex;
+}
+#sounds_container .soundSublist {
+  list-style-type: none;
+  margin: 0;
+  padding: 0 0.2rem;
+  font-size: 14px;
+  display: none;
+  flex-direction: column;
+  background: #5e5e5e;
+  position: absolute;
+  left: -11rem;
+  top: 0;
+  width: 11rem;
+}
+#sounds_container .soundSublist li {
+  cursor: pointer;
+  transition: background .2s;
+  margin: 0.2rem 0;
+  padding: 0.2rem;
+  background: #848484;
+}
+#sounds_container .soundSublist li:hover {
+  background: #919191;
+}
 #mw_playlists_manage input[type='checkbox'] + label {
   cursor: pointer;
 }
