@@ -1219,6 +1219,12 @@ img {
   width: 2.8em;
   counter-reset: tracks -1;
 }
+#sounds_container .hiddenList {
+  outline: 2px solid red;
+}
+#sounds_container .hiddenList ul {
+  display: none;
+}
 #sounds_container .soundButton {
   -webkit-border-radius: 3px 3px 3px 3px;
   -moz-border-radius: 3px 3px 3px 3px;
