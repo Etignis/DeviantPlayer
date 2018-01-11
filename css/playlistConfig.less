@@ -84,3 +84,43 @@
     }
   }
 }
+
+#mw_batDB_manage{
+  max-width: 50rem;
+  margin: 0 auto;
+  .inner{
+    margin: 1rem;
+  }
+  .center{
+    text-align: center;
+  }
+  button{
+    @color: darken(white, 3%);
+    border-radius: 3px 3px 3px 3px;
+    overflow: visible;
+    //background: #fff;
+    border: 1px solid #d8d8d8;
+    border-bottom-width: 2px;
+    border-top-width: 1px;
+    box-shadow: 0 2px 5px 1px rgba(0, 0, 0, 0.05);
+    cursor: pointer;
+    padding: .9em 1.6em;
+    //margin: .5em .5em 0em;
+    background: @color;
+    margin: 0.5em;
+    transition: box-shadow 0.3s, background 0.3s;
+
+    &:hover{
+      background: darken(@color, 2%);
+      box-shadow: 0 2px 5px 0px rgba(0, 0, 0, 0.2);
+    }
+
+    &.white{
+      background: white;
+    }
+  }
+
+  #mw_batDB_load_input{
+    display: none;
+  }
+}

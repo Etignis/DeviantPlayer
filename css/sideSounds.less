@@ -6,12 +6,24 @@
     width: @sz + 0.4em;
     counter-reset: tracks -1;
 
-  .hiddenList{
-    outline: 2px solid red;
+  .hiddenList, .sortable-chosen{
+    //outline: 2px solid red;
     ul{
-      display: none;
+      display: none !important;
     }
   }
+
+  .soundButtonContainer{
+    &:nth-child(n+11){
+      //outline: green 1px solid;
+      .soundButton{
+        &::before{
+          content: "";
+        }
+      }
+    }
+  }
+
     .soundButton{
         .fr-convex;
         width: @sz;
@@ -23,7 +35,7 @@
         background: @m-gray + #111; 
         position: relative;
         font-size: 120%;
-            counter-increment: tracks;
+        counter-increment: tracks;
         
         &:hover{
             background: @m-gray + #222;    
@@ -32,7 +44,7 @@
             background:  @m-gray;    
         }
         
-        &:before{
+        &::before{
             content: counter(tracks);
             position: absolute;
             left: .1em;

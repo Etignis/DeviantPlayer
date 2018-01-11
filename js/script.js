@@ -1,15 +1,4 @@
-﻿		/*
-function add_player_form(){
-	num = $(".player_form").length;
-	$(".tracks").append(player_form);
-	$(".player_form:last").attr('data-name', num+1);
-}
-function add_track(pf_id){
-	$(".player_form[data-name='"+pf_id+"']").children(".pf_list").append(tr_line);
-}
-*/
-
-var ROOT = 'D:/Cloud/DnD/Музыка/';
+﻿var ROOT = 'D:/Cloud/DnD/Музыка/';
 var SOUNDS = '!звуки';
 //var ROOT = 'D:/DnD/Музыка/';
 var aSelectedPlaylists = [];
@@ -59,10 +48,11 @@ var events = 'abort,canplay,canplaythrough,durationchange,emptied,ended,error,lo
 
 function clearSounds() {
   localStorage.setItem('aSoundlistsData', JSON.stringify([]));
+  //saveLocalDB("aPlayLists", aSelectedPlaylists);
 }
 
 $(document).ready(function(){
-
+  //debugger;
 	// класс звуков
 class soundsClass{
 	constructor() {
@@ -598,7 +588,6 @@ var lt=[];
 	});
  }
 
-
  /*
      "спокойно",
     "бодро",
@@ -619,22 +608,65 @@ var lt=[];
     "Фейри",
     "Путешествие"
  */
+ function saveLocalDB(sKey, oValue) {
+   var oLocalDB = {};
+   var oData = localStorage.getItem('MusicBoxDB');
+   if(oData) {
+    oLocalDB =  JSON.parse(oData);
+   }
+   /*/
+   {
+     ROOT: "",
+     SOUNDS: "",
+     aPlaylists: [],
+     aSoundlistsData: [],
+     musicDB: {}
+   }   
+   /**/
+  if(sKey!=undefined){
+    if(oValue != undefined && oValue != null) {
+      if(oLocalDB[sKey]) {
+        oLocalDB[sKey] = oValue;
+      } else {
+        oLocalDB[sKey] = oValue;
+      }  
+    } else {
+      delete oLocalDB[sKey];
+    }
+    
+  }
+  localStorage.setItem('MusicBoxDB', JSON.stringify(oLocalDB));
+ }
+ 
+ function getFromLocalDB(sKey) {
+  var oLocalDB = {};
+  var oData = localStorage.getItem('MusicBoxDB');
+  if(oData) {
+    oLocalDB =  JSON.parse(oData);
+  }
+  //if(sKey != undefined && )
+  return oLocalDB[sKey];
+ }
  function savePlaylists(){
     var sLists = JSON.stringify(aSelectedPlaylists);
     if(sLists) {
-      localStorage.setItem('aPlayLists', sLists);
+      //localStorage.setItem('aPlayLists', sLists);
+      saveLocalDB("aPlayLists", aSelectedPlaylists);
     }
-    localStorage.setItem("sROOT", ROOT);
+    saveLocalDB("sROOT", ROOT);
+    //localStorage.setItem("sROOT", ROOT);
  }
  function loadPlayLists(){
-    var sLists = localStorage.getItem('aPlayLists');
-    if(sLists != "undefined"){
-      aSelectedPlaylists = JSON.parse(sLists);
-    }
-    sTMProot = localStorage.getItem('sROOT');
-    if(sTMProot && sTMProot != 'undefined') {
-      ROOT = sTMProot;
-    }
+  var sLists = getFromLocalDB('aPlayLists');
+  //  var sLists = localStorage.getItem('aPlayLists');
+  if(sLists != undefined){
+    aSelectedPlaylists = sLists;
+  }
+  sTMProot = getFromLocalDB('ROOT');
+  //sTMProot = localStorage.getItem('sROOT');
+  if(sTMProot && sTMProot != undefined) {
+    ROOT = sTMProot;
+  }
  }
  function saveSoundListsData(oData){
    //aSoundlistsData
@@ -686,7 +718,9 @@ var lt=[];
       }
    }
    if(aSoundlistsData){
-     localStorage.setItem('aSoundlistsData', JSON.stringify(aSoundlistsData));
+     //localStorage.setItem('aSoundlistsData', JSON.stringify(aSoundlistsData));
+     saveLocalDB("aSoundlistsData", aSoundlistsData);
+     saveLocalDB("SOUNDS", SOUNDS);
    }
  }
  function reorderSoundlistsData(aList) {
@@ -702,14 +736,19 @@ var lt=[];
  }
  function loadSoundListsData(){
   try{
-    var aSounds = localStorage.getItem('aSoundlistsData');
-    if(aSounds != "undefined"){
+    var aSounds =  getFromLocalDB('aSoundlistsData');
+    //var aSounds = localStorage.getItem('aSoundlistsData');
+    if(aSounds != undefined){
       try{
-        aSoundlistsData = JSON.parse(aSounds);
+        aSoundlistsData = aSounds;
       } catch (err) {
           console.log("[ERROR]: failed to load Sounds Data - " + err);
       }
     } 
+    var sSOUNDS =  getFromLocalDB('SOUNDS');
+    if(sSOUNDS) {
+      SOUNDS = sSOUNDS;
+    }
   } catch (err) {}
  }
  function clearTracks(aList){
@@ -732,6 +771,7 @@ var lt=[];
    if(!aList){
      loadPlayLists();
      if(!(aSelectedPlaylists && aSelectedPlaylists.length>0)) {
+       return;
       aList = [
         "спокойно",
         "бодро",
@@ -785,7 +825,6 @@ var lt=[];
   }
  }
 
-addTrackListsFromDB();
 
 // manage playlists
 function openPlaylistsWindow() {
@@ -802,6 +841,9 @@ function openPlaylistsWindow() {
 
     aFolders.push("<input type='checkbox' "+bChecked+" id='pli_"+nIndex+"'><label for='pli_"+nIndex+"'><span class='folderName'>"+folder+ "</span> ("+musicDB[folder].number+")</label><br>");
     nIndex++;
+  }
+  if(aFolders.length == 0) {
+    return false;
   }
   var playlistsCheckList = "<div class='columns'>"+aFolders.join("")+"</div>";
   var oRootPath = "<div>Полный путь к папке с папками: <input id='mw_playlist_rootpath' type='text' value='"+ ROOT +"' style='width:60%; min-width:10em'></div>";
@@ -971,13 +1013,16 @@ $("body").on("click", "#mw_pl_OkButton", function(){
 /**/
 // manage sounds
 function getSoundsInfo(oData) {
-  aSoundArr = oData.list.map(item => "<li><audio  class='clickPlay' id='"+(item.name).replace(/[^a-zA-Zа-яА-Я0-9_-]/g, "")+"' src='"+ROOT+SOUNDS+"/"+oData.name+"/"+item.name+"'></audio><span class='aupioPre'>"+item.name+"</span> <input type='number' min='0' value='"+item.number+"'></li>").join("");
-  //var oSoundTitle = "<div><input type='text' class='soundTitle' placeholder='Название'></div>";
-  var sIco = oData.ico || "";
-  var oSoundIco = "<div class='row'><input type='text' class='soundIco' placeholder='Название иконки' value='"+sIco+"'> <span class='icoSample'><i class='fa "+sIco+" fa-lg'></i></span>  <acronym title='Название иконки из шрифта Font Awesome, например \"fa-cog\"'><a href='http://fontawesome.io/icons/' target='_blanc'> (?) </a></acronym></div>";
-  var oSoundArr = "<ul class='soundArr'>"+aSoundArr+"</ul>";
-  var oSoundInfo = oSoundIco+oSoundArr
-  return oSoundInfo;
+  if(oData){
+    aSoundArr = oData.list.map(item => "<li><audio  class='clickPlay' id='"+(item.name).replace(/[^a-zA-Zа-яА-Я0-9_-]/g, "")+"' src='"+ROOT+SOUNDS+"/"+oData.name+"/"+item.name+"'></audio><span class='aupioPre'>"+item.name+"</span> <input type='number' min='0' value='"+item.number+"'></li>").join("");
+    //var oSoundTitle = "<div><input type='text' class='soundTitle' placeholder='Название'></div>";
+    var sIco = oData.ico || "";
+    var oSoundIco = "<div class='row'><input type='text' class='soundIco' placeholder='Название иконки' value='"+sIco+"'> <span class='icoSample'><i class='fa "+sIco+" fa-lg'></i></span>  <acronym title='Название иконки из шрифта Font Awesome, например \"fa-cog\"'><a href='http://fontawesome.io/icons/' target='_blanc'> (?) </a></acronym></div>";
+    var oSoundArr = "<ul class='soundArr'>"+aSoundArr+"</ul>";
+    var oSoundInfo = oSoundIco+oSoundArr
+    return oSoundInfo;
+
+  }
 }
 function cloneSoundsDataFromDB(){
   try{
@@ -1021,14 +1066,14 @@ function cloneSoundsDataFromDB(){
     
     // add new sound collections from global DB to local memory
     for(var item in soundsDB){
-    if(aExistSounds.indexOf(item)<0){
-      aSoundlistsData.push({
-        checked: false,
-        name: item,
-        list: soundsDB[item].list.map(sound => {return{name: sound, number: 1}})        
-      });
-    }
-  };
+      if(aExistSounds.indexOf(item)<0){
+        aSoundlistsData.push({
+          checked: false,
+          name: item,
+          list: soundsDB[item].list.map(sound => {return{name: sound, number: 1}})        
+        });
+      }
+    };
   } catch(err){
     console.log("[ERROR]: failed clone Sound Data - " + err);
   }
@@ -1042,11 +1087,14 @@ function openSoundlistsWindow() {
   var oButtons = "<div class='buttonsPlace'><!--button id='mw_sl_CancelButton'>Отменить</button--><button id='mw_sl_OkButton'>ОК</button></div>";
 
   var aListFromSoundDB = [];  
-  
+  loadSoundListsData();
   aSoundlistsData.forEach(item => {
     let checked =  item.checked? " checked" : "";    
     aListFromSoundDB.push("<li class='item'><input type='checkbox' "+checked+"><label>"+item.name+"</label></li>");
   });
+  if(aListFromSoundDB.length == 0) {
+    return false;
+  }
   aListFromSoundDB = aListFromSoundDB.join("");
   
   var oSoundList = "<div class='column'><ul id='mwSoundColumn' class='soundColumn'>"+aListFromSoundDB+"<!--li class='add'></li--></ul></div>";
@@ -1203,7 +1251,7 @@ function createSoundColumn() {
   // full
   aSoundlistsData.forEach(item => {
     if(item.checked) {
-      var oIco = item.ico;
+      var oIco = item.ico || "fa-volume-up";
       var oList = item.list;
       var oName = item.name;
       var aSounds = [];
@@ -1218,7 +1266,7 @@ function createSoundColumn() {
       var oUl = (oList.length>1)?"<ul class='soundSublist'>"+oList.map(sound => "<li data-path='"+ROOT+SOUNDS+oName+"/"+sound.name+"'>"+sound.name+"</li>").join("")+"</ul>" : ""; 
       
       var sURL = aSounds.join("|");
-      var oSound = '<div style="position: relative">\
+      var oSound = '<div class="soundButtonContainer" style="position: relative">\
         <button class="soundButton" title="'+oName+'" data-audio-array="'+sURL+'">\
           '+oUl+'\
           <i class="fa '+oIco+'"></i>\
@@ -1356,7 +1404,148 @@ $("body").on("change", "#mw_soundlists_manage .soundArr input", function(){
   });
 	// / список
 
+// загрузка данных [bat]
+function openBatDBWindow() {
+  fKeyListen = false;
 
+  var oOpenButton = "<div class='center'><input type='file' id='mw_batDB_load_input' name='files[]'/> <button id='mw_batDB_load'>Загрузить файл</button></div><p>Откройте файл 'DB.txt' из папки с музыкой, сгенерированный с помощью '_create&nbsp;music&nbsp;DB.bat'. При этом, плеер запомнит данные из этого файла и будет игнорировать данные из основной базы данных.</p>";
+  var oClearButton = "<div class='center'><button id='mw_batDB_clear'>Удалить локальную копию</button></div><p>Удалить данные, полученные из файла 'DB.txt'. В таком случае, плеер будет получать данные из основной базы данных.</p>";
+  var oClearAllButton = "<div class='center'><button id='mw_batDB_clearAll'>Очистить локальную базу полностью</button></div><p>Полностью очистить все данные, хранящиеся в плеере. Нажимать только в случае глобального #$@&*!</p>";
+  var oContent = "<div class='inner'>"+oOpenButton+oClearButton+oClearAllButton+"</div>";
+  var oButtons = "<div class='center'><hr><button class='white' id='mw_batDB_close'>Закрыть</button></div>";
+  if($("#dbg").length<1)	{
+    $("body").append("<div id='dbg'></div><div class='mod_win' id='mw_batDB_manage' >"+oContent+oButtons+"</div>");
+  }
+}
+function closeBatDBWindow() {
+  $("#dbg").fadeOut().remove();
+  $(".mod_win").fadeOut().remove();
+  fKeyListen = true;
+}
+$("body").on('click', "#p_configMusicDB", function(){
+  openBatDBWindow();
+});
+$("body").on('click', "#mw_batDB_close", function(){
+  closeBatDBWindow();
+});
+function handleLocalBDSelect(evt) {
+    var files = evt.target.files; // FileList object
+
+    // files is a FileList of File objects. List some properties.
+    // var output = [];
+    // for (var i = 0, f; f = files[i]; i++) {
+      // output.push('<li><strong>', escape(f.name), '</strong> (', f.type || 'n/a', ') - ',
+                  // f.size, ' bytes, last modified: ',
+                  // f.lastModifiedDate.toLocaleDateString(), '</li>');
+    // }
+    //document.getElementById('list').innerHTML = '<ul>' + output.join('') + '</ul>';
+    
+    var reader = new FileReader();
+    reader.onload = (function(theFile) {
+      return function(e) {
+       // debugger;
+        var sText = e.target.result;
+        parceLocalFile(sText);
+      };
+    })(files[0]);
+
+    // Read in the image file as a data URL.
+    reader.readAsText(files[0]);
+    
+  }
+function parceLocalFile(sText) {
+  var aLines = sText.split(/[\r\n]+/g);
+  var aFolders = [];
+  var oDB = {};
+  var oSoundDB = {};
+  var sTmpSoundsFolder = ((SOUNDS.charAt(SOUNDS.length-1)=="/")? SOUNDS.slice(0, -1): SOUNDS) || '!звуки';
+  
+  function createFolder(oObj, sFolderName) {
+    if(sFolderName) {
+      oObj[sFolderName] = {
+          number: 0,
+          list: []
+        }
+    }
+  }
+  
+  aLines.forEach(sLine => {
+    if(sLine.length){
+      //console.log(sLine);
+      var fSounds = new RegExp(sTmpSoundsFolder).test(sLine);
+      var aPath = sLine.split(/[\\\/]+/g); 
+      
+      // file or folder?
+      if(/\.[a-zA-Z0-9]+/.test(aPath[aPath.length-1])) {
+        var sFileName = aPath.pop();
+        var sFolderName = aPath.pop();
+        
+        // if music 
+        if(/\.mp3/.test(sFileName) ||
+          /\.wav/.test(sFileName)
+        ) {
+          // if file not in ROOT
+          if(ROOT && ROOT != aPath.concat(sFolderName).join('/')+"/"){
+            
+            // sound or music?
+            if(fSounds) {
+              if(aPath[aPath.length-1] == sTmpSoundsFolder) {
+                if(!oSoundDB[sFolderName]) {
+                  createFolder(oSoundDB, sFolderName);
+                }       
+                oSoundDB[sFolderName].list.push(sFileName);
+                oSoundDB[sFolderName].number++;
+              }
+            } else {
+              // folder exist?
+              if(!oDB[sFolderName]) {
+                createFolder(oDB, sFolderName);
+              }       
+              oDB[sFolderName].list.push(sFileName);
+              oDB[sFolderName].number++;
+            }
+              
+          } else {
+            aPath = aPath.concat(sFolderName);
+          }
+        }   
+      } 
+      
+      //var sTmpParh = aPath.join("/");
+      if(!ROOT || ROOT.length<1) {
+        ROOT = aPath.join("/")+"/";
+      }
+    }
+  });
+  
+  //debugger;
+  
+  //var sLocalROOT = loadFromLocalDB(ROOT);
+  saveLocalDB("ROOT", ROOT);
+  saveLocalDB("SOUNDS", SOUNDS);
+  saveLocalDB("musicDB", oDB);
+  saveLocalDB("soundsDB", oSoundDB);
+  loadBDfromLocalStorage();
+  
+  closeBatDBWindow();
+}
+$("body").on('change', "#mw_batDB_load_input", function(oEvent){
+  handleLocalBDSelect(oEvent);
+});
+$("body").on('click', '#mw_batDB_clear', function() {
+  saveLocalDB("musicDB", null);
+  saveLocalDB("soundsDB", null);
+})
+$("body").on('click', '#mw_batDB_clearAll', function() {
+  localStorage.clear();
+})
+$("body").on('click', '#mw_batDB_load', function() {
+  $("#mw_batDB_load_input").click();
+})
+
+//document.getElementById('mw_batDB_load_input').addEventListener('change', handleLocalBDSelect, false);
+ ///////////////////////////////////////////////////////////////////////////////////////////
+  
 var buttonsToClick = [
 	"p_em_dn",
 	"p_em_dn",
@@ -1376,8 +1565,6 @@ function clickTopButtons() {
 		}
 	},500);
 }
-clickTopButtons();
-
 
 	// скрыть
 	$("body").on("click", ".btn.hide", function(){
@@ -1652,14 +1839,8 @@ function a_fail(e){
 function onWindowResize() {
   recountMWPlaylistsWindow();
 }
-onWindowResize();
-window.onresize = onWindowResize;
 
-// load sounds DB
-loadSoundListsData();
-cloneSoundsDataFromDB();
-createSoundColumn();
-
+/*/
 var auds=document.getElementsByTagName('audio');
 	for (var i=0;i<auds.length;i++){
         addEvent(auds[i], 'ended', a_ended);
@@ -1668,11 +1849,55 @@ var auds=document.getElementsByTagName('audio');
 		//$(auds[i]).addEventListener('ended', onEndFunc);
 	////	console.log("event added //"+i);
     }
-
+/**/
 
 // invalidate audio source (will fire abort, emptied, and error)
 var emptyAudio = function() {
     console.error("Проблема с аудио");
 };
+function loadBDfromLocalStorage() {
+  try{
+    if(!soundsDB || Object.keys(soundsDB).length === 0 && soundsDB.constructor === Object) {
+      window.soundsDB = getFromLocalDB("soundsDB");
+    }
+  } catch (err) {
+    window.soundsDB = {};
+  }
+  try{
+    if(!musicDB || Object.keys(musicDB).length === 0 && musicDB.constructor === Object) {
+      window.musicDB = getFromLocalDB("musicDB");
+    }
+  } catch (err) {
+    window.musicDB = {};
+  }
+  var oTmpSounds = getFromLocalDB("soundsDB");
+  if(oTmpSounds) {
+    window.soundsDB = oTmpSounds;
+  }
+  var oTmpMusic = getFromLocalDB("musicDB");
+  if(oTmpMusic) {
+    window.musicDB = oTmpMusic;
+  }
+  /*/
+  if(!soundsDB) {
+    window.soundsDB = getFromLocalDB("soundsDB");
+  }
+  if(!musicDB) {
+    window.musicDB = getFromLocalDB("musicDB");
+  }
+  /**/
+}
 
+onWindowResize();
+window.onresize = onWindowResize;
+
+// load from local storage if normal DB not exist
+loadBDfromLocalStorage();
+addTrackListsFromDB();
+// load sounds DB
+loadSoundListsData();
+cloneSoundsDataFromDB();
+createSoundColumn();
+
+clickTopButtons();
 });

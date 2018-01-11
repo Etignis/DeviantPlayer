@@ -1219,11 +1219,12 @@ img {
   width: 2.8em;
   counter-reset: tracks -1;
 }
-#sounds_container .hiddenList {
-  outline: 2px solid red;
+#sounds_container .hiddenList ul,
+#sounds_container .sortable-chosen ul {
+  display: none !important;
 }
-#sounds_container .hiddenList ul {
-  display: none;
+#sounds_container .soundButtonContainer:nth-child(n+11) .soundButton::before {
+  content: "";
 }
 #sounds_container .soundButton {
   -webkit-border-radius: 3px 3px 3px 3px;
@@ -1273,7 +1274,7 @@ img {
 #sounds_container .soundButton:active {
   background: #777;
 }
-#sounds_container .soundButton:before {
+#sounds_container .soundButton::before {
   content: counter(tracks);
   position: absolute;
   left: .1em;
@@ -1381,4 +1382,37 @@ img {
 }
 #mw_soundlists_manage .buttonsPlace button {
   margin: .1em .2em;
+}
+#mw_batDB_manage {
+  max-width: 50rem;
+  margin: 0 auto;
+}
+#mw_batDB_manage .inner {
+  margin: 1rem;
+}
+#mw_batDB_manage .center {
+  text-align: center;
+}
+#mw_batDB_manage button {
+  border-radius: 3px 3px 3px 3px;
+  overflow: visible;
+  border: 1px solid #d8d8d8;
+  border-bottom-width: 2px;
+  border-top-width: 1px;
+  box-shadow: 0 2px 5px 1px rgba(0, 0, 0, 0.05);
+  cursor: pointer;
+  padding: .9em 1.6em;
+  background: #f7f7f7;
+  margin: 0.5em;
+  transition: box-shadow 0.3s, background 0.3s;
+}
+#mw_batDB_manage button:hover {
+  background: #f2f2f2;
+  box-shadow: 0 2px 5px 0px rgba(0, 0, 0, 0.2);
+}
+#mw_batDB_manage button.white {
+  background: white;
+}
+#mw_batDB_manage #mw_batDB_load_input {
+  display: none;
 }
