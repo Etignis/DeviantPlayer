@@ -1416,3 +1416,29 @@ img {
 #mw_batDB_manage #mw_batDB_load_input {
   display: none;
 }
+#mw_sl_OkButton,
+#mw_pl_CancelButton,
+#mw_pl_OkButton {
+  border-radius: 3px 3px 3px 3px;
+  overflow: visible;
+  border: 1px solid #d8d8d8;
+  border-bottom-width: 2px;
+  border-top-width: 1px;
+  box-shadow: 0 2px 5px 1px rgba(0, 0, 0, 0.05);
+  cursor: pointer;
+  padding: .9em 1.6em;
+  background: #f7f7f7;
+  margin: 0.5em;
+  transition: box-shadow 0.3s, background 0.3s;
+}
+#mw_sl_OkButton:hover,
+#mw_pl_CancelButton:hover,
+#mw_pl_OkButton:hover {
+  background: #f2f2f2;
+  box-shadow: 0 2px 5px 0px rgba(0, 0, 0, 0.2);
+}
+#mw_sl_OkButton.white,
+#mw_pl_CancelButton.white,
+#mw_pl_OkButton.white {
+  background: white;
+}
