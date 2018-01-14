@@ -2,3 +2,4 @@ _SYNCAPP/metadata.xml
 js/db.js
 .idea*
 js/db.js
+*.js

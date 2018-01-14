@@ -128,7 +128,7 @@ var musicDB = {
     ]
   },
   "xmass": {
-    "number": 58,
+    "number": 60,
     "list": [
       "07. Günter Noris - Jingle bells  Fröhliche Weihnacht überall  Oh Tannenbaum.mp3",
       "08. Günter Noris - Stille Nacht, heilige Nacht.mp3",
@@ -142,6 +142,8 @@ var musicDB = {
       "Big Bad Voodoo Daddy - All I Want For Christmas (Is My Two Front Teeth).mp3",
       "Big Bad Voodoo Daddy - Frosty The Snowman.mp3",
       "Big Bad Voodoo Daddy - Walking In A Winter Wonderland.mp3",
+      "Billy Idol - Jingle Bell Rock.mp3",
+      "Billy Idol - White Christmas (Bing Crosby cover).mp3",
       "Billy Mack - Christmas is All Around.mp3",
       "Bing Crosby - The 12 Days Of Christmas.mp3",
       "Bing Crosby - Walking In A Winter Wonderland.mp3",
@@ -672,7 +674,7 @@ var musicDB = {
     ]
   },
   "_бодро": {
-    "number": 265,
+    "number": 266,
     "list": [
       "1471ed8fcf1b26.mp3",
       "30 Seconds to Mars - Edge of the Earth.mp3",
@@ -699,6 +701,7 @@ var musicDB = {
       "Blue Stahli - Car Chase Club Action [httpsvk.comappzona] 23.mp3",
       "Blue Stahli - Doubt.mp3",
       "Blue Stahli - Headshot [httpsvk.comappzona] 23.mp3",
+      "Bon Jovi - Runaway.mp3",
       "Borderlands_2_-_OST_-_Destroying_the_Destoryer.mp3",
       "Bring Me The Horizon - Happy Song.mp3",
       "Captain Panic - Annihilation (Static Reset Remix).mp3",
@@ -1143,7 +1146,7 @@ var musicDB = {
     ]
   },
   "_кантина": {
-    "number": 13,
+    "number": 14,
     "list": [
       "2nd South Carolina String Band - Cindy.mp3",
       "Big Bad Voodoo Daddy - Jingle Bells.mp3",
@@ -1157,11 +1160,12 @@ var musicDB = {
       "Steampunk - Let My People Go Retro.mp3",
       "Steampunk - Steam-powered Charleston.mp3",
       "Steampunk - Yes Sir, Thats My Time Machine.mp3",
-      "Tom Jerry - Crambone (Uncle Pecos Song).mp3"
+      "Tom Jerry - Crambone (Uncle Pecos Song).mp3",
+      "Toots and the Maytals - 54-46 Was My Number.mp3"
     ]
   },
   "_киберпанк": {
-    "number": 324,
+    "number": 325,
     "list": [
       "01 DEATHCITY.mp3",
       "03 soul-eater (reprise).mp3",
@@ -1313,6 +1317,7 @@ var musicDB = {
       "Invsble City - Solar Warden.mp3",
       "Irving Force - Meat Grinder City.mp3",
       "Jack Maniak - Tribal Mob.mp3",
+      "James Everingham Music - Dimension.mp3",
       "Jasper Byrne - Voyager.mp3",
       "Jean Baudlot, Fabrice Visserot - Conrads Memories.mp3",
       "Jean Baudlot, Fabrice Visserot - Descent Into the Tunnels.mp3",
@@ -1607,12 +1612,13 @@ var musicDB = {
     ]
   },
   "_лирика": {
-    "number": 35,
+    "number": 36,
     "list": [
       "08. Toshiro Masuda - Sadness and Sorrow.mp3",
       "18. Toshiro Masuda - Alone.mp3",
       "Aerosmith - I Dont Want to Miss a Thing (OST Армагеддон).mp3",
       "Alice Cooper - I Never Cry.mp3",
+      "Bon Jovi - Bed Of Roses.mp3",
       "Bonnie Tyler - Total Eclipse Of The Heart [https vk.com appzona] 035.mp3",
       "Bruno Major - Easily.mp3",
       "Bruno Major - Home.mp3",
@@ -1792,7 +1798,7 @@ var musicDB = {
     ]
   },
   "_напряженно_мелодии": {
-    "number": 62,
+    "number": 65,
     "list": [
       "09. Monumental Meltdown.mp3",
       "11. A Boatload of Trouble Part 1.mp3",
@@ -1812,6 +1818,7 @@ var musicDB = {
       "Doom Troopers - Briefing.mp3",
       "Erdenstern - Just Kill It! (Into The Dark).mp3",
       "Frank Klepacki - Grinder 2.mp3",
+      "Jacek Paciorkowski - Cause of Life and Death.mp3",
       "James Hannigan and Timothy Michael Wynn - Soviet Combat 1.mp3",
       "James Hannigan and Timothy Michael Wynn - Threatened in Mainland Europe.mp3",
       "Jeff Broadbent - TR Combat 1.mp3",
@@ -1819,6 +1826,7 @@ var musicDB = {
       "Jeremy Soule - Sith Guard Encounter.mp3",
       "Jeremy Soule - The Sith.mp3",
       "Jeremy Soule - The Temple.mp3",
+      "Jeremy Soule - Zenlil Under Siege.mp3",
       "Johan Skugge  Jukka Rintam#228;ki - Battlefield 3 Main Theme.mp3",
       "Johan Skugge  Jukka Rintam#228;ki - Close Quarters.mp3",
       "Johan Skugge  Jukka Rintam#228;ki - Operation Metro.mp3",
@@ -1826,6 +1834,7 @@ var musicDB = {
       "K rtsy Hatakka Kimmo Kajasto - Ms Valkyr.mp3",
       "Kartsy Hatakka Kimmo Kajasto - Byzantine Power Game.mp3",
       "KCE Japan Sound Team - Encounter.mp3",
+      "Marcin Przyby#322;owicz - Chit-Chat with the Devil.mp3",
       "Mark Griskey - Battle on the Droid Ship.mp3",
       "Mark Griskey - Darth Nihilus.mp3",
       "Mark Griskey - Jek#39;Jek Tarr Tunnels.mp3",
@@ -1859,7 +1868,7 @@ var musicDB = {
     ]
   },
   "_напряженно_эпик": {
-    "number": 103,
+    "number": 106,
     "list": [
       "03. Yasuharu Takanashi - Invasion.mp3",
       "06 Yami Guild.mp3",
@@ -1914,6 +1923,7 @@ var musicDB = {
       "E.S. Posthumus - Varuna.mp3",
       "Epic Score (Alternative Madness) - Hot Mess.mp3",
       "Epic Score - Break Free.mp3",
+      "Epic Score - End Of It All.mp3",
       "Epic Score - Eruption.mp3",
       "Epic Score - Hired Guns.mp3",
       "Fired Earth Music - Battlefield.mp3",
@@ -1952,6 +1962,8 @@ var musicDB = {
       "Stuart Chatwood - Military Aggression.mp3",
       "Stuart Chatwood - Rooftop Engagement.mp3",
       "Stuart Chatwood - Tower Encounter.mp3",
+      "Tarek Mansur - Hear Our Call.mp3",
+      "Tarek Mansur - Last Day on Earth.mp3",
       "Tim Wynn - Hunt The Weak.mp3",
       "Tony Fiala - Reckless Renegade.mp3",
       "Two Steps From Hell - The Immortals.mp3",
@@ -2015,7 +2027,7 @@ var musicDB = {
     ]
   },
   "_погоня": {
-    "number": 101,
+    "number": 102,
     "list": [
       "16. Yasuharu Takanashi - Lightning Speed.mp3",
       "7b4ace4c381360.mp3",
@@ -2113,6 +2125,7 @@ var musicDB = {
       "Tito and Tarantula - Angry Cockroaches [Zona].mp3",
       "Tommy Tallarico - See Jim Run, Run Jim Run.mp3",
       "Trisco - Southpaw [Flukes Glassjaw Remix][2005].mp3",
+      "UK Subs - Warhead.mp3",
       "Unwritten Law - F.I.G.H.T.mp3",
       "Volbeat - Devil or the Blue Cats Song.mp3",
       "Walking Def - Let Me Show You (feat. Virus Syndicate).mp3",
@@ -2216,7 +2229,7 @@ var musicDB = {
     ]
   },
   "_фон": {
-    "number": 854,
+    "number": 859,
     "list": [
       "01. Live to Rise.mp3",
       "01cdefff252087.mp3",
@@ -2335,9 +2348,11 @@ var musicDB = {
       "Bon Jovi - Always [httpsvk.comappzona] 059.mp3",
       "Bon Jovi - Bed Of Roses [httpsvk.comappzona] 059.mp3",
       "Bon Jovi - Born Again Tomorrow [httpsvk.comappzona] 059.mp3",
+      "Bon Jovi - Born Again Tomorrow.mp3",
       "Bon Jovi - Livin On A Prayer.mp3",
       "Bon Jovi - Livin#39; On A Prayer [httpsvk.comappzona] 059.mp3",
       "Bon Jovi - This House Is Not For Sale [httpsvk.comappzona] 059.mp3",
+      "Bon Jovi - This House Is Not For Sale.mp3",
       "Bon Jovi - Wanted Dead Or Alive (т с Сверхъестественное).mp3",
       "Bon Jovi - Wanted Dead Or Alive [httpsvk.comappzona] 059.mp3",
       "Bon Jovi - Wanted Dead Or Alive.mp3",
@@ -2418,6 +2433,7 @@ var musicDB = {
       "Def Leppard - Rock Of Ages.mp3",
       "Deftones - Minerva.mp3",
       "Depeche Mode - The Darkest Star.mp3",
+      "Dexys Midnight Runners - Come On Eileen.mp3",
       "Diamond Head - Play It Loud.mp3",
       "Die Toten Hosen - I Am The Walrus.mp3",
       "Dimitriy Dyachenko - Drive Plastic.mp3",
@@ -2840,6 +2856,7 @@ var musicDB = {
       "Snoop Dogg ft. The Doors - Riders On The Storm [httpsvk.comappzona] 7.mp3",
       "Snoop Dogg ft. The Doors - Riders On The Storm.mp3",
       "Social Distortion - Bad Luck.mp3",
+      "Soft Cell - Tainted Love.mp3",
       "Soundgarden - Live to Rise.mp3",
       "Space-man - delay (demo).mp3",
       "Spartan X - Wheels on Meals OST.mp3",
@@ -2933,6 +2950,7 @@ var musicDB = {
       "The Rubettes - Sugar Baby Love.mp3",
       "The Seeking - So Cold.mp3",
       "The Sneepers - Guardians Inferno (feat. David Hasselhoff).mp3",
+      "The Specials - Do The Dog.mp3",
       "The Spinners - Ill Always Love You (1).mp3",
       "The Strokes - Hawaii.mp3",
       "The Struts - Kiss This.mp3",
@@ -3281,7 +3299,7 @@ var musicDB = {
     ]
   },
   "_фон 80": {
-    "number": 115,
+    "number": 117,
     "list": [
       "23. Come Together.mp3",
       "60s 70s 80s 90s Hits - I Love Rock n Roll.mp3",
@@ -3296,10 +3314,12 @@ var musicDB = {
       "Bon Jovi - Born Again Tomorrow.mp3",
       "Bon Jovi - It#39;s My Life [httpsvk.comappzona] 059.mp3",
       "Bon Jovi - Livin#39; On A Prayer .mp3",
+      "Bon Jovi - Livin#39; On A Prayer.mp3",
       "Bon Jovi - Runaway.mp3",
       "Bon Jovi - This House Is Not For Sale.mp3",
       "Bon Jovi - Wanted Dead Or Alive.mp3",
       "Bon Jovi - You Give Love A Bad Name [httpsvk.comappzona] 059.mp3",
+      "Bon Jovi - You Give Love A Bad Name.mp3",
       "Boston - More Than a Feeling.mp3",
       "Brian May, Kerry Ellis - Roll with You.mp3",
       "Bruce Springsteen - Radio Nowhere.mp3",
@@ -3401,7 +3421,7 @@ var musicDB = {
     ]
   },
   "_фон спокойно": {
-    "number": 59,
+    "number": 63,
     "list": [
       "01 in his mind DB sways his shoulders and dances.mp3",
       "03 Sore ga Bokura no Michishirube (instrumental).mp3",
@@ -3432,11 +3452,15 @@ var musicDB = {
       "Jeff Broadbent - NC Main.mp3",
       "Jeff Broadbent - VS Combat 2.mp3",
       "Jeff Broadbent - VS Combat 4.mp3",
+      "Jeremy Soule - Consortium Bishop Six.mp3",
       "Joel Nielsen - Groove 1.mp3",
       "Joel Nielsen - Office Complex.mp3",
       "Joel Nielsen - On a Rail 1.mp3",
       "Joel Nielsen - Questionable Ethics 1.mp3",
       "Light Club - Blizzard (Hotline Miami 2 Wrong Number OST).mp3",
+      "Marcin Przyby#322;owicz - Into the Wildlands.mp3",
+      "Marcin Przyby#322;owicz - There#39;s No Sunrise for the Gunman.mp3",
+      "Marcin Przyby#322;owicz - Ugly Business.mp3",
       "Martin O#39;Donnell  Michael Salvatori - Cairo Suite.mp3",
       "Martin O#39;Donnell  Michael Salvatori - Flawed Legacy.mp3",
       "Martin O#39;Donnell  Michael Salvatori - Heretic, Hero.mp3",
@@ -4912,6 +4936,18 @@ var musicDB = {
       "Страшная музыка.. - Алая рука.mp3"
     ]
   },
+  "нарастающий эпик": {
+    "number": 7,
+    "list": [
+      "Alliance Trailer Music - Pillars of Creation.mp3",
+      "DeVsoMusic - Light In The Sky.mp3",
+      "Epic Score - Armor of Steel.mp3",
+      "Epic Score - Fight to the End.mp3",
+      "Epic Score - Flag of Victory.mp3",
+      "Epic Score - For Our People.mp3",
+      "Epic Soul Factory - Made of Stardust.mp3"
+    ]
+  },
   "начало": {
     "number": 96,
     "list": [
@@ -5304,10 +5340,11 @@ var musicDB = {
     ]
   },
   "сантар": {
-    "number": 9,
+    "number": 10,
     "list": [
       "Duane Decker - Sri Lanka.mp3",
       "House of delights (празднества).mp3",
+      "Marcin Przyby#322;owicz - Over the Broken World.mp3",
       "Masquerade (празднества).mp3",
       "Medium - Hold the Void.mp3",
       "Stuart Chatwood - Discover the Royal Chambers.mp3",
