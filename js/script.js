@@ -189,10 +189,10 @@ function PlayerForm(){
 						pf_sett+
 						pf_play_button+
 						pf_name+
-						pf_img+
+					//	pf_img+
 						pf_list+
-						pf_l_sett+
-						pf_mng+
+					//	pf_l_sett+
+					//	pf_mng+
 					"</div>";
 
 			$(".tracks").append(player_form);
