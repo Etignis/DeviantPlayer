@@ -1014,41 +1014,15 @@ img {
   cursor: default;
 }
 .player_form .tr_line {
-  padding-left: 1.5em;
   position: relative;
-}
-.player_form .tr_line table {
-  width: 100%;
-}
-.player_form .tr_line table td {
-  width: 1px;
-  padding: 0;
-  margin: 0;
-  border: none;
-}
-.player_form .tr_line .name_place {
-  width: 100%;
-  padding: 0;
+  height: 1.7em;
   overflow: hidden;
-  position: relative;
-  /*
-            &:hover{
-                overflow: visible;
-                .name{
-                    background: #444;
-                    z-index: 9;
-                    white-space: nowrap; 
-                }
-            }
-            */
+  display: flex;
 }
 .player_form .tr_line .name {
-  font-size: 90%;
-  position: absolute;
   z-index: 5;
   top: 0;
   left: 0;
-  display: table;
 }
 .player_form .tr_line:nth-child(2n) {
   background: rgba(255, 255, 255, 0.1);
@@ -1061,9 +1035,8 @@ img {
   /* Указываем идентификатор счетчика */
   content: counter(tracks);
   /* Выводим текст перед содержимым тега <h2> */
-  position: absolute;
-  left: .1em;
-  top: 0.1em;
+  padding-right: 0.5em;
+  opacity: .8;
 }
 .player_form .tr_line:hover {
   background: rgba(255, 255, 255, 0.18);

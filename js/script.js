@@ -227,17 +227,22 @@ function PlayerForm(){
 		var name = smth[0];
 		//console.log(this.name);
 		num = $(".player_form[data-form-name='"+this.name+"']").find(".tr_line").length+1;
+    /*/
 		tr_line = "<div class='tr_line' data-url='"+url+"' data-num='"+num+"'>"+
 				"<table>"+
 					"<tr>"+
 						"<td class='count'></td>"+
 						"<!--td><input type='checkbox' class='f_ch'></td-->"+
-						"<td><input type='checkbox' class='f_pl'></td>"+
+						"<!--td><input type='checkbox' class='f_pl'></td-->"+
 						"<td class='name_place'>"+
 							"<div class='name' title='"+name+"'>"+name+"</div>"+
 						"</td>"+
 					"</tr>"+
 				"</table>"+
+			  "</div>";
+        /**/
+		tr_line = "<div class='tr_line' data-url='"+url+"' data-num='"+num+"'>"+
+				"<div class='name' title='"+name+"'>"+name+"</div>"+
 			  "</div>";
 
 		$(".player_form[data-name='"+this.num+"']").children(".pf_list").append(tr_line);

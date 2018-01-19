@@ -189,6 +189,7 @@
         overflow-x: visible;
         height: 12em;
         counter-reset: tracks;
+
     }
     .pf_l_sett{
         .blank();
@@ -199,41 +200,44 @@
     
     ////
     .tr_line{ 
-        padding-left: 1.5em;
+        //padding-left: 1.5em;
         position: relative;
-        table{
-            width: 100%;        
-            td{
-                width: 1px;
-                padding: 0;
-                margin: 0;
-                border: none;
-            }
-        }
+        //table{
+        //    width: 100%;
+        //    td{
+        //        width: 1px;
+        //        padding: 0;
+        //        margin: 0;
+        //        border: none;
+        //    }
+        //}
+        height: 1.7em;
+        overflow: hidden;
+        display: flex;
        //table-layout: fixed;
-       .name_place{
-            width: 100%;
-            padding: 0;
-            overflow: hidden;
-            position: relative;
-            /*
-            &:hover{
-                overflow: visible;
-                .name{
-                    background: #444;
-                    z-index: 9;
-                    white-space: nowrap; 
-                }
-            }
-            */
-        }
+       //.name_place{
+       //     width: 100%;
+       //     padding: 0;
+       //     overflow: hidden;
+       //     position: relative;
+       //     /*
+       //     &:hover{
+       //         overflow: visible;
+       //         .name{
+       //             background: #444;
+       //             z-index: 9;
+       //             white-space: nowrap;
+       //         }
+       //     }
+       //     */
+       // }
         .name{
-            font-size: 90%;
-            position: absolute;
+            //font-size: 90%;
+            //position: absolute;
             z-index: 5;
             top: 0;
             left: 0;
-            display: table;
+            //display: table;
         }
         
         &:nth-child(2n){
@@ -245,9 +249,11 @@
         &:before{
             counter-increment: tracks; /* Указываем идентификатор счетчика */
             content: counter(tracks); /* Выводим текст перед содержимым тега <h2> */
-            position: absolute;
-            left: .1em;
-            top: 0.1em;
+            padding-right: 0.5em;
+            opacity: .8;
+            //position: absolute;
+            //left: .1em;
+            //top: 0.1em;
         }
         &:hover{
             background: rgba(255,255,255, .18);  
