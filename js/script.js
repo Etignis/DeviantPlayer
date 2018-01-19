@@ -1665,25 +1665,25 @@ function clickTopButtons() {
       //alert(keyCode);
       switch(keyCode)
       { //vol up
-      case 49: if(bShift) {id=0, ev="sound"} else { id=1; ev="vol_up"}; //1
+      case 49: if(bShift) {id=1, ev="sound"} else { id=1; ev="vol_up"}; //1
           break;
-        case 50: if(bShift) {id=1, ev="sound"} else {  id=2; ev="vol_up"}; //2
+        case 50: if(bShift) {id=2, ev="sound"} else {  id=2; ev="vol_up"}; //2
           break;
-        case 51: if(bShift) {id=2, ev="sound"} else {  id=3; ev="vol_up"}; //3
+        case 51: if(bShift) {id=3, ev="sound"} else {  id=3; ev="vol_up"}; //3
           break;
-        case 52: if(bShift) {id=3, ev="sound"} else {  id=4; ev="vol_up"}; //4
+        case 52: if(bShift) {id=4, ev="sound"} else {  id=4; ev="vol_up"}; //4
           break;
-        case 53: if(bShift) {id=4, ev="sound"} else {  id=5; ev="vol_up"}; //5
+        case 53: if(bShift) {id=5, ev="sound"} else {  id=5; ev="vol_up"}; //5
           break;
-        case 54: if(bShift) {id=5, ev="sound"} else {  id=6; ev="vol_up"}; //6
+        case 54: if(bShift) {id=6, ev="sound"} else {  id=6; ev="vol_up"}; //6
           break;
-        case 55: if(bShift) {id=6, ev="sound"} else {  id=7; ev="vol_up"}; //7
+        case 55: if(bShift) {id=7, ev="sound"} else {  id=7; ev="vol_up"}; //7
           break;
-        case 56: if(bShift) {id=7, ev="sound"} else {  id=8; ev="vol_up"}; //8
+        case 56: if(bShift) {id=8, ev="sound"} else {  id=8; ev="vol_up"}; //8
           break;
-        case 57: if(bShift) {id=8, ev="sound"} else {  id=9; ev="vol_up"}; //9
+        case 57: if(bShift) {id=9, ev="sound"} else {  id=9; ev="vol_up"}; //9
           break;
-        case 48: if(bShift) {id=9, ev="sound"} else {  id=10; ev="vol_up"}; //0
+        case 48: if(bShift) {id=0, ev="sound"} else {  id=10; ev="vol_up"}; //0
           break;
 
         //vol dn
