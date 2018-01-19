@@ -941,6 +941,20 @@ img {
   height: 12em;
   counter-reset: tracks;
 }
+.player_form .pf_list::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+.player_form .pf_list::-webkit-scrollbar-thumb {
+  background: #515151;
+}
+.player_form .pf_list::-webkit-scrollbar-track {
+  background: #777;
+}
+.player_form .pf_list body {
+  scrollbar-face-color: #515151;
+  scrollbar-track-color: #777;
+}
 .player_form .pf_l_sett {
   -webkit-border-radius: 3px 3px 3px 3px;
   -moz-border-radius: 3px 3px 3px 3px;
