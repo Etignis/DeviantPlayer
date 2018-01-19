@@ -162,9 +162,9 @@ function PlayerForm(){
 			pf_lt="";
 		var pf_sett = "<div class='pf_sett'>"+
 								"<div class='btns'>"+
-									"<input type='checkbox' checked='checked' id='ch_"+this.name+"' class='btn cycle'><label for='ch_"+this.name+"' ><i class='fa fa-retweet'></i></label>"+
-									"<button class='btn mix'><i class='fa fa-random'></i></button>"+
-									"<input type='checkbox' id='hd_"+this.name+"' class='btn hide'><label for='hd_"+this.name+"' ><i class='fa fa-eye-slash'></i></label>"+
+									"<input type='checkbox' checked='checked' id='ch_"+this.name+"' class='btn cycle'><label for='ch_"+this.name+"' title='Зациклить плейлист' ><i class='fa fa-retweet'></i></label>"+
+									"<button class='btn mix' title='Перемешать музыку'><i class='fa fa-random'></i></button>"+
+									"<input type='checkbox' id='hd_"+this.name+"' class='btn hide'><label for='hd_"+this.name+"' title='Скрыть/показать список воспроизведения'><i class='fa fa-eye-slash'></i></label>"+
 									//"<button>3</button>"+
 								"</div>"+
 								"<div class='vol'>"+
