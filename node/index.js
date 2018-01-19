@@ -6,6 +6,7 @@ const path = require('path');
 const mp3Ext = '.mp3';
 const wavExt = '.wav';
 const sMusicPath = "D:/Cloud/DnD/Музыка";
+const sSoundsFolder = "!звуки";
 const sDBpath = "../js/db.js"
 
 function getData() {
@@ -21,7 +22,7 @@ function createBD() {
     const isDir = fs.lstatSync(sInnerPath);
     // only for folders with music
     if(isDir.isDirectory()) {
-      if(!(/^!/.test(folder))) {
+      if(folder != sSoundsFolder/*!(/^!/.test(folder))*/) {
         let aList= [];
         fs.readdirSync(sInnerPath).forEach(file => {
           // music?
