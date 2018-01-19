@@ -505,6 +505,7 @@ img {
   user-select: none;
   background: #888888;
   padding: .3em;
+  font-size: inherit;
 }
 .player_form .pf_sett .mix:hover {
   background: #999999;
@@ -768,12 +769,16 @@ img {
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
-  width: 5em;
-  height: 5em;
+  font-size: inherit;
+  width: 7em;
+  height: 7em;
   cursor: pointer;
   display: block;
   margin: 0 auto;
   background: #888888;
+}
+.player_form .pf_play button.pf_play_bt i {
+  font-size: 1.9em;
 }
 .player_form .pf_play button.pf_play_bt:hover {
   background: #999999;
@@ -812,11 +817,15 @@ img {
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
-  width: 5em;
+  font-size: inherit;
+  width: 7em;
   cursor: pointer;
   display: block;
   margin: 0 auto;
   background: #888888;
+}
+.player_form .pf_play button.pf_next_bt i {
+  font-size: 1.4em;
 }
 .player_form .pf_play button.pf_next_bt:hover {
   background: #999999;

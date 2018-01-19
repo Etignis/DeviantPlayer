@@ -168,7 +168,7 @@ function PlayerForm(){
 									//"<button>3</button>"+
 								"</div>"+
 								"<div class='vol'>"+
-									"<input type='range' orient=vertical class='volume' min='0' max='50' value=25>"+
+									"<input type='range' orient='vertical' class='volume' min='0' max='50' value=25>"+
 									"<div class='vol_num'>50%</div>"+
 								"</div>"+
 							"</div>";
