@@ -941,7 +941,7 @@ img {
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
-  padding: .2em;
+  padding: 0;
   margin: .1em;
   cursor: default;
   overflow: hidden;
@@ -1037,6 +1037,7 @@ img {
   cursor: default;
 }
 .player_form .tr_line {
+  padding: 0.1em 0.2em;
   position: relative;
   height: 1.7em;
   overflow: hidden;
