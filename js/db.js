@@ -1,102 +1,103 @@
-var soundsDB = {
-  "battle suspence": {
-    "number": 9,
-    "list": [
-      "Mark Griskey - Battle Suspense 1.mp3",
-      "Mark Griskey - Battle Suspense 2.mp3",
-      "Mark Griskey - Battle Suspense 3.mp3",
-      "Mark Griskey - Battle Suspense 4.mp3",
-      "Mark Griskey - Battle Suspense 5.mp3",
-      "Mark Griskey - Battle Suspense 6.mp3",
-      "Mark Griskey - Battle Suspense 7.mp3",
-      "Mark Griskey - Battle Suspense 8.mp3",
-      "Mark Griskey - Battle Suspense 9.mp3"
-    ]
-  },
-  "ахаха": {
-    "number": 6,
-    "list": [
-      "Барабаны Бадум-тссс.mp3",
-      "Ералаш.mp3",
-      "смех1.wav",
-      "смех2.wav",
-      "смех3.wav",
-      "смех4.wav"
-    ]
-  },
-  "внезапно": {
-    "number": 6,
-    "list": [
-      "внезапно.wav",
-      "Внезапный звук.mp3",
-      "Поворот.mp3",
-      "Супрайз мазафака.mp3",
-      "ТА ДА ДА ДАААМ.mp3",
-      "Тревожная музыка.mp3"
-    ]
-  },
-  "гудок": {
-    "number": 3,
-    "list": [
-      "Гонг2.mp3",
-      "гудок 1.wav",
-      "гудок 2.wav"
-    ]
-  },
-  "магия": {
-    "number": 6,
-    "list": [
-      "вжух.wav",
-      "Волшебство.mp3",
-      "магия 2.wav",
-      "магия 3.wav",
-      "магия.wav",
-      "Превращение.mp3"
-    ]
-  },
-  "монеты": {
-    "number": 1,
-    "list": [
-      "Монеты.wav"
-    ]
-  },
-  "неловко": {
-    "number": 2,
-    "list": [
-      "Лягушка-1.8-4.9.mp3",
-      "сверчки 01-0-1.7.mp3"
-    ]
-  },
-  "опыт": {
-    "number": 1,
-    "list": [
-      "Опыт 6.mp3"
-    ]
-  },
-  "портал": {
-    "number": 3,
-    "list": [
-      "портал 0.wav",
-      "Портал Большой 2.wav",
-      "Портал большой 3.wav"
-    ]
-  },
-  "таймер": {
-    "number": 1,
-    "list": [
-      "таймер2.wav"
-    ]
-  },
-  "телепортация": {
-    "number": 2,
-    "list": [
-      "Телепортация 2.wav",
-      "Телепортация.wav"
-    ]
-  }
-}
+var soundsDB = {}
 
 var musicDB = {
+  "!звуки": {
+    "number": 92,
+    "list": [
+      "362926__shaderrow__scream.wav",
+      "BUILDTWN.wav",
+      "CHAINLTE.wav",
+      "CHAT.wav",
+      "DRAGON.wav",
+      "EXPERNCE.mp3",
+      "EXPERNCE.wav",
+      "FLAGMINE.wav",
+      "ghost 01 haunting.mp3",
+      "ghost 02 monstermoan.mp3",
+      "ghost 03 SUPER nmh_scream1.mp3",
+      "ghost 04 SCREAM_4.mp3",
+      "ghost 05 woscream4.mp3",
+      "ghost mrwinter__spooky-scream.wav",
+      "GOODLUCK.wav",
+      "LUCK.wav",
+      "MORALE.wav",
+      "MYSTERY.wav",
+      "NWHEROLV.wav",
+      "PICKUP01.wav",
+      "PICKUP02.wav",
+      "PICKUP03.wav",
+      "PICKUP04.wav",
+      "PICKUP05.wav",
+      "PICKUP06.wav",
+      "PICKUP07.wav",
+      "STORE.wav",
+      "TREASURE.wav",
+      "undead01.wav",
+      "undead02.wav",
+      "undead03.wav",
+      "undead04.wav",
+      "undead05.wav",
+      "undead06.wav",
+      "undead07.wav",
+      "undead08.wav",
+      "witch.mp3",
+      "XP1.mp3",
+      "Армия бой орут.mp3",
+      "Бенни Хил.mp3",
+      "Взрыв.mp3",
+      "Вляпался, раздавил.mp3",
+      "Вода бульк.mp3",
+      "Гонг.mp3",
+      "дверной звонок 1.wav",
+      "дверной звонок 2.wav",
+      "дверной звонок 3.wav",
+      "Деревянная дверь закрыть 01.mp3",
+      "дзиньк.mp3",
+      "Замок.mp3",
+      "Запуск шаровой молнии.mp3",
+      "Звонок касса.wav",
+      "лол.mp3",
+      "Лягушка.mp3",
+      "Магия снаряд.mp3",
+      "Монеты 2.wav",
+      "Монеты 3.wav",
+      "Монеты 4.wav",
+      "Монеты 5.wav",
+      "Монеты 6.wav",
+      "монеты.mp3",
+      "опыт 2.wav",
+      "Опыт 3.wav",
+      "Опыт 4.wav",
+      "Опыт 5.wav",
+      "Опыт 7.mp3",
+      "Опыт 9.mp3",
+      "опыт.wav",
+      "Оружие удар.mp3",
+      "Поп.mp3",
+      "Портал 10.mp3",
+      "Портал 2.wav",
+      "Портал 3.wav",
+      "Портал 4.wav",
+      "Портал 5.wav",
+      "Портал 6.wav",
+      "Портал 7.wav",
+      "Портал 8.mp3",
+      "Портал 9.mp3",
+      "портал.mp3",
+      "пролетело.mp3",
+      "Рык.mp3",
+      "сверчки 01.mp3",
+      "Скрип половица.mp3",
+      "Смерть гоблин.mp3",
+      "смех.wav",
+      "Стрела попала.mp3",
+      "стрела попала02.mp3",
+      "таймер.wav",
+      "Тиканье часов.mp3",
+      "Удар молнии 01.mp3",
+      "Что-то пролетело.mp3"
+    ]
+  },
   "18 век": {
     "number": 25,
     "list": [
@@ -284,7 +285,7 @@ var musicDB = {
     ]
   },
   "_8-bit": {
-    "number": 116,
+    "number": 117,
     "list": [
       "155a60644947.mp3",
       "998041f80f9a.mp3",
@@ -332,6 +333,7 @@ var musicDB = {
       "Hiroshi Kobayashi - Contra Overdrive.mp3",
       "Hiroshi Kobayashi - Format X.mp3",
       "Hiroshi Kobayashi - Last Springsteen.mp3",
+      "Hiroshi Kobayashi - Locked  Loaded.mp3",
       "Hiroshi Kobayashi - Moonlit Army.mp3",
       "Hiroshi Kobayashi - The Dawn.mp3",
       "Hiroshi Kobayashi - The Hard Corps.mp3",
@@ -674,7 +676,7 @@ var musicDB = {
     ]
   },
   "_бодро": {
-    "number": 266,
+    "number": 268,
     "list": [
       "1471ed8fcf1b26.mp3",
       "30 Seconds to Mars - Edge of the Earth.mp3",
@@ -705,6 +707,7 @@ var musicDB = {
       "Borderlands_2_-_OST_-_Destroying_the_Destoryer.mp3",
       "Bring Me The Horizon - Happy Song.mp3",
       "Captain Panic - Annihilation (Static Reset Remix).mp3",
+      "Celldweller - Good L_ck (Yo_#39;re F_cked).mp3",
       "Chris Walsh and Dave Beran - Shake (Revolt Clogrock Remix).mp3",
       "Christophe H ral - Mechanical Dragon.mp3",
       "Chuck Doud - Anton Girdeux Battle.mp3",
@@ -834,6 +837,7 @@ var musicDB = {
       "Nirvana - Breed.mp3",
       "Nomy - You Better Die Young.mp3",
       "Paddy And The Rats - Pub#39;n Roll.mp3",
+      "Paddy And The Rats - The Captain#39;s Dead.mp3",
       "Pegboard_Nerds_-_Swamp_Thing.mp3",
       "Persona 3 OST - Master of Tartarus.mp3",
       "Plasmatics_-_Destroyers.mp3",
@@ -1081,7 +1085,7 @@ var musicDB = {
     ]
   },
   "_кабаре": {
-    "number": 60,
+    "number": 62,
     "list": [
       "06. Fever.mp3",
       "Amy Winehouse - Me  Mr Jones.mp3",
@@ -1094,6 +1098,7 @@ var musicDB = {
       "Gabby Young Other Animals - In Your Head.mp3",
       "Gabby Young Other Animals - Ive Improved.mp3",
       "Harry Gregson-Williams Norihiko Hibino - Snake Eater (Cynthia Harrell).mp3",
+      "Hughes Taylor - Hold You Tight.mp3",
       "Humanwine_-_Rivolta_Silenziosa.mp3",
       "Jimmie Vaughan - Dengue Woman Blues [Zona].mp3",
       "Karen Souza - Tainted Love.mp3",
@@ -1128,6 +1133,7 @@ var musicDB = {
       "Rosin_Coven_-_I_Found_The_Gold.mp3",
       "Scott Bradlees Postmodern Jukebox - Seven Nation Army.mp3",
       "Smokey Robinson The Miracles - Shop Around.mp3",
+      "Speedy Ortiz - No Below.mp3",
       "Squirrel Nut Zippers - Flight Of The Passing Fancy.mp3",
       "Steampunk opera - New Albion.mp3",
       "Stevie Ray Vaughan and Double Trouble - Mary Had A Little Lamb (live) [Zona].mp3",
@@ -1165,7 +1171,7 @@ var musicDB = {
     ]
   },
   "_киберпанк": {
-    "number": 325,
+    "number": 333,
     "list": [
       "01 DEATHCITY.mp3",
       "03 soul-eater (reprise).mp3",
@@ -1188,6 +1194,9 @@ var musicDB = {
       "19.mp3",
       "1Shot - Adrenalin.mp3",
       "20SIX Hundred - She Was The Night.mp3",
+      "2814 - #23546;#12450;#12452;#12474;.mp3",
+      "2814 - #24754;#21696;.mp3",
+      "2814 - #26032;#23487;#12468;#12540;#12523;#12487;#12531;#34903; (Shinjuku Golden Gai).mp3",
       "32f659c1c01b86.mp3",
       "A Trader's Life (позитив).mp3",
       "Akira Yamaoka - welcome to silent hill.mp3",
@@ -1209,6 +1218,7 @@ var musicDB = {
       "Blastromen - Transition Time.mp3",
       "Block 35 - Skyline.mp3",
       "Blue Stahli - Smackdown.mp3",
+      "Boys Noize - Cathryn#39;s Peak.mp3",
       "Brian Reitzell - Donovan.mp3",
       "Carpenter Brut - Anarchy Road (1).mp3",
       "Carpenter Brut - Anarchy Road (2).mp3",
@@ -1309,8 +1319,12 @@ var musicDB = {
       "Haujobb - Yearning.mp3",
       "Holon - Sentinel.mp3",
       "Holy Grin - Diabolism At Its Finest.mp3",
+      "Hudson Mohawke - Amethyst.mp3",
+      "Hudson Mohawke - Cyber Driver.mp3",
+      "Hudson Mohawke - Watch Theme.mp3",
       "Hybrid - All Torque.mp3",
       "Hybrid - Enjoy the Silence.mp3",
+      "Hybrid - Power Curve.mp3",
       "iamthekidyouknowwhatimean - Vulvasaur Rex.mp3",
       "Infinite Stream - At Full Speed.mp3",
       "Infinite Stream - Seconds, minutes, hours.mp3",
@@ -1798,7 +1812,7 @@ var musicDB = {
     ]
   },
   "_напряженно_мелодии": {
-    "number": 65,
+    "number": 70,
     "list": [
       "09. Monumental Meltdown.mp3",
       "11. A Boatload of Trouble Part 1.mp3",
@@ -1844,6 +1858,11 @@ var musicDB = {
       "Mark Griskey - The Final Battle.mp3",
       "Must Save Jane - Return Of Omen Loom.mp3",
       "No quarter (вдумчивость + стратегия).mp3",
+      "Oscar Araujo - Castle Arrival.mp3",
+      "Oscar Araujo - Daemon Lord.mp3",
+      "Oscar Araujo - Lady of the Crypt.mp3",
+      "Oscar Araujo - Necromancer.mp3",
+      "Oscar Araujo - Prologue.mp3",
       "Painkiller - Loony Park Fight (безумные локации).mp3",
       "Peter McConnell - Ride From The Flames.mp3",
       "The League of Gentlemen - Opening Theme (S01-02).mp3",
@@ -1868,7 +1887,7 @@ var musicDB = {
     ]
   },
   "_напряженно_эпик": {
-    "number": 106,
+    "number": 110,
     "list": [
       "03. Yasuharu Takanashi - Invasion.mp3",
       "06 Yami Guild.mp3",
@@ -1923,13 +1942,16 @@ var musicDB = {
       "E.S. Posthumus - Varuna.mp3",
       "Epic Score (Alternative Madness) - Hot Mess.mp3",
       "Epic Score - Break Free.mp3",
+      "Epic Score - Destiny and Honor.mp3",
       "Epic Score - End Of It All.mp3",
       "Epic Score - Eruption.mp3",
       "Epic Score - Hired Guns.mp3",
+      "Epic Score - Your Place in History.mp3",
       "Fired Earth Music - Battlefield.mp3",
       "Fired Earth Music - Destroyer.mp3",
       "Gerard Marino - Call To Arms.mp3",
       "Gerard Marino - Rage of Sparta.mp3",
+      "Image Edge - Redemption.mp3",
       "Immediate Music - Darkness on the Edge of Power.mp3",
       "Immediate Music - Firebender.mp3",
       "Jo Blankenburg - Hyde.mp3",
@@ -1944,6 +1966,7 @@ var musicDB = {
       "Motoi Sakuraba - Justice of the Knight.mp3",
       "Motoi Sakuraba - The Empyrean#39;s Throne.mp3",
       "Motoi Sakuraba - The Great Sea Gate.mp3",
+      "Oscar Araujo - Final Fight.mp3",
       "Phantom Power Music - Never Surrender [httpsvk.comappzona] 22.mp3",
       "Q-Factory Music - Mars Rover [httpsvk.comappzona] 22.mp3",
       "Really Slow Motion - Your God Is Dead.mp3",
@@ -2027,7 +2050,7 @@ var musicDB = {
     ]
   },
   "_погоня": {
-    "number": 102,
+    "number": 105,
     "list": [
       "16. Yasuharu Takanashi - Lightning Speed.mp3",
       "7b4ace4c381360.mp3",
@@ -2037,6 +2060,7 @@ var musicDB = {
       "Alina Gingertail - Plants vs. Zombies - Loonboon.mp3",
       "Blaggards - Drunken Sailor.mp3",
       "Blink-182 - All the Small Things [Zona].mp3",
+      "Blue Stahli - You#39;ll Get What#39;s Coming (feat. Mark Salomon).mp3",
       "Brad Paisley - Truckaroo.mp3",
       "Cement Pond - Trash Can.mp3",
       "Christophe Heral - Fear the Reaper.mp3",
@@ -2090,6 +2114,7 @@ var musicDB = {
       "Panic At The Disco - Crazy Genius.mp3",
       "Persona 5 - Blooming Villain.mp3",
       "Power Glove - Rexs Escape.mp3",
+      "Pretty Vicious - Are You Ready For Me.mp3",
       "Queen - Brighton Rock (OST Baby Driver).mp3",
       "Queens of the Stone Age - Little Sister.mp3",
       "Resonance of Fate End of Eternity OST - Open Air Studio [B].mp3",
@@ -2104,6 +2129,7 @@ var musicDB = {
       "RTPN - Boomslang.mp3",
       "RTPN - Cell.mp3",
       "RTPN - Extacy.mp3",
+      "Rungran - FUTURE IN MY HANDS.mp3",
       "Scandroid - Destination Unknown.mp3",
       "Sigue Sigue Sputnik - Love Missile.mp3",
       "Slacker - Scared (Dylan Rhymes Remix).mp3",
@@ -2229,7 +2255,7 @@ var musicDB = {
     ]
   },
   "_фон": {
-    "number": 859,
+    "number": 868,
     "list": [
       "01. Live to Rise.mp3",
       "01cdefff252087.mp3",
@@ -2392,6 +2418,7 @@ var musicDB = {
       "Cinderella - Shake Me.mp3",
       "Cinderella - Through The Rain.mp3",
       "Cineramascope.mp3",
+      "Cold War Kids - Love Is Mystical.mp3",
       "Course Of Nature - Wall Of Shame.mp3",
       "Craig David Feat. Nek - Im Walking Away.mp3",
       "Cream - Crossroads.mp3",
@@ -2416,8 +2443,10 @@ var musicDB = {
       "David Bowie - Cat People.mp3",
       "David Bowie - Changes.mp3",
       "David Bowie - Fashion.mp3",
+      "David Bowie - Life On Mars (2014 Remastered Version).mp3",
       "David Bowie - New Killer Star.mp3",
       "David Bowie - Space Oddity.mp3",
+      "David Bowie - Starman (OST The Martian).mp3",
       "David Bowie - Station To Station.mp3",
       "David Clynick - Datacore Demolition Camspy.mp3",
       "David Clynick - Limelight (Radio Edit).mp3",
@@ -2473,6 +2502,7 @@ var musicDB = {
       "Elvis Presley - Suspicious Minds [https vk.com appzona] 072.mp3",
       "Emilie Autumn - Shalott.mp3",
       "Emma Bunton - What Took You So Long.mp3",
+      "Enter The Void - Just Hold On.mp3",
       "Eric Clapton - After Midnight.mp3",
       "Eric Clapton - Change the world.mp3",
       "Erika De Bonis - I Dont Know.mp3",
@@ -2597,6 +2627,7 @@ var musicDB = {
       "Joy_Division_-_Dead_Souls.mp3",
       "Jun Senoue, Kenichi Tokoi - Bad Taste Aquarium ...for Hot Shelter.mp3",
       "Jun Senoue, Kenichi Tokoi - BIG fishes at Emerald Coast.mp3",
+      "Jungle - Time.mp3",
       "Kaleo - Fool 26.mp3",
       "Kaleo - Glass House 26.mp3",
       "Kaleo - No Good  26.mp3",
@@ -2654,6 +2685,7 @@ var musicDB = {
       "Left Lane Cruiser - Maybe.mp3",
       "Left Lane Cruiser - Zombie Blocked (Remastered).mp3",
       "Left Spine Down - Shes Lost Control.mp3",
+      "LFO - Life Is Good.mp3",
       "Link Wray - Rumble.mp3",
       "Little Richard - Long Tall Sally.mp3",
       "Little Richard - Lucille.mp3",
@@ -2685,6 +2717,7 @@ var musicDB = {
       "Mimosa - Kinetic.mp3",
       "Miracle Of Sound - Commander Shepard (Mass Effect Tribute).mp3",
       "Miracle Of Sound - The Great Unknown (Mass Effect Andromeda).mp3",
+      "Miracle Of Sound - The Man Who Rocked The World.mp3",
       "Moby - Extreme Ways.mp3",
       "Moby - In This World.mp3",
       "Modern Day Zero - Down.mp3",
@@ -2801,6 +2834,7 @@ var musicDB = {
       "Rolling_Stones_-_19th_Nervous_Breakdown.mp3",
       "Rory Gallagher - Philby (1).mp3",
       "Rory Gallagher - Philby.mp3",
+      "Royal Republic - Weekend-Man.mp3",
       "Roy_Orbison_-_Blue_Avenue.mp3",
       "Rush - Tom Sawyer.mp3",
       "Russell Hitchcock - I Come Alive.mp3",
@@ -2882,6 +2916,7 @@ var musicDB = {
       "Sweet - Fox On The Run Single version.mp3",
       "Sweet - Fox On The Run.mp3",
       "Take_That_-_Love_Love_(OST_X-Men_First_Class).mp3",
+      "Tenderfoot - Crazy Suzie.mp3",
       "Texas_Tornadoes,_The_-_Double_Bogey_Blues.mp3",
       "The Allman Brothers Band - Blue Sky.mp3",
       "The Allman Brothers Band - Whipping Post.mp3",
@@ -3093,7 +3128,7 @@ var musicDB = {
     ]
   },
   "_фон 50": {
-    "number": 201,
+    "number": 204,
     "list": [
       "05. L.O.V.E..mp3",
       "A wonderful guy.mp3",
@@ -3196,6 +3231,7 @@ var musicDB = {
       "Kristofer Maddigan - Tutorial.mp3",
       "Kristofer Maddigan - Victory Tune.mp3",
       "Kristofer Maddigan - Winner Takes All.mp3",
+      "Leonard Nimoy - The Ballad Of Bilbo Baggins.mp3",
       "Little Richard - Tutti Frutti.mp3",
       "Lone star.mp3",
       "Lonnie Johnson - The Mooche.mp3",
@@ -3287,6 +3323,8 @@ var musicDB = {
       "The Spinners - Tomorrow May Never Come.mp3",
       "The wanderer.mp3",
       "Thomas_Anders_-_Sweet_Dreams_(Eurythmics-JAZZ-cover).mp3",
+      "Tim Garland - Foolish Dreamer.mp3",
+      "Tim Garland - Smile At Me.mp3",
       "Undecided.mp3",
       "Uranium fever.mp3",
       "Uranium rock.mp3",
@@ -3299,7 +3337,7 @@ var musicDB = {
     ]
   },
   "_фон 80": {
-    "number": 117,
+    "number": 118,
     "list": [
       "23. Come Together.mp3",
       "60s 70s 80s 90s Hits - I Love Rock n Roll.mp3",
@@ -3329,6 +3367,7 @@ var musicDB = {
       "Creedence Clearwater Revival - Good Golly Miss Molly.mp3",
       "Cutting Crew - (I Just) Died in Your Arms.mp3",
       "Dan Auerbach - Run That Race.mp3",
+      "David Bowie - Moonage Daydream.mp3",
       "David Coverdale  Jimmy Page - Shake My Tree.mp3",
       "David Hasselhoff - Du (OST Евротур).mp3",
       "Deep Purple - Highway Star.mp3",
@@ -3662,7 +3701,7 @@ var musicDB = {
     ]
   },
   "бодро": {
-    "number": 296,
+    "number": 299,
     "list": [
       "1M1 Music(Vol.2) - Cannonball.mp3",
       "Adam Skorupa Krzysztof Wierzynkiewicz - Easier Said than Killed.mp3",
@@ -3748,6 +3787,7 @@ var musicDB = {
       "David Garrett - We Will Rock You.mp3",
       "Dean Evans - Draw Your Sword.mp3",
       "Dean Evans - The Arrival Of Fuge.mp3",
+      "Derek Duke, Glenn Stafford, Adam Burgess - Volskaya Foundry Intro.mp3",
       "Elliot_Goldenthal_-_Louis_Revenge.mp3",
       "Erdenstern - Ambush (Into The Red).mp3",
       "Erdenstern - Boarding the Enemy Vessel (Into The Blue).mp3",
@@ -3772,6 +3812,8 @@ var musicDB = {
       "Gerard Marino - God Of War III Overture.mp3",
       "Gerard Marino - Kratos Evil Past.mp3",
       "Gerard Marino - The Vengeful Spartan.mp3",
+      "Glenn Stafford - Eternal Conflict.mp3",
+      "Glenn Stafford, Jason Hayes - Action.mp3",
       "Grant_Kirkhope_-_Troll.mp3",
       "Greg Chandler - Attack of the Fishmen (OST Call of Cthulhu Dark Corners of the Earth).mp3",
       "Greg Chandler - Blood on the Deck (OST Call of Cthulhu Dark Corners of the Earth).mp3",
@@ -3963,10 +4005,11 @@ var musicDB = {
     ]
   },
   "болото": {
-    "number": 36,
+    "number": 37,
     "list": [
       "Erdenstern - The Swamp (отличная тема болота).mp3",
       "Erdenstern - The Swamp.mp3",
+      "Heroes of Might  Magic II - Swamp theme.mp3",
       "Heroes Of Might And Magic 2 - Cracked Ground.mp3",
       "Heroes of Might And Magic 2 The Price Of Loyalty - Rolands Campaign.mp3",
       "Heroes of Might and Magic 3 - AI THEME 00.mp3",
@@ -4091,9 +4134,10 @@ var musicDB = {
     ]
   },
   "гномы": {
-    "number": 3,
+    "number": 4,
     "list": [
       "Inon Zur - The Dwarven Nobles.mp3",
+      "Might  Magic Heroes VII - Tinkering with the Dwarves (AI Theme).mp3",
       "Scandinavian folk - Islandsljod.mp3",
       "Scandinavian folk - Klevabergselden. Kleveberg s Fire.mp3"
     ]
@@ -4115,7 +4159,7 @@ var musicDB = {
     ]
   },
   "данж": {
-    "number": 274,
+    "number": 281,
     "list": [
       "06 apparition.mp3",
       "07 INSIDEP2 Inside the Pyramid 2 (11-22kj).mp3",
@@ -4161,6 +4205,7 @@ var musicDB = {
       "Christophe H ral - Mysterious Swamps.mp3",
       "Cities_Last_Broadcast_-_Deadpost.mp3",
       "City (нейтрал).mp3",
+      "Clinton Shorter - Anubis.mp3",
       "Coraline_-_Ghost_Children.mp3",
       "Coraline_-_It_Was_Fantastic.mp3",
       "Coraline_-_The_Hand.mp3",
@@ -4195,6 +4240,7 @@ var musicDB = {
       "Foglord - The Tower in the Forest.mp3",
       "Geister [Drakensang The Dark Eye OST].mp3",
       "ghosts_-_.mp3",
+      "Glenn Stafford, Jason Hayes - Luxoria Crypt 2.mp3",
       "Glenn_Stafford_-_Frostmourne.mp3",
       "Grant_Kirkhope_-_Mines_and_Caves.mp3",
       "Grant_Kirkhope_-_Warsworn.mp3",
@@ -4203,6 +4249,8 @@ var musicDB = {
       "H-Pi - Heights of Akenash - Part I.mp3",
       "Harry Gregson-Williams - Parasites (ost MGS 5 PP).mp3",
       "Hayes, Bush, Duke, Stafford - Ruins.mp3",
+      "Heroes of Might  Magic II - Wasteland theme.mp3",
+      "Heroes of Might  Magic II - Wizard town theme.mp3",
       "Ilya_Pechersky_-_Музыка_из_игры_The_LoD_-_Подземелье.mp3",
       "Inon_Zur_-_Of_Green_and_Grey.mp3",
       "Iwasaki Taku - Tsumeato.mp3",
@@ -4265,6 +4313,9 @@ var musicDB = {
       "Midnight_Syndicate_-_Spectral_Masquerade.mp3",
       "Midnight_Syndicate_-_Stealth_and_Cunning.mp3",
       "Midnight_Syndicate_-_The_Fens_of_Sargath.mp3",
+      "Might  Magic Heroes VI - Necropolis theme.mp3",
+      "Might  Magic Heroes VI - Shadow League theme.mp3",
+      "Might  Magic Heroes VI - Terrain Chaos.mp3",
       "Might and Magic VI - 01.mp3",
       "Might Magic Heroes VI Shades of Darkness - Adventure Terrain Abyss 002.mp3",
       "Might Magic Heroes VI Shades of Darkness - Adventure Terrain Chaos 002.mp3",
@@ -4433,7 +4484,7 @@ var musicDB = {
     ]
   },
   "джунгли": {
-    "number": 49,
+    "number": 50,
     "list": [
       "1. David Steve Gordon - Ancient Way.mp3",
       "2. David Steve Gordon - Dancing for a Vision.mp3",
@@ -4458,6 +4509,7 @@ var musicDB = {
       "Matt_Uelmen_-_Jungle.mp3",
       "Max Lade - Crystal Jungle.mp3",
       "Max Lade - Guilty Conscience.mp3",
+      "Might  Magic Heroes VI - Terrain NagaJungle.mp3",
       "Might and Magic IX - Sound 16.mp3",
       "Osi And The Jupiter - Draugad#243;ttinn.mp3",
       "Overlord 2 OST - Everlight Beach.mp3",
@@ -4603,7 +4655,7 @@ var musicDB = {
     ]
   },
   "зима": {
-    "number": 83,
+    "number": 84,
     "list": [
       "Adrian von Ziegler - Queen of the Gaels.mp3",
       "Anoice - White Paper.mp3",
@@ -4644,6 +4696,7 @@ var musicDB = {
       "Erdenstern_-_White_Realm.mp3",
       "FlybyNo_-_Shadows_(The_Forgotten)_-_Demo_Version.mp3",
       "Greg Maroney - Lullaby.mp3",
+      "Heroes of Might  Magic II - Snow theme.mp3",
       "Heroes of Might and Magic II - Snow (OST).mp3",
       "Hexperos - Diadem of the Night.mp3",
       "Hexperos - Winter Rhymes.mp3",
@@ -4846,7 +4899,7 @@ var musicDB = {
     ]
   },
   "нагнетание": {
-    "number": 86,
+    "number": 87,
     "list": [
       "07 lady of gorgon.mp3",
       "148760__daphne-in-wonderland__piano-inside-glissando-2.wav",
@@ -4898,6 +4951,7 @@ var musicDB = {
       "Nathan Grigg - M7 CS skx Fight Loop.mp3",
       "Nathan Grigg - Opening.mp3",
       "Nathan Grigg - Secrets.mp3",
+      "Oscar Araujo - Night Watchman.mp3",
       "Oscar Araujo - Prologue.mp3",
       "Richard Band, Rick Jackson, Ronald Valdez - Descent to Undermountain - 26 UD GEN3 Crypts (11-22kj).mp3",
       "Russell Shaw - In the Country Growing Near.mp3",
@@ -4934,18 +4988,6 @@ var musicDB = {
       "Страшная музыка для сталка - сталк.mp3",
       "страшная музыка фон - соседство.mp3",
       "Страшная музыка.. - Алая рука.mp3"
-    ]
-  },
-  "нарастающий эпик": {
-    "number": 7,
-    "list": [
-      "Alliance Trailer Music - Pillars of Creation.mp3",
-      "DeVsoMusic - Light In The Sky.mp3",
-      "Epic Score - Armor of Steel.mp3",
-      "Epic Score - Fight to the End.mp3",
-      "Epic Score - Flag of Victory.mp3",
-      "Epic Score - For Our People.mp3",
-      "Epic Soul Factory - Made of Stardust.mp3"
     ]
   },
   "начало": {
@@ -5340,9 +5382,11 @@ var musicDB = {
     ]
   },
   "сантар": {
-    "number": 10,
+    "number": 12,
     "list": [
+      "Derek Duke - Volskaya Industries (Full).mp3",
       "Duane Decker - Sri Lanka.mp3",
+      "Glenn Stafford, Jason Hayes - Sky Temple 1 (Alternative).mp3",
       "House of delights (празднества).mp3",
       "Marcin Przyby#322;owicz - Over the Broken World.mp3",
       "Masquerade (празднества).mp3",
@@ -5355,7 +5399,7 @@ var musicDB = {
     ]
   },
   "светло": {
-    "number": 41,
+    "number": 42,
     "list": [
       "0_01.mp3",
       "0_02.mp3",
@@ -5396,6 +5440,7 @@ var musicDB = {
       "Lineage 2 OST - Town Theme - 28 - Island Village.mp3",
       "Lineage II OST - Giran Theme.mp3",
       "Logan_Epic_Canto_-_The_Feast_in_Camelot.mp3",
+      "Russell Brower, Edo Guidotti, Jason Hayes, Glenn Stafford - Hills Of Gold.mp3",
       "Sacha Dikiciyan, Cris Velasco - Party Music (Mass Effect 2 Kasumis Stolen Memory OST).mp3",
       "Thomas Newman - Still Dead.mp3"
     ]
@@ -5417,7 +5462,7 @@ var musicDB = {
     ]
   },
   "спокойно": {
-    "number": 502,
+    "number": 509,
     "list": [
       "02. Toshiro Masuda - Wealth of Obesity.mp3",
       "03. Yasuharu Takanashi - Friend.mp3",
@@ -5613,6 +5658,11 @@ var musicDB = {
       "Helmkrain_Rodd_-_South.mp3",
       "Heres To The Bard - Title Mix.mp3",
       "Heroes - Kira say....mp3",
+      "Heroes of Might  Magic I - Barbarian town theme.mp3",
+      "Heroes of Might  Magic I - Knight town theme.mp3",
+      "Heroes of Might  Magic I - Sorceress town theme.mp3",
+      "Heroes of Might  Magic I - Warlock town theme.mp3",
+      "Heroes of Might  Magic II - Sorceress town theme.mp3",
       "Heroes of Might and Magic III - Good Theme.mp3",
       "Heroes_of_Might_and_Magic_IV_-_The_Academy_Of_Honor.mp3",
       "Heroes_of_Might_and_Magic_VI_(OST)_-_Autumn_Is_Coming.mp3",
@@ -5759,6 +5809,8 @@ var musicDB = {
       "Michael Curran - Montezuma Peace - Aztec - Cora Mitote Song from Santa Teresa.mp3",
       "Michiel van den Bos - Elf Swamp.mp3",
       "Michiru_Oshima_-_Kodoku.mp3",
+      "Might  Magic Heroes VI - Haven theme.mp3",
+      "Might  Magic Heroes VII - The Journeyman#39;s Encounter (Stronghold Theme).mp3",
       "Might and Magic Heroes VII - Hope For Green Falls (Haven Theme).mp3",
       "Morning in the Celtic Hills.mp3",
       "Murgrind_-_A_Tribute_To_Mortiis_Part_II_(Bonustrack).mp3",
@@ -5950,7 +6002,7 @@ var musicDB = {
     ]
   },
   "таверна": {
-    "number": 90,
+    "number": 92,
     "list": [
       "34 STARTPUB The Yawning Portal (11-22kj).mp3",
       "AC4BF_(Tavern)_-_William_Taylor.mp3",
@@ -6015,6 +6067,7 @@ var musicDB = {
       "RPG Tavern Music - Compilation 1.mp3",
       "RPG Tavern Music - Compilation 2.mp3",
       "RPG Tavern Music - Compilation 3.mp3",
+      "Russell Brower, Derek Duke, Matt Uelmen - Taverns.mp3",
       "Santiano - Tri Martolod.mp3",
       "Spiritual Seasons - Mick - Maguire.mp3",
       "Spiritual Seasons - Star of the County Down.mp3",
@@ -6025,6 +6078,7 @@ var musicDB = {
       "Stronghold Legends - The Life of a Gong Farmer.mp3",
       "Tartalo_Music_-_Dancing_in_the_Tavern.mp3",
       "Tavern_music_-_Pirate_Tavern.mp3",
+      "The Bard#39;s Tale - The Tale of the Nuckelavee.mp3",
       "The Guild 2 Veniсе - 73 - Tavern Музыка Леса - I - Небесная Лютня.mp3",
       "The Hellblinki Sextet - Pirates Life.mp3",
       "The Witcher 3 Wild Hunt OST - Unreleased Gwent Track 2.mp3",
@@ -6253,7 +6307,7 @@ var musicDB = {
     ]
   },
   "эльфы": {
-    "number": 100,
+    "number": 101,
     "list": [
       "Adrian_von_Ziegler_-_2_Hours_of_Celtic_Music.mp3",
       "Alizbar & Christian Amin Varkonyi - Melting snowflakes on her hand (Celtic harp & Hang Drum).mp3",
@@ -6322,6 +6376,7 @@ var musicDB = {
       "Mariano De Simone - Young Love.mp3",
       "Mark Morgan - Fall-From-Grace Theme.mp3",
       "Michiel van den Bos - Shroud.mp3",
+      "Might  Magic Heroes VI - Sanctuary theme.mp3",
       "Might and Magic X - Lulled by the Waves.mp3",
       "Might and Magic X - Morning in Karthal.mp3",
       "Morten Sorlie - 22. Faith (OST-HD Dreamfall The Longest Journey Dreamfall Бесконечное путешествие) Official 2006 (Vk.ComOstHD).mp3",
@@ -6358,8 +6413,9 @@ var musicDB = {
     ]
   },
   "эпик": {
-    "number": 74,
+    "number": 76,
     "list": [
+      "04. Glenn Stafford  Jason Hayes - Haunted Mines.mp3",
       "AudioActive - Unleash Hell (1).mp3",
       "Audiomachine - Cerberus.mp3",
       "Audiomachine - Death Mask.mp3",
@@ -6426,6 +6482,7 @@ var musicDB = {
       "The Hit House - Spyro.mp3",
       "Todd Burns - Maelstrom.mp3",
       "Two Steps From Hell - Archangel.mp3",
+      "Two Steps From Hell - Dachuur.mp3",
       "Two Steps From Hell - Dark Ages.mp3",
       "Two Steps From Hell - Fall of the Fountain World.mp3",
       "Tybercore - Vicarious.mp3",
@@ -6434,6 +6491,25 @@ var musicDB = {
       "WoW Legion OST - For Azeroth.mp3",
       "Для спасения мира - 3.mp3",
       "Музыка для напряженной битвы - Эпичная.mp3"
+    ]
+  },
+  "эпик нарастающий": {
+    "number": 14,
+    "list": [
+      "Alliance Trailer Music - Pillars of Creation.mp3",
+      "DeVsoMusic - Light In The Sky.mp3",
+      "Epic Score - Armor of Steel.mp3",
+      "Epic Score - Fight to the End.mp3",
+      "Epic Score - Flag of Victory.mp3",
+      "Epic Score - For Our People.mp3",
+      "Epic Soul Factory - Made of Stardust.mp3",
+      "Tarek Mansur - Creator of Worlds.mp3",
+      "Tarek Mansur - Dark Army.mp3",
+      "Tarek Mansur - Leader Of Armies.mp3",
+      "Tarek Mansur - Prepare for the End.mp3",
+      "Tarek Mansur - Reaper of Souls.mp3",
+      "Tarek Mansur - Smash Them All.mp3",
+      "Tarek Mansur - War Will End Us.mp3"
     ]
   },
   "этнос": {

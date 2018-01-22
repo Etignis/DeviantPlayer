@@ -43,7 +43,7 @@
     
     .pf_sett{
         .blank();
-        overflow: auto;
+        overflow: hidden;
         height: auto;
         
         .btns, .vol{
@@ -61,6 +61,7 @@
             .fr-convex;           
             background: @m-gray + #111;
             padding: .3em;
+            font-size: inherit;
             &:hover{
                 background: @m-gray + #222;    
             }
@@ -122,10 +123,11 @@
         }
         
         .volume{
+          font-size: inherit;
             writing-mode: bt-lr; /* IE */
             -webkit-appearance: slider-vertical; /* WebKit */
             width: 2em;
-            height: 5em;
+            height: 6em;
             padding: 0 5px;
             cursor: pointer;
         }
@@ -135,16 +137,21 @@
     }
     .pf_play{
         .blank();
+
         text-align: center;
+        @sz: 7em;
         button.pf_play_bt{
             .fr-convex;
-            @sz: 5em;
+            font-size: inherit;
             width: @sz;
             height: @sz;
             cursor: pointer;
             display: block;     
             margin: 0 auto;  
-            background: @m-gray + #111; 
+            background: @m-gray + #111;
+          i{
+            font-size: 1.9em;
+          }
             
             &:hover{
                 background: @m-gray + #222;    
@@ -155,12 +162,16 @@
         }
         button.pf_next_bt{
              .fr-convex;
-            @sz: 5em;
+            font-size: inherit;
+            //@sz: 8em;
             width: @sz;
             cursor: pointer;
             display: block;                 
             margin: 0 auto;
             background: @m-gray + #111;
+          i{
+            font-size: 1.4em;
+          }
             
             &:hover{
                 background: @m-gray + #222;    
@@ -171,7 +182,7 @@
         }
     }
     .pf_name{
-        .blank(); 
+        .blank();
         font-size: 120%;
         text-align: center;
     }
@@ -183,12 +194,19 @@
         text-align: center;
     }
     .pf_list{
-        .blank();
+        //.blank();
+      .fr-concave;
+      padding: 0;//.2em;
+      margin: .1em;
+      cursor: default;
         overflow: hidden;
         overflow-y: scroll;
         overflow-x: visible;
         height: 12em;
         counter-reset: tracks;
+
+        .scrollbars(5px, darken(@m-gray, 15%), @m-gray);
+
     }
     .pf_l_sett{
         .blank();
@@ -199,41 +217,44 @@
     
     ////
     .tr_line{ 
-        padding-left: 1.5em;
+        padding: 0.1em 0.2em;
         position: relative;
-        table{
-            width: 100%;        
-            td{
-                width: 1px;
-                padding: 0;
-                margin: 0;
-                border: none;
-            }
-        }
+        //table{
+        //    width: 100%;
+        //    td{
+        //        width: 1px;
+        //        padding: 0;
+        //        margin: 0;
+        //        border: none;
+        //    }
+        //}
+        height: 1.7em;
+        overflow: hidden;
+        display: flex;
        //table-layout: fixed;
-       .name_place{
-            width: 100%;
-            padding: 0;
-            overflow: hidden;
-            position: relative;
-            /*
-            &:hover{
-                overflow: visible;
-                .name{
-                    background: #444;
-                    z-index: 9;
-                    white-space: nowrap; 
-                }
-            }
-            */
-        }
+       //.name_place{
+       //     width: 100%;
+       //     padding: 0;
+       //     overflow: hidden;
+       //     position: relative;
+       //     /*
+       //     &:hover{
+       //         overflow: visible;
+       //         .name{
+       //             background: #444;
+       //             z-index: 9;
+       //             white-space: nowrap;
+       //         }
+       //     }
+       //     */
+       // }
         .name{
-            font-size: 90%;
-            position: absolute;
+            //font-size: 90%;
+            //position: absolute;
             z-index: 5;
             top: 0;
             left: 0;
-            display: table;
+            //display: table;
         }
         
         &:nth-child(2n){
@@ -245,9 +266,11 @@
         &:before{
             counter-increment: tracks; /* Указываем идентификатор счетчика */
             content: counter(tracks); /* Выводим текст перед содержимым тега <h2> */
-            position: absolute;
-            left: .1em;
-            top: 0.1em;
+            padding-right: 0.5em;
+            opacity: .8;
+            //position: absolute;
+            //left: .1em;
+            //top: 0.1em;
         }
         &:hover{
             background: rgba(255,255,255, .18);  

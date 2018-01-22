@@ -456,7 +456,7 @@ img {
   padding: .2em;
   margin: .1em;
   cursor: default;
-  overflow: auto;
+  overflow: hidden;
   height: auto;
 }
 .player_form .pf_sett .btns,
@@ -505,6 +505,7 @@ img {
   user-select: none;
   background: #888888;
   padding: .3em;
+  font-size: inherit;
 }
 .player_form .pf_sett .mix:hover {
   background: #999999;
@@ -681,12 +682,13 @@ img {
   padding: .3em;
 }
 .player_form .pf_sett .volume {
+  font-size: inherit;
   writing-mode: bt-lr;
   /* IE */
   -webkit-appearance: slider-vertical;
   /* WebKit */
   width: 2em;
-  height: 5em;
+  height: 6em;
   padding: 0 5px;
   cursor: pointer;
 }
@@ -768,12 +770,16 @@ img {
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
-  width: 5em;
-  height: 5em;
+  font-size: inherit;
+  width: 7em;
+  height: 7em;
   cursor: pointer;
   display: block;
   margin: 0 auto;
   background: #888888;
+}
+.player_form .pf_play button.pf_play_bt i {
+  font-size: 1.9em;
 }
 .player_form .pf_play button.pf_play_bt:hover {
   background: #999999;
@@ -812,11 +818,15 @@ img {
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
-  width: 5em;
+  font-size: inherit;
+  width: 7em;
   cursor: pointer;
   display: block;
   margin: 0 auto;
   background: #888888;
+}
+.player_form .pf_play button.pf_next_bt i {
+  font-size: 1.4em;
 }
 .player_form .pf_play button.pf_next_bt:hover {
   background: #999999;
@@ -916,10 +926,10 @@ img {
   border-style: solid;
   border-bottom-width: 2px;
   text-decoration: none;
-  border-color: #555555;
+  border-color: #777;
   color: #fff;
   background: #666666;
-  box-shadow: 0 1px 0px 0px rgba(255, 255, 255, 0.2) inset;
+  box-shadow: 0 1px 0px 0px rgba(0, 0, 0, 0.2) inset;
   cursor: pointer;
   -webkit-transition: all 0.3s ease;
   -moz-transition: all 0.3s ease;
@@ -932,7 +942,7 @@ img {
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
-  padding: .2em;
+  padding: 0;
   margin: .1em;
   cursor: default;
   overflow: hidden;
@@ -940,6 +950,20 @@ img {
   overflow-x: visible;
   height: 12em;
   counter-reset: tracks;
+}
+.player_form .pf_list::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+.player_form .pf_list::-webkit-scrollbar-thumb {
+  background: #515151;
+}
+.player_form .pf_list::-webkit-scrollbar-track {
+  background: #777;
+}
+.player_form .pf_list body {
+  scrollbar-face-color: #515151;
+  scrollbar-track-color: #777;
 }
 .player_form .pf_l_sett {
   -webkit-border-radius: 3px 3px 3px 3px;
@@ -1014,41 +1038,16 @@ img {
   cursor: default;
 }
 .player_form .tr_line {
-  padding-left: 1.5em;
+  padding: 0.1em 0.2em;
   position: relative;
-}
-.player_form .tr_line table {
-  width: 100%;
-}
-.player_form .tr_line table td {
-  width: 1px;
-  padding: 0;
-  margin: 0;
-  border: none;
-}
-.player_form .tr_line .name_place {
-  width: 100%;
-  padding: 0;
+  height: 1.7em;
   overflow: hidden;
-  position: relative;
-  /*
-            &:hover{
-                overflow: visible;
-                .name{
-                    background: #444;
-                    z-index: 9;
-                    white-space: nowrap; 
-                }
-            }
-            */
+  display: flex;
 }
 .player_form .tr_line .name {
-  font-size: 90%;
-  position: absolute;
   z-index: 5;
   top: 0;
   left: 0;
-  display: table;
 }
 .player_form .tr_line:nth-child(2n) {
   background: rgba(255, 255, 255, 0.1);
@@ -1061,9 +1060,8 @@ img {
   /* Указываем идентификатор счетчика */
   content: counter(tracks);
   /* Выводим текст перед содержимым тега <h2> */
-  position: absolute;
-  left: .1em;
-  top: 0.1em;
+  padding-right: 0.5em;
+  opacity: .8;
 }
 .player_form .tr_line:hover {
   background: rgba(255, 255, 255, 0.18);
