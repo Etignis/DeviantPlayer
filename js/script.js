@@ -1916,5 +1916,5 @@ loadSoundListsData();
 cloneSoundsDataFromDB();
 createSoundColumn();
 
-clickTopButtons();
+//clickTopButtons();
 });

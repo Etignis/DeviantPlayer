@@ -43,7 +43,7 @@
     
     .pf_sett{
         .blank();
-        overflow: auto;
+        overflow: hidden;
         height: auto;
         
         .btns, .vol{
@@ -123,10 +123,11 @@
         }
         
         .volume{
+          font-size: inherit;
             writing-mode: bt-lr; /* IE */
             -webkit-appearance: slider-vertical; /* WebKit */
             width: 2em;
-            height: 5em;
+            height: 6em;
             padding: 0 5px;
             cursor: pointer;
         }

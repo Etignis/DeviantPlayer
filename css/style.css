@@ -456,7 +456,7 @@ img {
   padding: .2em;
   margin: .1em;
   cursor: default;
-  overflow: auto;
+  overflow: hidden;
   height: auto;
 }
 .player_form .pf_sett .btns,
@@ -682,12 +682,13 @@ img {
   padding: .3em;
 }
 .player_form .pf_sett .volume {
+  font-size: inherit;
   writing-mode: bt-lr;
   /* IE */
   -webkit-appearance: slider-vertical;
   /* WebKit */
   width: 2em;
-  height: 5em;
+  height: 6em;
   padding: 0 5px;
   cursor: pointer;
 }
