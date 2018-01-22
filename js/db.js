@@ -1,102 +1,103 @@
-var soundsDB = {
-  "battle suspence": {
-    "number": 9,
-    "list": [
-      "Mark Griskey - Battle Suspense 1.mp3",
-      "Mark Griskey - Battle Suspense 2.mp3",
-      "Mark Griskey - Battle Suspense 3.mp3",
-      "Mark Griskey - Battle Suspense 4.mp3",
-      "Mark Griskey - Battle Suspense 5.mp3",
-      "Mark Griskey - Battle Suspense 6.mp3",
-      "Mark Griskey - Battle Suspense 7.mp3",
-      "Mark Griskey - Battle Suspense 8.mp3",
-      "Mark Griskey - Battle Suspense 9.mp3"
-    ]
-  },
-  "ахаха": {
-    "number": 6,
-    "list": [
-      "Барабаны Бадум-тссс.mp3",
-      "Ералаш.mp3",
-      "смех1.wav",
-      "смех2.wav",
-      "смех3.wav",
-      "смех4.wav"
-    ]
-  },
-  "внезапно": {
-    "number": 6,
-    "list": [
-      "внезапно.wav",
-      "Внезапный звук.mp3",
-      "Поворот.mp3",
-      "Супрайз мазафака.mp3",
-      "ТА ДА ДА ДАААМ.mp3",
-      "Тревожная музыка.mp3"
-    ]
-  },
-  "гудок": {
-    "number": 3,
-    "list": [
-      "Гонг2.mp3",
-      "гудок 1.wav",
-      "гудок 2.wav"
-    ]
-  },
-  "магия": {
-    "number": 6,
-    "list": [
-      "вжух.wav",
-      "Волшебство.mp3",
-      "магия 2.wav",
-      "магия 3.wav",
-      "магия.wav",
-      "Превращение.mp3"
-    ]
-  },
-  "монеты": {
-    "number": 1,
-    "list": [
-      "Монеты.wav"
-    ]
-  },
-  "неловко": {
-    "number": 2,
-    "list": [
-      "Лягушка-1.8-4.9.mp3",
-      "сверчки 01-0-1.7.mp3"
-    ]
-  },
-  "опыт": {
-    "number": 1,
-    "list": [
-      "Опыт 6.mp3"
-    ]
-  },
-  "портал": {
-    "number": 3,
-    "list": [
-      "портал 0.wav",
-      "Портал Большой 2.wav",
-      "Портал большой 3.wav"
-    ]
-  },
-  "таймер": {
-    "number": 1,
-    "list": [
-      "таймер2.wav"
-    ]
-  },
-  "телепортация": {
-    "number": 2,
-    "list": [
-      "Телепортация 2.wav",
-      "Телепортация.wav"
-    ]
-  }
-}
+var soundsDB = {}
 
 var musicDB = {
+  "!звуки": {
+    "number": 92,
+    "list": [
+      "362926__shaderrow__scream.wav",
+      "BUILDTWN.wav",
+      "CHAINLTE.wav",
+      "CHAT.wav",
+      "DRAGON.wav",
+      "EXPERNCE.mp3",
+      "EXPERNCE.wav",
+      "FLAGMINE.wav",
+      "ghost 01 haunting.mp3",
+      "ghost 02 monstermoan.mp3",
+      "ghost 03 SUPER nmh_scream1.mp3",
+      "ghost 04 SCREAM_4.mp3",
+      "ghost 05 woscream4.mp3",
+      "ghost mrwinter__spooky-scream.wav",
+      "GOODLUCK.wav",
+      "LUCK.wav",
+      "MORALE.wav",
+      "MYSTERY.wav",
+      "NWHEROLV.wav",
+      "PICKUP01.wav",
+      "PICKUP02.wav",
+      "PICKUP03.wav",
+      "PICKUP04.wav",
+      "PICKUP05.wav",
+      "PICKUP06.wav",
+      "PICKUP07.wav",
+      "STORE.wav",
+      "TREASURE.wav",
+      "undead01.wav",
+      "undead02.wav",
+      "undead03.wav",
+      "undead04.wav",
+      "undead05.wav",
+      "undead06.wav",
+      "undead07.wav",
+      "undead08.wav",
+      "witch.mp3",
+      "XP1.mp3",
+      "Армия бой орут.mp3",
+      "Бенни Хил.mp3",
+      "Взрыв.mp3",
+      "Вляпался, раздавил.mp3",
+      "Вода бульк.mp3",
+      "Гонг.mp3",
+      "дверной звонок 1.wav",
+      "дверной звонок 2.wav",
+      "дверной звонок 3.wav",
+      "Деревянная дверь закрыть 01.mp3",
+      "дзиньк.mp3",
+      "Замок.mp3",
+      "Запуск шаровой молнии.mp3",
+      "Звонок касса.wav",
+      "лол.mp3",
+      "Лягушка.mp3",
+      "Магия снаряд.mp3",
+      "Монеты 2.wav",
+      "Монеты 3.wav",
+      "Монеты 4.wav",
+      "Монеты 5.wav",
+      "Монеты 6.wav",
+      "монеты.mp3",
+      "опыт 2.wav",
+      "Опыт 3.wav",
+      "Опыт 4.wav",
+      "Опыт 5.wav",
+      "Опыт 7.mp3",
+      "Опыт 9.mp3",
+      "опыт.wav",
+      "Оружие удар.mp3",
+      "Поп.mp3",
+      "Портал 10.mp3",
+      "Портал 2.wav",
+      "Портал 3.wav",
+      "Портал 4.wav",
+      "Портал 5.wav",
+      "Портал 6.wav",
+      "Портал 7.wav",
+      "Портал 8.mp3",
+      "Портал 9.mp3",
+      "портал.mp3",
+      "пролетело.mp3",
+      "Рык.mp3",
+      "сверчки 01.mp3",
+      "Скрип половица.mp3",
+      "Смерть гоблин.mp3",
+      "смех.wav",
+      "Стрела попала.mp3",
+      "стрела попала02.mp3",
+      "таймер.wav",
+      "Тиканье часов.mp3",
+      "Удар молнии 01.mp3",
+      "Что-то пролетело.mp3"
+    ]
+  },
   "18 век": {
     "number": 25,
     "list": [
@@ -1886,7 +1887,7 @@ var musicDB = {
     ]
   },
   "_напряженно_эпик": {
-    "number": 108,
+    "number": 110,
     "list": [
       "03. Yasuharu Takanashi - Invasion.mp3",
       "06 Yami Guild.mp3",
@@ -1941,9 +1942,11 @@ var musicDB = {
       "E.S. Posthumus - Varuna.mp3",
       "Epic Score (Alternative Madness) - Hot Mess.mp3",
       "Epic Score - Break Free.mp3",
+      "Epic Score - Destiny and Honor.mp3",
       "Epic Score - End Of It All.mp3",
       "Epic Score - Eruption.mp3",
       "Epic Score - Hired Guns.mp3",
+      "Epic Score - Your Place in History.mp3",
       "Fired Earth Music - Battlefield.mp3",
       "Fired Earth Music - Destroyer.mp3",
       "Gerard Marino - Call To Arms.mp3",
@@ -4002,10 +4005,11 @@ var musicDB = {
     ]
   },
   "болото": {
-    "number": 36,
+    "number": 37,
     "list": [
       "Erdenstern - The Swamp (отличная тема болота).mp3",
       "Erdenstern - The Swamp.mp3",
+      "Heroes of Might  Magic II - Swamp theme.mp3",
       "Heroes Of Might And Magic 2 - Cracked Ground.mp3",
       "Heroes of Might And Magic 2 The Price Of Loyalty - Rolands Campaign.mp3",
       "Heroes of Might and Magic 3 - AI THEME 00.mp3",
@@ -4130,9 +4134,10 @@ var musicDB = {
     ]
   },
   "гномы": {
-    "number": 3,
+    "number": 4,
     "list": [
       "Inon Zur - The Dwarven Nobles.mp3",
+      "Might  Magic Heroes VII - Tinkering with the Dwarves (AI Theme).mp3",
       "Scandinavian folk - Islandsljod.mp3",
       "Scandinavian folk - Klevabergselden. Kleveberg s Fire.mp3"
     ]
@@ -4154,7 +4159,7 @@ var musicDB = {
     ]
   },
   "данж": {
-    "number": 276,
+    "number": 281,
     "list": [
       "06 apparition.mp3",
       "07 INSIDEP2 Inside the Pyramid 2 (11-22kj).mp3",
@@ -4244,6 +4249,8 @@ var musicDB = {
       "H-Pi - Heights of Akenash - Part I.mp3",
       "Harry Gregson-Williams - Parasites (ost MGS 5 PP).mp3",
       "Hayes, Bush, Duke, Stafford - Ruins.mp3",
+      "Heroes of Might  Magic II - Wasteland theme.mp3",
+      "Heroes of Might  Magic II - Wizard town theme.mp3",
       "Ilya_Pechersky_-_Музыка_из_игры_The_LoD_-_Подземелье.mp3",
       "Inon_Zur_-_Of_Green_and_Grey.mp3",
       "Iwasaki Taku - Tsumeato.mp3",
@@ -4306,6 +4313,9 @@ var musicDB = {
       "Midnight_Syndicate_-_Spectral_Masquerade.mp3",
       "Midnight_Syndicate_-_Stealth_and_Cunning.mp3",
       "Midnight_Syndicate_-_The_Fens_of_Sargath.mp3",
+      "Might  Magic Heroes VI - Necropolis theme.mp3",
+      "Might  Magic Heroes VI - Shadow League theme.mp3",
+      "Might  Magic Heroes VI - Terrain Chaos.mp3",
       "Might and Magic VI - 01.mp3",
       "Might Magic Heroes VI Shades of Darkness - Adventure Terrain Abyss 002.mp3",
       "Might Magic Heroes VI Shades of Darkness - Adventure Terrain Chaos 002.mp3",
@@ -4474,7 +4484,7 @@ var musicDB = {
     ]
   },
   "джунгли": {
-    "number": 49,
+    "number": 50,
     "list": [
       "1. David Steve Gordon - Ancient Way.mp3",
       "2. David Steve Gordon - Dancing for a Vision.mp3",
@@ -4499,6 +4509,7 @@ var musicDB = {
       "Matt_Uelmen_-_Jungle.mp3",
       "Max Lade - Crystal Jungle.mp3",
       "Max Lade - Guilty Conscience.mp3",
+      "Might  Magic Heroes VI - Terrain NagaJungle.mp3",
       "Might and Magic IX - Sound 16.mp3",
       "Osi And The Jupiter - Draugad#243;ttinn.mp3",
       "Overlord 2 OST - Everlight Beach.mp3",
@@ -4644,7 +4655,7 @@ var musicDB = {
     ]
   },
   "зима": {
-    "number": 83,
+    "number": 84,
     "list": [
       "Adrian von Ziegler - Queen of the Gaels.mp3",
       "Anoice - White Paper.mp3",
@@ -4685,6 +4696,7 @@ var musicDB = {
       "Erdenstern_-_White_Realm.mp3",
       "FlybyNo_-_Shadows_(The_Forgotten)_-_Demo_Version.mp3",
       "Greg Maroney - Lullaby.mp3",
+      "Heroes of Might  Magic II - Snow theme.mp3",
       "Heroes of Might and Magic II - Snow (OST).mp3",
       "Hexperos - Diadem of the Night.mp3",
       "Hexperos - Winter Rhymes.mp3",
@@ -5450,7 +5462,7 @@ var musicDB = {
     ]
   },
   "спокойно": {
-    "number": 502,
+    "number": 509,
     "list": [
       "02. Toshiro Masuda - Wealth of Obesity.mp3",
       "03. Yasuharu Takanashi - Friend.mp3",
@@ -5646,6 +5658,11 @@ var musicDB = {
       "Helmkrain_Rodd_-_South.mp3",
       "Heres To The Bard - Title Mix.mp3",
       "Heroes - Kira say....mp3",
+      "Heroes of Might  Magic I - Barbarian town theme.mp3",
+      "Heroes of Might  Magic I - Knight town theme.mp3",
+      "Heroes of Might  Magic I - Sorceress town theme.mp3",
+      "Heroes of Might  Magic I - Warlock town theme.mp3",
+      "Heroes of Might  Magic II - Sorceress town theme.mp3",
       "Heroes of Might and Magic III - Good Theme.mp3",
       "Heroes_of_Might_and_Magic_IV_-_The_Academy_Of_Honor.mp3",
       "Heroes_of_Might_and_Magic_VI_(OST)_-_Autumn_Is_Coming.mp3",
@@ -5792,6 +5809,8 @@ var musicDB = {
       "Michael Curran - Montezuma Peace - Aztec - Cora Mitote Song from Santa Teresa.mp3",
       "Michiel van den Bos - Elf Swamp.mp3",
       "Michiru_Oshima_-_Kodoku.mp3",
+      "Might  Magic Heroes VI - Haven theme.mp3",
+      "Might  Magic Heroes VII - The Journeyman#39;s Encounter (Stronghold Theme).mp3",
       "Might and Magic Heroes VII - Hope For Green Falls (Haven Theme).mp3",
       "Morning in the Celtic Hills.mp3",
       "Murgrind_-_A_Tribute_To_Mortiis_Part_II_(Bonustrack).mp3",
@@ -6288,7 +6307,7 @@ var musicDB = {
     ]
   },
   "эльфы": {
-    "number": 100,
+    "number": 101,
     "list": [
       "Adrian_von_Ziegler_-_2_Hours_of_Celtic_Music.mp3",
       "Alizbar & Christian Amin Varkonyi - Melting snowflakes on her hand (Celtic harp & Hang Drum).mp3",
@@ -6357,6 +6376,7 @@ var musicDB = {
       "Mariano De Simone - Young Love.mp3",
       "Mark Morgan - Fall-From-Grace Theme.mp3",
       "Michiel van den Bos - Shroud.mp3",
+      "Might  Magic Heroes VI - Sanctuary theme.mp3",
       "Might and Magic X - Lulled by the Waves.mp3",
       "Might and Magic X - Morning in Karthal.mp3",
       "Morten Sorlie - 22. Faith (OST-HD Dreamfall The Longest Journey Dreamfall Бесконечное путешествие) Official 2006 (Vk.ComOstHD).mp3",
