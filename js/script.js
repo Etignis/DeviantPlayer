@@ -4,9 +4,10 @@ var SOUNDS = '!звуки';
 var aSelectedPlaylists = [];
 var aSelectedSoundlists = [];
 var aSoundlistsData = [];
+var oGlobalSettings = {};
 
 var fKeyListen = true;
-
+var bShift = false;
 var Drug;
 
 function randd(min, max) {
@@ -162,13 +163,13 @@ function PlayerForm(){
 			pf_lt="";
 		var pf_sett = "<div class='pf_sett'>"+
 								"<div class='btns'>"+
-									"<input type='checkbox' checked='checked' id='ch_"+this.name+"' class='btn cycle'><label for='ch_"+this.name+"' ><i class='fa fa-retweet'></i></label>"+
-									"<button class='btn mix'><i class='fa fa-random'></i></button>"+
-									"<input type='checkbox' id='hd_"+this.name+"' class='btn hide'><label for='hd_"+this.name+"' ><i class='fa fa-eye-slash'></i></label>"+
+									"<input type='checkbox' checked='checked' id='ch_"+this.name+"' class='btn cycle'><label for='ch_"+this.name+"' title='Зациклить плейлист' ><i class='fa fa-retweet'></i></label>"+
+									"<button class='btn mix' title='Перемешать музыку'><i class='fa fa-random'></i></button>"+
+									"<input type='checkbox' id='hd_"+this.name+"' class='btn hide'><label for='hd_"+this.name+"' title='Скрыть/показать список воспроизведения'><i class='fa fa-eye-slash'></i></label>"+
 									//"<button>3</button>"+
 								"</div>"+
 								"<div class='vol'>"+
-									"<input type='range' orient=vertical class='volume' min='0' max='50' value=25>"+
+									"<input type='range' orient='vertical' class='volume' min='0' max='50' value=25>"+
 									"<div class='vol_num'>50%</div>"+
 								"</div>"+
 							"</div>";
@@ -227,17 +228,22 @@ function PlayerForm(){
 		var name = smth[0];
 		//console.log(this.name);
 		num = $(".player_form[data-form-name='"+this.name+"']").find(".tr_line").length+1;
+    /*/
 		tr_line = "<div class='tr_line' data-url='"+url+"' data-num='"+num+"'>"+
 				"<table>"+
 					"<tr>"+
 						"<td class='count'></td>"+
 						"<!--td><input type='checkbox' class='f_ch'></td-->"+
-						"<td><input type='checkbox' class='f_pl'></td>"+
+						"<!--td><input type='checkbox' class='f_pl'></td-->"+
 						"<td class='name_place'>"+
 							"<div class='name' title='"+name+"'>"+name+"</div>"+
 						"</td>"+
 					"</tr>"+
 				"</table>"+
+			  "</div>";
+        /**/
+		tr_line = "<div class='tr_line' data-url='"+url+"' data-num='"+num+"'>"+
+				"<div class='name' title='"+name+"'>"+name+"</div>"+
 			  "</div>";
 
 		$(".player_form[data-name='"+this.num+"']").children(".pf_list").append(tr_line);
@@ -608,6 +614,21 @@ var lt=[];
     "Фейри",
     "Путешествие"
  */
+ function setZoomFontsize() {  
+  var sFontSize = oGlobalSettings? oGlobalSettings.sZoomFontSize : undefined;
+  if(sFontSize) {
+		$(".tracks").css('font-size', sFontSize+"px");    
+  }
+ }
+ function saveGlobalSettings(sKey, sValue) {
+   if(sKey && sValue != undefined) {
+    oGlobalSettings[sKey] = sValue;
+   }
+  saveLocalDB('oGlobalSettings', oGlobalSettings);
+ }
+ function loadGlobalSettings() {
+  oGlobalSettings = getFromLocalDB('oGlobalSettings') || {};
+ }
  function saveLocalDB(sKey, oValue) {
    var oLocalDB = {};
    var oData = localStorage.getItem('MusicBoxDB');
@@ -1588,13 +1609,15 @@ function clickTopButtons() {
 	$("body").on("click", "#p_em_up", function(){
 		var fs=$(".tracks").css('font-size');
 		n_fs=parseFloat(fs, 10)+3;
-		console.log(n_fs);
+		//console.log(n_fs);
+    saveGlobalSettings('sZoomFontSize', n_fs);
 		$(".tracks").css('font-size', n_fs+"px");
 	});
 	$("body").on("click", "#p_em_dn", function(){
 		var fs=$(".tracks").css('font-size');
 		n_fs=parseFloat(fs, 10)-3;
 ////		console.log(n_fs);
+    saveGlobalSettings('sZoomFontSize', n_fs);
 		$(".tracks").css('font-size', n_fs+"px");
 	});
 	$("body").on("click", "#p_hide", function(){
@@ -1641,32 +1664,44 @@ function clickTopButtons() {
 
 
 	// управление кнопками
+	$("body").keydown(function(eventObject){
+    var keyCode = eventObject.which;
+    if(keyCode == 16) // SHIFT 
+    {
+      bShift = true;
+    }
+  });
+  
 	$("body").keyup(function(eventObject){
     if(fKeyListen){
             var id=0, ev=0, nm=0;
       var keyCode = eventObject.which;
+      if(keyCode == 16) // SHIFT 
+      {
+        bShift = false;
+      }
       //alert(keyCode);
       switch(keyCode)
       { //vol up
-        case 49: id=1; ev="vol_up"; //1
+      case 49: if(bShift) {id=1, ev="sound"} else { id=1; ev="vol_up"}; //1
           break;
-        case 50: id=2; ev="vol_up"; //2
+        case 50: if(bShift) {id=2, ev="sound"} else {  id=2; ev="vol_up"}; //2
           break;
-        case 51: id=3; ev="vol_up"; //3
+        case 51: if(bShift) {id=3, ev="sound"} else {  id=3; ev="vol_up"}; //3
           break;
-        case 52: id=4; ev="vol_up"; //4
+        case 52: if(bShift) {id=4, ev="sound"} else {  id=4; ev="vol_up"}; //4
           break;
-        case 53: id=5; ev="vol_up"; //5
+        case 53: if(bShift) {id=5, ev="sound"} else {  id=5; ev="vol_up"}; //5
           break;
-        case 54: id=6; ev="vol_up"; //6
+        case 54: if(bShift) {id=6, ev="sound"} else {  id=6; ev="vol_up"}; //6
           break;
-        case 55: id=7; ev="vol_up"; //7
+        case 55: if(bShift) {id=7, ev="sound"} else {  id=7; ev="vol_up"}; //7
           break;
-        case 56: id=8; ev="vol_up"; //8
+        case 56: if(bShift) {id=8, ev="sound"} else {  id=8; ev="vol_up"}; //8
           break;
-        case 57: id=9; ev="vol_up"; //9
+        case 57: if(bShift) {id=9, ev="sound"} else {  id=9; ev="vol_up"}; //9
           break;
-        case 48: id=10; ev="vol_up"; //0
+        case 48: if(bShift) {id=0, ev="sound"} else {  id=10; ev="vol_up"}; //0
           break;
 
         //vol dn
@@ -1899,5 +1934,8 @@ loadSoundListsData();
 cloneSoundsDataFromDB();
 createSoundColumn();
 
-clickTopButtons();
+loadGlobalSettings();
+setZoomFontsize();
+
+//clickTopButtons();
 });

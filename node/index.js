@@ -3,30 +3,42 @@
 const fs = require('fs');
 const path = require('path');
 
-const mp3Ext = '.mp3';
-const wavExt = '.wav';
-const sMusicPath = "D:/Cloud/DnD/Музыка";
-const sDBpath = "../js/db.js"
+let aFileTypes = [];
+let sMusicPath, sSoundsFolder, sDBpath;
 
-function getData() {
-  
+function loadConfig(){
+  try{
+    let fs = require('fs');
+    let sPath = path.resolve('config.json');
+    let obj = JSON.parse(fs.readFileSync(sPath, 'utf8'));
+    sMusicPath = path.resolve(obj.sMusicPath);
+    sSoundsFolder = path.resolve(obj.sSoundsFolder);
+    sDBpath = path.resolve(obj.sDBpath);
+    aFileTypes = obj.aFileTypes;
+  } catch (err) {
+    console.log("[ERROR] Can't load and read 'config.json'");
+    console.dir(err);
+  }
 }
-
 function createBD() {
   let db = {};
   let sounds = {};
+  loadConfig();
   console.log("Start working in " + sMusicPath);
   fs.readdirSync(sMusicPath).forEach(folder => {
     const sInnerPath = path.join(sMusicPath, folder);
     const isDir = fs.lstatSync(sInnerPath);
     // only for folders with music
     if(isDir.isDirectory()) {
-      if(!(/^!/.test(folder))) {
+      if(folder != sSoundsFolder/*!(/^!/.test(folder))*/) {
         let aList= [];
         fs.readdirSync(sInnerPath).forEach(file => {
           // music?
-          if(path.extname(file) === mp3Ext || path.extname(file) === wavExt) {
-            aList.push(file);
+          for(let i=0; i<aFileTypes.length; i++) {
+            if(path.extname(file) === aFileTypes[i]) {
+              aList.push(file);
+              break;
+            }
           }
         });
         const sPathName = "Folder \""+folder+"\": ";
@@ -49,19 +61,20 @@ function createBD() {
           fs.renameSync(sInnerPath, path.join(sMusicPath, folder.toLowerCase()));
         }
       } else { // sounds
-        //console.log("sound: "+sInnerPath);
         const isDir1 = fs.lstatSync(sInnerPath);
         if(isDir1.isDirectory()){
           fs.readdirSync(sInnerPath).forEach(file => {
             let aList= [];
             const sInnerSoundPath = path.join(sInnerPath, file);
             const isDir2 = fs.lstatSync(sInnerSoundPath);
-            //console.log("sInnerSoundPath: "+sInnerSoundPath);
             if(isDir2.isDirectory()) {
               fs.readdirSync(sInnerSoundPath).forEach(sound => {
                 // music?
-                if(path.extname(sound) === mp3Ext || path.extname(sound) === wavExt) {
-                  aList.push(sound);
+                for(let i=0; i<aFileTypes.length; i++) {
+                  if(path.extname(sound) === aFileTypes[i]) {
+                    aList.push(sound);
+                    break;
+                  }
                 }
               });
               const sPathName = "Sound folder \""+file+"\": ";
@@ -78,23 +91,14 @@ function createBD() {
               sounds[file.toLowerCase()] = {
                 number: aList.length,
                 list: aList
-              }
-              /*
-              // music?
-              if(path.extname(file) === mp3Ext || path.extname(file) === wavExt) {
-                aList.push(file);
-              }
-              */
+              }              
             }
             
           });
-        }
-        //sounds = aList;
+        }        
       }
     }
   });
-  //console.dir(db);
-  //.dir(JSON.stringify(db, null, 2));
   const resultJSON = "var soundsDB = " + JSON.stringify(sounds, null, 2) + "\n\nvar musicDB = " + JSON.stringify(db, null, 2);
   fs.writeFile(sDBpath, resultJSON, function(err) {
     if(err) {

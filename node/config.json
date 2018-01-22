@@ -1,0 +1,9 @@
+{
+ "sMusicPath": "D:/Cloud/DnD/Музыка",
+ "sSoundsFolder": "!звуки",
+ "sDBpath": "../js/db.js",
+ "aFileTypes": [
+  ".mp3",
+  ".wav"
+ ]
+}
