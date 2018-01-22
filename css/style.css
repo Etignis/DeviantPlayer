@@ -1305,6 +1305,7 @@ img {
   margin: 0.2rem 0;
   padding: 0.2rem;
   background: #848484;
+  overflow: hidden;
 }
 #sounds_container .soundSublist li:hover {
   background: #919191;
@@ -1338,6 +1339,10 @@ img {
 #mw_soundlists_manage .soundColumn li {
   display: flex;
   flex-wrap: wrap;
+}
+#mw_soundlists_manage .soundColumn li input {
+  position: relative;
+  top: 0.35rem;
 }
 #mw_soundlists_manage .soundColumn label {
   cursor: pointer;

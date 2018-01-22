@@ -737,6 +737,8 @@ var lt=[];
           }
         }       
       }
+   } else {
+     //aSoundlistsData = oData;
    }
    if(aSoundlistsData){
      //localStorage.setItem('aSoundlistsData', JSON.stringify(aSoundlistsData));
@@ -1095,6 +1097,9 @@ function cloneSoundsDataFromDB(){
         });
       }
     };
+    
+    // save to local DB
+    saveSoundListsData();
   } catch(err){
     console.log("[ERROR]: failed clone Sound Data - " + err);
   }
