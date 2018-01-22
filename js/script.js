@@ -4,6 +4,7 @@ var SOUNDS = '!звуки';
 var aSelectedPlaylists = [];
 var aSelectedSoundlists = [];
 var aSoundlistsData = [];
+var oGlobalSettings = {};
 
 var fKeyListen = true;
 var bShift = false;
@@ -613,6 +614,21 @@ var lt=[];
     "Фейри",
     "Путешествие"
  */
+ function setZoomFontsize() {  
+  var sFontSize = oGlobalSettings? oGlobalSettings.sZoomFontSize : undefined;
+  if(sFontSize) {
+		$(".tracks").css('font-size', sFontSize+"px");    
+  }
+ }
+ function saveGlobalSettings(sKey, sValue) {
+   if(sKey && sValue != undefined) {
+    oGlobalSettings[sKey] = sValue;
+   }
+  saveLocalDB('oGlobalSettings', oGlobalSettings);
+ }
+ function loadGlobalSettings() {
+  oGlobalSettings = getFromLocalDB('oGlobalSettings') || {};
+ }
  function saveLocalDB(sKey, oValue) {
    var oLocalDB = {};
    var oData = localStorage.getItem('MusicBoxDB');
@@ -1593,13 +1609,15 @@ function clickTopButtons() {
 	$("body").on("click", "#p_em_up", function(){
 		var fs=$(".tracks").css('font-size');
 		n_fs=parseFloat(fs, 10)+3;
-		console.log(n_fs);
+		//console.log(n_fs);
+    saveGlobalSettings('sZoomFontSize', n_fs);
 		$(".tracks").css('font-size', n_fs+"px");
 	});
 	$("body").on("click", "#p_em_dn", function(){
 		var fs=$(".tracks").css('font-size');
 		n_fs=parseFloat(fs, 10)-3;
 ////		console.log(n_fs);
+    saveGlobalSettings('sZoomFontSize', n_fs);
 		$(".tracks").css('font-size', n_fs+"px");
 	});
 	$("body").on("click", "#p_hide", function(){
@@ -1915,6 +1933,9 @@ addTrackListsFromDB();
 loadSoundListsData();
 cloneSoundsDataFromDB();
 createSoundColumn();
+
+loadGlobalSettings();
+setZoomFontsize();
 
 //clickTopButtons();
 });
