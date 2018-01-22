@@ -12,9 +12,11 @@ function loadConfig(){
     let sPath = path.resolve('config.json');
     let obj = JSON.parse(fs.readFileSync(sPath, 'utf8'));
     sMusicPath = path.resolve(obj.sMusicPath);
-    sSoundsFolder = path.resolve(obj.sSoundsFolder);
+    sSoundsFolder = obj.sSoundsFolder;
     sDBpath = path.resolve(obj.sDBpath);
     aFileTypes = obj.aFileTypes;
+    
+    console.log(sSoundsFolder);
   } catch (err) {
     console.log("[ERROR] Can't load and read 'config.json'");
     console.dir(err);
@@ -61,9 +63,12 @@ function createBD() {
           fs.renameSync(sInnerPath, path.join(sMusicPath, folder.toLowerCase()));
         }
       } else { // sounds
+        console.log("we in sounds");
         const isDir1 = fs.lstatSync(sInnerPath);
         if(isDir1.isDirectory()){
+          console.log("start read sounds");
           fs.readdirSync(sInnerPath).forEach(file => {
+          console.log("start red " + file);
             let aList= [];
             const sInnerSoundPath = path.join(sInnerPath, file);
             const isDir2 = fs.lstatSync(sInnerSoundPath);

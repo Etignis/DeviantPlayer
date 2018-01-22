@@ -1,103 +1,201 @@
-var soundsDB = {}
-
-var musicDB = {
-  "!звуки": {
-    "number": 92,
+var soundsDB = {
+  "battle suspence": {
+    "number": 9,
     "list": [
-      "362926__shaderrow__scream.wav",
-      "BUILDTWN.wav",
-      "CHAINLTE.wav",
-      "CHAT.wav",
-      "DRAGON.wav",
-      "EXPERNCE.mp3",
-      "EXPERNCE.wav",
-      "FLAGMINE.wav",
-      "ghost 01 haunting.mp3",
-      "ghost 02 monstermoan.mp3",
-      "ghost 03 SUPER nmh_scream1.mp3",
-      "ghost 04 SCREAM_4.mp3",
-      "ghost 05 woscream4.mp3",
-      "ghost mrwinter__spooky-scream.wav",
-      "GOODLUCK.wav",
-      "LUCK.wav",
-      "MORALE.wav",
-      "MYSTERY.wav",
-      "NWHEROLV.wav",
-      "PICKUP01.wav",
-      "PICKUP02.wav",
-      "PICKUP03.wav",
-      "PICKUP04.wav",
-      "PICKUP05.wav",
-      "PICKUP06.wav",
-      "PICKUP07.wav",
-      "STORE.wav",
-      "TREASURE.wav",
-      "undead01.wav",
-      "undead02.wav",
-      "undead03.wav",
-      "undead04.wav",
-      "undead05.wav",
-      "undead06.wav",
-      "undead07.wav",
-      "undead08.wav",
-      "witch.mp3",
-      "XP1.mp3",
-      "Армия бой орут.mp3",
-      "Бенни Хил.mp3",
-      "Взрыв.mp3",
-      "Вляпался, раздавил.mp3",
-      "Вода бульк.mp3",
-      "Гонг.mp3",
-      "дверной звонок 1.wav",
-      "дверной звонок 2.wav",
-      "дверной звонок 3.wav",
-      "Деревянная дверь закрыть 01.mp3",
-      "дзиньк.mp3",
-      "Замок.mp3",
-      "Запуск шаровой молнии.mp3",
-      "Звонок касса.wav",
-      "лол.mp3",
-      "Лягушка.mp3",
-      "Магия снаряд.mp3",
-      "Монеты 2.wav",
-      "Монеты 3.wav",
-      "Монеты 4.wav",
-      "Монеты 5.wav",
-      "Монеты 6.wav",
-      "монеты.mp3",
-      "опыт 2.wav",
-      "Опыт 3.wav",
-      "Опыт 4.wav",
-      "Опыт 5.wav",
-      "Опыт 7.mp3",
-      "Опыт 9.mp3",
-      "опыт.wav",
-      "Оружие удар.mp3",
-      "Поп.mp3",
-      "Портал 10.mp3",
-      "Портал 2.wav",
-      "Портал 3.wav",
-      "Портал 4.wav",
-      "Портал 5.wav",
-      "Портал 6.wav",
-      "Портал 7.wav",
-      "Портал 8.mp3",
-      "Портал 9.mp3",
-      "портал.mp3",
-      "пролетело.mp3",
-      "Рык.mp3",
-      "сверчки 01.mp3",
-      "Скрип половица.mp3",
-      "Смерть гоблин.mp3",
-      "смех.wav",
-      "Стрела попала.mp3",
-      "стрела попала02.mp3",
-      "таймер.wav",
-      "Тиканье часов.mp3",
-      "Удар молнии 01.mp3",
-      "Что-то пролетело.mp3"
+      "Mark Griskey - Battle Suspense 1.mp3",
+      "Mark Griskey - Battle Suspense 2.mp3",
+      "Mark Griskey - Battle Suspense 3.mp3",
+      "Mark Griskey - Battle Suspense 4.mp3",
+      "Mark Griskey - Battle Suspense 5.mp3",
+      "Mark Griskey - Battle Suspense 6.mp3",
+      "Mark Griskey - Battle Suspense 7.mp3",
+      "Mark Griskey - Battle Suspense 8.mp3",
+      "Mark Griskey - Battle Suspense 9.mp3"
     ]
   },
+  "ахаха": {
+    "number": 6,
+    "list": [
+      "Барабаны Бадум-тссс.mp3",
+      "Ералаш.mp3",
+      "смех1.wav",
+      "смех2.wav",
+      "смех3.wav",
+      "смех4.wav"
+    ]
+  },
+  "бум": {
+    "number": 3,
+    "list": [
+      "DemoAssassinIronBall_Demo_Land.mp3",
+      "EnemyLift_Stop01.mp3",
+      "Event_FldObj_DeathBridge_A_01_BridgeOn.mp3"
+    ]
+  },
+  "внезапно": {
+    "number": 6,
+    "list": [
+      "внезапно.wav",
+      "Внезапный звук.mp3",
+      "Поворот.mp3",
+      "Супрайз мазафака.mp3",
+      "ТА ДА ДА ДАААМ.mp3",
+      "Тревожная музыка.mp3"
+    ]
+  },
+  "гудок": {
+    "number": 3,
+    "list": [
+      "Гонг2.mp3",
+      "гудок 1.wav",
+      "гудок 2.wav"
+    ]
+  },
+  "землетрясение": {
+    "number": 1,
+    "list": [
+      "Event_Demo004_0_MapTowerQuake01.mp3"
+    ]
+  },
+  "магия": {
+    "number": 8,
+    "list": [
+      "Event_HorseRevival_End.mp3",
+      "Event_MapTowerFirst_EmblemShining.mp3",
+      "вжух.wav",
+      "Волшебство.mp3",
+      "магия 2.wav",
+      "магия 3.wav",
+      "магия.wav",
+      "Превращение.mp3"
+    ]
+  },
+  "механизм": {
+    "number": 2,
+    "list": [
+      "Demo_Cmn_Blackout00.mp3",
+      "Event_HappyHomeDesigner_MakingFurnitures01.mp3"
+    ]
+  },
+  "монеты": {
+    "number": 1,
+    "list": [
+      "Монеты.wav"
+    ]
+  },
+  "наслаждение": {
+    "number": 30,
+    "list": [
+      "Npc_Vo_DressFairy_00_CustomDressUp_01.mp3",
+      "Npc_Vo_DressFairy_00_CustomDressUp_02.mp3",
+      "Npc_Vo_DressFairy_00_CustomDressUp_03.mp3",
+      "Npc_Vo_DressFairy_00_CustomDressUp_04.mp3",
+      "Npc_Vo_DressFairy_00_CustomDressUp_04_After.mp3",
+      "Npc_Vo_DressFairy_00_CustomGreeting_01.mp3",
+      "Npc_Vo_DressFairy_00_CustomLeave00.mp3",
+      "Npc_Vo_DressFairy_00_CustomLeave01.mp3",
+      "Npc_Vo_DressFairy_01_CustomDressUp_01_00.mp3",
+      "Npc_Vo_DressFairy_01_CustomDressUp_02_00_B.mp3",
+      "Npc_Vo_DressFairy_01_CustomDressUp_03_00.mp3",
+      "Npc_Vo_DressFairy_01_CustomDressUp_04_00.mp3",
+      "Npc_Vo_DressFairy_01_CustomDressUp_04_After.mp3",
+      "Npc_Vo_DressFairy_01_CustomGreeting_01.mp3",
+      "Npc_Vo_DressFairy_01_CustomLeave00.mp3",
+      "Npc_Vo_DressFairy_01_CustomLeave01.mp3",
+      "Npc_Vo_DressFairy_02_CustomDressUp_01.mp3",
+      "Npc_Vo_DressFairy_02_CustomDressUp_02.mp3",
+      "Npc_Vo_DressFairy_02_CustomDressUp_03.mp3",
+      "Npc_Vo_DressFairy_02_CustomDressUp_04.mp3",
+      "Npc_Vo_DressFairy_02_CustomDressUp_04_B.mp3",
+      "Npc_Vo_DressFairy_02_CustomGreeting_01.mp3",
+      "Npc_Vo_DressFairy_02_CustomLeave00.mp3",
+      "Npc_Vo_DressFairy_02_CustomLeave01.mp3",
+      "Npc_Vo_DressFairy_03_CustomDressUp_03.mp3",
+      "Npc_Vo_DressFairy_03_CustomDressUp_04.mp3",
+      "Npc_Vo_DressFairy_03_CustomDressUp_04_After.mp3",
+      "Npc_Vo_DressFairy_03_CustomGreeting_01.mp3",
+      "Npc_Vo_DressFairy_03_CustomLeave00.mp3",
+      "Npc_Vo_DressFairy_03_CustomLeave01.mp3"
+    ]
+  },
+  "неловко": {
+    "number": 2,
+    "list": [
+      "Лягушка-1.8-4.9.mp3",
+      "сверчки 01-0-1.7.mp3"
+    ]
+  },
+  "опыт": {
+    "number": 1,
+    "list": [
+      "Опыт 6.mp3"
+    ]
+  },
+  "портал": {
+    "number": 11,
+    "list": [
+      "DevilStatue_HeartDown.mp3",
+      "Dragon_ColorChange.mp3",
+      "Enemy_DragonHornHit.mp3",
+      "Event_BGM_GetDemoSheikerStone.mp3",
+      "Event_Demo_MapWarpIn.mp3",
+      "Event_Demo_MapWarpIn_Endurance.mp3",
+      "Event_Demo_MapWarpOut.mp3",
+      "Event_Demo_MapWarpOut_Endurance.mp3",
+      "портал 0.wav",
+      "Портал Большой 2.wav",
+      "Портал большой 3.wav"
+    ]
+  },
+  "потустороннее": {
+    "number": 10,
+    "list": [
+      "Demo_Vo_PreistBossGiant_00.mp3",
+      "Demo_Vo_PriestBossAlterEgo_00.mp3",
+      "Demo_Vo_PriestBossAlterEgo_01.mp3",
+      "Event_NV_Priest000.mp3",
+      "Event_NV_Priest001.mp3",
+      "Event_NV_Priest002.mp3",
+      "Event_NV_Priest003.mp3",
+      "Event_NV_Priest004.mp3",
+      "Event_NV_Priest005.mp3",
+      "Event_NV_Priest006.mp3"
+    ]
+  },
+  "появление": {
+    "number": 1,
+    "list": [
+      "Event_BGM_AssassinBossDemo_impact.mp3"
+    ]
+  },
+  "таймер": {
+    "number": 1,
+    "list": [
+      "таймер2.wav"
+    ]
+  },
+  "телепортация": {
+    "number": 3,
+    "list": [
+      "Event_HeartDownMS.mp3",
+      "Телепортация 2.wav",
+      "Телепортация.wav"
+    ]
+  },
+  "успех": {
+    "number": 6,
+    "list": [
+      "Cookset_SuccessGreat.mp3",
+      "Event_Cook_Success.mp3",
+      "Event_DownloadTerminal_ActivateLight01.mp3",
+      "Event_DownloadTerminal_ActivateSet01.mp3",
+      "Event_DownloadTerminal_Touch01.mp3",
+      "FAN_TRANSITION_IMPACT_01.mp3"
+    ]
+  }
+}
+
+var musicDB = {
   "18 век": {
     "number": 25,
     "list": [
@@ -554,8 +652,13 @@ var musicDB = {
     ]
   },
   "_аркада": {
-    "number": 13,
+    "number": 18,
     "list": [
+      "BGM_DungeonBattle_main.mp3",
+      "BGM_DungeonTutorial_lesson1.mp3",
+      "BGM_DungeonTutorial_lesson2.mp3",
+      "BGM_DungeonTutorial_lesson3.mp3",
+      "BGM_DungeonTutorial_lesson4.mp3",
       "Christophe Heral, Billy Martin - Food World - Paradise.mp3",
       "Christophe Heral, Billy Martin - Jungle World - Land.mp3",
       "Christophe Heral, Billy Martin - Lum King.mp3",
@@ -2186,11 +2289,12 @@ var musicDB = {
     ]
   },
   "_тактика": {
-    "number": 17,
+    "number": 18,
     "list": [
       "Alexander Brandon - Unreal Tournament Menu.mp3",
       "Borderlands_2_OST_-_The_Dust_Combat.mp3",
       "Borderlands_2_OST_-_Vog_Fight.mp3",
+      "Event_BGM_FlightTraining.mp3",
       "Gorky-17_-_Enemy_Fight1.mp3",
       "Gorky-17_-_Player_Fight2.mp3",
       "Gorky-17_-_Player_Fight3.mp3",
@@ -3701,8 +3805,10 @@ var musicDB = {
     ]
   },
   "бодро": {
-    "number": 299,
+    "number": 310,
     "list": [
+      "10 Talus Battle.mp3",
+      "11 Hinox Battle.mp3",
       "1M1 Music(Vol.2) - Cannonball.mp3",
       "Adam Skorupa Krzysztof Wierzynkiewicz - Easier Said than Killed.mp3",
       "Adam Skorupa Krzysztof Wierzynkiewicz - The Assassin Looms.mp3",
@@ -3740,6 +3846,8 @@ var musicDB = {
       "AudioMachine - Lachrimae.mp3",
       "Basil Poledouris - Anvil Of Crom.mp3",
       "battle1_-_.mp3",
+      "BGM_SpBattle_Ganon_latter.mp3",
+      "BGM_SpBattle_Golem_main.mp3",
       "Black Desert Online OST - 09.mp3",
       "Blut und Eisen (OST Enderal The Shards of Order).mp3",
       "Bobby Prince - Running From Evil.mp3",
@@ -3802,6 +3910,13 @@ var musicDB = {
       "Erdenstern_-_Invasion_(Into_The_Red).mp3",
       "Erdenstern_-_The_Battle_Of_Dragons.mp3",
       "Erdenstern_-_The_Tournament_(Into_The_Red).mp3",
+      "Event_BGM_RemainsElecBattle (channels 0 and 1).mp3",
+      "Event_BGM_RemainsElecBattle (channels 2 and 3).mp3",
+      "Event_BGM_RemainsElecBattle (channels 4 and 5).mp3",
+      "Event_BGM_RemainsFireBattle_A.mp3",
+      "Event_BGM_RemainsFireBattle_B.mp3",
+      "Event_BGM_RemainsWaterBattle.mp3",
+      "Event_BGM_RemainsWindBattle_Intro.mp3",
       "Evequest2 - battletheme.mp3",
       "Fable 3 - Escape.mp3",
       "Fight - Battle.mp3",
@@ -4057,11 +4172,12 @@ var musicDB = {
     ]
   },
   "военное": {
-    "number": 11,
+    "number": 12,
     "list": [
       "11. Yasuharu Takanashi - On and On.mp3",
       "22. Toshiro Masuda - Hero.mp3",
       "38. Yasuharu Takanashi - Sunrise.mp3",
+      "BGM_Castle (channels 0 and 1).mp3",
       "Dmitry Petyakin - Blessing of Heaven.mp3",
       "Dmitry Petyakin - Faith of Victory.mp3",
       "Dmitry Petyakin - Hammer of War.mp3",
@@ -4073,7 +4189,7 @@ var musicDB = {
     ]
   },
   "восток": {
-    "number": 56,
+    "number": 60,
     "list": [
       "01. 634 Project and Toshiro Masuda - Konoha Densetsu.mp3",
       "03. Takanashi Yasuharu - Homecoming.mp3",
@@ -4084,7 +4200,9 @@ var musicDB = {
       "10. Yasuharu Takanashi - Flight.mp3",
       "11. Yasuharu Takanashi - Shirotsumekusa.mp3",
       "12. Toshiro Masuda - Hinata vs Neji.mp3",
+      "14 Kakariko Village (Day).mp3",
       "14. Toshiro Masuda - Evening.mp3",
+      "15 Kakariko Village (Night).mp3",
       "15. Yasuharu Takanashi - Reflection Fire.mp3",
       "17. Yasuharu Takanashi - Close to You.mp3",
       "17. Yasuharu Takanashi - Guren.mp3",
@@ -4098,6 +4216,8 @@ var musicDB = {
       "39. Toshiro Masuda - Temujin.mp3",
       "40. Toshiro Masuda - Bonds.mp3",
       "Abandoned temple of the Incas.mp3",
+      "BGM_Spot_KakarikoVillage_Allday.mp3",
+      "BGM_Spot_WaterSide.mp3",
       "Geoff Knorr - China (The Atomic Era).mp3",
       "Guild Wars Factions OST - Assassins Theme.mp3",
       "Jack Wall - Main Theme (OST Jade Empire).mp3",
@@ -4134,8 +4254,9 @@ var musicDB = {
     ]
   },
   "гномы": {
-    "number": 4,
+    "number": 5,
     "list": [
+      "Bgm_Spot_AkkareAncientLabo.mp3",
       "Inon Zur - The Dwarven Nobles.mp3",
       "Might  Magic Heroes VII - Tinkering with the Dwarves (AI Theme).mp3",
       "Scandinavian folk - Islandsljod.mp3",
@@ -4159,8 +4280,9 @@ var musicDB = {
     ]
   },
   "данж": {
-    "number": 281,
+    "number": 282,
     "list": [
+      "04 Shrine.mp3",
       "06 apparition.mp3",
       "07 INSIDEP2 Inside the Pyramid 2 (11-22kj).mp3",
       "10. Yasuharu Takanashi - The Mark.mp3",
@@ -4991,7 +5113,7 @@ var musicDB = {
     ]
   },
   "начало": {
-    "number": 96,
+    "number": 97,
     "list": [
       "01. Ragnarok Suite.mp3",
       "03. Hero’s Theme.mp3",
@@ -4999,6 +5121,7 @@ var musicDB = {
       "09 Yousei no Shippo.mp3",
       "18. Yasuharu Takanashi - Bounce.mp3",
       "23. Toshiro Masuda - Those Who Inherit The Will of Fire.mp3",
+      "24 Main Theme (Live).mp3",
       "31. Yasuharu Takanashi - Trust Me.mp3",
       "A critical chance (вдумчивость + стратегия).mp3",
       "Akela Sun - Hope Never Dies.mp3",
@@ -5209,8 +5332,23 @@ var musicDB = {
     ]
   },
   "париж": {
-    "number": 4,
+    "number": 19,
     "list": [
+      "13 Kass's Theme.mp3",
+      "BGM_SpSpot_Acco_Daruk.mp3",
+      "BGM_SpSpot_Acco_Mipha.mp3",
+      "BGM_SpSpot_Acco_Revali.mp3",
+      "BGM_SpSpot_Acco_Urbosa.mp3",
+      "BGM_SpSpot_Musician.mp3",
+      "Event_BGM_Acco_Ballad_01.mp3",
+      "Event_BGM_Acco_Ballad_02.mp3",
+      "Event_BGM_Acco_Ballad_03.mp3",
+      "Event_BGM_Acco_Ballad_04.mp3",
+      "Event_BGM_Acco_Daruk_Theme.mp3",
+      "Event_BGM_Acco_Mipha_Theme.mp3",
+      "Event_BGM_Acco_Revali_Theme.mp3",
+      "Event_BGM_Acco_SwordHero.mp3",
+      "Event_BGM_Acco_Urbosa_Theme.mp3",
       "Joe Hisaishi - Howl#39;s Moving Castle Theme (вальс из аниме Ходячий замок Хаула - оркестровая версия).mp3",
       "L#39;Orchestra Cinematique - Merry-Go-Round of Life (From Howl#39;s Moving Castle).mp3",
       "OST Howl#39;s Moving Castle - Wandering Sophie.mp3",
@@ -5252,11 +5390,12 @@ var musicDB = {
     ]
   },
   "пронырливо": {
-    "number": 21,
+    "number": 22,
     "list": [
       "02. Toshiro Masuda - Nerugui.mp3",
       "03 soul-eater (reprise).mp3",
       "03. Toshiro Masuda - The Great Capture Strategy.mp3",
+      "05 Battle (Shrine).mp3",
       "07. 634 Project and Toshiro Masuda - Ore ga Mamorunda tteba yo#33;#33;.mp3",
       "12. 634 Project and Toshiro Masuda - Joyuu - Tomio Fuuun kai.mp3",
       "13. Toshiro Masuda - Go Go Naruto.mp3",
@@ -5399,10 +5538,12 @@ var musicDB = {
     ]
   },
   "светло": {
-    "number": 42,
+    "number": 44,
     "list": [
       "0_01.mp3",
       "0_02.mp3",
+      "20 Zora's Domain (Day).mp3",
+      "21 Zora's Domain (Night).mp3",
       "3 OST Fable The Lost Chapters - Bowerstone.mp3",
       "Akito Matsuda - Aishou Kosho.mp3",
       "Akito Matsuda - Gakuen Fuukei.mp3",
@@ -5446,7 +5587,7 @@ var musicDB = {
     ]
   },
   "скрытность": {
-    "number": 11,
+    "number": 13,
     "list": [
       "08 charade.mp3",
       "10. The Baby Monitor Protocol.mp3",
@@ -5454,6 +5595,8 @@ var musicDB = {
       "15. World's Worst Animal Shelter.mp3",
       "David Garrett - Mission Impossible.mp3",
       "David Garrett - Whole Lotta Bond.mp3",
+      "Event_BGM_Bleaching.mp3",
+      "Event_BGM_Staining.mp3",
       "H-Pi - Hideout.mp3",
       "Mateo Pascual - Menu.mp3",
       "Nathan Grigg - M1 CS2.mp3",
@@ -5462,7 +5605,7 @@ var musicDB = {
     ]
   },
   "спокойно": {
-    "number": 509,
+    "number": 528,
     "list": [
       "02. Toshiro Masuda - Wealth of Obesity.mp3",
       "03. Yasuharu Takanashi - Friend.mp3",
@@ -5470,19 +5613,25 @@ var musicDB = {
       "04. Toshiro Masuda - Morning.mp3",
       "05. Toshiro Masuda - Narutos Daily Life.mp3",
       "06 - Happy no Theme.mp3",
+      "06 Riding (Day).mp3",
       "08 Nigiyaka na Machi.mp3",
       "08. Toshiro Masuda - Forever Friends.mp3",
       "1 - Ваше первое путешествие. Вы зеленый авантюрист-новичок.mp3",
       "10. Toshiro Masuda - Sakuras Theme.mp3",
       "10. Yasuharu Takanashi - Bad Boy.mp3",
       "11 malbarn.mp3",
+      "12 Stables.mp3",
       "12. Yasuharu Takanashi - Jump.mp3",
       "15 - Steve Jablonsky - Rays Theme (Steamboy OST).mp3",
+      "16 Rito Village (Day).mp3",
       "16 Zanzarah The Hidden Portal OST - Prophecy Theme.mp3",
       "17 - Steve Jablonsky - Fly in the sky (Steamboy OST).mp3",
+      "17 Rito Village (Night).mp3",
       "17. We're Best Friends.mp3",
       "20 Lucy no theme.mp3",
       "20. The Farm.mp3",
+      "22 Gerudo Town (Day).mp3",
+      "23 Gerudo Town (Night).mp3",
       "34. One Year Later.mp3",
       "36. Yasuharu Takanashi - Journey.mp3",
       "Aaron_Dunn_-_Beginning_of_Days.mp3",
@@ -5509,6 +5658,19 @@ var musicDB = {
       "Arcanum of... (OST) - Wilderness (by Ben Houge).mp3",
       "Audiomachine - Breath and Life.mp3",
       "Benoit_Groulx_-_Magic_Spell_(OST_Jonathan_Strange_&_Mr_Norrell).mp3",
+      "BGM_Spot_FrontierVillage_GerudoInvited.mp3",
+      "BGM_Spot_FrontierVillage_GoronInvited.mp3",
+      "BGM_Spot_FrontierVillage_Married.mp3",
+      "BGM_Spot_FrontierVillage_RitoInvited.mp3",
+      "BGM_Spot_FrontierVillage_Start.mp3",
+      "BGM_Spot_FrontierVillage_ZoraInvited.mp3",
+      "BGM_Spot_HorseGod.mp3",
+      "BGM_Spot_NewGerudoCity_Allday.mp3",
+      "BGM_Spot_NewGoronCity_Allday.mp3",
+      "BGM_Spot_NewHatenoVillage_Allday.mp3",
+      "BGM_Spot_NewKoroguForest_Allday.mp3",
+      "BGM_Spot_NewZoraVillage_Allday.mp3",
+      "BGM_Spot_Umayado (channels 0 and 1).mp3",
       "Black Desert Online OST - Bear Villiage.mp3",
       "Black Desert Online OST - Calpheon.mp3",
       "blue_spark-_.mp3",
@@ -6513,9 +6675,10 @@ var musicDB = {
     ]
   },
   "этнос": {
-    "number": 8,
+    "number": 9,
     "list": [
       "Dead Can Dance - Opium.mp3",
+      "Event_BGM_GamanContest.mp3",
       "Kemmei Adachi, Daisuke Miyake - Start Menu.mp3",
       "Барабаны_мира_-_Он_и_она.mp3",
       "Гармония_мира_-_Индийская_флейта_и_барабаны_-_Касба.mp3",
@@ -6526,13 +6689,17 @@ var musicDB = {
     ]
   },
   "ярмарка": {
-    "number": 12,
+    "number": 16,
     "list": [
       "16. Parade.mp3",
       "Akito Matsuda - Osana Najimi.mp3",
       "Alexandre Desplat - 20. Busy Workshop (OST-HD Хранители Снов The Rise Of The Guardians) (Vk.Com OstHD).mp3",
       "David Garrett - Carnival Of Venice.mp3",
       "Erdenstern - Damn Little Folk.mp3",
+      "Event_BGM_KorogMinister.mp3",
+      "Event_Bgm_MinigameRace01.mp3",
+      "Event_BGM_SnowBowling.mp3",
+      "Event_BGM_VagrantAppear.mp3",
       "freescore.ru - James Horner - Playing Basketball.mp3",
       "Hellblinki - Kerosene.mp3",
       "Nicolas Marquis - Main Attraction.mp3",
