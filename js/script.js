@@ -1436,8 +1436,10 @@ function openBatDBWindow() {
 
   var oOpenButton = "<div class='center'><input type='file' id='mw_batDB_load_input' name='files[]'/> <button id='mw_batDB_load'>Загрузить файл</button></div><p>Откройте файл 'DB.txt' из папки с музыкой, сгенерированный с помощью '_create&nbsp;music&nbsp;DB.bat'. При этом, плеер запомнит данные из этого файла и будет игнорировать данные из основной базы данных.</p>";
   var oClearButton = "<div class='center'><button id='mw_batDB_clear'>Удалить локальную копию</button></div><p>Удалить данные, полученные из файла 'DB.txt'. В таком случае, плеер будет получать данные из основной базы данных.</p>";
+  var oExportButton = "<div class='center'><button id='mw_batDB_export'>Экспортировать локальные настройки</button></div><p>Все настройки плеера можно сохранить в файл, а потом загрузить обрано в плеер, в случае чего.</p>";
+  var oImportButton = "<div class='center'><input type='file' id='mw_batDB_import' name='files[]'/> <button id='mw_batDB_import'>Импортировать локальные настройки</button></div><p>Если вы сохраняли локальные с помощью кнопки выше, у вамс должен быть файл 'DeviantPlayer_LocalDB.txt' с настройками. Загрузите его для восстановения сохраненных ранеее настроек.</p>";
   var oClearAllButton = "<div class='center'><button id='mw_batDB_clearAll'>Очистить локальную базу полностью</button></div><p>Полностью очистить все данные, хранящиеся в плеере. Нажимать только в случае глобального #$@&*!</p>";
-  var oContent = "<div class='inner'>"+oOpenButton+oClearButton+oClearAllButton+"</div>";
+  var oContent = "<div class='inner'>"+oOpenButton+oClearButton+oExportButton+oImportButton+oClearAllButton+"</div>";
   var oButtons = "<div class='center'><hr><button class='white' id='mw_batDB_close'>Закрыть</button></div>";
   if($("#dbg").length<1)	{
     $("body").append("<div id='dbg'></div><div class='mod_win' id='mw_batDB_manage' >"+oContent+oButtons+"</div>");
@@ -1946,7 +1948,7 @@ function openLocalConfigFile(evt) {
 function parceLocalConfigFile(sText) {
 	try{
   	var oLocalDB = JSON.parse(sText);
-  } catch (err) }{
+  } catch (err) {
   	alert("Ошибка при чтении файла.");
   	console.log("[ERROR] can't parce file: " + err);
   }
