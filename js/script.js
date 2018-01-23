@@ -1974,6 +1974,12 @@ function parceLocalConfigFile(sText) {
   //closeBatDBWindow();
 }
 
+function hideInfo(){
+	if($("#TrackListsList").children().length != 0 || $("#sounds_container").children().length != 0) {
+		$("#info").hide();
+	}
+}
+
 onWindowResize();
 window.onresize = onWindowResize;
 
