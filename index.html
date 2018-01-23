@@ -4,8 +4,8 @@
   <title>Музыка</title>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"> <!-- for monile -->
-  <meta name="description" content="Краткое описание страницы"> 
-  <meta name="Keywords" content="ключевые слова, через запятую"> 
+  <meta name="description" content="Краткое описание страницы">
+  <meta name="Keywords" content="ключевые слова, через запятую">
   <link rel="stylesheet" type="text/css" href="css/style.css"><!-- include css styles  -->
   <link href="fonts/FortAwesome/css/font-awesome.min.css" rel="stylesheet">
   <link rel="shortcut icon" href="favicon.ico" /><!-- include icon for browser -->
@@ -13,7 +13,9 @@
   <script type='text/javascript' src='js/Sortable.js'></script><!-- Sortable Drag'n'Drop-->
   <script type='text/javascript' src='js/db.js' defer></script><!-- Palylists Data -->
   <script type='text/javascript' src='js/script.js' defer></script><!-- script -->
-  
+
+  <script src="https://cdn.rawgit.com/eligrey/FileSaver.js/e9d941381475b5df8b7d7691013401e171014e89/FileSaver.min.js"></script>
+
   <!-- IE must understand HTML5: -->
   <!--[if IE]>
    <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
@@ -28,19 +30,24 @@
 </head>
 
 <body>
-<div id="top_panel">
-  <!--div id='p_conf' class='bt'><i class="fa fa-cog fa-lg"></i></div-->
-  <div id='p_config' class='bt'><i class="fa fa-cog fa-lg"></i></div>
-  <div id='p_configSounds' class='bt'><i class="fa fa-music fa-lg"></i></div>
-  <div id='p_configMusicDB' class='bt'><i class="fa fa-database  fa-lg"></i></div>
-  <div id='p_em_up' class='bt'><i class="fa fa-search-plus fa-lg"></i></div>
-  <div id='p_em_dn' class='bt'><i class="fa fa-search-minus fa-lg"></i></div>
-  <div id='p_hide' class='bt'><i class="fa fa-eye-slash fa-lg"></i></div>
-  <div id='p_rand' class='bt'><i class="fa fa-random fa-lg"></i></div>
-  <input type='checkbox' id='p_smooth'><label for='p_smooth' ><i class='fa  fa-refresh fa-lg'></i></label>
+  <div id="top_panel">
+    <!--div id='p_conf' class='bt'><i class="fa fa-cog fa-lg"></i></div-->
+    <div id='p_config' class='bt'><i class="fa fa-cog fa-lg"></i></div>
+    <div id='p_configSounds' class='bt'><i class="fa fa-music fa-lg"></i></div>
+    <div id='p_configMusicDB' class='bt'><i class="fa fa-database  fa-lg"></i></div>
+    <div id='p_em_up' class='bt'><i class="fa fa-search-plus fa-lg"></i></div>
+    <div id='p_em_dn' class='bt'><i class="fa fa-search-minus fa-lg"></i></div>
+    <div id='p_hide' class='bt'><i class="fa fa-eye-slash fa-lg"></i></div>
+    <div id='p_rand' class='bt'><i class="fa fa-random fa-lg"></i></div>
+    <input type='checkbox' id='p_smooth'><label for='p_smooth' ><i class='fa  fa-refresh fa-lg'></i></label>
 
-</div>
-<div class='tracks' id='TrackListsList'></div>	
-<div id='sounds_container'></div>	
+  </div>
+  <div id='info'>
+    <p>
+
+    </p>
+  </div>
+  <div class='tracks' id='TrackListsList'></div>
+  <div id='sounds_container'></div>
 </body>
 </html>

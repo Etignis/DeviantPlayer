@@ -1439,7 +1439,7 @@ function openBatDBWindow() {
   var oExportButton = "<div class='center'><button id='mw_batDB_export'>Экспортировать локальные настройки</button></div><p>Все настройки плеера можно сохранить в файл, а потом загрузить обрано в плеер, в случае чего.</p>";
   var oImportButton = "<div class='center'><input type='file' id='mw_batDB_import' name='files[]'/> <button id='mw_batDB_import'>Импортировать локальные настройки</button></div><p>Если вы сохраняли локальные с помощью кнопки выше, у вамс должен быть файл 'DeviantPlayer_LocalDB.txt' с настройками. Загрузите его для восстановения сохраненных ранеее настроек.</p>";
   var oClearAllButton = "<div class='center'><button id='mw_batDB_clearAll'>Очистить локальную базу полностью</button></div><p>Полностью очистить все данные, хранящиеся в плеере. Нажимать только в случае глобального #$@&*!</p>";
-  var oContent = "<div class='inner'>"+oOpenButton+oClearButton+oExportButton+oImportButton+oClearAllButton+"</div>";
+  var oContent = "<div class='inner'>"+oOpenButton+oClearButton+"<hr>"+oExportButton+oImportButton+"<hr>"+oClearAllButton+"</div>";
   var oButtons = "<div class='center'><hr><button class='white' id='mw_batDB_close'>Закрыть</button></div>";
   if($("#dbg").length<1)	{
     $("body").append("<div id='dbg'></div><div class='mod_win' id='mw_batDB_manage' >"+oContent+oButtons+"</div>");
@@ -1553,7 +1553,11 @@ $("body").on('change', "#mw_batDB_load_input", function(oEvent){
 $("body").on('click', '#mw_batDB_clear', function() {
   saveLocalDB("musicDB", null);
   saveLocalDB("soundsDB", null);
-})
+});
+$("body").on('click', '#mw_batDB_export', function() {
+	exportLocalConfig();
+});
+//
 $("body").on('click', '#mw_batDB_clearAll', function() {
   localStorage.clear();
 })
