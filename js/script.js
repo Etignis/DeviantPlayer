@@ -1980,6 +1980,8 @@ function parceLocalConfigFile(sText) {
 function hideInfo(){
 	if($("#TrackListsList").children().length != 0 || $("#sounds_container").children().length != 0) {
 		$("#info").hide();
+	} else {
+		$("#info").show();
 	}
 }
 
