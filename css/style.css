@@ -319,6 +319,45 @@ img {
   z-index: 88;
   background: rgba(0, 0, 0, 0.7);
 }
+#info {
+  -webkit-border-radius: 3px 3px 3px 3px;
+  -moz-border-radius: 3px 3px 3px 3px;
+  border-radius: 3px 3px 3px 3px;
+  overflow: visible;
+  background: #fff;
+  border: 0px solid #d8d8d8;
+  border-top-width: 0px;
+  /*display: inline-block;*/
+  font-weight: bold;
+  padding: 0.7em;
+  margin: 0.3em;
+  border-width: 1px;
+  border-style: solid;
+  border-bottom-width: 2px;
+  text-decoration: none;
+  border-color: #555555;
+  color: #fff;
+  background: #666666;
+  box-shadow: 0 1px 0px 0px rgba(255, 255, 255, 0.2) inset;
+  cursor: pointer;
+  -webkit-transition: all 0.3s ease;
+  -moz-transition: all 0.3s ease;
+  -o-transition: all 0.3s ease;
+  -ms-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  margin: 0 auto;
+  padding: 1em 2.7em;
+  max-width: 50rem;
+  background: #151515;
+  cursor: default;
+  color: #ddd;
+}
 .tracks {
   overflow: auto;
   width: 100%;
@@ -1416,7 +1455,8 @@ img {
 #mw_batDB_manage button.white {
   background: white;
 }
-#mw_batDB_manage #mw_batDB_load_input {
+#mw_batDB_manage #mw_batDB_load_input,
+#mw_batDB_manage #mw_batDB_import_input {
   display: none;
 }
 #mw_sl_OkButton,

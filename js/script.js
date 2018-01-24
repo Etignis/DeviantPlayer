@@ -1436,11 +1436,11 @@ $("body").on("change", "#mw_soundlists_manage .soundArr input", function(){
 function openBatDBWindow() {
   fKeyListen = false;
 
-  var oOpenButton = "<div class='center'><input type='file' id='mw_batDB_load_input' name='files[]'/> <button id='mw_batDB_load'>Загрузить файл</button></div><p>Откройте файл 'DB.txt' из папки с музыкой, сгенерированный с помощью '_create&nbsp;music&nbsp;DB.bat'. При этом, плеер запомнит данные из этого файла и будет игнорировать данные из основной базы данных.</p>";
-  var oClearButton = "<div class='center'><button id='mw_batDB_clear'>Удалить локальную копию</button></div><p>Удалить данные, полученные из файла 'DB.txt'. В таком случае, плеер будет получать данные из основной базы данных.</p>";
-  var oExportButton = "<div class='center'><button id='mw_batDB_export'>Экспортировать локальные настройки</button></div><p>Все настройки плеера мо;но сохранить в файл, а потом загрузить обрано в плеер, в случае чего.</p>";
-  var oImportButton = "<div class='center'><input type='file' id='mw_batDB_import' name='files[]'/> <button id='mw_batDB_import'>Импортировать локальные настройки</button></div><p>Если вы сохраняли локальные с помощью кнопки выше, у вамс должен быть файл 'DeviantPlayer_LocalDB.txt' с настройками. Загрузите его для восстановения сохраненных ранеее настроек.</p>";
-  var oClearAllButton = "<div class='center'><button id='mw_batDB_clearAll'>Очистить локальную базу полностью</button></div><p>Полностью очистить все данные, хранящиеся в плеере. Нажимать только в случае глобального #$@&*!</p>";
+  var oOpenButton = "<div class='center'><input type='file' id='mw_batDB_load_input' name='files[]'/> <button id='mw_batDB_load'><i class='fa fa-folder-open-o' aria-hidden='true'></i> Загрузить файл базы музыки</button></div><p>Откройте файл 'DB.txt' из папки с музыкой, сгенерированный с помощью '_create&nbsp;music&nbsp;DB.bat'. При этом, плеер запомнит данные из этого файла и будет игнорировать данные из основной базы данных.</p>";
+  var oClearButton = "<div class='center'><button id='mw_batDB_clear'><i class='fa fa-trash-o' aria-hidden='true'></i> Удалить локальную копию</button></div><p>Удалить данные, полученные из файла 'DB.txt'. В таком случае, плеер будет получать данные из основной базы данных.</p>";
+  var oExportButton = "<div class='center'><button id='mw_batDB_export'><i class='fa fa-floppy-o' aria-hidden='true'></i> Экспортировать локальные настройки</button></div><p>Все настройки плеера можно сохранить в файл, а потом загрузить обрано в плеер, в случае чего.</p>";
+  var oImportButton = "<div class='center'><input type='file' id='mw_batDB_import_input' name='local_configFiles[]'/> <button id='mw_batDB_import'><i class='fa fa-folder-open-o' aria-hidden='true'></i> Импортировать локальные настройки</button></div><p>Если вы сохраняли локальные с помощью кнопки выше, у вас должен быть файл 'DeviantPlayer_LocalDB.txt' с настройками. Загрузите его для восстановления сохраненных ранее настроек.</p>";
+  var oClearAllButton = "<div class='center'><button id='mw_batDB_clearAll'><i class='fa fa-trash' aria-hidden='true'></i> Очистить локальную базу полностью</button></div><p>Полностью очистить все данные и настройки, хранящиеся в плеере. Нажимать только в случае глобального #$@&*!</p>";
   var oContent = "<div class='inner'>"+oOpenButton+oClearButton+"<hr>"+oExportButton+oImportButton+"<hr>"+oClearAllButton+"</div>";
   var oButtons = "<div class='center'><hr><button class='white' id='mw_batDB_close'>Закрыть</button></div>";
   if($("#dbg").length<1)	{
@@ -1560,9 +1560,17 @@ $("body").on('click', '#mw_batDB_clear', function() {
 $("body").on('click', '#mw_batDB_export', function() {
 	exportLocalConfig();
 });
+$("body").on('change', '#mw_batDB_import_input', function(oEvent) {
+  openLocalConfigFile(oEvent);
+});
+$("body").on('click', '#mw_batDB_import', function(oEvent) {
+	$("#mw_batDB_import_input").click();	
+});
 //
 $("body").on('click', '#mw_batDB_clearAll', function() {
   localStorage.clear();
+  alert("Все сохраненные данные удалены.");
+  location.reload();
 })
 $("body").on('click', '#mw_batDB_load', function() {
   $("#mw_batDB_load_input").click();
@@ -1960,18 +1968,26 @@ function parceLocalConfigFile(sText) {
   	console.log("[ERROR] can't parce file: " + err);
   }
 
-  ROOT = oLocalDB.ROOT;
-  SOUNDS = oLocalDB.SOUNDS;
-  oDB = oLocalDB.oDB;
-  oSoundDB = oLocalDB.oSoundDB;
+ 
+    
+  // ROOT = oLocalDB.ROOT || oLocalDB.sROOT;
+  // SOUNDS = oLocalDB.SOUNDS;
+  // var aSelectedPlaylists = [];
+// var aSelectedSoundlists = [];
+// var aSoundlistsData = [];
+// var oGlobalSettings = {};
+  //oDB = oLocalDB.oDB;
+  //oSoundDB = oLocalDB.oSoundDB;
 
   //var sLocalROOT = loadFromLocalDB(ROOT);
-  saveLocalDB("ROOT", ROOT);
-  saveLocalDB("SOUNDS", SOUNDS);
-  saveLocalDB("musicDB", oDB);
-  saveLocalDB("soundsDB", oSoundDB);
-
-
+  // saveLocalDB("ROOT", ROOT);
+  // saveLocalDB("SOUNDS", SOUNDS);
+  // saveLocalDB("musicDB", oDB);
+  // saveLocalDB("soundsDB", oSoundDB);
+  localStorage.clear();
+  localStorage.setItem('MusicBoxDB', JSON.stringify(oLocalDB));
+  initPlayerFromConfigs();
+  alert("Данные успешно загружены.");
   //loadBDfromLocalStorage();
 
   //closeBatDBWindow();
@@ -1985,21 +2001,24 @@ function hideInfo(){
 	}
 }
 
+function initPlayerFromConfigs() {
+  // load from local storage if normal DB not exist
+  loadBDfromLocalStorage();
+  addTrackListsFromDB();
+  // load sounds DB
+  loadSoundListsData();
+  cloneSoundsDataFromDB();
+  createSoundColumn();
+
+  loadGlobalSettings();
+  setZoomFontsize();
+
+  hideInfo();
+}
 onWindowResize();
 window.onresize = onWindowResize;
 
-// load from local storage if normal DB not exist
-loadBDfromLocalStorage();
-addTrackListsFromDB();
-// load sounds DB
-loadSoundListsData();
-cloneSoundsDataFromDB();
-createSoundColumn();
 
-loadGlobalSettings();
-setZoomFontsize();
-
-hideInfo();
 
 //clickTopButtons();
 });
