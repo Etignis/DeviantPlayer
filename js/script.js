@@ -2019,6 +2019,6 @@ onWindowResize();
 window.onresize = onWindowResize;
 
 
-
+initPlayerFromConfigs();
 //clickTopButtons();
 });
