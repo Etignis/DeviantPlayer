@@ -4,8 +4,8 @@
   <title>Музыка</title>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"> <!-- for monile -->
-  <meta name="description" content="Краткое описание страницы"> 
-  <meta name="Keywords" content="ключевые слова, через запятую"> 
+  <meta name="description" content="Краткое описание страницы">
+  <meta name="Keywords" content="ключевые слова, через запятую">
   <link rel="stylesheet" type="text/css" href="css/style.css"><!-- include css styles  -->
   <link href="fonts/FortAwesome/css/font-awesome.min.css" rel="stylesheet">
   <link rel="shortcut icon" href="favicon.ico" /><!-- include icon for browser -->
@@ -13,7 +13,9 @@
   <script type='text/javascript' src='js/Sortable.js'></script><!-- Sortable Drag'n'Drop-->
   <script type='text/javascript' src='js/db.js' defer></script><!-- Palylists Data -->
   <script type='text/javascript' src='js/script.js' defer></script><!-- script -->
-  
+
+  <script src="js/FileSaver.min.js"></script>
+
   <!-- IE must understand HTML5: -->
   <!--[if IE]>
    <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
@@ -28,19 +30,66 @@
 </head>
 
 <body>
-<div id="top_panel">
-  <!--div id='p_conf' class='bt'><i class="fa fa-cog fa-lg"></i></div-->
-  <div id='p_config' class='bt'><i class="fa fa-cog fa-lg"></i></div>
-  <div id='p_configSounds' class='bt'><i class="fa fa-music fa-lg"></i></div>
-  <div id='p_configMusicDB' class='bt'><i class="fa fa-database  fa-lg"></i></div>
-  <div id='p_em_up' class='bt'><i class="fa fa-search-plus fa-lg"></i></div>
-  <div id='p_em_dn' class='bt'><i class="fa fa-search-minus fa-lg"></i></div>
-  <div id='p_hide' class='bt'><i class="fa fa-eye-slash fa-lg"></i></div>
-  <div id='p_rand' class='bt'><i class="fa fa-random fa-lg"></i></div>
-  <input type='checkbox' id='p_smooth'><label for='p_smooth' ><i class='fa  fa-refresh fa-lg'></i></label>
+  <div id="top_panel">
+    <!--div id='p_conf' class='bt'><i class="fa fa-cog fa-lg"></i></div-->
+    <div id='p_config' title='Настройка плейлистов' class='bt'><i class="fa fa-cog fa-lg"></i></div>
+    <div id='p_configSounds' title='Настройка звуков' class='bt'><i class="fa fa-music fa-lg"></i></div>
+    <div id='p_configMusicDB' title='Настройка базы данных музыки и звуков' class='bt'><i class="fa fa-database  fa-lg"></i></div>
+    <div id='p_em_up' title='Увеличить элементы интерфейса' class='bt'><i class="fa fa-search-plus fa-lg"></i></div>
+    <div id='p_em_dn' title='Усменьшить элементы интерфейса' class='bt'><i class="fa fa-search-minus fa-lg"></i></div>
+    <div id='p_hide' title='Скрыть списки воспроизведения во всех плейлистах' class='bt'><i class="fa fa-eye-slash fa-lg"></i></div>
+    <div id='p_rand' title='Перемещать мцзыку во всех плейлистах' class='bt'><i class="fa fa-random fa-lg"></i></div>
+    <input type='checkbox' id='p_smooth'><label title='Включить плавное воспроизведение/остановку музыки (может глючить)'  for='p_smooth' ><i class='fa  fa-refresh fa-lg'></i></label>
 
-</div>
-<div class='tracks' id='TrackListsList'></div>	
-<div id='sounds_container'></div>	
+  </div>
+
+  <div id='info'>
+    <h1> DeviantPlayer </h1>
+    <p>
+      Полная инструкция с цветными картинками: <a href='https://github.com/Etignis/DeviantPlayer#deviantplayer' target="_blanc">https://github.com/Etignis/DeviantPlayer</a>.
+    </p>
+    <p>
+      <h2>Минимальная интрукция:</h2>
+      <ol>
+        <li>Создать где нибуть общую папку для музыки.</li>
+        <li>Создать в ней папку с музыкальными файлами определенной тематики. Имя папки <u>не должно</u> содержать заглавных букв. </li>
+        <li>Повторить шаг "2" для разных наборов музык. Например "боевая", "спокойная" и т.д.</li>
+        <li>Скопировать в папку из шага "1" файл "_create_music_DB.bat".</li>
+        <li>Запустить этот файл двойным кликом, в папке появится файл "DB.txt".</li>
+        <li>На этой странице нажать в верхней панели кнопку "<i class="fa fa-database  fa-lg"></i>"</li>
+        <li>В открывшемся окне нажать первую кнопку ("Загрузить файл")</li>
+        <li>Выбрать недавно созданный файл "DB.txt" из 5-го пункта.</li>
+        <li>Закрыть модальное окно и нажать в врехней панели кнопку "<i class="fa fa-cog fa-lg"></i>".</li>
+        <li>Выбрать галочками требуемые плейлисты.</li>
+      </ol>
+    </p>
+    <p>
+      При измененнии/добавлении/удалении файлов или папок из основной папки музыки (пункт "1"), нужно будет повторить шаги с 5-го по 10-й.
+    </p>
+    <p>
+      <h2>Для использования звуков:</h2>
+      <ol>
+        <li>Если уже есть общая папки из для музыки (шаг "1" из списка выше), добавить в нее папку с названием "!звуки".</li>
+        <li>В папке "!звуки" создать папку со звуками определенной тематики. (например "взрыв"). Имя папки <u>не должно</u> содержать заглавных букв.</li>
+        <li>Повторить предыдущий шаг для разных наборов звуков.</li>
+        <li>Если в общей папке музыки есть файл "_create_music_DB.bat", запустить его. Если нет, см. инструкцию выше.</li>
+        <li>Выполнить шаги 6, 7, 8 из инструкции выше.</li>
+        <li>Закрыть модальное окно и нажать в врехней панели кнопку "<i class="fa fa-music fa-lg"></i>".</li>
+        <li>Выбрать чекбоксами нужные наборы звуков.</li>
+      </ol>
+    </p>
+    <p>
+
+      При измененнии/добавлении/удалении файлов или папок из папки "!звуки" , нужно будет повторить шаги с 4-го по 7-й.
+    </p>
+    <p>
+      Так как инструкция минималистичная, дальше полагайтесь на интуицию.
+    </p>
+  </div>
+
+  <div class='tracks' id='TrackListsList'></div>
+
+  <div id='sounds_container'></div>
+
 </body>
 </html>
