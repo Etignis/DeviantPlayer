@@ -1,5 +1,5 @@
 .tracks{
-    overflow: auto;    
+    //overflow: auto;
     width: 100%;
     padding: .1em;
     padding-right: @sidePanelWidth;
@@ -24,13 +24,32 @@
     background: @m-gray;
     padding: .1em;
     position: relative;
-    
-    .blank(){
-        .fr-convex;   
-        padding: .2em;
-        margin: .1em;
-        cursor: default;
-    }
+  border-top: 2px solid @m-gray;
+  transition: border-top .2s;
+
+  &[data-group=g1] {
+    border-top: 2px solid @color_g1;
+  }
+  &[data-group=g2] {
+    border-top: 2px solid @color_g2;
+  }
+  &[data-group=g3] {
+    border-top: 2px solid @color_g3;
+  }
+  &[data-group=g4] {
+    border-top: 2px solid @color_g4;
+  }
+  &[data-group=g5] {
+    border-top: 2px solid @color_g5;
+  }
+
+
+  .blank(){
+    .fr-convex;
+    padding: .2em;
+    margin: .1em;
+    cursor: default;
+  }
     .pf_lt{
         .fr-concave;
         position: absolute;

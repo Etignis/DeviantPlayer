@@ -5,17 +5,43 @@ var aSelectedPlaylists = [];
 var aSelectedSoundlists = [];
 var aSoundlistsData = [];
 var oGlobalSettings = {};
+var oPlayerColorGroups = {};
 
 var fKeyListen = true;
 var bShift = false;
 var Drug;
 
+var aGroups = [
+		{
+			name:"g0",
+			title:"Без группы"
+		},
+		{
+			name:"g1",
+			title:"Группа 1"
+		},
+		{
+			name:"g2",
+			title:"Группа 2"
+		},
+		{
+			name:"g3",
+			title:"Группа 3"
+		},
+		{
+			name:"g4",
+			title:"Группа 4"
+		},
+		{
+			name:"g5",
+			title:"Группа 5"
+		}
+	];
 function randd(min, max) {
   return Math.floor(arguments.length > 1 ? (max - min + 1) * Math.random() + min : (min + 1) * Math.random());
 };
 
-function file_exist(url)
-	{
+function file_exist(url){
 		$.ajax({
 			url: url,
 			dataType:"text",
@@ -24,8 +50,7 @@ function file_exist(url)
 			error: function(){ console.log("["+url+"] NOT exists");}
 		});
 	}
-function mus_check()
-	{
+function mus_check(){
 	$("div.tr_line").each(function(){
 		var url=$(this).attr("data-url");
 		//file_exist(url);
@@ -53,6 +78,92 @@ function clearSounds() {
 }
 
 $(document).ready(function(){
+  
+  //create group select
+  function make_select(src, params) {
+    var options = "";
+    var selected_key = params.selected_key;
+    var id = params.id;
+    var atr_class = params.class;
+    var lableText;
+    var width = 0;
+    src.forEach(function(item){
+      var key = item.name;
+      var text = item.title;
+      var color = " data-color='"+key+"' " ;
+      var sVisible = (item.visible === false)? "style='display:none'" : "";
+      if(text.length > width){
+        width = text.length;
+      }
+       options += "<li "+sVisible+" class='option' data-key='"+key+"' "+color+">"+text+"</li>";
+      if(key == selected_key){
+        lableText = text
+      }
+    });
+    width = width>20? 20: width;
+    width = width<5? 5: width;
+    width = ~~(width*0.99);
+
+    var list = "<ul class='list'>" + options + "</ul>";
+
+    var selectedKey = selected_key;
+    var label="<div class='label "+atr_class+"' data-selected-key='" + selectedKey + "' style='min-width:"+width+"em'>" + lableText + "</div>";
+    var select = "<div id='" + id + "' class='customSelect'>" + label + list + "</div>"
+
+    return select;
+  }
+  function selectCustomSelect(oSelect, sKey, sHTML){
+    oSelect.find(".label").attr("data-selected-key", sKey).html(sHTML);
+    oSelect.find("ul").fadeOut();
+    
+    var sColorGroup = (sKey=="g0")? "" : sKey;
+    oSelect.closest(".player_form").attr("data-group", sColorGroup);
+
+    //var listName = sKey;//$("#listSelect option:selected").attr("data-key");
+    //make_dict2(name_groups[listName], "name_groups", listName);
+    //var comboBox = makeComboBox(name_groups[listName]);
+    //$("#names").html(comboBox);
+
+    // url hash
+    //var NameTypeSelectVal = $("#nameListSelect .label").attr("data-selected-key");
+    //var sHash = "list="+NameTypeSelectVal;
+    //location.hash = (leng==1)? sHash : "";
+    //location.hash = sHash;
+  }
+   
+  function collectColorGroup() {
+    //oPlayerColorGroups
+    var oGroups = {};
+    $(".player_form").each(function(){
+      var sGroup = $(this).attr("data-group");
+      var sName = $(this).attr("data-form-name");
+      if(sGroup!= undefined){
+        if(!oGroups[sGroup]) {
+          oGroups[sGroup] = [];
+        }
+        oGroups[sGroup].push(sName);
+      }        
+    });
+    oPlayerColorGroups = oGroups;
+  } 
+  
+  function loadColorGroups(){
+    oPlayerColorGroups = getFromLocalDB('oPlayerColorGroups');
+  }  
+   //custom Select
+  $("body").on("click", ".customSelect .label", function() {
+    $(this).next(".list").fadeToggle();
+  });
+  $("body").on("click", ".customSelect .option", function() {
+    var sKey = $(this).attr("data-key");
+    var sText = $(this).text();
+    var sHTML = $(this).html();
+    var oSelect =  $(this).closest(".customSelect");
+    selectCustomSelect(oSelect, sKey, sHTML);
+    collectColorGroup();
+    saveLocalDB('oPlayerColorGroups', oPlayerColorGroups);
+  });
+  
   //debugger;
 	// класс звуков
 class soundsClass{
@@ -145,7 +256,7 @@ function PlayerForm(){
 	this.name      = "имя потока";
 	this.num       = 0;
 	// create
-	PlayerForm.prototype.create = function(name, lt, type) {
+	PlayerForm.prototype.create = function(name, lt, type, group) {
 		$(".pf_name").each(function(){
 			if($(this).text() == name) {
 				return false;
@@ -179,12 +290,13 @@ function PlayerForm(){
 		var pf_list        = "<div class='pf_list' data-id='9'></div>";
 		var pf_l_sett      = "<div class='pf_l_sett'><div class='bt make_list'><i class='fa fa-list'></i></div></div>";
 		var pf_mng         = "<div class='pf_mng'>управление потоком</div>";
-
+    var pf_attr_data_group = group?" data-group='"+group+"' ": "";
+    var pf_groupSelect = make_select(aGroups, {selected_key: group||"g0", id: "GroupSelect_"+this.name, class: "bt"});
 		var audio = "<audio id='a_"+(num+1)+"'></audio>";
 
 		if(type == 'usual')
 			{
-			var player_form = "<div class='player_form'>" +
+			var player_form = "<div class='player_form' "+pf_attr_data_group+">" +
 						audio+
 						pf_lt+
 						pf_sett+
@@ -192,6 +304,7 @@ function PlayerForm(){
 						pf_name+
 					//	pf_img+
 						pf_list+
+            pf_groupSelect+
 					//	pf_l_sett+
 					//	pf_mng+
 					"</div>";
@@ -220,14 +333,13 @@ function PlayerForm(){
 
 		}
 	// add track
-	PlayerForm.prototype.add_track = function(url)
-	{
+	PlayerForm.prototype.add_track = function(url, i) {
 		var url=url;
 		smth=url.split('/');
 		smth.reverse();
 		var name = smth[0];
 		//console.log(this.name);
-		num = $(".player_form[data-form-name='"+this.name+"']").find(".tr_line").length+1;
+		num = i || $(".player_form[data-form-name='"+this.name+"']").find(".tr_line").length+1;
     /*/
 		tr_line = "<div class='tr_line' data-url='"+url+"' data-num='"+num+"'>"+
 				"<table>"+
@@ -266,7 +378,17 @@ function PlayerForm(){
 
 
 //// функции
+function stopAllInGroup(sGroupId){
+  $(".player_form").each(function(){
+    if($(this).attr('data-group') == sGroupId) {
+      var id = $(this).attr('data-name');
+      stop_play(id);
+    }
+  });
+}
 function start_play(id){
+  var sGroupId = $(".player_form[data-name="+id+"]").attr("data-group");
+  stopAllInGroup(sGroupId);
 	var audio_url = $(".player_form[data-name="+id+"]").find(".pf_list").children(".active").attr("data-url");
 	var _player = $(".player_form[data-name="+id+"]").children("audio");
 	if(_player.attr("src")!=audio_url)
@@ -325,6 +447,56 @@ function start_play(id){
 		$(".player_form[data-name="+id+"]").find(".pf_play_bt").html("<i class='fa fa-pause'></i>");
 		}
 }
+
+function stop_play(id){
+	player[id].f_play=0;
+  $(".player_form[data-name="+id+"] .pf_play_bt").html("<i class='fa fa-play'></i>");
+
+		a_id="a_"+id;
+		/*if(id<10)
+			a_id="a_0"+id;*/
+		//console.log("element for pause: "+a_id);
+
+		if($("#p_smooth").prop("checked")){
+			// плавное evtymitybt звука
+			//var c_vol = $("#"+a_id).volume;
+			var c_vol = document.getElementById(a_id).volume
+			var nnum= 0.1;
+			//console.log("c_vol: "+c_vol);
+			//document.getElementById(a_id).volume = nnum;
+			$("#"+a_id).trigger('play');
+			//console.log("n_vol: "+document.getElementById(a_id).volume);
+			//setInterval(function(){alert(1);}, 2000);
+			var timer = setInterval(
+					function(){
+						//alert(1);
+						//console.log(document.getElementById(a_id).volume+" < "+c_vol);
+						if(document.getElementById(a_id).volume>0)
+							{
+							if(document.getElementById(a_id).volume - nnum > 0)
+								document.getElementById(a_id).volume -= nnum;
+							else
+								document.getElementById(a_id).volume = 0;
+							}
+						else
+							{
+							document.getElementById(a_id).volume = 0;
+
+							document.getElementById(a_id).pause();
+							document.getElementById(a_id).volume = c_vol;
+							clearInterval(timer);
+							}
+						//console.log("vol: "+document.getElementById(a_id).volume);
+						}, 200);
+
+
+
+			//console.log("vol2: "+document.getElementById(a_id).volume);
+			}
+		else
+			document.getElementById(a_id).pause();
+}
+
 function change_active_track(id, i){
 	// меняем номер активного трека в объекте плеера
 	player[id].track_num=i;
@@ -451,53 +623,7 @@ var lt=[];
 	 // ставим на паузу
 	 else
 		{
-		player[id].f_play=0;
-		$(this).html("<i class='fa fa-play'></i>");
-
-		a_id="a_"+id;
-		/*if(id<10)
-			a_id="a_0"+id;*/
-		//console.log("element for pause: "+a_id);
-
-		if($("#p_smooth").prop("checked"))
-			{
-			// плавное evtymitybt звука
-			//var c_vol = $("#"+a_id).volume;
-			var c_vol = document.getElementById(a_id).volume
-			var nnum= 0.1;
-			//console.log("c_vol: "+c_vol);
-			//document.getElementById(a_id).volume = nnum;
-			$("#"+a_id).trigger('play');
-			//console.log("n_vol: "+document.getElementById(a_id).volume);
-			//setInterval(function(){alert(1);}, 2000);
-			var timer = setInterval(
-					function(){
-						//alert(1);
-						//console.log(document.getElementById(a_id).volume+" < "+c_vol);
-						if(document.getElementById(a_id).volume>0)
-							{
-							if(document.getElementById(a_id).volume - nnum > 0)
-								document.getElementById(a_id).volume -= nnum;
-							else
-								document.getElementById(a_id).volume = 0;
-							}
-						else
-							{
-							document.getElementById(a_id).volume = 0;
-
-							document.getElementById(a_id).pause();
-							document.getElementById(a_id).volume = c_vol;
-							clearInterval(timer);
-							}
-						//console.log("vol: "+document.getElementById(a_id).volume);
-						}, 200);
-
-
-
-			//console.log("vol2: "+document.getElementById(a_id).volume);
-			}
-		else
-			document.getElementById(a_id).pause();
+      stop_play(id);
 		}
 
  });
@@ -822,12 +948,27 @@ var lt=[];
         var Folder='';
         el = el.toLowerCase();
         if($(".tracks .player_form[data-form-name='"+el+"']").length<1) {
+          var sTitle = getTitle(el);
+          var sGroup = '';
+          // color groups
+          //oPlayerColorGroups
+          //find group name
+          for (var g in oPlayerColorGroups){
+            for(var i=0; i<oPlayerColorGroups[g].length; i++) {
+              if(oPlayerColorGroups[g][i] == el) {
+                sGroup = g;
+                break;
+              }
+            }
+          }
+          
+          // sreate player form
           player[player_i] = new PlayerForm();
-          player[player_i].create(getTitle(el) , lt[player_i-1]);
+          player[player_i].create(sTitle , lt[player_i-1], undefined, sGroup);
           Folder = el+'/';
 
-          musicDB[el].list.forEach(function(track){
-            player[player_i].add_track(ROOT+Folder+track);
+          musicDB[el].list.forEach(function(track, i){
+            player[player_i].add_track(ROOT+Folder+track, i);
           });
           player_i++;
         }
@@ -1607,6 +1748,7 @@ function clickTopButtons() {
 			$(this).closest(".player_form").find(".pf_list").hide();
 			$(this).closest(".player_form").find(".pf_l_sett").hide();
 			$(this).closest(".player_form").find(".pf_mng").hide();
+			$(this).closest(".player_form").find(".customSelect").hide();
 		}
 		else
 		{
@@ -1614,6 +1756,7 @@ function clickTopButtons() {
 			$(this).closest(".player_form").find(".pf_list").show();
 			$(this).closest(".player_form").find(".pf_l_sett").show();
 			$(this).closest(".player_form").find(".pf_mng").show();
+			$(this).closest(".player_form").find(".customSelect").show();
 		}
 	});
 
@@ -2004,6 +2147,7 @@ function hideInfo(){
 function initPlayerFromConfigs() {
   // load from local storage if normal DB not exist
   loadBDfromLocalStorage();
+  loadColorGroups();
   addTrackListsFromDB();
   // load sounds DB
   loadSoundListsData();
