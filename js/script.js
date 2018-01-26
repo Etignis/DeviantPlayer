@@ -2136,7 +2136,7 @@ function parceLocalConfigFile(sText) {
         if(aSounds) {
           aSounds.forEach(function(sound){
             for (var i=0; i<aSoundlistsData.length; i++) {
-              if(aSoundlistsData[i].name == sound){
+              if(aSoundlistsData[i].name == sound.name){
                 sound.ico = aSoundlistsData[i].ico;
                 sound.checked = aSoundlistsData[i].checked;
                 sound.list.forEach(function(elem){
@@ -2159,18 +2159,18 @@ function parceLocalConfigFile(sText) {
     }
   }
 
-  if(!getFromLocalDB('SOUNDS'))
-    saveLocalDB('SOUNDS', SOUNDS); 
-  if(!getFromLocalDB('aPlayLists'))
-    saveLocalDB('aPlayLists', aPlayLists); 
-  if(!getFromLocalDB('aSoundlistsData'))
-    saveLocalDB('aSoundlistsData', aSoundlistsData); 
-  if(!getFromLocalDB('oGlobalSettings'))
-    saveLocalDB('oGlobalSettings', oGlobalSettings); 
-  if(!getFromLocalDB('oPlayerColorGroups'))
-    saveLocalDB('oPlayerColorGroups', oPlayerColorGroups);  
-  if(!getFromLocalDB('ROOT'))
-    saveLocalDB('ROOT', ROOT);  
+  // if(!getFromLocalDB('SOUNDS'))
+    // saveLocalDB('SOUNDS', SOUNDS); 
+  // if(!getFromLocalDB('aPlayLists'))
+    // saveLocalDB('aPlayLists', aPlayLists); 
+  // if(!getFromLocalDB('aSoundlistsData'))
+    // saveLocalDB('aSoundlistsData', aSoundlistsData); 
+  // if(!getFromLocalDB('oGlobalSettings'))
+    // saveLocalDB('oGlobalSettings', oGlobalSettings); 
+  // if(!getFromLocalDB('oPlayerColorGroups'))
+    // saveLocalDB('oPlayerColorGroups', oPlayerColorGroups);  
+  // if(!getFromLocalDB('ROOT'))
+    // saveLocalDB('ROOT', ROOT);  
 
   //localStorage.clear();
   //localStorage.setItem('MusicBoxDB', JSON.stringify(oLocalDB));
