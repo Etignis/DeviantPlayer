@@ -790,9 +790,10 @@ var lt=[];
   var oData = localStorage.getItem('MusicBoxDB');
   if(oData) {
     oLocalDB =  JSON.parse(oData);
+    return oLocalDB[sKey];
   }
-  //if(sKey != undefined && )
-  return oLocalDB[sKey];
+
+  return false;
  }
  function savePlaylists(){
     var sLists = JSON.stringify(aSelectedPlaylists);
@@ -800,7 +801,7 @@ var lt=[];
       //localStorage.setItem('aPlayLists', sLists);
       saveLocalDB("aPlayLists", aSelectedPlaylists);
     }
-    saveLocalDB("sROOT", ROOT);
+    saveLocalDB("ROOT", ROOT);
     //localStorage.setItem("sROOT", ROOT);
  }
  function loadPlayLists(){
@@ -996,6 +997,7 @@ function openPlaylistsWindow() {
   var aFolders = [];
   var nIndex = 0;
   var aSelectedFolders = aSelectedPlaylists.map(x => x.toLowerCase());
+  
   for (folder in musicDB) {
     var bChecked = "";
     //var folderKey = (folder.toLowerCase().trim());
@@ -1003,12 +1005,22 @@ function openPlaylistsWindow() {
       bChecked = " checked";
     }
 
-    aFolders.push("<input type='checkbox' "+bChecked+" id='pli_"+nIndex+"'><label for='pli_"+nIndex+"'><span class='folderName'>"+folder+ "</span> ("+musicDB[folder].number+")</label><br>");
+    aFolders.push({name:folder, string:"<input type='checkbox' "+bChecked+" id='pli_"+nIndex+"'><label for='pli_"+nIndex+"'><span class='folderName'>"+folder+ "</span> ("+musicDB[folder].number+")</label><br>"});
     nIndex++;
   }
   if(aFolders.length == 0) {
     return false;
   }
+  aFolders.sort(function(a, b){
+    if(a.name < b.name) {
+      return -1;
+    }
+    if(a.name > b.name) {
+      return 1;
+    }
+    return 0;
+  });
+  aFolders = aFolders.map(s=>s.string);
   var playlistsCheckList = "<div class='columns'>"+aFolders.join("")+"</div>";
   var oRootPath = "<div>Полный путь к папке с папками: <input id='mw_playlist_rootpath' type='text' value='"+ ROOT +"' style='width:60%; min-width:10em'></div>";
   var oButtons = "<div class='buttonsPlace'><button id='mw_pl_CancelButton'>Отменить</button><button id='mw_pl_OkButton'>ОК</button></div>";
@@ -1079,7 +1091,7 @@ function applyPlaylistsWindow(){
   /**/
 
   //aSelectedPlaylists = aSelected;
-
+  saveLocalDB('ROOT', ROOT);
   addTrackListsFromDB(aSelectedPlaylists) ;
 }
 $("body").on("click", "#p_config", function(){
@@ -2110,25 +2122,59 @@ function parceLocalConfigFile(sText) {
   	alert("Ошибка при чтении файла.");
   	console.log("[ERROR] can't parce file: " + err);
   }
+  
+  for(var item in oLocalDB) {
+    switch (item) {
+      case "SOUNDS": break;
+      case "ROOT": break;
+      case "soundsDB": break;
+      case "musicDB": break;
+      case "aSoundlistsData": 
+        //
+        var aSounds = getFromLocalDB('aSoundlistsData');
+        
+        if(aSounds) {
+          aSounds.forEach(function(sound){
+            for (var i=0; i<aSoundlistsData.length; i++) {
+              if(aSoundlistsData[i].name == sound){
+                sound.ico = aSoundlistsData[i].ico;
+                sound.checked = aSoundlistsData[i].checked;
+                sound.list.forEach(function(elem){
+                  for(var j=0; j<aSoundlistsData[i].list.length; i++) {
+                    if(aSoundlistsData[i].list[j].name = elem.name) {
+                      elem.number = aSoundlistsData[i].list[j].number;
+                      break;
+                    }
+                  }
+                  
+                });
+                break;
+              }
+            }
+          });
+        }
+        //
+        break;
+      default: saveLocalDB(item, oLocalDB[item]);
+    }
+  }
 
- 
-    
-  // ROOT = oLocalDB.ROOT || oLocalDB.sROOT;
-  // SOUNDS = oLocalDB.SOUNDS;
-  // var aSelectedPlaylists = [];
-// var aSelectedSoundlists = [];
-// var aSoundlistsData = [];
-// var oGlobalSettings = {};
-  //oDB = oLocalDB.oDB;
-  //oSoundDB = oLocalDB.oSoundDB;
+  if(!getFromLocalDB('SOUNDS'))
+    saveLocalDB('SOUNDS', SOUNDS); 
+  if(!getFromLocalDB('aPlayLists'))
+    saveLocalDB('aPlayLists', aPlayLists); 
+  if(!getFromLocalDB('aSoundlistsData'))
+    saveLocalDB('aSoundlistsData', aSoundlistsData); 
+  if(!getFromLocalDB('oGlobalSettings'))
+    saveLocalDB('oGlobalSettings', oGlobalSettings); 
+  if(!getFromLocalDB('oPlayerColorGroups'))
+    saveLocalDB('oPlayerColorGroups', oPlayerColorGroups);  
+  if(!getFromLocalDB('ROOT'))
+    saveLocalDB('ROOT', ROOT);  
 
-  //var sLocalROOT = loadFromLocalDB(ROOT);
-  // saveLocalDB("ROOT", ROOT);
-  // saveLocalDB("SOUNDS", SOUNDS);
-  // saveLocalDB("musicDB", oDB);
-  // saveLocalDB("soundsDB", oSoundDB);
-  localStorage.clear();
-  localStorage.setItem('MusicBoxDB', JSON.stringify(oLocalDB));
+  //localStorage.clear();
+  //localStorage.setItem('MusicBoxDB', JSON.stringify(oLocalDB));
+  
   initPlayerFromConfigs();
   alert("Данные успешно загружены.");
   //loadBDfromLocalStorage();
