@@ -13,62 +13,12 @@ var soundsDB = {
       "Mark Griskey - Battle Suspense 9.mp3"
     ]
   },
-  "r2d2": {
-    "number": 53,
+  "fon": {
+    "number": 3,
     "list": [
-      "+.wav",
-      ",.wav",
-      "-.wav",
-      "0.wav",
-      "1.wav",
-      "2.wav",
-      "3.wav",
-      "4.wav",
-      "5.wav",
-      "6.wav",
-      "7.wav",
-      "8.wav",
-      "9.wav",
-      ";.wav",
-      "=.wav",
-      "a.wav",
-      "b.wav",
-      "c.wav",
-      "d.wav",
-      "e.wav",
-      "f.wav",
-      "g.wav",
-      "h.wav",
-      "i.wav",
-      "j.wav",
-      "k.wav",
-      "l.wav",
-      "m.wav",
-      "n.wav",
-      "o.wav",
-      "p.wav",
-      "r.wav",
-      "s.wav",
-      "t.wav",
-      "u.wav",
-      "v.wav",
-      "w.wav",
-      "x.wav",
-      "y.wav",
-      "z.wav",
-      "[.wav",
-      "].wav",
-      "_.wav",
-      "{.wav",
-      "}.wav",
-      "влево.wav",
-      "вопрос.wav",
-      "вправо.wav",
-      "двоеточие.wav",
-      "косая.wav",
-      "палка.wav",
-      "прямые косые.wav",
-      "точка.wav"
+      "The Big Drone - Drone Mysterious Bell Drone.mp3",
+      "The Big Drone - Drone Sweeping Electronic Ditherscape Drone.mp3",
+      "The Big Drone - Drone Sweeping Pulsing Bell Drone.mp3"
     ]
   },
   "ахаха": {
@@ -114,10 +64,6 @@ var soundsDB = {
     "list": [
       "Event_Demo004_0_MapTowerQuake01.mp3"
     ]
-  },
-  "игрушки от приставки": {
-    "number": 0,
-    "list": []
   },
   "магия": {
     "number": 8,
@@ -253,6 +199,45 @@ var soundsDB = {
       "Event_DownloadTerminal_ActivateSet01.mp3",
       "Event_DownloadTerminal_Touch01.mp3",
       "FAN_TRANSITION_IMPACT_01.mp3"
+    ]
+  },
+  "фанфары": {
+    "number": 34,
+    "list": [
+      "02_Royal Entry.mp3",
+      "03_Ceremonial Procession.mp3",
+      "04_Heroic Procession.mp3",
+      "05_Festive Procession.mp3",
+      "06_Elector's Procession.mp3",
+      "08_Majestic Procession.mp3",
+      "09_Priere du Matin.mp3",
+      "10_Intrada.mp3",
+      "11_Largo - Allegretto.mp3",
+      "12_Intrada.mp3",
+      "13_Festive Overture.mp3",
+      "14_Toccata (Prelude to Orfeo).mp3",
+      "15_Courante for the Entry of His Imperial Majesty and All the Cavalry.mp3",
+      "16_Follia for New Entry of the Sprinter and Other Equestrian Manoeuvres.mp3",
+      "17_Sarabande for the End of the Ballet.mp3",
+      "18_Trumpet Duet.mp3",
+      "19_Intrada for the Trombet und musicalischen Tafeldienst.mp3",
+      "20_Menuet (Trumpet Duet No. 82).mp3",
+      "21_Trumpet Duet No. 8.mp3",
+      "22_Trumpet Duet No. 3.mp3",
+      "23_Festive Table Music No. 1.mp3",
+      "24_Festive Table Music No. 2.mp3",
+      "25_Procession at the Imperial Court.mp3",
+      "26_Procession No. 3.mp3",
+      "27_Festive Procession_ The Entry of the Emperor, 1631.mp3",
+      "28_Intrada from Bruck an der Mur.mp3",
+      "29_Procession No. 4.mp3",
+      "30_Procession No. 1.mp3",
+      "fanfar1.mp3",
+      "fanfar2.mp3",
+      "fanfar3.mp3",
+      "fanfar4.mp3",
+      "fanfar6.mp3",
+      "tush1.mp3"
     ]
   }
 }
@@ -3865,6 +3850,15 @@ var musicDB = {
       "Оборотень. Сезон 1 - Kids 0f 88 - Just A Little Bit [Zona].mp3"
     ]
   },
+  "_электро шум": {
+    "number": 4,
+    "list": [
+      "- 01. Electricity, Buzz-Neon Sign Electrical Buzz, Close Up.mp3",
+      "- 15. Radio, Noise-1940s Philco Tabletop Tube Radio Hum and Buzz.mp3",
+      "- 58. Radio, Noise-1980 Tabletop Transistor Radio Static.mp3",
+      "- 62. Tape, Noise-Cassette Tape High Bias Tape Hiss.mp3"
+    ]
+  },
   "активно": {
     "number": 1,
     "list": [
@@ -4338,6 +4332,19 @@ var musicDB = {
       "Японские мотивы (светлая).mp3"
     ]
   },
+  "восток барабаны": {
+    "number": 8,
+    "list": [
+      "Kinshi Tsuruta & Katsuya Yokoy - Japon - 01.mp3",
+      "Kinshi Tsuruta & Katsuya Yokoy - Japon - 02.mp3",
+      "Kinshi Tsuruta & Katsuya Yokoy - Japon - 03.mp3",
+      "Kinshi Tsuruta & Katsuya Yokoy - Japon - 04.mp3",
+      "Kinshi Tsuruta & Katsuya Yokoy - Japon - 05.mp3",
+      "Kinshi Tsuruta & Katsuya Yokoy - Japon - 06.mp3",
+      "Kinshi Tsuruta & Katsuya Yokoy - Japon - 07.mp3",
+      "kodo.mp3"
+    ]
+  },
   "гномы": {
     "number": 5,
     "list": [
@@ -4672,7 +4679,7 @@ var musicDB = {
     ]
   },
   "деревня": {
-    "number": 16,
+    "number": 19,
     "list": [
       "деревня загон.mp3",
       "деревня индюки 2.mp3",
@@ -4689,7 +4696,10 @@ var musicDB = {
       "деревня3.mp3",
       "жеревня вечер.mp3",
       "Звуки природы - Деревня.mp3",
-      "Звуки природы - Рассвет в деревне.mp3"
+      "Звуки природы - Рассвет в деревне.mp3",
+      "ферма.wav",
+      "ферма2.wav",
+      "ферма3.wav"
     ]
   },
   "джунгли": {

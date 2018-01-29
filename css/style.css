@@ -1508,7 +1508,6 @@ img {
 }
 #mw_soundlists_manage .row {
   display: flex;
-  flex-wrap: wrap;
 }
 #mw_soundlists_manage .soundColumn {
   list-style-type: none;
@@ -1518,7 +1517,6 @@ img {
 }
 #mw_soundlists_manage .soundColumn li {
   display: flex;
-  flex-wrap: wrap;
 }
 #mw_soundlists_manage .soundColumn li input {
   position: relative;
@@ -1549,6 +1547,9 @@ img {
 #mw_soundlists_manage .soundArr li {
   display: flex;
   justify-content: space-between;
+}
+#mw_soundlists_manage .soundArr li:nth-child(odd) {
+  background: #eaeaea;
 }
 #mw_soundlists_manage .soundArr input {
   width: 2rem;

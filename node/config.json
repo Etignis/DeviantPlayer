@@ -1,6 +1,18 @@
 {
  "sMusicPath": "D:/Cloud/DnD/Музыка",
  "sSoundsFolder": "!звуки",
+ "excludeSoundsFolders": [
+	"замок",
+	"R2D2",
+	"звонок",
+	"музыкальные эффекты - барабаны",
+	"сверление",
+	"звонок",
+	"звонок"
+ ],
+ "excludeMusicFolders": [
+	
+ ],
  "sDBpath": "../js/db.js",
  "aFileTypes": [
   ".mp3",

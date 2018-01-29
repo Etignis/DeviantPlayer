@@ -4,7 +4,7 @@ const fs = require('fs');
 const path = require('path');
 
 let aFileTypes = [];
-let sMusicPath, sSoundsFolder, sDBpath;
+let sMusicPath, sSoundsFolder, sDBpath, excludeSoundsFolders=[], excludeMusicFolders=[];
 
 function loadConfig(){
   try{
@@ -15,6 +15,8 @@ function loadConfig(){
     sSoundsFolder = obj.sSoundsFolder;
     sDBpath = path.resolve(obj.sDBpath);
     aFileTypes = obj.aFileTypes;
+	excludeSoundsFolders= obj.excludeSoundsFolders;
+	excludeMusicFolders= obj.excludeMusicFolders;
     
     console.log(sSoundsFolder);
   } catch (err) {
@@ -68,7 +70,8 @@ function createBD() {
         if(isDir1.isDirectory()){
           console.log("start read sounds");
           fs.readdirSync(sInnerPath).forEach(file => {
-          console.log("start red " + file);
+          //console.log("start red " + file);
+		  if(excludeSoundsFolders.indexOf(file)<0){
             let aList= [];
             const sInnerSoundPath = path.join(sInnerPath, file);
             const isDir2 = fs.lstatSync(sInnerSoundPath);
@@ -98,7 +101,7 @@ function createBD() {
                 list: aList
               }              
             }
-            
+          }  
           });
         }        
       }
