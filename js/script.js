@@ -888,7 +888,7 @@ var lt=[];
   try{
     var aSounds =  getFromLocalDB('aSoundlistsData');
     //var aSounds = localStorage.getItem('aSoundlistsData');
-    if(aSounds != undefined){
+    if(aSounds){
       try{
         aSoundlistsData = aSounds;
       } catch (err) {
@@ -996,7 +996,7 @@ function openPlaylistsWindow() {
   fKeyListen = false;
   var aFolders = [];
   var nIndex = 0;
-  var aSelectedFolders = aSelectedPlaylists.map(x => x.toLowerCase());
+  var aSelectedFolders = aSelectedPlaylists? aSelectedPlaylists.map(x => x.toLowerCase()) : [];
   
   for (folder in musicDB) {
     var bChecked = "";
