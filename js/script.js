@@ -268,6 +268,9 @@ function PlayerForm(){
 
 		if(type === undefined)
 			type="usual";
+		
+		
+		var pf_trek_timeline = '<div class="pf_trek_timeline"><div class="pf_trek_playhead"></div></div>';
 
 		var pf_lt = "<div class='pf_lt'>"+lt+"</div>";
 		if(lt === undefined)
@@ -285,7 +288,8 @@ function PlayerForm(){
 								"</div>"+
 							"</div>";
 		var pf_play_button = "<div class='pf_play' align='center'><button class='pf_play_bt'> <i class='fa fa-play'></i> </button> <button class='pf_next_bt'> <i class='fa fa-play'></i><i class='fa fa-play'></i> </button></div>";
-		var pf_name        = "<div class='pf_name'>"+this.name+"</div>";
+		var pf_name        = "<div class='pf_name'>"+this.name+
+								pf_trek_timeline+"</div>";
 		var pf_img         = "<div class='pf_img'>изображение</div>";
 		var pf_list        = "<div class='pf_list' data-id='9'></div>";
 		var pf_l_sett      = "<div class='pf_l_sett'><div class='bt make_list'><i class='fa fa-list'></i></div></div>";
@@ -391,6 +395,10 @@ function start_play(id){
   stopAllInGroup(sGroupId);
 	var audio_url = $(".player_form[data-name="+id+"]").find(".pf_list").children(".active").attr("data-url");
 	var _player = $(".player_form[data-name="+id+"]").children("audio");
+	
+	
+	
+	
 	if(_player.attr("src")!=audio_url)
 		_player.attr("src", audio_url);
 	//$(".player_form[data-name="+id+"]").children("audio").attr("src", audio_url);
@@ -446,6 +454,27 @@ function start_play(id){
 		player[id].f_play=1;
 		$(".player_form[data-name="+id+"]").find(".pf_play_bt").html("<i class='fa fa-pause'></i>");
 		}
+		
+	// set music time
+	// let oAudio = document.getElementById(_player.attr("id"));
+	// oAudio.addEventListener("canplaythrough", function () {
+		// setTimeout(function(){
+			// duration = document.getElementById(_player.attr("id")).duration;
+		
+			// let duration = ~~this.duration;
+			// let sDuration = "";
+			// if(duration>60) {
+				// sDuration = Math.floor(duration/60) +"м "+duration%60+"c";
+			// } else {
+				// sDuration = duration+"c";
+			// }
+			// $(".player_form[data-name="+oEvent.currentTarget.id+"]").find(".pf_trek_timeline").attr('title', sDuration);
+		// }.bind(this), 500);
+
+	// }, false);
+	
+	
+	///	
 }
 
 function stop_play(id){
@@ -569,15 +598,15 @@ function volume(id, vol){
 	document.getElementById(a_id).volume=player[id].mus_vol;
 }
 function a_ended(){
-	console.log("music ended");
+	//console.log("music ended");
 	var id=$(this).closest(".player_form").attr("data-name");
 
 	/////
 	/////
 	/////
 	var ch_name=$(".player_form[data-name="+id+"]").find(".pf_name").text();
-	console.log("id: "+id);
-	console.log("ch_name: "+ch_name);
+	//console.log("id: "+id);
+	//console.log("ch_name: "+ch_name);
 	if($(".player_form[data-name="+id+"]").find("#ch_"+ch_name).prop("checked"))
 		{
 		next_active_track(id);
@@ -589,6 +618,15 @@ function a_ended(){
 		//player[id].f_play=1;
 		$(".player_form[data-name="+id+"]").find(".pf_play_bt").html("<i class='fa fa-play'></i>");
 		}
+}
+function timelineUpdate() {
+	let music_id = $(this).closest(".player_form").find("audio").attr("id");
+	let music = document.getElementById(music_id);
+	
+	let duration = music.duration;
+	let playPercent = 100 * (music.currentTime / duration);
+	$(this).closest(".player_form").find(".pf_trek_playhead").css('width', playPercent + "%");
+	//playhead.style.marginLeft = playPercent + "%";
 }
 //// /функции
 
@@ -2043,16 +2081,19 @@ function onWindowResize() {
   recountMWPlaylistsWindow();
 }
 
-/*/
-var auds=document.getElementsByTagName('audio');
-	for (var i=0;i<auds.length;i++){
-        addEvent(auds[i], 'ended', a_ended);
-       // addEvent(auds[i], 'error', a_fail(e));
-	   auds[i].addEventListener(events[i], onEvent, false);
-		//$(auds[i]).addEventListener('ended', onEndFunc);
-	////	console.log("event added //"+i);
-    }
-/**/
+function setAudioEndHandler(){
+	/**/
+	var auds= document.getElementById("TrackListsList").getElementsByTagName('audio');  //document.getElementsByTagName('audio');
+		for (var i=0;i<auds.length;i++){
+			addEvent(auds[i], 'ended', a_ended);
+			auds[i].addEventListener("timeupdate", timelineUpdate, false);
+		   // addEvent(auds[i], 'error', a_fail(e));
+		   auds[i].addEventListener(events[i], onEvent, false);
+			//$(auds[i]).addEventListener('ended', onEndFunc);
+		////	console.log("event added //"+i);
+		}
+	/**/
+}
 
 // invalidate audio source (will fire abort, emptied, and error)
 var emptyAudio = function() {
@@ -2205,6 +2246,7 @@ function initPlayerFromConfigs() {
   setZoomFontsize();
 
   hideInfo();
+  setAudioEndHandler();
 }
 onWindowResize();
 window.onresize = onWindowResize;

@@ -1014,6 +1014,50 @@ img {
 .player_form .pf_play button.pf_next_bt:active {
   background: #777;
 }
+.player_form .pf_trek_timeline {
+  -webkit-border-radius: 3px 3px 3px 3px;
+  -moz-border-radius: 3px 3px 3px 3px;
+  border-radius: 3px 3px 3px 3px;
+  overflow: visible;
+  background: #fff;
+  border: 0px solid #d8d8d8;
+  border-top-width: 0px;
+  /*display: inline-block;*/
+  font-weight: bold;
+  padding: 0.7em;
+  margin: 0.3em;
+  border-width: 1px;
+  border-style: solid;
+  border-bottom-width: 2px;
+  text-decoration: none;
+  border-color: #777;
+  color: #fff;
+  background: #666666;
+  box-shadow: 0 1px 0px 0px rgba(0, 0, 0, 0.2) inset;
+  cursor: pointer;
+  -webkit-transition: all 0.3s ease;
+  -moz-transition: all 0.3s ease;
+  -o-transition: all 0.3s ease;
+  -ms-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  padding: 1px;
+  margin: 0;
+  width: auto;
+  position: relative;
+  top: 0.2em;
+  border-radius: 15px;
+}
+.player_form .pf_trek_timeline .pf_trek_playhead {
+  height: 3px;
+  width: 0%;
+  background: #fc801c;
+}
 .player_form .pf_name {
   -webkit-border-radius: 3px 3px 3px 3px;
   -moz-border-radius: 3px 3px 3px 3px;
@@ -1591,7 +1635,7 @@ img {
   transition: box-shadow 0.3s, background 0.3s;
 }
 #mw_batDB_manage button:hover {
-  background: #f2f2f2;
+  background: #4079c3;
   box-shadow: 0 2px 5px 0px rgba(0, 0, 0, 0.2);
 }
 #mw_batDB_manage button.white {
@@ -1619,7 +1663,7 @@ img {
 #mw_sl_OkButton:hover,
 #mw_pl_CancelButton:hover,
 #mw_pl_OkButton:hover {
-  background: #f2f2f2;
+  background: #4079c3;
   box-shadow: 0 2px 5px 0px rgba(0, 0, 0, 0.2);
 }
 #mw_sl_OkButton.white,
