@@ -916,7 +916,7 @@ var lt=[];
    aSelectedPlaylists = aNewList;
    savePlaylists();
  }
- var player = {};
+ var player = [];
  function addTrackListsFromDB(aList) {
    if(!aList){
      loadPlayLists();
@@ -964,6 +964,7 @@ var lt=[];
           }
           
           // sreate player form
+		  player_i = player.length || 1;
           player[player_i] = new PlayerForm();
           player[player_i].create(sTitle , lt[player_i-1], undefined, sGroup);
           Folder = el+'/';
@@ -971,7 +972,7 @@ var lt=[];
           musicDB[el].list.forEach(function(track, i){
             player[player_i].add_track(ROOT+Folder+track, i);
           });
-          player_i++;
+          //player_i++;
         }
       });
     } catch (err) {
