@@ -27,6 +27,7 @@ function loadConfig(){
 function createBD() {
   let db = {};
   let sounds = {};
+  let nAllSounds = 0, nAllMusics = 0;
   loadConfig();
   console.log("Start working in " + sMusicPath);
   fs.readdirSync(sMusicPath).forEach(folder => {
@@ -56,6 +57,7 @@ function createBD() {
           sPoints+=".";
         }
         console.log(sPathName + Array(l).join(".") + sPoints  + aList.length+ " tracks");
+		nAllMusics+=aList.length;
         db[folder.toLowerCase()] = {
           number: aList.length,
           list: aList
@@ -96,6 +98,8 @@ function createBD() {
                 sPoints+=".";
               }
               console.log(sPathName + Array(l).join(".") + sPoints  + aList.length+ " tracks");
+			  //nAllMusics+=aList.length;
+			  nAllSounds += aList.length;
               sounds[file.toLowerCase()] = {
                 number: aList.length,
                 list: aList
@@ -112,7 +116,11 @@ function createBD() {
     if(err) {
         return console.log(err);
     }
-
+	console.log("----------------");
+	console.log("Number of sounds: " + nAllSounds);
+	console.log("Number of musics: " + nAllMusics);
+	console.log("Number of all files: " + (nAllMusics + nAllSounds));
+	console.log("----------------");
     console.log("The file was saved!");
   });
 }

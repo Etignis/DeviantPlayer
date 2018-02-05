@@ -1341,7 +1341,7 @@ var musicDB = {
     ]
   },
   "_киберпанк": {
-    "number": 343,
+    "number": 350,
     "list": [
       "01 DEATHCITY.mp3",
       "03 soul-eater (reprise).mp3",
@@ -1685,6 +1685,13 @@ var musicDB = {
       "Woob - Paradigm Flux (Tokyo cut).mp3",
       "Yoko Kanno - We Cant Be Cool.mp3",
       "Yuki Kajiura - Liar You Lie.mp3",
+      "Zombie Hyperdrive - Gigawatt.mp3",
+      "Zombie Hyperdrive - Interstellar.mp3",
+      "Zombie Hyperdrive - Monolith.mp3",
+      "Zombie Hyperdrive - Omicron.mp3",
+      "Zombie Hyperdrive - Red Eyes.mp3",
+      "Zombie Hyperdrive - Skylight.mp3",
+      "Zombie Hyperdrive - The Destroyer.mp3",
       "Загубленный мир (нейтрал, грусть).mp3"
     ]
   },
@@ -3665,7 +3672,7 @@ var musicDB = {
     ]
   },
   "_фон спокойно": {
-    "number": 70,
+    "number": 72,
     "list": [
       "01 in his mind DB sways his shoulders and dances.mp3",
       "03 Sore ga Bokura no Michishirube (instrumental).mp3",
@@ -3724,6 +3731,8 @@ var musicDB = {
       "Tomas Dvorak - The Black Cap Brotherhood Theme.mp3",
       "Tomas Dvorak - The Bottom.mp3",
       "Yonderboi - Pabadam.mp3",
+      "Zombie Hyperdrive - Explorers.mp3",
+      "Zombie Hyperdrive - Hyperion.mp3",
       "Космические Рейнджеры - Безграничный космос.mp3",
       "Космические Рейнджеры - Доминаторы.mp3",
       "Космические Рейнджеры - Квазар.mp3",
@@ -5429,7 +5438,7 @@ var musicDB = {
     ]
   },
   "неспокойно": {
-    "number": 40,
+    "number": 41,
     "list": [
       "Borislav Slavov - Dancing with the Source (Bansuri Version).mp3",
       "Borislav Slavov - Dancing with the Source (Cello Version).mp3",
@@ -5445,6 +5454,7 @@ var musicDB = {
       "Borislav Slavov - Fort Joy - Battle (Cello Version).mp3",
       "Borislav Slavov - Fort Joy - Battle (Oud Version).mp3",
       "Borislav Slavov - Fort Joy - Battle (Tambura Version).mp3",
+      "Bruno Coulais - Les Foudroyes (OST. _Vidocq_).mp3",
       "CD1. Motoi Sakuraba - The Beginning.mp3",
       "Daniel Pemberton - Assassins Breathe.mp3",
       "Daniel Pemberton - Cave Fight.mp3",
@@ -6528,7 +6538,7 @@ var musicDB = {
     ]
   },
   "таинственно": {
-    "number": 26,
+    "number": 27,
     "list": [
       "04. Weird Things Happen.mp3",
       "04. Yasuharu Takanashi - Will-O-The-Wisp.mp3",
@@ -6541,6 +6551,7 @@ var musicDB = {
       "28. Yasuharu Takanashi - Blue Black.mp3",
       "Akito Matsuda - Kinchou Seppaku.mp3",
       "Akito Matsuda - Kodoku Kokuu.mp3",
+      "Bruno Coulais - L'Automate (OST. _Vidocq_).mp3",
       "Danny Elfman - Into The Woods The Witch (OST Сонная Лощина).mp3",
       "Divine sacrifice (нейтрально-мрачная).mp3",
       "Hayes, Bush, Duke, Stafford - Teldrassil.mp3",
@@ -6580,7 +6591,7 @@ var musicDB = {
     ]
   },
   "тревожно": {
-    "number": 59,
+    "number": 65,
     "list": [
       "02. Running Short on Options.mp3",
       "02. Stage Fright.mp3",
@@ -6614,6 +6625,12 @@ var musicDB = {
       "Borislav Slavov - Symphony Of The Void (Oud Version).mp3",
       "Borislav Slavov - Symphony Of The Void (Tambura Version).mp3",
       "Borislav Slavov - Symphony of the Void.mp3",
+      "Bruno Coulais - Generique debut (OST. _Vidocq_).mp3",
+      "Bruno Coulais - Introduction (OST. ''Vidocq'').mp3",
+      "Bruno Coulais - La danse (OST. _Vidocq_).mp3",
+      "Bruno Coulais - La Poursuite aux Invalides (OST. _Vidocq_).mp3",
+      "Bruno Coulais - Le Premier Combat (OST. _Vidocq_).mp3",
+      "Bruno Coulais - Les Barricades (OST. _Vidocq_).mp3",
       "City Of The Dead (мрак).mp3",
       "Danny Elfman - Main Titles (из к ф Сонная Лощина).mp3",
       "Danny Elfman - The Final Confrontation (OST к ф Сонная Лощина).mp3",
