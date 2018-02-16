@@ -3,8 +3,14 @@
     position: fixed;
     right: 0;
     top: 0;
-    width: @sz + 0.4em;
-    counter-reset: tracks -1;
+	bottom: 0;
+    //width: @sz + 0.4em;
+  
+	
+	counter-reset: tracks -1;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap-reverse;
 
   .hiddenList, .sortable-chosen{
     //outline: 2px solid red;
@@ -14,6 +20,8 @@
   }
 
   .soundButtonContainer{
+	  position: relative;
+		z-index: 9;
     &:nth-child(n+11){
       //outline: green 1px solid;
       .soundButton{
@@ -36,6 +44,8 @@
         position: relative;
         font-size: 120%;
         counter-increment: tracks;
+		
+		z-index: 9;
         
         &:hover{
             background: @m-gray + #222;    
@@ -68,6 +78,8 @@
       left: -11rem;
       top: 0;
       width: 11rem;
+	  
+		z-index: 99;
       opacity: 0.5;
       transition: opacity .2s;
 

@@ -384,7 +384,7 @@ function PlayerForm(){
 //// функции
 function stopAllInGroup(sGroupId){
   $(".player_form").each(function(){
-    if($(this).attr('data-group') == sGroupId) {
+    if($(this).attr('data-group') != undefined && $(this).attr('data-group') == sGroupId) {
       var id = $(this).attr('data-name');
       stop_play(id);
     }
@@ -396,11 +396,9 @@ function start_play(id){
 	var audio_url = $(".player_form[data-name="+id+"]").find(".pf_list").children(".active").attr("data-url");
 	var _player = $(".player_form[data-name="+id+"]").children("audio");
 	
-	
-	
-	
-	if(_player.attr("src")!=audio_url)
+	if(_player.attr("src")!=audio_url){
 		_player.attr("src", audio_url);
+	}
 	//$(".player_form[data-name="+id+"]").children("audio").attr("src", audio_url);
 	a_id="a_"+id;
 	/*if(id<10)
@@ -475,6 +473,11 @@ function start_play(id){
 	
 	
 	///	
+	
+	
+	/// file name
+	var sFileName = $("#"+a_id).attr("src").split("/").pop();
+	$("#"+a_id).parent().attr("title", sFileName);
 }
 
 function stop_play(id){

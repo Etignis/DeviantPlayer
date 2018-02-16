@@ -1438,12 +1438,19 @@ img {
   position: fixed;
   right: 0;
   top: 0;
-  width: 2.8em;
+  bottom: 0;
   counter-reset: tracks -1;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap-reverse;
 }
 #sounds_container .hiddenList ul,
 #sounds_container .sortable-chosen ul {
   display: none !important;
+}
+#sounds_container .soundButtonContainer {
+  position: relative;
+  z-index: 9;
 }
 #sounds_container .soundButtonContainer:nth-child(n+11) .soundButton::before {
   content: "";
@@ -1489,6 +1496,7 @@ img {
   position: relative;
   font-size: 120%;
   counter-increment: tracks;
+  z-index: 9;
 }
 #sounds_container .soundButton:hover {
   background: #999999;
@@ -1517,6 +1525,7 @@ img {
   left: -11rem;
   top: 0;
   width: 11rem;
+  z-index: 99;
   opacity: 0.5;
   transition: opacity .2s;
 }
