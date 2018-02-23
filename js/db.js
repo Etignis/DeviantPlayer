@@ -13,14 +13,6 @@ var soundsDB = {
       "Mark Griskey - Battle Suspense 9.mp3"
     ]
   },
-  "fon": {
-    "number": 3,
-    "list": [
-      "The Big Drone - Drone Mysterious Bell Drone.mp3",
-      "The Big Drone - Drone Sweeping Electronic Ditherscape Drone.mp3",
-      "The Big Drone - Drone Sweeping Pulsing Bell Drone.mp3"
-    ]
-  },
   "undead": {
     "number": 8,
     "list": [
@@ -58,7 +50,7 @@ var soundsDB = {
     ]
   },
   "внезапно": {
-    "number": 14,
+    "number": 15,
     "list": [
       "102740__tmokonen__pop.wav",
       "104675__benboncan__inceptiomatic.wav",
@@ -67,6 +59,7 @@ var soundsDB = {
       "181658__amoyssiadis__shocking-bowed-bouzouki.mp3",
       "185817__lloydevans09__cymbal-stress.wav",
       "185818__lloydevans09__cymbal-impact.wav",
+      "231320__copyc4t__we-re-doomed.flac",
       "262439__xinematix__piano-impact-fx.wav",
       "внезапно.wav",
       "Внезапный звук.mp3",
@@ -92,10 +85,6 @@ var soundsDB = {
       "03.wav",
       "04.wav"
     ]
-  },
-  "звуки": {
-    "number": 0,
-    "list": []
   },
   "землетрясение": {
     "number": 1,
@@ -179,7 +168,7 @@ var soundsDB = {
   "ня": {
     "number": 1,
     "list": [
-      "336012__mike-bes__nya.wav"
+      "ня.wav"
     ]
   },
   "опыт": {
@@ -227,11 +216,12 @@ var soundsDB = {
     ]
   },
   "смех зловещщий": {
-    "number": 3,
+    "number": 4,
     "list": [
-      "126113__klankbeeld__laugh.wav",
-      "203231__raspberrytickle__yandere-laugh.wav",
-      "322459__lalazzylee1__game-boss-or-character-laughter.mp3"
+      "женский смех 1.wav",
+      "женский смех 2.flac",
+      "мужской смех 1.wav",
+      "мужской смех 2.mp3"
     ]
   },
   "стрела": {
@@ -344,7 +334,7 @@ var musicDB = {
     ]
   },
   "xmass": {
-    "number": 60,
+    "number": 65,
     "list": [
       "07. Günter Noris - Jingle bells  Fröhliche Weihnacht überall  Oh Tannenbaum.mp3",
       "08. Günter Noris - Stille Nacht, heilige Nacht.mp3",
@@ -357,6 +347,7 @@ var musicDB = {
       "Beatles - Last Christmas (Rare).mp3",
       "Big Bad Voodoo Daddy - All I Want For Christmas (Is My Two Front Teeth).mp3",
       "Big Bad Voodoo Daddy - Frosty The Snowman.mp3",
+      "Big Bad Voodoo Daddy - Jingle Bells.mp3",
       "Big Bad Voodoo Daddy - Walking In A Winter Wonderland.mp3",
       "Billy Idol - Jingle Bell Rock.mp3",
       "Billy Idol - White Christmas (Bing Crosby cover).mp3",
@@ -392,6 +383,10 @@ var musicDB = {
       "Johnny Mercer  The Capitol Studio Orchestra - Jingle Bells.mp3",
       "Kay Starr - (Everybody#39;s Waitin#39; For) The Man With The Bag.mp3",
       "Lady Antebellum - A Holly Jolly Christmas.mp3",
+      "Logan Epic Canto  -  Evangeline(Christmas Suite).mp3",
+      "Logan Epic Canto - Variations on a Hobbit theme .mp3",
+      "Logan Epic Canto - Waiting for the Magic(Christmas music2016).mp3",
+      "Logan Epic Canto,Marina Kuriganova - Valley of the Kings.mp3",
       "Louis Armstrong - White Christmas.mp3",
       "Louis Armstrong - Zat You Santa Claus.mp3",
       "Mariah Carey - All I Want For Christmas Is You.mp3",
@@ -500,7 +495,7 @@ var musicDB = {
     ]
   },
   "_8-bit": {
-    "number": 123,
+    "number": 152,
     "list": [
       "155a60644947.mp3",
       "998041f80f9a.mp3",
@@ -583,6 +578,15 @@ var musicDB = {
       "Koji Kondo - Title Theme.mp3",
       "Koji Kondo - Wart.mp3",
       "Mass Effect - Main Theme 8-bit.mp3",
+      "Matt Furniss - Bonus Theme 1.mp3",
+      "Matt Furniss - Bonus Theme 2.mp3",
+      "Matt Furniss - Funky Options.mp3",
+      "Matt Furniss - Future Boss Theme.mp3",
+      "Matt Furniss - Future Stage Theme 4.mp3",
+      "Matt Furniss - Old Japan Boss Theme.mp3",
+      "Matt Furniss - Prehistoric Stage Theme 1.mp3",
+      "Matt Furniss - Prehistoric Stage Theme 4.mp3",
+      "Matt Furniss - Title Theme.mp3",
       "Mike Necklud - 8-bit Skyrim.mp3",
       "Motoaki Takenouchi - Let#39;s Go on an Adventure.mp3",
       "Motoaki Takenouchi - Lets Go on an Adventure.mp3",
@@ -623,12 +627,32 @@ var musicDB = {
       "T. Tallarico, Mark Steven Miller - Bang.mp3",
       "T. Tallarico, Mark Steven Miller - Hell Corp.mp3",
       "T. Tallarico, Mark Steven Miller - Industrial Street.mp3",
+      "Tatsuya Kiuchi - Almost Victorious.mp3",
+      "Tatsuya Kiuchi - Scene 1 - The Avengers.mp3",
+      "Tatsuya Kiuchi - Scene 3 - Challenge from the Bottom of the Sea.mp3",
+      "Tatsuya Kiuchi - Scene 4 - The Giant Laser Cannon.mp3",
+      "Tatsuya Kiuchi - Scene 5 - The End of Red Skull, Red Skull (Part 2).mp3",
+      "Tatsuya Kiuchi - Storyline 2.mp3",
+      "Tatsuya Kiuchi - Storyline.mp3",
+      "Tatsuya Kiuchi - The Grim Reaper, Crossbones.mp3",
+      "Tatsuya Kiuchi - The Mandarin, Red Skull (Part 1).mp3",
+      "Tatsuya Kiuchi - Whirlwind, Ultron.mp3",
       "TES III Morrowind - Main Theme (8 Bit Remix).mp3",
-      "World of Warcraft - 8-bit cover.mp3"
+      "World of Warcraft - 8-bit cover.mp3",
+      "Y. Koshiro, M. Kawashima - Alien Power.mp3",
+      "Y. Koshiro, M. Kawashima - Back to the Industry.mp3",
+      "Y. Koshiro, M. Kawashima - Expander.mp3",
+      "Y. Koshiro, M. Kawashima - Go Straight (Beatmix).mp3",
+      "Y. Koshiro, M. Kawashima - Max Man.mp3",
+      "Y. Koshiro, M. Kawashima - Revenge of Mr. X.mp3",
+      "Y. Koshiro, M. Kawashima - Spin on the Bridge.mp3",
+      "Y. Koshiro, M. Kawashima - Too Deep.mp3",
+      "Y. Koshiro, M. Kawashima - Under Logic.mp3",
+      "Y. Koshiro, M. Kawashima - Wave 131.mp3"
     ]
   },
   "_hell": {
-    "number": 48,
+    "number": 49,
     "list": [
       "Angelspit - Devilicious.mp3",
       "Avanged Sevenfold - Second Heartbeat.mp3",
@@ -658,6 +682,7 @@ var musicDB = {
       "Lewory Elsone - I HATE HATE HATE BITCH WORLD,DIE IN YOUR DREAMS,I BROUGHT SUFFERING BITCH.mp3",
       "Lies Of The Machine - Psychocircus.mp3",
       "Lies Of The Machine - Z-Waltz.mp3",
+      "Lord Of The Lost - Drag Me To Hell.mp3",
       "Mastodon - Blood And Thunder (Leviathan 04).mp3",
       "Mastodon - Blood And Thunder.mp3",
       "Mick Gordon - Gargos Theme.mp3",
@@ -808,7 +833,7 @@ var musicDB = {
     ]
   },
   "_бодро": {
-    "number": 270,
+    "number": 281,
     "list": [
       "1471ed8fcf1b26.mp3",
       "30 Seconds to Mars - Edge of the Earth.mp3",
@@ -934,6 +959,9 @@ var musicDB = {
       "LITTLE BIG - Life in the trash.mp3",
       "Little_Richard_-_Slippin_And_Slidin.mp3",
       "Live A Live - Knock You Down.mp3",
+      "Lordi - Devil Is A Loser.mp3",
+      "Lordi - Hug You Hardcore.mp3",
+      "Lordi - The Riff.mp3",
       "Lunatic Calm - Basement Level (Bret Autrey Remix).mp3",
       "Lunatic Calm - Leave You Far Behind [Version 2 Instrumental Mix].mp3",
       "Lunatic Calm - Leave You Far Behind.mp3",
@@ -954,6 +982,14 @@ var musicDB = {
       "Mojo Nixon - UFOs Big Rigs BBQ.mp3",
       "Motley Crue - Dr. Feelgood.mp3",
       "Motley Crue - Live Wire.mp3",
+      "Motörhead - Be My Baby.mp3",
+      "Motörhead - Bomber.mp3",
+      "Motörhead - Breaking the Law.mp3",
+      "Motörhead - Doctor Rock.mp3",
+      "Motörhead - Iron Fist.mp3",
+      "Motörhead - R.A.M.O.N.E.S..mp3",
+      "Motörhead - Rock 'n' Roll.mp3",
+      "Motörhead - Sucker.mp3",
       "Music_for_the_fight_-_Enlightening_The_World.mp3",
       "Music_for_the_fight_-_Gone_4ever.mp3",
       "Music_for_the_fight_-_Hurts.mp3",
@@ -1083,7 +1119,7 @@ var musicDB = {
     ]
   },
   "_бодро мелодии": {
-    "number": 117,
+    "number": 121,
     "list": [
       "01 FAIRY TAIL Main theme.mp3",
       "01. Toshiro Masuda - Beautiful Green Wild Beast (1).mp3",
@@ -1138,6 +1174,7 @@ var musicDB = {
       "33. Yasuharu Takanashi - Counterattack.mp3",
       "33. Yasuharu Takanashi - Flames.mp3",
       "36 - FAIRY TAIL Main Theme -METAL ver.-.mp3",
+      "37922200_95971737.mp3",
       "Akito Matsuda - Kami Sou Kiryuu.mp3",
       "Akito Matsuda - Kikiippatsu.mp3",
       "Andrew Hulshult - Forgotten Rulers.mp3",
@@ -1179,6 +1216,9 @@ var musicDB = {
       "Ivan Weeskey - za5min.mp3",
       "K rtsy Hatakka Kimmo Kajasto - Men in Blue.mp3",
       "K rtsy Hatakka Kimmo Kajasto - Whack Him.mp3",
+      "korol-i-shut-lesnik-minus.mp3",
+      "korol-i-shut-minus--ohotnik.mp3",
+      "korol_i_shut_ohotnik_minus_(NaitiMP3.ru).mp3",
       "Kortofertos - Volcano Harvest - Flaming Fire Spirit.mp3",
       "M.O.V.E - Around The World.mp3",
       "Mark Griskey - Into the Past.mp3",
@@ -1248,7 +1288,7 @@ var musicDB = {
     ]
   },
   "_заброшка": {
-    "number": 89,
+    "number": 90,
     "list": [
       "10. Cyborg Meets Diana.mp3",
       "15. Yasuharu Takanashi - Change.mp3",
@@ -1289,6 +1329,7 @@ var musicDB = {
       "Jesper Kyd - Invader.mp3",
       "Jesper Kyd - Pablos camp.mp3",
       "Jesper Kyd - Sanitarium.mp3",
+      "Jesper Kyd - VR Room.mp3",
       "Jesper Kyd - Wang Fu Restaurant.mp3",
       "Jesper Kyd - Weapon Select Beats.mp3",
       "K rtsy Hatakka Kimmo Kajasto - Graphic Novel.mp3",
@@ -1342,13 +1383,15 @@ var musicDB = {
     ]
   },
   "_кабаре": {
-    "number": 62,
+    "number": 64,
     "list": [
       "06. Fever.mp3",
       "Amy Winehouse - Me  Mr Jones.mp3",
       "Andrej Hermlin His Swing Dance Orchestra - God Save The Swingking (The Talented Mister DJ Globalution Remix).mp3",
       "Angelo Badalamenti - Dance of the Dream Man.mp3",
+      "Big Bad Voodoo Daddy - 2000 Volts.mp3",
       "Big Bad Voodoo Daddy - Cruel Spell.mp3",
+      "Big Bad Voodoo Daddy - Still In Love With You.mp3",
       "Big Bad Voodoo Daddy - You#39;re A Mean One, Mr. Grinch.mp3",
       "Circus_Contraption_-_Pink_Elephants_On_Parade.mp3",
       "Clare_Fader_&_The_Vaudevillains_-_Drunk_on_Skin.mp3",
@@ -1428,7 +1471,7 @@ var musicDB = {
     ]
   },
   "_киберпанк": {
-    "number": 353,
+    "number": 360,
     "list": [
       "01 DEATHCITY.mp3",
       "03 soul-eater (reprise).mp3",
@@ -1491,6 +1534,7 @@ var musicDB = {
       "Chuck Doud - Expocenter.mp3",
       "Chuck Doud - Georgia Street.mp3",
       "Clark Powell and Jesper Kyd - Avatar of Fear.mp3",
+      "Cliff Martinez - I’ve Seen His Dick.mp3",
       "Code Elektro - Black Rain.mp3",
       "Code Elektro - Chinese Dreams.mp3",
       "Code Elektro - DigiTron.mp3",
@@ -1539,6 +1583,7 @@ var musicDB = {
       "David August - Epikur.mp3",
       "Digikid84 - Rebel.mp3",
       "Division - Into the Void.mp3",
+      "Dynatron - Out There.mp3",
       "Dynatron - Pulse Power (1).mp3",
       "Dynatron - Pulse Power.mp3",
       "Earth Worm Jim - New Junk City.mp3",
@@ -1604,6 +1649,7 @@ var musicDB = {
       "Jean Baudlot, Fabrice Visserot - Opening Theme.mp3",
       "Jean Baudlot, Fabrice Visserot - Sound Test 05.mp3",
       "Jean Baudlot, Fabrice Visserot - Sound Test 11.mp3",
+      "Jesper Kyd - Apple Chamber.mp3",
       "Jesper Kyd - Crystal Space II (Level 3) (1).mp3",
       "Jesper Kyd - The Eternal Throne.mp3",
       "Joel Nielsen - Groove 1.mp3",
@@ -1700,9 +1746,13 @@ var musicDB = {
       "Power Glove - 04 Altered Fire.mp3",
       "Power Glove - Fatal Affair.mp3",
       "Power Glove - Grip.mp3",
+      "Power Glove - Power Core.mp3",
       "Power Glove - Punker.mp3",
       "Power Glove - Resurrection (1).mp3",
+      "Power Glove - Resurrection (2).mp3",
       "Power Glove - Resurrection.mp3",
+      "Power Glove - Rex's Escape.mp3",
+      "Power Glove - Sloan's Assault.mp3",
       "Pyrroline - An Animal.mp3",
       "Pyrroline - Disobedience.mp3",
       "Pyrroline - Effulgent.mp3",
@@ -2106,7 +2156,7 @@ var musicDB = {
     ]
   },
   "_напряженно_мелодии": {
-    "number": 84,
+    "number": 85,
     "list": [
       "09. Monumental Meltdown.mp3",
       "11. A Boatload of Trouble Part 1.mp3",
@@ -2144,6 +2194,7 @@ var musicDB = {
       "Jeremy Soule - The Sith.mp3",
       "Jeremy Soule - The Temple.mp3",
       "Jeremy Soule - Zenlil Under Siege.mp3",
+      "Jesper Kyd - Countdown.mp3",
       "Johan Skugge  Jukka Rintam#228;ki - Battlefield 3 Main Theme.mp3",
       "Johan Skugge  Jukka Rintam#228;ki - Close Quarters.mp3",
       "Johan Skugge  Jukka Rintam#228;ki - Operation Metro.mp3",
@@ -2550,7 +2601,7 @@ var musicDB = {
     ]
   },
   "_тревожно": {
-    "number": 23,
+    "number": 24,
     "list": [
       "Angelo Badalamenti - Audreys Dance (Твин Пикс) (OST Twin Peaks).mp3",
       "Atrium Carceri - Reselected.mp3",
@@ -2569,6 +2620,7 @@ var musicDB = {
       "Jared Emerson-Johnson - Opening Credits.mp3",
       "Jessica Curry - Machine for Pigs (OST Amnesia A Machine for Pigs.mp3",
       "Jessica Curry - New Years Eve (A Machine for Pigs).mp3",
+      "Kyle Richards - Daembeatv 1.mp3",
       "Mike Zarin  Tony Hajjar - Contaminated Water.mp3",
       "Peter Peter Peter Kyed - End Of The Road.mp3",
       "Tim Wynn - Adrift In Darkness.mp3",
@@ -2578,7 +2630,7 @@ var musicDB = {
     ]
   },
   "_фон": {
-    "number": 888,
+    "number": 894,
     "list": [
       "01. Live to Rise.mp3",
       "01cdefff252087.mp3",
@@ -2678,6 +2730,7 @@ var musicDB = {
       "Black - Wonderful Life.mp3",
       "Black Country Communion - One Last Soul.mp3",
       "Black Mountain - Stormy High.mp3",
+      "Black Sabbath - Heaven and Hell.mp3",
       "Black Sabbath - It#39;s Allright.mp3",
       "Black Water - Alarm Clock Blues.mp3",
       "Black Water - Stutter.mp3",
@@ -2878,6 +2931,7 @@ var musicDB = {
       "Gavin_and_Marshall_Parker_-_Runners_Eternal.mp3",
       "Genesis - Invisible touch.mp3",
       "George Harrison - My Sweet Lord.mp3",
+      "George Thorogood & The Destroyers - Bad To The Bone.mp3",
       "Ghost Keith - Out Of Orbit.mp3",
       "Giorgio Moroder - Giorgios Theme.mp3",
       "Gob - Oh Ellin.mp3",
@@ -2996,6 +3050,7 @@ var musicDB = {
       "Kiss - C#39;mon and Love Me.mp3",
       "KISS - Dirty Livin#39;.mp3",
       "Kiss - Heavens On Fire.mp3",
+      "Kiss - Rock And Roll Hell.mp3",
       "Kiss - Sure know something.mp3",
       "Klingande - Pumped Up.mp3",
       "Kodaline - Ready.mp3",
@@ -3061,6 +3116,7 @@ var musicDB = {
       "Morphine - Cure For Pain.mp3",
       "Morphine - Souvenir.mp3",
       "Motley Crue - She Needs Rock n Roll.mp3",
+      "Motörhead - Louie Louie.mp3",
       "Mountain - Mississippi Queen.mp3",
       "Muse - Dead Inside.mp3",
       "Muse - Feeling Good.mp3",
@@ -3068,6 +3124,7 @@ var musicDB = {
       "Muse - Map Of The Problematique.mp3",
       "Muse - Psycho.mp3",
       "Muse_-_Supermassive_Black_Hole_(OST_Supernatural).mp3",
+      "Must Save Jane - Strength and Hope.mp3",
       "muzyka-iz-video--diskoteka-v-lifte.mp3",
       "Nazareth - Gone Dead Train.mp3",
       "Neil Young - Rockin#39; In The Free World.mp3",
@@ -3112,6 +3169,7 @@ var musicDB = {
       "Ozzy Osbourne - All The Young Dudes.mp3",
       "Ozzy Osbourne - Facing Hell.mp3",
       "Panic At The Disco - Girls Girls Boys.mp3",
+      "Patrice Rushen - Hang It Up.mp3",
       "Patti Smith - Glitter In Their Eyes.mp3",
       "Paul Hertzog - Fight To Survive.mp3",
       "Paul Hertzog - Finals Powder Triumph.mp3",
@@ -3803,7 +3861,7 @@ var musicDB = {
     ]
   },
   "_фон мелодии": {
-    "number": 82,
+    "number": 87,
     "list": [
       "01 in his mind DB sways his shoulders and dances.mp3",
       "03 Sore ga Bokura no Michishirube (instrumental).mp3",
@@ -3865,9 +3923,14 @@ var musicDB = {
       "Martin O#39;Donnell  Michael Salvatori - Heretic, Hero.mp3",
       "Mateo Pascual - Flying on the Water.mp3",
       "Medium - The Mystery of Mediums.mp3",
+      "Power Glove - Blood Dragon Theme.mp3",
       "Rob Hubbard, Don Veca, Tony Berkeley - Main Theme.mp3",
+      "RockCellos - Highway to Hell (AC_DC cover).mp3",
+      "RockCellos - It's my life (Bon Jovi cover).mp3",
+      "RockCellos - Sonne (Rammstein cover).mp3",
       "Rod Abernethy - Driving to Dans.mp3",
       "Scattle - Bloodline (Hotline Miami 2 Wrong Number OST).mp3",
+      "Society's Bag - Let it Crawl.mp3",
       "Tomas Dvorak - Clockwise Operetta.mp3",
       "Tomas Dvorak - The Black Cap Brotherhood Theme.mp3",
       "Tomas Dvorak - The Bottom.mp3",
@@ -4082,7 +4145,7 @@ var musicDB = {
     ]
   },
   "бодро": {
-    "number": 314,
+    "number": 316,
     "list": [
       "10 Talus Battle.mp3",
       "11 Hinox Battle.mp3",
@@ -4253,6 +4316,8 @@ var musicDB = {
       "Jeremy Soule - Dance of Swords (Battle 3).mp3",
       "Jeremy_Soule_-_Battle_Dragon.mp3",
       "Jesper Kyd - Death Brings Hope.mp3",
+      "Jesper Kyd - Fight of the Assassins.mp3",
+      "Jesper Kyd - The Brotherhood Escapes.mp3",
       "Justin Bell - The Dragon Thrashed and Wailed.mp3",
       "Kevin MacLeod - Prelude and Action.mp3",
       "Kevin MacLeod - Volatile Reaction.mp3",
@@ -5300,7 +5365,7 @@ var musicDB = {
     ]
   },
   "мрачно": {
-    "number": 40,
+    "number": 41,
     "list": [
       "07.Satanic Ceremony - Deathwish.mp3",
       "Benoit_Charest_-_The_Waltz_(OST_Jonathan_Strange_&_Mr_Norrell).mp3",
@@ -5328,6 +5393,7 @@ var musicDB = {
       "Martin_Linda_-_Church_Underground.mp3",
       "Midnight Syndicate - Army of the Dead.mp3",
       "Music for R.P.G. - Вальс.mp3",
+      "Peter Gundry - Tonight Ve Dance.mp3",
       "Phantawalker_-_Path_to_the_Necropolis.mp3",
       "Russell Shaw - Sams organ performance.mp3",
       "Russell Shaw - Witchwood.mp3",
@@ -5457,7 +5523,7 @@ var musicDB = {
     ]
   },
   "начало": {
-    "number": 100,
+    "number": 103,
     "list": [
       "01. Ragnarok Suite.mp3",
       "03. Hero’s Theme.mp3",
@@ -5516,6 +5582,9 @@ var musicDB = {
       "Lind Erebros - Balrog.mp3",
       "Lind Erebros - Glory Ride.mp3",
       "Lind Erebros - Sacred Campaign.mp3",
+      "Logan Epic Canto - Enchanting Beauty.mp3",
+      "Logan Epic Canto - The road to heaven(Quartet for 4 Cellos).mp3",
+      "Logan Epic Canto - The Story .mp3",
       "Magnus Tellmann - Flux.mp3",
       "Marika Suzuki, Akiyuki Morimoto - Main Theme Lost Planet 2.mp3",
       "Marika Suzuki, Akiyuki Morimoto - Title Screen.mp3",
@@ -5600,8 +5669,9 @@ var musicDB = {
     ]
   },
   "неспокойно": {
-    "number": 41,
+    "number": 50,
     "list": [
+      "Bastian Kieslinger - March of Destiny.mp3",
       "Borislav Slavov - Dancing with the Source (Bansuri Version).mp3",
       "Borislav Slavov - Dancing with the Source (Cello Version).mp3",
       "Borislav Slavov - Dancing with the Source (Oud Version).mp3",
@@ -5618,6 +5688,8 @@ var musicDB = {
       "Borislav Slavov - Fort Joy - Battle (Tambura Version).mp3",
       "Bruno Coulais - Les Foudroyes (OST. _Vidocq_).mp3",
       "CD1. Motoi Sakuraba - The Beginning.mp3",
+      "Chance Thomas, Stephen DiGregorio - Archers of the Galadhrim.mp3",
+      "Chance Thomas, Stephen DiGregorio - The Hollin Gate.mp3",
       "Daniel Pemberton - Assassins Breathe.mp3",
       "Daniel Pemberton - Cave Fight.mp3",
       "Daniel Pemberton - Growing Up Londinium.mp3",
@@ -5633,6 +5705,12 @@ var musicDB = {
       "Hugo de Chaire - Cairo Intelligence Suite.mp3",
       "Hugo de Chaire - Clemency Photo.mp3",
       "Jeff van Dyck - Enemy is Near.mp3",
+      "Jesper Kyd - Borgia Tower.mp3",
+      "Kyle Richards - Argentina 1.mp3",
+      "Kyle Richards - Oldtown.mp3",
+      "Ludwig Göransson - Bowling Night at El Trebol.mp3",
+      "Ludwig Göransson - Grim Reaper.mp3",
+      "Ludwig Göransson - Media Takeout.mp3",
       "Midnight Syndicate - Army of the Dead.mp3",
       "Midnight Syndicate - Beasts of the Borderlands.mp3",
       "Midnight Syndicate - Deep Trouble.mp3",
@@ -5774,6 +5852,13 @@ var musicDB = {
       "rla Fallon - The Water Is Wide.mp3"
     ]
   },
+  "победа": {
+    "number": 2,
+    "list": [
+      "Logan Epic Canto - Avalon.mp3",
+      "Logan Epic Canto - The path to the kingdom.mp3"
+    ]
+  },
   "погоня": {
     "number": 4,
     "list": [
@@ -5817,7 +5902,7 @@ var musicDB = {
     ]
   },
   "пустыня": {
-    "number": 71,
+    "number": 72,
     "list": [
       "4 - Исследуете древний город в пустыне. Тут шепчутся призраки.mp3",
       "7dc233a7fc7e67.mp3",
@@ -5852,6 +5937,7 @@ var musicDB = {
       "Kevin Mcmullan - In A Pile Of Its Own Good.mp3",
       "Kirill_Pokrovsky_-_Beyond_the_Waves_of_Time_Alt.mp3",
       "Kirill_Pokrovsky_-_Original_Sin.mp3",
+      "Logan Epic Canto - Sands of time.mp3",
       "Matt Uelmen (Diablo II OST) - Desert.mp3",
       "Matt_Uelmen_-_Desert.mp3",
       "Matt_Uelmen_-_Roger_and_Me.mp3",
@@ -5893,11 +5979,12 @@ var musicDB = {
     ]
   },
   "путешествие": {
-    "number": 7,
+    "number": 8,
     "list": [
       "Black Desert Online OST - Classes.mp3",
       "BrunuhVille - Heros Journey.mp3",
       "BrunuhVille - The Imperial City.mp3",
+      "Logan Epic Canto - Water Power.mp3",
       "Matt Uelmen - Wilderness.mp3",
       "Noriyasu Agematsu - Odyssey.mp3",
       "Pawel Blaszczak - Ride.mp3",
@@ -6017,7 +6104,7 @@ var musicDB = {
     ]
   },
   "спокойно": {
-    "number": 571,
+    "number": 641,
     "list": [
       "02. Toshiro Masuda - Wealth of Obesity.mp3",
       "03. Yasuharu Takanashi - Friend.mp3",
@@ -6325,6 +6412,9 @@ var musicDB = {
       "Joe Hisaishi - Chihiro no Warutsu.mp3",
       "Joe Hisaishi - The House at Swamp Bottom.mp3",
       "Joe Hisaishi Howls Moving Castle OST - Merry Go Round of Life.mp3",
+      "Johan Söderqvist & Patrik Andrén - Avanti Savoia.mp3",
+      "Johan Söderqvist & Patrik Andrén - Knights of the Sky.mp3",
+      "Johan Söderqvist & Patrik Andrén - The Swindle.mp3",
       "John Debney - Grand Passage.mp3",
       "John Debney - Hither And Thither.mp3",
       "John Debney - Noble Gathering.mp3",
@@ -6401,6 +6491,72 @@ var musicDB = {
       "Lineage 2 - Dion.mp3",
       "Lineage 2 OST - Aden.mp3",
       "Lineage 2 OST - Heine.mp3",
+      "Logan  Canto - Two merry Mages.mp3",
+      "Logan Epic Canto  - Duel of Druids.mp3",
+      "Logan Epic Canto  - Freedom of dragons.mp3",
+      "Logan Epic Canto - Ballad Of The Noble Rogue.mp3",
+      "Logan Epic Canto - Ballad of the peasants.mp3",
+      "Logan Epic Canto - Birth.mp3",
+      "Logan Epic Canto - Celtic Spirit.mp3",
+      "Logan Epic Canto - Dance of the nymphs.mp3",
+      "Logan Epic Canto - Dancing in the hills.mp3",
+      "Logan Epic Canto - Dancing in the moonlight.mp3",
+      "Logan Epic Canto - Enchanting Beauty [vk.com_zovdorog].mp3",
+      "Logan Epic Canto - Feast during a thunderstorm.mp3",
+      "Logan Epic Canto - Flight of the Dragon.mp3",
+      "Logan Epic Canto - Floral of Magic.mp3",
+      "Logan Epic Canto - Forest and dreams.mp3",
+      "Logan Epic Canto - Forest History.mp3",
+      "Logan Epic Canto - Glorious Archer.mp3",
+      "Logan Epic Canto - Glorious King Arthur.mp3",
+      "Logan Epic Canto - Heavy Rainbow.mp3",
+      "Logan Epic Canto - Irish Variation.mp3",
+      "Logan Epic Canto - Kingdom of fairies.mp3",
+      "Logan Epic Canto - Knight's bravery.mp3",
+      "Logan Epic Canto - Legend minstrel of ancient lands.mp3",
+      "Logan Epic Canto - Legend of dreamers.mp3",
+      "Logan Epic Canto - Legend of Merlin.mp3",
+      "Logan Epic Canto - Legend of the Alva.mp3",
+      "Logan Epic Canto - Magic everywhere.mp3",
+      "Logan Epic Canto - Magical Music of light.mp3",
+      "Logan Epic Canto - Magical Waltz.mp3",
+      "Logan Epic Canto - Majestic Castle.mp3",
+      "Logan Epic Canto - Medieval minstrel ballad.mp3",
+      "Logan Epic Canto - Mountain River.mp3",
+      "Logan Epic Canto - Mystery of the Unicorn.mp3",
+      "Logan Epic Canto - Other amazing universes.mp3",
+      "Logan Epic Canto - Quiet medieval night.mp3",
+      "Logan Epic Canto - Rocky shore.mp3",
+      "Logan Epic Canto - Song of glorious life.mp3",
+      "Logan Epic Canto - Song of the Ancient Walls.mp3",
+      "Logan Epic Canto - Song of the Lonely Rocks.mp3",
+      "Logan Epic Canto - Song of the Virgin Marian.mp3",
+      "Logan Epic Canto - Spring equinox.mp3",
+      "Logan Epic Canto - Spring jig.mp3",
+      "Logan Epic Canto - Tale of silence (этно).mp3",
+      "Logan Epic Canto - The Ballad of Robin Hood.mp3",
+      "Logan Epic Canto - The Kingdom Of Fantasy (2016) – 03. The Kingdom Of Fantasy.mp3",
+      "Logan Epic Canto - The Kingdom Of Fantasy (2016) – 04. Flight Of The Dragon.mp3",
+      "Logan Epic Canto - The Kingdom Of Fantasy (2016) – 06. Feast During A Thunderstorm.mp3",
+      "Logan Epic Canto - The legend of Freyja.mp3",
+      "Logan Epic Canto - The Legend of the Lorelei.mp3",
+      "Logan Epic Canto - The Legends of Sherwood forest.mp3",
+      "Logan Epic Canto - The Midnight Rite.mp3",
+      "Logan Epic Canto - The northern route.mp3",
+      "Logan Epic Canto - The Path to Freedom.mp3",
+      "Logan Epic Canto - The Road to Nottingham.mp3",
+      "Logan Epic Canto - The Saga of the Heroic Wander [vk.com_zovdorog].mp3",
+      "Logan Epic Canto - The Saga of the Heroic Wander.mp3",
+      "Logan Epic Canto - The Song of Excalibur.mp3",
+      "Logan Epic Canto - The Story of a tramp.mp3",
+      "Logan Epic Canto - The Story of GUINEVERE (M.Kuriganova).mp3",
+      "Logan Epic Canto - Valley Centaur.mp3",
+      "Logan Epic Canto - Valley of the Kings.mp3",
+      "Logan Epic Canto - Wind Warrior.mp3",
+      "Logan Epic Canto,Marina Kuriganova - Legend of Merlin.mp3",
+      "Logan Epic Canto,Marina Kuriganova - Song of glorious life.mp3",
+      "Logan Epic Canto,Marina Kuriganova - Song of the Ancient Walls.mp3",
+      "Logan Epic Canto,Marina Kuriganova - The Story of GUINEVERE.mp3",
       "Logan_Epic_Canto_-_Knights_bravery.mp3",
       "Logan_Epic_Canto_-_Legend_of_Merlin.mp3",
       "Lord_Lovidicus_-_Fog_of_the_Autumnal_Forest.mp3",
@@ -6580,6 +6736,7 @@ var musicDB = {
       "Индейцы_Перу_-_Пыль_и_ветер.mp3",
       "Меч и Магия 7 - Замок Хармондейл.mp3",
       "Не время для Драконов - Душа Дракона.mp3",
+      "Неизвестен - Positive  Instrumental Celtic Music-Santiago Molina & Logan Epic Canto.mp3",
       "Сфера Перерождение Sphere reload - castle_1.mp3",
       "Сфера Перерождение Sphere reload - castle_2.mp3",
       "Сфера Перерождение Sphere reload - city_1d.mp3",
@@ -6593,7 +6750,7 @@ var musicDB = {
     ]
   },
   "страшный дом": {
-    "number": 23,
+    "number": 33,
     "list": [
       "02. Doors Open from Both Sides.mp3",
       "10. 634 Project and Toshiro Masuda - Kazahana Koyuki.mp3",
@@ -6617,7 +6774,17 @@ var musicDB = {
       "Jason Graves - The Rampage.mp3",
       "Jesper Kyd - The Dead Plains.mp3",
       "Luc St-Pierre - Library Escape.mp3",
-      "Luc St-Pierre - The Drop.mp3"
+      "Luc St-Pierre - The Drop.mp3",
+      "Peter Spierig - Aftermath.mp3",
+      "Peter Spierig - Ben Block.mp3",
+      "Peter Spierig - Earthquake.mp3",
+      "Peter Spierig - Locked In.mp3",
+      "Peter Spierig - Midnight.mp3",
+      "Peter Spierig - Monsters.mp3",
+      "Peter Spierig - Poisoned Mind.mp3",
+      "Peter Spierig - The Shadows.mp3",
+      "Peter Spierig - The Switchback Staircase.mp3",
+      "Peter Spierig - You're a Fraud.mp3"
     ]
   },
   "таверна": {
@@ -6718,7 +6885,7 @@ var musicDB = {
     ]
   },
   "таинственно": {
-    "number": 29,
+    "number": 31,
     "list": [
       "04. Weird Things Happen.mp3",
       "04. Yasuharu Takanashi - Will-O-The-Wisp.mp3",
@@ -6732,6 +6899,7 @@ var musicDB = {
       "Akito Matsuda - Kinchou Seppaku.mp3",
       "Akito Matsuda - Kodoku Kokuu.mp3",
       "Bruno Coulais - L'Automate (OST. _Vidocq_).mp3",
+      "Chance Thomas, Stephen DiGregorio - They Are Coming....mp3",
       "Danny Elfman - Into The Woods The Witch (OST Сонная Лощина).mp3",
       "Divine sacrifice (нейтрально-мрачная).mp3",
       "Hayes, Bush, Duke, Stafford - Teldrassil.mp3",
@@ -6744,6 +6912,7 @@ var musicDB = {
       "Luc St-Pierre - The Accident.mp3",
       "Midnight Syndicate - Ancient Tomes.mp3",
       "Midnight Syndicate - Secret Chamber.mp3",
+      "Peter Gundry - Invocavi Maledictus Ventis.mp3",
       "Peter_McConnell_-_The_Catwalk_Phantom_(Psychonauts_OST).mp3",
       "Steve Henifin - Flight to Nupraptor.mp3",
       "Trevor Jones - Portrait Of Dorian Gray (OST The League of Extraordinary Gentlemen Лига выдающихся джентельменов) 2003 official (Vk.Com OstHD).mp3",
@@ -6773,7 +6942,7 @@ var musicDB = {
     ]
   },
   "тревожно": {
-    "number": 68,
+    "number": 87,
     "list": [
       "02. Running Short on Options.mp3",
       "02. Stage Fright.mp3",
@@ -6813,6 +6982,8 @@ var musicDB = {
       "Bruno Coulais - La Poursuite aux Invalides (OST. _Vidocq_).mp3",
       "Bruno Coulais - Le Premier Combat (OST. _Vidocq_).mp3",
       "Bruno Coulais - Les Barricades (OST. _Vidocq_).mp3",
+      "Chance Thomas, Stephen DiGregorio - Drums in the Deep.mp3",
+      "Chance Thomas, Stephen DiGregorio - Flame of Udûn.mp3",
       "City Of The Dead (мрак).mp3",
       "Danny Elfman - Main Titles (из к ф Сонная Лощина).mp3",
       "Danny Elfman - The Final Confrontation (OST к ф Сонная Лощина).mp3",
@@ -6827,6 +6998,9 @@ var musicDB = {
       "Jason Graves - Baby, It#39;s Cold Outside.mp3",
       "Jason Graves - Don#39;t Get Cold Feet.mp3",
       "Jason Graves - Welcome to the Annual Blackwood Winter Getaway.mp3",
+      "Jesper Kyd - Borgia Occupation.mp3",
+      "Johan Söderqvist & Patrik Andrén - Hunted.mp3",
+      "Johan Söderqvist & Patrik Andrén - Metal Frenzy.mp3",
       "Kevin MacLeod - Satiate.mp3",
       "Kevin MacLeod - Unlight.mp3",
       "Kota Suzuki, Hideki Okugawa, Akihiko Narita, Seiko Kobuchi - An Emergency (Digital Ver.) (Resident Evil 5).mp3",
@@ -6836,7 +7010,21 @@ var musicDB = {
       "Kurt Harland - Sarafan Combat.mp3",
       "Kurt Harland - The Elder God Basic.mp3",
       "Laura Karpman - Temple of Cazic Thule.mp3",
+      "Logan Epic Canto - Legend of the Warrior Princess.mp3",
+      "Logan Epic Canto - Warships.mp3",
+      "Ludwig Goransson - Race to the Hospital.mp3",
+      "Ludwig Göransson - Fleeing the Scene.mp3",
+      "Ludwig Göransson - Have Faith.mp3",
+      "Ludwig Göransson - Hoodies.mp3",
       "Mad Lucretia (страх).mp3",
+      "Michael Giacchino, Hollywood Studio Symphony - Below Deck.mp3",
+      "Michael Giacchino, Hollywood Studio Symphony - Breaking Through.mp3",
+      "Michael Giacchino, Hollywood Studio Symphony - Call Of Duty.mp3",
+      "Michael Giacchino, Hollywood Studio Symphony - Countryside Drive.mp3",
+      "Michael Giacchino, Hollywood Studio Symphony - Eder Dam.mp3",
+      "Michael Giacchino, Hollywood Studio Symphony - Sewers Under Stalingrad.mp3",
+      "Michael Giacchino, Hollywood Studio Symphony - Stuka's And Flakvierling's.mp3",
+      "Michael Giacchino, Hollywood Studio Symphony - Tanks A Lot.mp3",
       "Midnight Syndicate - Troubled Times.mp3",
       "Rob King  Paul Romero - Infernus Stamatus (Inferno Theme).mp3",
       "Russell Brower, Derek Duke, Glenn Stafford, Neal Acree & Devid Arkenstone - Eventide.mp3",
@@ -6953,7 +7141,7 @@ var musicDB = {
     ]
   },
   "эльфы": {
-    "number": 101,
+    "number": 104,
     "list": [
       "Adrian_von_Ziegler_-_2_Hours_of_Celtic_Music.mp3",
       "Alizbar & Christian Amin Varkonyi - Melting snowflakes on her hand (Celtic harp & Hang Drum).mp3",
@@ -6976,6 +7164,7 @@ var musicDB = {
       "BrunuhVille(Anima) - Medieval Legends.mp3",
       "Caprice - Enter laoris.mp3",
       "ceb1984b66bea5.mp3",
+      "Chance Thomas, Stephen DiGregorio - The Golden Wood.mp3",
       "Debbie Wiseman - Flood.mp3",
       "Duane Decker - Dark Forest.mp3",
       "Duane Decker - High Strung.mp3",
@@ -7011,9 +7200,11 @@ var musicDB = {
       "Lind Erebros - To the Dreamland Flyaway.mp3",
       "Lind Erebros Elven Oratory II (Inwork) - Land Where Flowers Grow.mp3",
       "Logan Epic Canto - Black cat misses.mp3",
+      "Logan Epic Canto - Elven Song(Instrumental version).mp3",
       "Logan Epic Canto - Enchanted forest.mp3",
       "Logan Epic Canto - Flight of the Dragon.mp3",
       "Logan Epic Canto - Forgotten magic stick.mp3",
+      "Logan Epic Canto - Valley of the Kings.mp3",
       "Marcin Przyby owicz - Ladies of the Woods.mp3",
       "Mariano De Simone - Elf Dance.mp3",
       "Mariano De Simone - Morrisons Jig - Liberty.mp3",
@@ -7142,8 +7333,9 @@ var musicDB = {
     ]
   },
   "эпик нарастающий": {
-    "number": 15,
+    "number": 16,
     "list": [
+      "Aleksandar Dimitrijevic - Armies of Steel (2015).mp3",
       "Alliance Trailer Music - Pillars of Creation.mp3",
       "Brand X Music - Kinematic.mp3",
       "DeVsoMusic - Light In The Sky.mp3",
@@ -7177,7 +7369,7 @@ var musicDB = {
     ]
   },
   "ярмарка": {
-    "number": 16,
+    "number": 23,
     "list": [
       "16. Parade.mp3",
       "Akito Matsuda - Osana Najimi.mp3",
@@ -7190,6 +7382,13 @@ var musicDB = {
       "Event_BGM_VagrantAppear.mp3",
       "freescore.ru - James Horner - Playing Basketball.mp3",
       "Hellblinki - Kerosene.mp3",
+      "Logan Epic Canto - Dance around the campfire.mp3",
+      "Logan Epic Canto - Friendly Village.mp3",
+      "Logan Epic Canto - Let's tease the Sheriff.mp3",
+      "Logan Epic Canto - Pot of gold.mp3",
+      "Logan Epic Canto - The Feast in Camelot.mp3",
+      "Logan Epic Canto - The hills of leprechauns.mp3",
+      "Logan Epic Canto - The trees say.mp3",
       "Nicolas Marquis - Main Attraction.mp3",
       "Olav Lervik - A Cozy Home.mp3",
       "Olav Lervik - Chillin in the Vault.mp3",
