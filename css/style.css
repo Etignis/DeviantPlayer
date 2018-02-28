@@ -950,9 +950,9 @@ img {
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
-  font-size: inherit;
-  width: 7em;
-  height: 7em;
+  font-size: 1.6em;
+  width: 4em;
+  height: 4em;
   cursor: pointer;
   display: block;
   margin: 0 auto;
@@ -999,7 +999,7 @@ img {
   -ms-user-select: none;
   user-select: none;
   font-size: inherit;
-  width: 7em;
+  width: 6.4em;
   cursor: pointer;
   display: block;
   margin: 0 auto;
@@ -1049,6 +1049,7 @@ img {
   padding: 1px;
   margin: 0;
   width: auto;
+  background: #444444;
   position: relative;
   top: 0.2em;
   border-radius: 15px;

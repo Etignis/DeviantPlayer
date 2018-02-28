@@ -695,6 +695,15 @@ var lt=[];
 	});
 
 // клик на звуке
+function playSideSound(audioID){
+	onPalylistsVolumDown();
+	var audio = document.getElementById(audioID);
+	audio.volume = 1;
+	audio.play();
+	audio.onended = function() {
+		onPalylistsVolumUp();
+	};
+}
  $("body").on('click', ".soundButton", function(oEvent, sPath){
 	var audioID = $(this).find("audio").attr("id");
   var sOnePath = oEvent.originalEvent && oEvent.originalEvent.path[0].getAttribute('data-path');
@@ -709,13 +718,14 @@ var lt=[];
     }
   }
 
-	onPalylistsVolumDown();
-	var audio = document.getElementById(audioID);
-	audio.volume = 1;
-	audio.play();
-	audio.onended = function() {
-		onPalylistsVolumUp();
-	};
+	playSideSound(audioID);
+ });
+ $("body").on('mousedown', ".soundSubItem", function(oEvent, sPath){
+	var sName = $(this).attr('data-path').trim();
+	var oAudio = $(this).parent().parent().find("audio");
+    var audioID = oAudio.attr("id");
+	oAudio.attr("src", sName);
+	playSideSound(audioID);
  });
 
 	function onPalylistsVolumDown() {
@@ -1486,7 +1496,7 @@ function createSoundColumn() {
         }
       });
 
-      var oUl = (oList.length>1)?"<ul class='soundSublist'>"+oList.map(sound => "<li data-path='"+ROOT+SOUNDS+oName+"/"+sound.name+"'>"+sound.name+"</li>").join("")+"</ul>" : "";
+      var oUl = (oList.length>1)?"<ul class='soundSublist'>"+oList.map(sound => "<li class='soundSubItem' data-path='"+ROOT+SOUNDS+oName+"/"+sound.name+"'>"+sound.name+"</li>").join("")+"</ul>" : "";
 
       var sURL = aSounds.join("|");
       var oSound = '<div class="soundButtonContainer" style="position: relative">\
@@ -1621,7 +1631,7 @@ $("body").on("change", "#mw_soundlists_manage .soundArr input", function(){
     }
   });
 
-  $("body").on('click', ".soundButtonSublistItem", function(){
+  $("body").on("click", ".soundButtonContainer li", function(){
     var sName = $(this).attr('data-path').trim();
     $(this).closest(".soundButton").click(null, sName);
   });

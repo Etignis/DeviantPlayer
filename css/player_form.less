@@ -158,10 +158,12 @@
         .blank();
 
         text-align: center;
-        @sz: 7em;
+        @sz: 4em;
+		//font-size: 1.6rem;
         button.pf_play_bt{
             .fr-convex;
-            font-size: inherit;
+            //font-size: inherit;
+			font-size: 1.6em;
             width: @sz;
             height: @sz;
             cursor: pointer;
@@ -183,7 +185,7 @@
              .fr-convex;
             font-size: inherit;
             //@sz: 8em;
-            width: @sz;
+            width: @sz*1.6;
             cursor: pointer;
             display: block;                 
             margin: 0 auto;
@@ -206,7 +208,7 @@
 		margin: 0;
 		width: auto;
 		//height: 3px;
-		//background: #4200f7;
+		background: darken(@m-gray, 20%);
 		position: relative;
 		top: 0.2em;
 		//margin-top: 20px;
