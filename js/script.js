@@ -338,12 +338,12 @@ function PlayerForm(){
 		}
 	// add track
 	PlayerForm.prototype.add_track = function(url, i) {
-		var url=url;
+		var url=url.replace(/'/g, "`");
 		smth=url.split('/');
 		smth.reverse();
 		var name = smth[0];
 		//console.log(this.name);
-		num = i || $(".player_form[data-form-name='"+this.name+"']").find(".tr_line").length+1;
+		num = Number.isInteger(i)? i : $(".player_form[data-form-name='"+this.name+"']").find(".tr_line").length+1;
     /*/
 		tr_line = "<div class='tr_line' data-url='"+url+"' data-num='"+num+"'>"+
 				"<table>"+
@@ -393,7 +393,7 @@ function stopAllInGroup(sGroupId){
 function start_play(id){
   var sGroupId = $(".player_form[data-name="+id+"]").attr("data-group");
   stopAllInGroup(sGroupId);
-	var audio_url = $(".player_form[data-name="+id+"]").find(".pf_list").children(".active").attr("data-url");
+	var audio_url = $(".player_form[data-name="+id+"]").find(".pf_list").children(".active").attr("data-url").replace(/`/g, "'");
 	var _player = $(".player_form[data-name="+id+"]").children("audio");
 	
 	if(_player.attr("src")!=audio_url){
@@ -538,7 +538,7 @@ function change_active_track(id, i){
 
 	//переключаем активный элемент
 	$(".player_form[data-name="+id+"]").children(".pf_list").children(".tr_line").removeClass("active");
-	$(".player_form[data-name="+id+"]").children(".pf_list").children(".tr_line").eq(player[id].track_num-1).addClass("active");
+	$(".player_form[data-name="+id+"]").children(".pf_list").children(".tr_line").eq(player[id].track_num/*-1*/).addClass("active");
 
 	// переключаем трек
 	start_play(id);
@@ -1015,12 +1015,15 @@ function playSideSound(audioID){
           }
           
           // sreate player form
-		  player_i = player.length || 1;
+					player_i = player.length || 1;
           player[player_i] = new PlayerForm();
           player[player_i].create(sTitle , lt[player_i-1], undefined, sGroup);
           Folder = el+'/';
 
           musicDB[el].list.forEach(function(track, i){
+						if(/12\. Arty on th/.test(track)) {
+							debugger;
+						}
             player[player_i].add_track(ROOT+Folder+track, i);
           });
           //player_i++;
@@ -1641,11 +1644,11 @@ $("body").on("change", "#mw_soundlists_manage .soundArr input", function(){
 function openBatDBWindow() {
   fKeyListen = false;
 
-  var oOpenButton = "<div class='center'><input type='file' id='mw_batDB_load_input' name='files[]'/> <button id='mw_batDB_load'><i class='fa fa-folder-open-o' aria-hidden='true'></i> Загрузить файл базы музыки</button></div><p>Откройте файл 'DB.txt' из папки с музыкой, сгенерированный с помощью '_create&nbsp;music&nbsp;DB.bat'. При этом, плеер запомнит данные из этого файла и будет игнорировать данные из основной базы данных.</p>";
-  var oClearButton = "<div class='center'><button id='mw_batDB_clear'><i class='fa fa-trash-o' aria-hidden='true'></i> Удалить локальную копию</button></div><p>Удалить данные, полученные из файла 'DB.txt'. В таком случае, плеер будет получать данные из основной базы данных.</p>";
-  var oExportButton = "<div class='center'><button id='mw_batDB_export'><i class='fa fa-floppy-o' aria-hidden='true'></i> Экспортировать локальные настройки</button></div><p>Все настройки плеера можно сохранить в файл, а потом загрузить обрано в плеер, в случае чего.</p>";
-  var oImportButton = "<div class='center'><input type='file' id='mw_batDB_import_input' name='local_configFiles[]'/> <button id='mw_batDB_import'><i class='fa fa-folder-open-o' aria-hidden='true'></i> Импортировать локальные настройки</button></div><p>Если вы сохраняли локальные с помощью кнопки выше, у вас должен быть файл 'DeviantPlayer_LocalDB.txt' с настройками. Загрузите его для восстановления сохраненных ранее настроек.</p>";
-  var oClearAllButton = "<div class='center'><button id='mw_batDB_clearAll'><i class='fa fa-trash' aria-hidden='true'></i> Очистить локальную базу полностью</button></div><p>Полностью очистить все данные и настройки, хранящиеся в плеере. Нажимать только в случае глобального #$@&*!</p>";
+  var oOpenButton = "<div class='center'><input type='file' id='mw_batDB_load_input' name='files[]'/> <button id='mw_batDB_load'><i class='far fa-folder-open'></i><!--<i class='fa fa-folder-open-o' aria-hidden='true'></i>--> Загрузить файл базы музыки</button></div><p>Откройте файл 'DB.txt' из папки с музыкой, сгенерированный с помощью '_create&nbsp;music&nbsp;DB.bat'. При этом, плеер запомнит данные из этого файла и будет игнорировать данные из основной базы данных.</p>";
+  var oClearButton = "<div class='center'><button id='mw_batDB_clear'><i class='far fa-trash-alt'></i><!--<i class='fa fa-trash-o' aria-hidden='true'></i>--> Удалить локальную копию</button></div><p>Удалить данные, полученные из файла 'DB.txt'. В таком случае, плеер будет получать данные из основной базы данных.</p>";
+  var oExportButton = "<div class='center'><button id='mw_batDB_export'><i class='far fa-save'></i><!--<i class='fa fa-floppy-o' aria-hidden='true'></i>--> Экспортировать локальные настройки</button></div><p>Все настройки плеера можно сохранить в файл, а потом загрузить обрано в плеер, в случае чего.</p>";
+  var oImportButton = "<div class='center'><input type='file' id='mw_batDB_import_input' name='local_configFiles[]'/> <button id='mw_batDB_import'><i class='far fa-folder-open'></i><!--<i class='fa fa-folder-open-o' aria-hidden='true'></i>--> Импортировать локальные настройки</button></div><p>Если вы сохраняли локальные с помощью кнопки выше, у вас должен быть файл 'DeviantPlayer_LocalDB.txt' с настройками. Загрузите его для восстановления сохраненных ранее настроек.</p>";
+  var oClearAllButton = "<div class='center'><button id='mw_batDB_clearAll'><i class='fas fa-trash-alt'></i><!--<i class='fa fa-trash' aria-hidden='true'></i>--> Очистить локальную базу полностью</button></div><p>Полностью очистить все данные и настройки, хранящиеся в плеере. Нажимать только в случае глобального #$@&*!</p>";
   var oContent = "<div class='inner'>"+oOpenButton+oClearButton+"<hr>"+oExportButton+oImportButton+"<hr>"+oClearAllButton+"</div>";
   var oButtons = "<div class='center'><hr><button class='white' id='mw_batDB_close'>Закрыть</button></div>";
   if($("#dbg").length<1)	{
@@ -1708,7 +1711,9 @@ function parceLocalFile(sText) {
 
         // if music
         if(/\.mp3/.test(sFileName) ||
-          /\.wav/.test(sFileName)
+          /\.wav/.test(sFileName) ||
+          /\.flac/.test(sFileName) ||
+          /\.m4a/.test(sFileName)
         ) {
           // if file not in ROOT
           if(ROOT && ROOT != aPath.concat(sFolderName).join('/')+"/"){
