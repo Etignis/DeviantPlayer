@@ -1555,13 +1555,13 @@ function createSoundColumn() {
     onEnd: reorderSoundColumn
   });
 
-  var listBig = document.getElementById("sounds_big_panel");
-  Sortable.create(listBig, {
-    handle: ".soundBigButton",
-    ghostClass: "hiddenList",
-    dragClass: "hiddenList",
-    onEnd: reorderSoundColumn
-  });
+  // var listBig = document.getElementById("sounds_big_panel");
+  // Sortable.create(listBig, {
+    // handle: ".soundBigButton",
+    // ghostClass: "hiddenList",
+    // dragClass: "hiddenList",
+    // onEnd: reorderSoundColumn
+  // });
 }
 // ico change
 $("body").on("keyup", "#mw_soundlists_manage .soundIco", function(){
