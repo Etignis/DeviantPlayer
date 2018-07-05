@@ -8,7 +8,7 @@ var oGlobalSettings = {};
 var oPlayerColorGroups = {};
 
 var fKeyListen = true;
-var bShift = false;
+var bShift = false, bCtrl = false;
 var Drug;
 
 var aGroups = [
@@ -78,7 +78,7 @@ function clearSounds() {
 }
 
 $(document).ready(function(){
-  
+
   //create group select
   function make_select(src, params) {
     var options = "";
@@ -115,7 +115,7 @@ $(document).ready(function(){
   function selectCustomSelect(oSelect, sKey, sHTML){
     oSelect.find(".label").attr("data-selected-key", sKey).html(sHTML);
     oSelect.find("ul").fadeOut();
-    
+
     var sColorGroup = (sKey=="g0")? "" : sKey;
     oSelect.closest(".player_form").attr("data-group", sColorGroup);
 
@@ -130,7 +130,7 @@ $(document).ready(function(){
     //location.hash = (leng==1)? sHash : "";
     //location.hash = sHash;
   }
-   
+
   function collectColorGroup() {
     //oPlayerColorGroups
     var oGroups = {};
@@ -142,14 +142,14 @@ $(document).ready(function(){
           oGroups[sGroup] = [];
         }
         oGroups[sGroup].push(sName);
-      }        
+      }
     });
     oPlayerColorGroups = oGroups;
-  } 
-  
+  }
+
   function loadColorGroups(){
     oPlayerColorGroups = getFromLocalDB('oPlayerColorGroups');
-  }  
+  }
    //custom Select
   $("body").on("click", ".customSelect .label", function() {
     $(this).next(".list").fadeToggle();
@@ -163,7 +163,7 @@ $(document).ready(function(){
     collectColorGroup();
     saveLocalDB('oPlayerColorGroups', oPlayerColorGroups);
   });
-  
+
   //debugger;
 	// класс звуков
 class soundsClass{
@@ -268,8 +268,8 @@ function PlayerForm(){
 
 		if(type === undefined)
 			type="usual";
-		
-		
+
+
 		var pf_trek_timeline = '<div class="pf_trek_timeline"><div class="pf_trek_playhead"></div></div>';
 
 		var pf_lt = "<div class='pf_lt'>"+lt+"</div>";
@@ -395,7 +395,7 @@ function start_play(id){
   stopAllInGroup(sGroupId);
 	var audio_url = $(".player_form[data-name="+id+"]").find(".pf_list").children(".active").attr("data-url").replace(/`/g, "'");
 	var _player = $(".player_form[data-name="+id+"]").children("audio");
-	
+
 	if(_player.attr("src")!=audio_url){
 		_player.attr("src", audio_url);
 	}
@@ -452,13 +452,13 @@ function start_play(id){
 		player[id].f_play=1;
 		$(".player_form[data-name="+id+"]").find(".pf_play_bt").html("<i class='fa fa-pause'></i>");
 		}
-		
+
 	// set music time
 	// let oAudio = document.getElementById(_player.attr("id"));
 	// oAudio.addEventListener("canplaythrough", function () {
 		// setTimeout(function(){
 			// duration = document.getElementById(_player.attr("id")).duration;
-		
+
 			// let duration = ~~this.duration;
 			// let sDuration = "";
 			// if(duration>60) {
@@ -470,11 +470,11 @@ function start_play(id){
 		// }.bind(this), 500);
 
 	// }, false);
-	
-	
-	///	
-	
-	
+
+
+	///
+
+
 	/// file name
 	var sFileName = $("#"+a_id).attr("src").split("/").pop();
 	$("#"+a_id).parent().attr("title", sFileName);
@@ -625,7 +625,7 @@ function a_ended(){
 function timelineUpdate() {
 	let music_id = $(this).closest(".player_form").find("audio").attr("id");
 	let music = document.getElementById(music_id);
-	
+
 	let duration = music.duration;
 	let playPercent = 100 * (music.currentTime / duration);
 	$(this).closest(".player_form").find(".pf_trek_playhead").css('width', playPercent + "%");
@@ -720,6 +720,12 @@ function playSideSound(audioID){
 
 	playSideSound(audioID);
  });
+
+ $("body").on('click', ".soundBigButton", function(oEvent, sPath){
+ 		var sTitle = $(this).attr('title');
+ 		$(".soundButton[title="+sTitle+"]").click();
+ });
+
  $("body").on('mousedown', ".soundSubItem", function(oEvent, sPath){
 	var sName = $(this).attr('data-path').trim();
 	var oAudio = $(this).parent().parent().find("audio");
@@ -1013,7 +1019,7 @@ function playSideSound(audioID){
               }
             }
           }
-          
+
           // sreate player form
 					player_i = player.length || 1;
           player[player_i] = new PlayerForm();
@@ -1052,7 +1058,7 @@ function openPlaylistsWindow() {
   var aFolders = [];
   var nIndex = 0;
   var aSelectedFolders = aSelectedPlaylists? aSelectedPlaylists.map(x => x.toLowerCase()) : [];
-  
+
   for (folder in musicDB) {
     var bChecked = "";
     //var folderKey = (folder.toLowerCase().trim());
@@ -1423,7 +1429,18 @@ function reorderSoundColumn(){
     aNewOrder.push(sName);
   });
   reorderSoundlistsData(aNewOrder);
+  reorderBigSound(aNewOrder);
   saveSoundListsData();
+}
+function reorderBigSound(aList) { // sounds_big_panel
+	$("#sounds_big_panel").append("<div id='tmpBigSoundContent' style='display: none;'></div>");
+	for(var i=0; i < aList.length; i++) {
+ 	//	$(".soundBigButtonContainer")
+ 		var oEl = $(".soundBigButton[title="+aList[i]+"]").parent().detach();
+ 		oEl.appendTo("#tmpBigSoundContent");
+	}
+	$(".soundBigButton").eq(0).unwrap();
+
 }
 
 /**/
@@ -1476,12 +1493,19 @@ function getDataFromSoundInfo() {
   return oData;
 }
 
+function showSoundBigPanel() {
+
+}
+function hideSoundBigPanel() {
+
+}
 function createSoundColumn() {
   if(SOUNDS[SOUNDS.length-1]!="/") {
     SOUNDS = SOUNDS+"/";
   }
   // clear column
   $("#sounds_container").empty();
+  $("#sounds_big_panel").empty();
 
   var i=0; // counter;
   // full
@@ -1510,7 +1534,15 @@ function createSoundColumn() {
         </button>\
       </div>';
 
+      var oBigSound = '<div class="soundBigButtonContainer" style="position: relative">\
+        <button class="soundBigButton" title="'+oName+'" data-audio-array="'+sURL+'">\
+          <i class="fa '+oIco+'"></i>\
+          <span class="soundBigButtonText">'+oName+'</span>\
+        </button>\
+      </div>';
+
       $("#sounds_container").append(oSound);
+      $("#sounds_big_panel").append(oBigSound);
       i++;
     }
   });
@@ -1518,6 +1550,14 @@ function createSoundColumn() {
   var list = document.getElementById("sounds_container");
   Sortable.create(list, {
     handle: ".soundButton",
+    ghostClass: "hiddenList",
+    dragClass: "hiddenList",
+    onEnd: reorderSoundColumn
+  });
+
+  var listBig = document.getElementById("sounds_big_panel");
+  Sortable.create(listBig, {
+    handle: ".soundBigButton",
     ghostClass: "hiddenList",
     dragClass: "hiddenList",
     onEnd: reorderSoundColumn
@@ -1774,7 +1814,7 @@ $("body").on('change', '#mw_batDB_import_input', function(oEvent) {
   openLocalConfigFile(oEvent);
 });
 $("body").on('click', '#mw_batDB_import', function(oEvent) {
-	$("#mw_batDB_import_input").click();	
+	$("#mw_batDB_import_input").click();
 });
 //
 $("body").on('click', '#mw_batDB_clearAll', function() {
@@ -1890,9 +1930,15 @@ function clickTopButtons() {
 	// управление кнопками
 	$("body").keydown(function(eventObject){
     var keyCode = eventObject.which;
-    if(keyCode == 16) // SHIFT
-    {
-      bShift = true;
+    // if(keyCode == 16) // SHIFT
+    // {
+    //   bShift = true;
+    // }
+    switch(keyCode) {
+    	case 16: bShift = true;
+    		break;
+    	case 17: bCtrl = true, showSoundBigPanel();
+    		break;
     }
   });
 
@@ -1907,7 +1953,7 @@ function clickTopButtons() {
       //alert(keyCode);
       switch(keyCode)
       { //vol up
-      case 49: if(bShift) {id=1, ev="sound"} else { id=1; ev="vol_up"}; //1
+      	case 49: if(bShift) {id=1, ev="sound"} else { id=1; ev="vol_up"}; //1
           break;
         case 50: if(bShift) {id=2, ev="sound"} else {  id=2; ev="vol_up"}; //2
           break;
@@ -2026,6 +2072,9 @@ function clickTopButtons() {
         case 105: id=9, ev="sound";
           break;
 
+        case 17: id='hide', ev='soundPanel', bCtrl=false; // Ctrl
+        	break;
+
         // top panel
         case 189: // -
           $("#p_em_dn").click();
@@ -2067,8 +2116,10 @@ function clickTopButtons() {
             //alert(i);
           $("#sounds_container .soundButton").eq(i).click();
         }
-
-    }
+      if(ev=='soundPanel' && id=='hide') {
+      	hideSoundBigPanel();
+      }
+    } // /keycode listen
 		return false;
 	});
 	// / кнопки
@@ -2182,17 +2233,17 @@ function parceLocalConfigFile(sText) {
   	alert("Ошибка при чтении файла.");
   	console.log("[ERROR] can't parce file: " + err);
   }
-  
+
   for(var item in oLocalDB) {
     switch (item) {
       case "SOUNDS": break;
       case "ROOT": break;
       case "soundsDB": break;
       case "musicDB": break;
-      case "aSoundlistsData": 
+      case "aSoundlistsData":
         //
         var aSounds = getFromLocalDB('aSoundlistsData');
-        
+
         if(aSounds) {
           aSounds.forEach(function(sound){
             for (var i=0; i<aSoundlistsData.length; i++) {
@@ -2206,7 +2257,7 @@ function parceLocalConfigFile(sText) {
                       break;
                     }
                   }
-                  
+
                 });
                 break;
               }
@@ -2220,21 +2271,21 @@ function parceLocalConfigFile(sText) {
   }
 
   // if(!getFromLocalDB('SOUNDS'))
-    // saveLocalDB('SOUNDS', SOUNDS); 
+    // saveLocalDB('SOUNDS', SOUNDS);
   // if(!getFromLocalDB('aPlayLists'))
-    // saveLocalDB('aPlayLists', aPlayLists); 
+    // saveLocalDB('aPlayLists', aPlayLists);
   // if(!getFromLocalDB('aSoundlistsData'))
-    // saveLocalDB('aSoundlistsData', aSoundlistsData); 
+    // saveLocalDB('aSoundlistsData', aSoundlistsData);
   // if(!getFromLocalDB('oGlobalSettings'))
-    // saveLocalDB('oGlobalSettings', oGlobalSettings); 
+    // saveLocalDB('oGlobalSettings', oGlobalSettings);
   // if(!getFromLocalDB('oPlayerColorGroups'))
-    // saveLocalDB('oPlayerColorGroups', oPlayerColorGroups);  
+    // saveLocalDB('oPlayerColorGroups', oPlayerColorGroups);
   // if(!getFromLocalDB('ROOT'))
-    // saveLocalDB('ROOT', ROOT);  
+    // saveLocalDB('ROOT', ROOT);
 
   //localStorage.clear();
   //localStorage.setItem('MusicBoxDB', JSON.stringify(oLocalDB));
-  
+
   initPlayerFromConfigs();
   alert("Данные успешно загружены.");
   //loadBDfromLocalStorage();
