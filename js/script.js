@@ -1,4 +1,4 @@
-﻿var ROOT = 'D:/Cloud/DnD/Музыка/';
+var ROOT = 'D:/Cloud/DnD/Музыка/';
 var SOUNDS = '!звуки';
 //var ROOT = 'D:/DnD/Музыка/';
 var aSelectedPlaylists = [];
@@ -1800,6 +1800,18 @@ function parceLocalFile(sText) {
 
   closeBatDBWindow();
 }
+
+function translateFromBat(sText){
+	aLines = sText.split(/[\r\n]+/g);
+	var oTmpSoundDB = {};
+	var oTmpMusicDB = {};
+	aLines.forEach(function(sLine){
+		var oParcedSound = /!звуки\\(.+)\\(.+)\.(mp3|wav|flac|m4a)/.exec(sLine);
+		 var aPath = sLine.split(/[\\\/]+/g);
+	});
+}
+
+
 $("body").on('change', "#mw_batDB_load_input", function(oEvent){
   handleLocalBDSelect(oEvent);
 });
