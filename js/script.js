@@ -723,7 +723,7 @@ function playSideSound(audioID){
 
  $("body").on('click', ".soundBigButton", function(oEvent, sPath){
  		var sTitle = $(this).attr('title');
- 		$(".soundButton[title="+sTitle+"]").click();
+ 		$(".soundButton[title='"+sTitle+"']").click();
  });
 
  $("body").on('mousedown', ".soundSubItem", function(oEvent, sPath){
@@ -1494,10 +1494,10 @@ function getDataFromSoundInfo() {
 }
 
 function showSoundBigPanel() {
-
+	$("#sounds_big_panel").removeClass("invisible");
 }
 function hideSoundBigPanel() {
-
+	$("#sounds_big_panel").addClass("invisible");
 }
 function createSoundColumn() {
   if(SOUNDS[SOUNDS.length-1]!="/") {
@@ -1536,7 +1536,7 @@ function createSoundColumn() {
 
       var oBigSound = '<div class="soundBigButtonContainer" style="position: relative">\
         <button class="soundBigButton" title="'+oName+'" data-audio-array="'+sURL+'">\
-          <i class="fa '+oIco+'"></i>\
+          <span class="soundBigButtonIco"><i class="fa '+oIco+'"></i></span>\
           <span class="soundBigButtonText">'+oName+'</span>\
         </button>\
       </div>';
