@@ -2,7 +2,7 @@
     //overflow: auto;
     width: 100%;
     padding: .1em;
-    padding-right: @sidePanelWidth;
+    padding-right: @sidePanelWidth*2;
     &after, &before{
         .clear();
     }
@@ -13,6 +13,7 @@
 	transform: scale(.95);
 }
 .tracklist_drag{
+	box-shadow: 0 0 10px 3px @color;
 	box-shadow: 0 0 10px 3px @color;
 	transform: scale(1.1);
 }
