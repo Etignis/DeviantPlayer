@@ -107,11 +107,13 @@
 
 #sounds_big_panel{
 	&.invisible{
-		//display: none;
+		display: none;
 		opacity: 0;
 	}
 	transition: opacity .2s;
 	z-index: 9999;
+	
+	counter-reset: big_sounds -1;
 	
 	display: flex;
 	flex-wrap: wrap;
@@ -128,7 +130,14 @@
 	background: rgba(0,0,0,.8);
 	
 	.soundBigButtonContainer{
-		
+		&:nth-child(n+11){
+      //outline: green 1px solid;
+      button{
+        &::before{
+          content: "";
+        }
+      }
+    }
 	}
 	button{
 		@sz: 10rem;
@@ -142,9 +151,9 @@
 		//display: block;     
 		//margin: 0 auto;  
 		background: @m-gray + #111; 
-		//position: relative;
+		position: relative;
 		font-size: 120%;
-		//counter-increment: tracks;		
+		counter-increment: big_sounds;		
 		//z-index: 9;
 		overflow: hidden;
         
@@ -154,6 +163,13 @@
 			&:active{
 					background:  @m-gray;    
 			}		
+			
+			&::before{
+					content: counter(big_sounds);
+					position: absolute;
+					left: .1em;
+					top: 0.1em;
+			}
 	}
 	.soundBigButtonText, .soundBigButtonIco{
 		width: 100%;

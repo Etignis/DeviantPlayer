@@ -1096,6 +1096,19 @@ img {
   cursor: default;
   font-size: 120%;
   text-align: center;
+  white-space: nowrap;
+  overflow: hidden;
+  position: relative;
+}
+.player_form .pf_name:after {
+  content: " ";
+  position: absolute;
+  right: 0;
+  top: 0.3em;
+  bottom: 0;
+  width: 1em;
+  height: 1.2em;
+  background: linear-gradient(to right, rgba(102, 102, 102, 0), #666666);
 }
 .player_form .pf_img {
   -webkit-border-radius: 3px 3px 3px 3px;
@@ -1553,6 +1566,7 @@ img {
 #sounds_big_panel {
   transition: opacity .2s;
   z-index: 9999;
+  counter-reset: big_sounds -1;
   display: flex;
   flex-wrap: wrap;
   align-items: center;
@@ -1565,7 +1579,11 @@ img {
   background: rgba(0, 0, 0, 0.8);
 }
 #sounds_big_panel.invisible {
+  display: none;
   opacity: 0;
+}
+#sounds_big_panel .soundBigButtonContainer:nth-child(n+11) button::before {
+  content: "";
 }
 #sounds_big_panel button {
   -webkit-border-radius: 3px 3px 3px 3px;
@@ -1605,7 +1623,9 @@ img {
   padding: .1em;
   cursor: pointer;
   background: #888888;
+  position: relative;
   font-size: 120%;
+  counter-increment: big_sounds;
   overflow: hidden;
 }
 #sounds_big_panel button:hover {
@@ -1613,6 +1633,12 @@ img {
 }
 #sounds_big_panel button:active {
   background: #777;
+}
+#sounds_big_panel button::before {
+  content: counter(big_sounds);
+  position: absolute;
+  left: .1em;
+  top: 0.1em;
 }
 #sounds_big_panel .soundBigButtonText,
 #sounds_big_panel .soundBigButtonIco {

@@ -1436,7 +1436,7 @@ function reorderBigSound(aList) { // sounds_big_panel
 	$("#sounds_big_panel").append("<div id='tmpBigSoundContent' style='display: none;'></div>");
 	for(var i=0; i < aList.length; i++) {
  	//	$(".soundBigButtonContainer")
- 		var oEl = $(".soundBigButton[title="+aList[i]+"]").parent().detach();
+ 		var oEl = $(".soundBigButton[title='"+aList[i]+"']").parent().detach();
  		oEl.appendTo("#tmpBigSoundContent");
 	}
 	$(".soundBigButton").eq(0).unwrap();
@@ -1494,10 +1494,12 @@ function getDataFromSoundInfo() {
 }
 
 function showSoundBigPanel() {
+	//$("#sounds_big_panel").show();
 	$("#sounds_big_panel").removeClass("invisible");
 }
 function hideSoundBigPanel() {
 	$("#sounds_big_panel").addClass("invisible");
+	//$("#sounds_big_panel").hide();
 }
 function createSoundColumn() {
   if(SOUNDS[SOUNDS.length-1]!="/") {
@@ -1723,6 +1725,8 @@ function handleLocalBDSelect(evt) {
 
   }
 function parceLocalFile(sText) {
+	translateFromBat(sText);
+	/*/
   var aLines = sText.split(/[\r\n]+/g);
   var aFolders = [];
   var oDB = {};
@@ -1797,6 +1801,7 @@ function parceLocalFile(sText) {
   saveLocalDB("musicDB", oDB);
   saveLocalDB("soundsDB", oSoundDB);
   loadBDfromLocalStorage();
+	/**/
 
   closeBatDBWindow();
 }
@@ -1805,10 +1810,53 @@ function translateFromBat(sText){
 	aLines = sText.split(/[\r\n]+/g);
 	var oTmpSoundDB = {};
 	var oTmpMusicDB = {};
+	var sRootFolder = '';
 	aLines.forEach(function(sLine){
-		var oParcedSound = /!звуки\\(.+)\\(.+)\.(mp3|wav|flac|m4a)/.exec(sLine);
-		 var aPath = sLine.split(/[\\\/]+/g);
+		if(/!звуки/.test(sLine)) {
+			if(!sRootFolder) {
+				var oTmpRoot = /\\([^\\]+)\\\\!звуки/.exec(sLine);
+				if(oTmpRoot && oTmpRoot[1]) {
+					sRootFolder = oTmpRoot[1];
+				}
+			}
+			var oParcedSound = /!звуки\\(.+)\\(.+)\.(mp3|wav|flac|m4a)/.exec(sLine);
+			if(oParcedSound){ // found sound
+				let sFolder = oParcedSound[1].replace(/\\/g, "");
+				if(!oTmpSoundDB[sFolder]) {
+					oTmpSoundDB[sFolder] = {};
+					oTmpSoundDB[sFolder].number = 0;
+					oTmpSoundDB[sFolder].list = [];
+				} 
+				oTmpSoundDB[sFolder].number++;
+				oTmpSoundDB[sFolder].list.push(oParcedSound[2].replace(/\\/g, "")+"."+oParcedSound[3]);
+			}
+		}	else {
+			var oMusicRe = new RegExp(sRootFolder+"\\\\\\\\([^\\\\]+)\\\\\\\\([^\\\\]+)\.(mp3|wav|flac|m4a)");
+			var oParcedMusic = oMusicRe.exec(sLine);
+			if(oParcedMusic) {
+				let sFolder = oParcedMusic[1].replace(/\\/g, "");
+				if(!oTmpMusicDB[sFolder]) {
+					oTmpMusicDB[sFolder] = {};
+					oTmpMusicDB[sFolder].number = 0;
+					oTmpMusicDB[sFolder].list = [];
+				} 
+				oTmpMusicDB[sFolder].number++;
+				oTmpMusicDB[sFolder].list.push(oParcedMusic[2]+"."+oParcedMusic[3]);
+			}			
+		}		
 	});
+	
+	//console.dir(oTmpMusicDB);
+	
+	alert("Данные обработаны, сохраните получившийся файл \"db.js\" в папку \"js\" плеера.\n Если необходимо, замените существующий файл.");
+	/**/
+	var sData =  "var soundsDB = " + JSON.stringify(oTmpSoundDB, null, ' ') +
+	"var musicDB = " + JSON.stringify(oTmpMusicDB, null, ' ');
+	
+  var filename = "db";
+  var blob = new Blob([sData], {type: "text/plain;charset=utf-8"});
+  saveAs(blob, filename+".js");
+	/**/
 }
 
 
@@ -2315,7 +2363,7 @@ function hideInfo(){
 
 function initPlayerFromConfigs() {
   // load from local storage if normal DB not exist
-  loadBDfromLocalStorage();
+  // loadBDfromLocalStorage();
   loadColorGroups();
   addTrackListsFromDB();
   // load sounds DB
