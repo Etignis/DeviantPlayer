@@ -1028,7 +1028,7 @@ function playSideSound(audioID){
 
           musicDB[el].list.forEach(function(track, i){
 						if(/12\. Arty on th/.test(track)) {
-							debugger;
+						//	debugger;
 						}
             player[player_i].add_track(ROOT+Folder+track, i);
           });
@@ -1835,6 +1835,8 @@ function translateFromBat(sText){
 			var oParcedMusic = oMusicRe.exec(sLine);
 			if(oParcedMusic) {
 				let sFolder = oParcedMusic[1].replace(/\\/g, "");
+				if(sFolder == "звуки море")
+					debugger;
 				if(!oTmpMusicDB[sFolder]) {
 					oTmpMusicDB[sFolder] = {};
 					oTmpMusicDB[sFolder].number = 0;
@@ -1848,15 +1850,16 @@ function translateFromBat(sText){
 	
 	//console.dir(oTmpMusicDB);
 	
-	alert("Данные обработаны, сохраните получившийся файл \"db.js\" в папку \"js\" плеера.\n Если необходимо, замените существующий файл.");
+	alert("Данные обработаны, сохраните получившийся файл \"db.js\" в папку \"js\" плеера.\n Если необходимо, замените существующий файл.\n\nПерезагрузите страницу плеера после сохранения файла.");
 	/**/
 	var sData =  "var soundsDB = " + JSON.stringify(oTmpSoundDB, null, ' ') +
-	"var musicDB = " + JSON.stringify(oTmpMusicDB, null, ' ');
+	";\n var musicDB = " + JSON.stringify(oTmpMusicDB, null, ' ');
 	
   var filename = "db";
   var blob = new Blob([sData], {type: "text/plain;charset=utf-8"});
   saveAs(blob, filename+".js");
 	/**/
+	//setTimeout(function(){location.reload();},1000);
 }
 
 
