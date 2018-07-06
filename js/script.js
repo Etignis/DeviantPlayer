@@ -1439,8 +1439,8 @@ function reorderBigSound(aList) { // sounds_big_panel
  		var oEl = $(".soundBigButton[title='"+aList[i]+"']").parent().detach();
  		oEl.appendTo("#tmpBigSoundContent");
 	}
-	$(".soundBigButton").eq(0).unwrap();
-
+	$("#sounds_big_panel").append($("#tmpBigSoundContent").children());
+	$("#tmpBigSoundContent").remove();
 }
 
 /**/
