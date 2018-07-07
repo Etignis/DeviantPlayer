@@ -382,9 +382,9 @@ function PlayerForm(){
 
 
 //// функции
-function stopAllInGroup(sGroupId){
+function stopAllInGroup(sGroupId, sPlaylistId){
   $(".player_form").each(function(){
-    if($(this).attr('data-group') != undefined && $(this).attr('data-group') == sGroupId) {
+    if($(this).attr('data-group') != undefined && $(this).attr('data-group') == sGroupId && $(this).attr('data-name') != sPlaylistId) {
       var id = $(this).attr('data-name');
       stop_play(id);
     }
@@ -392,141 +392,52 @@ function stopAllInGroup(sGroupId){
 }
 function start_play(id){
   var sGroupId = $(".player_form[data-name="+id+"]").attr("data-group");
-  stopAllInGroup(sGroupId);
+  stopAllInGroup(sGroupId, id);
 	var audio_url = $(".player_form[data-name="+id+"]").find(".pf_list").children(".active").attr("data-url").replace(/`/g, "'");
 	var _player = $(".player_form[data-name="+id+"]").children("audio");
 
 	if(_player.attr("src")!=audio_url){
 		_player.attr("src", audio_url);
 	}
-	//$(".player_form[data-name="+id+"]").children("audio").attr("src", audio_url);
-	a_id="a_"+id;
-	/*if(id<10)
-		a_id="a_0"+id;*/
-	//console.log(a_id);
-	//document.getElementById(a_id).play();
+
+	a_id="a_"+id;	
 
 	// плавное увеличение звука
-	if($("#p_smooth").prop("checked"))
-		{
-		//var c_vol = $("#"+a_id).volume;
-		var c_vol = document.getElementById(a_id).volume
-		var nnum= 0.1;
-		//console.log("c_vol: "+c_vol);
-		document.getElementById(a_id).volume = nnum;
+	if($("#p_smooth").prop("checked")) {
+		var nVolume = ($("#"+a_id).parent().find('input[type="range"]').val() * 0.02) || 0.5;
 		$("#"+a_id).trigger('play');
-		//console.log("n_vol: "+document.getElementById(a_id).volume);
-		//setInterval(function(){alert(1);}, 2000);
-		var timer = setInterval(
-				function(){
-					//alert(1);
-					//console.log(document.getElementById(a_id).volume+" < "+c_vol);
-					if(document.getElementById(a_id).volume<c_vol)
-						{
-						if(document.getElementById(a_id).volume + nnum<1)
-							document.getElementById(a_id).volume += nnum;
-						else
-							document.getElementById(a_id).volume = c_vol;
-						}
-					else
-					{
-						document.getElementById(a_id).volume = c_vol;
-						clearInterval(timer);
-					}
-					//console.log("vol: "+document.getElementById(a_id).volume);
-					}, 300);
+		$("#"+a_id).animate({volume: nVolume}, 1000);			
+	} else {
+		$("#"+a_id).trigger('play');
+	}
 
-
-
-		//console.log("vol2: "+document.getElementById(a_id).volume);
-		}
-		else
-		{
-			$("#"+a_id).trigger('play');
-		}
-
-			//console.log("id: "+id);
 	// вид кнопки
-	if(player[id].f_play==0)
-		{
+	if(isPlayed(id)/*player[id].f_play==0*/) {
 		player[id].f_play=1;
 		$(".player_form[data-name="+id+"]").find(".pf_play_bt").html("<i class='fa fa-pause'></i>");
-		}
-
-	// set music time
-	// let oAudio = document.getElementById(_player.attr("id"));
-	// oAudio.addEventListener("canplaythrough", function () {
-		// setTimeout(function(){
-			// duration = document.getElementById(_player.attr("id")).duration;
-
-			// let duration = ~~this.duration;
-			// let sDuration = "";
-			// if(duration>60) {
-				// sDuration = Math.floor(duration/60) +"м "+duration%60+"c";
-			// } else {
-				// sDuration = duration+"c";
-			// }
-			// $(".player_form[data-name="+oEvent.currentTarget.id+"]").find(".pf_trek_timeline").attr('title', sDuration);
-		// }.bind(this), 500);
-
-	// }, false);
-
-
-	///
-
-
+	}
+	
 	/// file name
 	var sFileName = $("#"+a_id).attr("src").split("/").pop();
 	$("#"+a_id).parent().attr("title", sFileName);
 }
 
 function stop_play(id){
-	player[id].f_play=0;
-  $(".player_form[data-name="+id+"] .pf_play_bt").html("<i class='fa fa-play'></i>");
+	if(isPlayed(id)) {
+		player[id].f_play=0;
+	
+		$(".player_form[data-name="+id+"] .pf_play_bt").html("<i class='fa fa-play'></i>");
 
 		a_id="a_"+id;
-		/*if(id<10)
-			a_id="a_0"+id;*/
-		//console.log("element for pause: "+a_id);
-
+		
 		if($("#p_smooth").prop("checked")){
-			// плавное evtymitybt звука
-			//var c_vol = $("#"+a_id).volume;
-			var c_vol = document.getElementById(a_id).volume
-			var nnum= 0.1;
-			//console.log("c_vol: "+c_vol);
-			//document.getElementById(a_id).volume = nnum;
-			$("#"+a_id).trigger('play');
-			//console.log("n_vol: "+document.getElementById(a_id).volume);
-			//setInterval(function(){alert(1);}, 2000);
-			var timer = setInterval(
-					function(){
-						//alert(1);
-						//console.log(document.getElementById(a_id).volume+" < "+c_vol);
-						if(document.getElementById(a_id).volume>0)
-							{
-							if(document.getElementById(a_id).volume - nnum > 0)
-								document.getElementById(a_id).volume -= nnum;
-							else
-								document.getElementById(a_id).volume = 0;
-							}
-						else
-							{
-							document.getElementById(a_id).volume = 0;
-
-							document.getElementById(a_id).pause();
-							document.getElementById(a_id).volume = c_vol;
-							clearInterval(timer);
-							}
-						//console.log("vol: "+document.getElementById(a_id).volume);
-						}, 200);
-
-
-
-			//console.log("vol2: "+document.getElementById(a_id).volume);
-			}
-		else
+			$("#"+a_id).finish().animate({volume: 0}, 1000, function(){
+				document.getElementById($(this).attr("id")).pause();
+			});
+		} else {
 			document.getElementById(a_id).pause();
+		}
+	}
 }
 
 function change_active_track(id, i){
@@ -631,6 +542,10 @@ function timelineUpdate() {
 	$(this).closest(".player_form").find(".pf_trek_playhead").css('width', playPercent + "%");
 	//playhead.style.marginLeft = playPercent + "%";
 }
+
+function isPlayed(sId){
+	return !document.getElementById("a_"+sId).paused;
+}
 //// /функции
 
 var lt=[];
@@ -648,24 +563,18 @@ var lt=[];
 //// события
  $("body").on('click', ".pf_play_bt", function(){
 	// alert(1);
-	 var id = $(this).closest(".player_form").attr("data-name");
-	 //console.log("id form ="+id);
+	var id = $(this).closest(".player_form").attr("data-name");
+	//console.log("id form ="+id);
 
-	 // играем
-	 if(player[id].f_play==0)
-		{
-		// если не выделен начальный трек
-		if(player[id].track_num==0)
-			{
+	// играем
+	if(!isPlayed(id)/*player[id].f_play==0*/) { // если не выделен начальный трек
+		if(player[id].track_num==0) {
 			$(".player_form[data-name="+id+"]").children(".pf_list").children(".tr_line").eq(0).addClass("active");
-			}
+		}
 		start_play(id);
-		}
-	 // ставим на паузу
-	 else
-		{
-      stop_play(id);
-		}
+	}	else { // ставим на паузу
+    stop_play(id);
+	}
 
  });
 
