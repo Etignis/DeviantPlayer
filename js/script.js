@@ -942,6 +942,8 @@ function playSideSound(audioID){
             player[player_i].add_track(ROOT+Folder+track, i);
           });
           //player_i++;
+					let nMusics = musicDB[el].list.length;
+					$(".player_form").eq(player_i-1).find(".pf_play").prepend("<span title='Количество треков в списке' class='pf_list_length'>"+nMusics+"</span>")
         }
       });
     } catch (err) {
