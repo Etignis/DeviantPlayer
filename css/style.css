@@ -918,6 +918,7 @@ img {
   margin: .1em;
   cursor: default;
   text-align: center;
+  position: relative;
 }
 .player_form .pf_play button.pf_play_bt {
   -webkit-border-radius: 3px 3px 3px 3px;
@@ -1013,6 +1014,12 @@ img {
 }
 .player_form .pf_play button.pf_next_bt:active {
   background: #777;
+}
+.player_form .pf_list_length {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  color: #222;
 }
 .player_form .pf_trek_timeline {
   -webkit-border-radius: 3px 3px 3px 3px;

@@ -942,6 +942,8 @@ function playSideSound(audioID){
             player[player_i].add_track(ROOT+Folder+track, i);
           });
           //player_i++;
+					let nMusics = musicDB[el].list.length;
+					$(".player_form").eq(player_i-1).find(".pf_play").prepend("<span title='Количество треков в списке' class='pf_list_length'>"+nMusics+"</span>")
         }
       });
     } catch (err) {
@@ -1016,7 +1018,7 @@ function applyPlaylistsWindow(){
   var aSelected = [];
 
   // apply root
-  ROOT = $("#mw_playlist_rootpath").val().replace("\\", "/");
+  ROOT = $("#mw_playlist_rootpath").val().replace(/\\/g, "/");
   if(ROOT[ROOT.length-1] != "/") {
   	ROOT += "/";
   }
@@ -1716,50 +1718,66 @@ function parceLocalFile(sText) {
 }
 
 function translateFromBat(sText){
-	aLines = sText.split(/[\r\n]+/g);
-	var oTmpSoundDB = {};
-	var oTmpMusicDB = {};
-	var sRootFolder = '';
-	aLines.forEach(function(sLine){
-		if(/!звуки/.test(sLine)) {
-			if(!sRootFolder) {
-				var oTmpRoot = /\\([^\\]+)\\\\!звуки/.exec(sLine);
-				if(oTmpRoot && oTmpRoot[1]) {
-					sRootFolder = oTmpRoot[1];
+	try{
+		aLines = sText.split(/[\r\n]+/g);
+		var oTmpSoundDB = {};
+		var oTmpMusicDB = {};
+		var sRootFolder = '';
+		var fRoot = false;
+		aLines.forEach(function(sLine){
+			if(/!звуки/.test(sLine)) {
+				if(!sRootFolder) {
+					if(!fRoot) {
+						var oTmpRoot = sLine.match(/(.+)!звуки/);
+						if(oTmpRoot && oTmpRoot[1]) {
+							ROOT = oTmpRoot[1].split(/\\+/).join("/").replace("/", "//")
+							saveLocalDB("ROOT", ROOT);
+							fRoot = true;
+						}
+					}
+					var oTmpRoot = /\\([^\\]+)\\\\!звуки/.exec(sLine);
+					if(oTmpRoot && oTmpRoot[1]) {
+						sRootFolder = oTmpRoot[1];
+					}
 				}
-			}
-			var oParcedSound = /!звуки\\(.+)\\(.+)\.(mp3|wav|flac|m4a)/.exec(sLine);
-			if(oParcedSound){ // found sound
-				let sFolder = oParcedSound[1].replace(/\\/g, "");
-				if(!oTmpSoundDB[sFolder]) {
-					oTmpSoundDB[sFolder] = {};
-					oTmpSoundDB[sFolder].number = 0;
-					oTmpSoundDB[sFolder].list = [];
-				} 
-				oTmpSoundDB[sFolder].number++;
-				oTmpSoundDB[sFolder].list.push(oParcedSound[2].replace(/\\/g, "")+"."+oParcedSound[3]);
-			}
-		}	else {
-			var oMusicRe = new RegExp(sRootFolder+"\\\\\\\\([^\\\\]+)\\\\\\\\([^\\\\]+)\.(mp3|wav|flac|m4a)");
-			var oParcedMusic = oMusicRe.exec(sLine);
-			if(oParcedMusic) {
-				let sFolder = oParcedMusic[1].replace(/\\/g, "");
-				if(sFolder == "звуки море")
-					debugger;
-				if(!oTmpMusicDB[sFolder]) {
-					oTmpMusicDB[sFolder] = {};
-					oTmpMusicDB[sFolder].number = 0;
-					oTmpMusicDB[sFolder].list = [];
-				} 
-				oTmpMusicDB[sFolder].number++;
-				oTmpMusicDB[sFolder].list.push(oParcedMusic[2]+"."+oParcedMusic[3]);
-			}			
-		}		
-	});
+				var oParcedSound = /!звуки\\(.+)\\(.+)\.(mp3|wav|flac|m4a)/.exec(sLine);
+				if(oParcedSound){ // found sound
+					let sFolder = oParcedSound[1].replace(/\\/g, "");
+					if(!oTmpSoundDB[sFolder]) {
+						oTmpSoundDB[sFolder] = {};
+						oTmpSoundDB[sFolder].number = 0;
+						oTmpSoundDB[sFolder].list = [];
+					} 
+					oTmpSoundDB[sFolder].number++;
+					oTmpSoundDB[sFolder].list.push(oParcedSound[2].replace(/\\/g, "")+"."+oParcedSound[3]);
+				}
+			}	else {
+				var oMusicRe = new RegExp(sRootFolder+"\\\\\\\\([^\\\\]+)\\\\\\\\([^\\\\]+)\.(mp3|wav|flac|m4a)");
+				var oParcedMusic = oMusicRe.exec(sLine);
+				if(oParcedMusic) {
+					let sFolder = oParcedMusic[1].replace(/\\/g, "");
+					// if(sFolder == "звуки море")
+						// debugger;
+					if(!oTmpMusicDB[sFolder]) {
+						oTmpMusicDB[sFolder] = {};
+						oTmpMusicDB[sFolder].number = 0;
+						oTmpMusicDB[sFolder].list = [];
+					} 
+					oTmpMusicDB[sFolder].number++;
+					oTmpMusicDB[sFolder].list.push(oParcedMusic[2]+"."+oParcedMusic[3]);
+				}			
+			}		
+		});
+	} catch (err) {
+		console.log("[ERROR]: в ходе парсинга БД");
+		console.dir(err);
+		alert("Простите, произошла ошибка. \nБаза не распознана.");
+	}
 	
 	//console.dir(oTmpMusicDB);
+	let sAdress = decodeURI(window.location.pathname).replace(/^\//, "").replace(/[^\/]+$/, "js/db.js");
 	
-	alert("Данные обработаны, сохраните получившийся файл \"db.js\" в папку \"js\" плеера.\n Если необходимо, замените существующий файл.\n\nПерезагрузите страницу плеера после сохранения файла.");
+	alert("Данные обработаны, сохраните получившийся файл \"db.js\" в папку \"js\" плеера.\n\n "+sAdress+"\n\nПерезапишите существующий файл!\n\nПерезагрузите страницу плеера после сохранения файла.");
 	/**/
 	var sData =  "var soundsDB = " + JSON.stringify(oTmpSoundDB, null, ' ') +
 	";\n var musicDB = " + JSON.stringify(oTmpMusicDB, null, ' ');
