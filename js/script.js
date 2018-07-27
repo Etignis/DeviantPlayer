@@ -265,6 +265,7 @@ function PlayerForm(){
 
 		num = $(".player_form").length;
 		this.name = name;
+		this.name_real = this.name.replace(/\s*/g,"_");
 
 		if(type === undefined)
 			type="usual";
@@ -277,9 +278,9 @@ function PlayerForm(){
 			pf_lt="";
 		var pf_sett = "<div class='pf_sett'>"+
 								"<div class='btns'>"+
-									"<input type='checkbox' checked='checked' id='ch_"+this.name+"' class='btn cycle'><label for='ch_"+this.name+"' title='Зациклить плейлист' ><i class='fa fa-retweet'></i></label>"+
+									"<input type='checkbox' checked='checked' id='ch_"+this.name_real+"' class='btn cycle'><label for='ch_"+this.name_real+"' title='Зациклить плейлист' ><i class='fa fa-retweet'></i></label>"+
 									"<button class='btn mix' title='Перемешать музыку'><i class='fa fa-random'></i></button>"+
-									"<input type='checkbox' id='hd_"+this.name+"' class='btn hide'><label for='hd_"+this.name+"' title='Скрыть/показать список воспроизведения'><i class='fa fa-eye-slash'></i></label>"+
+									"<input type='checkbox' id='hd_"+this.name_real+"' class='btn hide'><label for='hd_"+this.name_real+"' title='Скрыть/показать список воспроизведения'><i class='fa fa-eye-slash'></i></label>"+
 									//"<button>3</button>"+
 								"</div>"+
 								"<div class='vol'>"+
@@ -295,7 +296,7 @@ function PlayerForm(){
 		var pf_l_sett      = "<div class='pf_l_sett'><div class='bt make_list'><i class='fa fa-list'></i></div></div>";
 		var pf_mng         = "<div class='pf_mng'>управление потоком</div>";
     var pf_attr_data_group = group?" data-group='"+group+"' ": "";
-    var pf_groupSelect = make_select(aGroups, {selected_key: group||"g0", id: "GroupSelect_"+this.name, class: "bt"});
+    var pf_groupSelect = make_select(aGroups, {selected_key: group||"g0", id: "GroupSelect_"+this.name_real, class: "bt"});
 		var audio = "<audio id='a_"+(num+1)+"'></audio>";
 
 		if(type == 'usual')
@@ -521,7 +522,7 @@ function a_ended(){
 	var ch_name=$(".player_form[data-name="+id+"]").find(".pf_name").text();
 	//console.log("id: "+id);
 	//console.log("ch_name: "+ch_name);
-	if($(".player_form[data-name="+id+"]").find("#ch_"+ch_name).prop("checked"))
+	if($(".player_form[data-name="+id+"]").find("#ch_"+ch_name.replace(/\s*/g, "_")).prop("checked"))
 		{
 		next_active_track(id);
 		start_play(id);
@@ -932,7 +933,7 @@ function playSideSound(audioID){
           // sreate player form
 					player_i = player.length || 1;
           player[player_i] = new PlayerForm();
-          player[player_i].create(sTitle , lt[player_i-1], undefined, sGroup);
+          player[player_i].create(sTitle, lt[player_i-1], undefined, sGroup);
           Folder = el+'/';
 
           musicDB[el].list.forEach(function(track, i){
