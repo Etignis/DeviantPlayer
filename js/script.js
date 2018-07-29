@@ -6,6 +6,7 @@ var aSelectedSoundlists = [];
 var aSoundlistsData = [];
 var oGlobalSettings = {};
 var oPlayerColorGroups = {};
+var oPresets = {}, aPresets = {}, sSelectedPreset=0;
 
 var fKeyListen = true;
 var bShift = false, bCtrl = false;
@@ -87,27 +88,37 @@ $(document).ready(function(){
     var atr_class = params.class;
     var lableText;
     var width = 0;
+		var mode = params.mode || "default";
+		
+		var sBtBefore = (mode=="full_edit")? "<button class='custom_select_delete optionBt' title='Удалить'><i class='far fa-trash-alt'></i></button> ": "";
+		var sBtAfter = (mode=="full_edit")? " <button class='custom_select_edit optionBt' title='Переименовать'><i class='fas fa-pencil-alt'></i></button>": "";
+		var sBtApply = (mode=="full_edit")? " <button class='custom_select_apply optionBt' title='Сохранить' style='display: none'><i class='fas fa-check'></i></button>": "";
+		var sInput = (mode=="full_edit")? " <input type='text' class='custom_select_input optionIn' style='display: none'>": "";
     src.forEach(function(item){
       var key = item.name;
+      var color = (item.name[0]=="g")? " data-color='"+item.name+"' " : "";
       var text = item.title;
-      var color = " data-color='"+key+"' " ;
+      //var color = " data-color='"+key+"' " ;
+			var colorClass = color? " color": "";
       var sVisible = (item.visible === false)? "style='display:none'" : "";
       if(text.length > width){
         width = text.length;
       }
-       options += "<li "+sVisible+" class='option' data-key='"+key+"' "+color+">"+text+"</li>";
+       options += "<li "+sVisible+" class='option"+colorClass+"' data-key='"+key+"' "+color+">"+sBtBefore+sInput+"<span class='custom_select_text'>"+text+"</span>"+sBtAfter+sBtApply+"</li>";
       if(key == selected_key){
-        lableText = text
+        lableText = text;
       }
     });
     width = width>20? 20: width;
     width = width<5? 5: width;
     width = ~~(width*0.99);
 
-    var list = "<ul class='list'>" + options + "</ul>";
+		var sLastElement = (mode=="full_edit")? "<li class='option' data-key='new'>добавить...</li>": "";
+    var list = "<ul class='list'>" + options + sLastElement +"</ul>";
 
     var selectedKey = selected_key;
     var label="<div class='label "+atr_class+"' data-selected-key='" + selectedKey + "' style='min-width:"+width+"em'>" + lableText + "</div>";
+		
     var select = "<div id='" + id + "' class='customSelect'>" + label + list + "</div>"
 
     return select;
@@ -118,17 +129,6 @@ $(document).ready(function(){
 
     var sColorGroup = (sKey=="g0")? "" : sKey;
     oSelect.closest(".player_form").attr("data-group", sColorGroup);
-
-    //var listName = sKey;//$("#listSelect option:selected").attr("data-key");
-    //make_dict2(name_groups[listName], "name_groups", listName);
-    //var comboBox = makeComboBox(name_groups[listName]);
-    //$("#names").html(comboBox);
-
-    // url hash
-    //var NameTypeSelectVal = $("#nameListSelect .label").attr("data-selected-key");
-    //var sHash = "list="+NameTypeSelectVal;
-    //location.hash = (leng==1)? sHash : "";
-    //location.hash = sHash;
   }
 
   function collectColorGroup() {
@@ -148,7 +148,8 @@ $(document).ready(function(){
   }
 
   function loadColorGroups(){
-    oPlayerColorGroups = getFromLocalDB('oPlayerColorGroups');
+   // oPlayerColorGroups = getFromLocalDB('oPlayerColorGroups');
+	 oPlayerColorGroups = oPresets[sSelectedPreset].oPlayerColorGroups || {};
   }
    //custom Select
   $("body").on("click", ".customSelect .label", function() {
@@ -159,10 +160,130 @@ $(document).ready(function(){
     var sText = $(this).text();
     var sHTML = $(this).html();
     var oSelect =  $(this).closest(".customSelect");
+		
+		if(sKey=='new') {
+			oSelect.find("ul").fadeOut();
+			return;
+		}
     selectCustomSelect(oSelect, sKey, sHTML);
-    collectColorGroup();
-    saveLocalDB('oPlayerColorGroups', oPlayerColorGroups);
+		
+		// color
+		if($(this).hasClass("color")){
+			collectColorGroup();
+			//saveLocalDB('oPlayerColorGroups', oPlayerColorGroups);
+			savePreset("color");
+		}
+		
+		//presets
+		if($(this).attr("data-key")[0] == "p"){ 
+			//savePreset();
+			sSelectedPreset = $(this).attr("data-key");
+			saveLocalDB("sSelectedPresetKey", sSelectedPreset);
+			//savePreset();
+			document.location.reload();
+		}
   });
+  
+	// start edit
+	$("body").on("click", ".customSelect .custom_select_edit", function() {
+		fKeyListen = false;
+		
+		var oParent = $(this).closest(".option");
+		var oInput = oParent.find(".custom_select_input");
+		var oTitle = oParent.find(".custom_select_text");
+		var oAfter = oParent.find(".custom_select_edit");
+		var oApply = oParent.find(".custom_select_apply");
+		var sText = oTitle.text();
+		
+		oInput.val(sText);
+		oInput.show();
+		oInput.focus();
+		oTitle.hide();
+		oAfter.hide();
+		oApply.show();
+		
+		return false;
+  });
+
+	// nothing
+	$("body").on("click", ".customSelect .custom_select_input", function() {
+		
+		return false;
+  });
+
+	// save edited
+	$("body").on("click", ".customSelect .custom_select_apply", function() {
+		var oParent = $(this).closest(".option");
+		var oInput = oParent.find(".custom_select_input");
+		var oTitle = oParent.find(".custom_select_text");
+		var oAfter = oParent.find(".custom_select_edit");
+		var oApply = oParent.find(".custom_select_apply");
+		var sText = oInput.val().trim();
+		
+		oInput.hide();
+		oTitle.text(sText);
+		oTitle.show();
+		oAfter.show();
+		oApply.hide();
+		
+		var oSelect =  $(this).closest(".customSelect");
+		var oSelectLabel =  oSelect.find(".label");
+		if(oSelectLabel.attr("data-selected-key") == oParent.attr("data-key")) {
+			oSelectLabel.text(sText);
+		}
+		setTimeout(function(){
+			oSelect.find("ul").fadeOut();
+		}, 500);		
+		
+		fKeyListen = true;
+		savePreset();
+		return false;
+  });
+
+	//delete item
+	$("body").on("click", ".customSelect .custom_select_delete", function() {
+		var oParent = $(this).closest(".option");
+		var nOptions = $("#PresetSelect .custom_select_delete").length
+		if(nOptions<2) {
+			return;
+		}
+		
+		var sKey = oParent.attr("data-key");
+		
+		var bDelete = confirm("Точно удалить пресет?");
+		
+		if(bDelete) {
+			removePreset(sKey);
+			savePreset();
+			
+			oParent.slideUp(400, function() {
+				oParent.remove();
+			});
+		}
+		
+		return false;
+  });
+	
+	//add item
+	$("body").on("click", ".customSelect .option[data-key='new']", function() {
+		
+		result = prompt("Введите название пресета:", "");
+		
+		if(result && result.trim()) {
+			var nNewKey = "p"+$("#PresetSelect .custom_select_delete").length;
+			sSelectedPreset = nNewKey;
+			createPreset(result, nNewKey);
+			createPresetsSelect();
+			savePreset();
+		}
+		
+		// var oSelect =  $(this).closest(".customSelect");
+		// oSelect.find("ul").fadeOut();
+		
+		return false;
+  });
+	
+	
 
   //debugger;
 	// класс звуков
@@ -687,26 +808,7 @@ function playSideSound(audioID){
 	});
  }
 
- /*
-     "спокойно",
-    "бодро",
-    "светло",
-    "Данж",
-    "недра",
-    "Таверна",
-    "река",
-    "ночь",
-    "день",
-    "дождь",
-    "огонь",
-    "Храм",
-    "Эпик",
-    "нагнетание",
-    "скрытность",
-    "Темное",
-    "Фейри",
-    "Путешествие"
- */
+
  function setZoomFontsize() {
   var sFontSize = oGlobalSettings? oGlobalSettings.sZoomFontSize : undefined;
   if(sFontSize) {
@@ -719,9 +821,91 @@ function playSideSound(audioID){
    }
   saveLocalDB('oGlobalSettings', oGlobalSettings);
  }
+ 
  function loadGlobalSettings() {
   oGlobalSettings = getFromLocalDB('oGlobalSettings') || {};
  }
+ 
+ 
+ function removePreset(sKey){
+	 delete oPresets[sKey];
+ }
+ function loadPreset(){
+		var oLocalPresets = getFromLocalDB('oPresets');
+		if(oLocalPresets) {
+			aPresets = [];
+			Object.keys(oLocalPresets).map(function(objectKey, index) {
+					var value = oLocalPresets[objectKey];					
+					aPresets.push({
+						title: value.title.trim(),
+						name: value.name.trim()
+					})
+			});
+			sSelectedPreset = getFromLocalDB('sSelectedPresetKey');
+		} else {
+			aPresets = [
+				{
+					title: "Пресет 1",
+					name: "p0"
+				}
+			];
+			sSelectedPreset = "p0";
+			oLocalPresets={};
+			oLocalPresets["p0"] = {
+				title: "Пресет 1",
+				name: "p0",
+				aPlaylists: [],
+				aSounds: []
+			}
+		}	
+		oPresets = oLocalPresets;
+		sTMProot = getFromLocalDB('ROOT');
+		if(sTMProot && sTMProot != undefined) {
+			ROOT = sTMProot;
+		}
+ }
+
+ function createPreset(sTitle, sKey, sMode){
+		
+		sKey = sKey.trim();
+		if(!oPresets[sKey]) {
+			oPresets[sKey] = {};
+		}
+		oPresets[sKey].title = sTitle.trim();
+		oPresets[sKey].name = sKey;
+		if(!sMode || sMode.indexOf("playlist")>-1){
+			oPresets[sKey].aPlaylists = aSelectedPlaylists;
+		}	
+		if(!sMode || sMode.indexOf("soundlist")>-1){
+			oPresets[sKey].aSounds = aSoundlistsData;
+		}
+		if(!sMode || sMode.indexOf("color")>-1){
+			oPresets[sKey].oPlayerColorGroups = oPlayerColorGroups;
+		}
+		
+		if(aPresets.filter(function(item) { return item.name==sKey;}).length<1) {		
+			aPresets.push({
+				title: sTitle,
+				name: sKey
+			})
+		}
+	}
+ function savePreset(sMode){
+		var oPresetLabel = $("#PresetSelect .label")
+		var sPresetTitle = oPresetLabel.text().trim();
+		var sPresetKey = oPresetLabel.attr("data-selected-key").trim();
+		
+		//var aLocalPresets = oPresets || getFromLocalDB("oPresets") || [];
+		
+		//oPresets[sPresetKey]
+				
+		createPreset(sPresetTitle, sPresetKey, sMode);	
+		
+		saveLocalDB("oPresets", oPresets);
+		saveLocalDB("sSelectedPresetKey", sPresetKey);
+		saveLocalDB("ROOT", ROOT);
+ }
+ 
  function saveLocalDB(sKey, oValue) {
    var oLocalDB = {};
    var oData = localStorage.getItem('MusicBoxDB');
@@ -762,27 +946,33 @@ function playSideSound(audioID){
 
   return false;
  }
+ 
  function savePlaylists(){
-    var sLists = JSON.stringify(aSelectedPlaylists);
-    if(sLists) {
-      //localStorage.setItem('aPlayLists', sLists);
-      saveLocalDB("aPlayLists", aSelectedPlaylists);
-    }
-    saveLocalDB("ROOT", ROOT);
-    //localStorage.setItem("sROOT", ROOT);
+		/*/
+		var sLists = JSON.stringify(aSelectedPlaylists);
+		if(sLists) {
+			saveLocalDB("aPlayLists", aSelectedPlaylists);
+		}
+		saveLocalDB("ROOT", ROOT);
+		/**/
+		savePreset("playlist");
  }
  function loadPlayLists(){
+	 /*/
   var sLists = getFromLocalDB('aPlayLists');
-  //  var sLists = localStorage.getItem('aPlayLists');
   if(sLists != undefined){
     aSelectedPlaylists = sLists;
   }
+	/**/
+	
+	aSelectedPlaylists = oPresets[sSelectedPreset].aPlaylists || [];
+	
   sTMProot = getFromLocalDB('ROOT');
-  //sTMProot = localStorage.getItem('sROOT');
   if(sTMProot && sTMProot != undefined) {
     ROOT = sTMProot;
   }
  }
+ 
  function saveSoundListsData(oData){
    //aSoundlistsData
    if(oData) {
@@ -836,8 +1026,7 @@ function playSideSound(audioID){
    }
    if(aSoundlistsData){
      //localStorage.setItem('aSoundlistsData', JSON.stringify(aSoundlistsData));
-     saveLocalDB("aSoundlistsData", aSoundlistsData);
-     saveLocalDB("SOUNDS", SOUNDS);
+     savePreset("soundlist");
    }
  }
  function reorderSoundlistsData(aList) {
@@ -853,7 +1042,7 @@ function playSideSound(audioID){
  }
  function loadSoundListsData(){
   try{
-    var aSounds =  getFromLocalDB('aSoundlistsData');
+    var aSounds = oPresets[sSelectedPreset].aSounds || [];  // getFromLocalDB('aSoundlistsData');
     //var aSounds = localStorage.getItem('aSoundlistsData');
     if(aSounds){
       try{
@@ -1598,12 +1787,12 @@ $("body").on("change", "#mw_soundlists_manage .soundArr input", function(){
 function openBatDBWindow() {
   fKeyListen = false;
 
-  var oOpenButton = "<div class='center'><input type='file' id='mw_batDB_load_input' name='files[]'/> <button id='mw_batDB_load'><i class='far fa-folder-open'></i><!--<i class='fa fa-folder-open-o' aria-hidden='true'></i>--> Загрузить файл базы музыки</button></div><p>Откройте файл 'DB.txt' из папки с музыкой, сгенерированный с помощью '_create&nbsp;music&nbsp;DB.bat'. При этом, плеер запомнит данные из этого файла и будет игнорировать данные из основной базы данных.</p>";
+  var oOpenButton = "<div class='center'><input type='file' id='mw_batDB_load_input' name='files[]'/> <button id='mw_batDB_load'><i class='far fa-folder-open'></i><!--<i class='fa fa-folder-open-o' aria-hidden='true'></i>--> Загрузить файл базы музыки</button></div><p>Откройте файл 'DB.txt' из папки с музыкой, сгенерированный с помощью '_create&nbsp;music&nbsp;DB.bat'. </p>";
   var oClearButton = "<div class='center'><button id='mw_batDB_clear'><i class='far fa-trash-alt'></i><!--<i class='fa fa-trash-o' aria-hidden='true'></i>--> Удалить локальную копию</button></div><p>Удалить данные, полученные из файла 'DB.txt'. В таком случае, плеер будет получать данные из основной базы данных.</p>";
   var oExportButton = "<div class='center'><button id='mw_batDB_export'><i class='far fa-save'></i><!--<i class='fa fa-floppy-o' aria-hidden='true'></i>--> Экспортировать локальные настройки</button></div><p>Все настройки плеера можно сохранить в файл, а потом загрузить обрано в плеер, в случае чего.</p>";
   var oImportButton = "<div class='center'><input type='file' id='mw_batDB_import_input' name='local_configFiles[]'/> <button id='mw_batDB_import'><i class='far fa-folder-open'></i><!--<i class='fa fa-folder-open-o' aria-hidden='true'></i>--> Импортировать локальные настройки</button></div><p>Если вы сохраняли локальные с помощью кнопки выше, у вас должен быть файл 'DeviantPlayer_LocalDB.txt' с настройками. Загрузите его для восстановления сохраненных ранее настроек.</p>";
   var oClearAllButton = "<div class='center'><button id='mw_batDB_clearAll'><i class='fas fa-trash-alt'></i><!--<i class='fa fa-trash' aria-hidden='true'></i>--> Очистить локальную базу полностью</button></div><p>Полностью очистить все данные и настройки, хранящиеся в плеере. Нажимать только в случае глобального #$@&*!</p>";
-  var oContent = "<div class='inner'>"+oOpenButton+oClearButton+"<hr>"+oExportButton+oImportButton+"<hr>"+oClearAllButton+"</div>";
+  var oContent = "<div class='inner'>"+oOpenButton+"<hr>"+oExportButton+oImportButton+"<hr>"+oClearAllButton+"</div>";
   var oButtons = "<div class='center'><hr><button class='white' id='mw_batDB_close'>Закрыть</button></div>";
   if($("#dbg").length<1)	{
     $("body").append("<div id='dbg'></div><div class='mod_win' id='mw_batDB_manage' >"+oContent+oButtons+"</div>");
@@ -1638,83 +1827,7 @@ function handleLocalBDSelect(evt) {
   }
 function parceLocalFile(sText) {
 	translateFromBat(sText);
-	/*/
-  var aLines = sText.split(/[\r\n]+/g);
-  var aFolders = [];
-  var oDB = {};
-  var oSoundDB = {};
-  var sTmpSoundsFolder = ((SOUNDS.charAt(SOUNDS.length-1)=="/")? SOUNDS.slice(0, -1): SOUNDS) || '!звуки';
-
-  function createFolder(oObj, sFolderName) {
-    if(sFolderName) {
-      oObj[sFolderName] = {
-          number: 0,
-          list: []
-        }
-    }
-  }
-
-  aLines.forEach(sLine => {
-    if(sLine.length){
-      //console.log(sLine);
-      var fSounds = new RegExp(sTmpSoundsFolder).test(sLine);
-      var aPath = sLine.split(/[\\\/]+/g);
-
-      // file or folder?
-      if(/\.[a-zA-Z0-9]+/.test(aPath[aPath.length-1])) {
-        var sFileName = aPath.pop();
-        var sFolderName = aPath.pop();
-
-        // if music
-        if(/\.mp3/.test(sFileName) ||
-          /\.wav/.test(sFileName) ||
-          /\.flac/.test(sFileName) ||
-          /\.m4a/.test(sFileName)
-        ) {
-          // if file not in ROOT
-          if(ROOT && ROOT != aPath.concat(sFolderName).join('/')+"/"){
-
-            // sound or music?
-            if(fSounds) {
-              if(aPath[aPath.length-1] == sTmpSoundsFolder) {
-                if(!oSoundDB[sFolderName]) {
-                  createFolder(oSoundDB, sFolderName);
-                }
-                oSoundDB[sFolderName].list.push(sFileName);
-                oSoundDB[sFolderName].number++;
-              }
-            } else {
-              // folder exist?
-              if(!oDB[sFolderName]) {
-                createFolder(oDB, sFolderName);
-              }
-              oDB[sFolderName].list.push(sFileName);
-              oDB[sFolderName].number++;
-            }
-
-          } else {
-            aPath = aPath.concat(sFolderName);
-          }
-        }
-      }
-
-      //var sTmpParh = aPath.join("/");
-      if(!ROOT || ROOT.length<1) {
-        ROOT = aPath.join("/")+"/";
-      }
-    }
-  });
-
-  //debugger;
-
-  //var sLocalROOT = loadFromLocalDB(ROOT);
-  saveLocalDB("ROOT", ROOT);
-  saveLocalDB("SOUNDS", SOUNDS);
-  saveLocalDB("musicDB", oDB);
-  saveLocalDB("soundsDB", oSoundDB);
-  loadBDfromLocalStorage();
-	/**/
-
+	
   closeBatDBWindow();
 }
 
@@ -1935,7 +2048,7 @@ function clickTopButtons() {
 
 	$("body").keyup(function(eventObject){
     if(fKeyListen){
-            var id=0, ev=0, nm=0;
+      var id=0, ev=0, nm=0;
       var keyCode = eventObject.which;
       if(keyCode == 16) // SHIFT
       {
@@ -2261,27 +2374,9 @@ function parceLocalConfigFile(sText) {
     }
   }
 
-  // if(!getFromLocalDB('SOUNDS'))
-    // saveLocalDB('SOUNDS', SOUNDS);
-  // if(!getFromLocalDB('aPlayLists'))
-    // saveLocalDB('aPlayLists', aPlayLists);
-  // if(!getFromLocalDB('aSoundlistsData'))
-    // saveLocalDB('aSoundlistsData', aSoundlistsData);
-  // if(!getFromLocalDB('oGlobalSettings'))
-    // saveLocalDB('oGlobalSettings', oGlobalSettings);
-  // if(!getFromLocalDB('oPlayerColorGroups'))
-    // saveLocalDB('oPlayerColorGroups', oPlayerColorGroups);
-  // if(!getFromLocalDB('ROOT'))
-    // saveLocalDB('ROOT', ROOT);
-
-  //localStorage.clear();
-  //localStorage.setItem('MusicBoxDB', JSON.stringify(oLocalDB));
-
   initPlayerFromConfigs();
   alert("Данные успешно загружены.");
-  //loadBDfromLocalStorage();
-
-  //closeBatDBWindow();
+ 
 }
 
 function hideInfo(){
@@ -2292,11 +2387,27 @@ function hideInfo(){
 	}
 }
 
-function initPlayerFromConfigs() {
+function createPresetsSelect(){
+	if($("#PresetSelect").length) {
+		$("#PresetSelect").remove();
+	}
+	var presetSelect = make_select(aPresets, {
+		selected_key: sSelectedPreset ||"p0", 
+		id: "PresetSelect", 
+		class: "bt",
+		mode: "full_edit"});
+	$("#top_panel").append(presetSelect);
+}
+
+function initPlayerFromConfigs() {	
+	// set presets
+	loadPreset();	
+	createPresetsSelect();
+	
   // load from local storage if normal DB not exist
-  // loadBDfromLocalStorage();
   loadColorGroups();
   addTrackListsFromDB();
+	
   // load sounds DB
   loadSoundListsData();
   cloneSoundsDataFromDB();
@@ -2307,6 +2418,7 @@ function initPlayerFromConfigs() {
 
   hideInfo();
   setAudioEndHandler();
+	
 }
 onWindowResize();
 window.onresize = onWindowResize;

@@ -318,8 +318,12 @@ input[type=range] {
   padding: .3em .2em;
   list-style: none;
   margin: 0;
-  border-left: 1em solid rgba(255, 255, 255, 0);
+  display: flex;
+  justify-content: space-between;
   transition: color .3s, background .3s;
+}
+.customSelect .option.color {
+  border-left: 1em solid rgba(255, 255, 255, 0);
 }
 .customSelect .option[data-color=g0] {
   border-left-color: rgba(255, 255, 255, 0);
@@ -344,6 +348,28 @@ input[type=range] {
 }
 .customSelect .option:not(:last-child) {
   border-bottom: 1px solid #cccccc;
+}
+.customSelect .option[data-key='new'] {
+  justify-content: space-around;
+  color: #888888;
+}
+.customSelect .option .custom_select_text {
+  flex-grow: 6;
+  padding-left: .5em;
+}
+.customSelect .option .optionIn {
+  height: 1.7em;
+}
+.customSelect .option .optionBt {
+  background: none;
+  border: 1ps solid transparent;
+  border-style: solid;
+  border-radius: 3px;
+  cursor: pointer;
+  transition: border-color 0.3s;
+}
+.customSelect .option .optionBt:hover {
+  border-color: #777;
 }
 * {
   box-sizing: border-box;
@@ -482,6 +508,11 @@ img {
   background: #151515;
   cursor: default;
   color: #ddd;
+}
+#PresetSelect {
+  width: 15em;
+  margin-left: 1em;
+  display: inline-block;
 }
 .tracks {
   width: 100%;
