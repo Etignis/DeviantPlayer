@@ -1,5 +1,6 @@
 var ROOT = 'D:/Cloud/DnD/Музыка/';
 var SOUNDS = '!звуки';
+var VERSION = "1.4.2";
 //var ROOT = 'D:/DnD/Музыка/';
 var aSelectedPlaylists = [];
 var aSelectedSoundlists = [];
@@ -912,6 +913,7 @@ function playSideSound(audioID){
    if(oData) {
     oLocalDB =  JSON.parse(oData);
    }
+	 oLocalDB.v = VERSION;
    /*/
    {
      ROOT: "",
