@@ -387,7 +387,7 @@ function PlayerForm(){
 
 		num = $(".player_form").length;
 		this.name = name;
-		this.name_real = this.name.replace(/\s*/g,"_");
+		this.name_real = this.name.replace(/\s+/g,"_");
 
 		if(type === undefined)
 			type="usual";
@@ -400,7 +400,7 @@ function PlayerForm(){
 			pf_lt="";
 		var pf_sett = "<div class='pf_sett'>"+
 								"<div class='btns'>"+
-									"<input type='checkbox' checked='checked' id='ch_"+this.name_real+"' class='btn cycle'><label for='ch_"+this.name_real+"' title='Зациклить плейлист' ><i class='fa fa-retweet'></i></label>"+
+									"<input type='checkbox' id='ch_"+this.name_real+"' class='btn cycle'><label for='ch_"+this.name_real+"' title='Зациклить трек' ><i class='fa fa-retweet'></i></label>"+
 									"<button class='btn mix' title='Перемешать музыку'><i class='fa fa-random'></i></button>"+
 									"<input type='checkbox' id='hd_"+this.name_real+"' class='btn hide'><label for='hd_"+this.name_real+"' title='Скрыть/показать список воспроизведения'><i class='fa fa-eye-slash'></i></label>"+
 									//"<button>3</button>"+
@@ -566,7 +566,7 @@ function stop_play(id){
 function change_active_track(id, i){
 	// меняем номер активного трека в объекте плеера
 	player[id].track_num=i;
-	if(player[id].track_num > $(".player_form[data-name="+id+"]").children(".pf_list").children(".tr_line").length && $(".player_form[data-name="+id+"]").find(".cycle").prop("checked"))
+	if(player[id].track_num > $(".player_form[data-name="+id+"]").children(".pf_list").children(".tr_line").length)
 		player[id].track_num=1;
 	//console.log("tr_num after = "+player[id].track_num);
 
@@ -580,19 +580,22 @@ function change_active_track(id, i){
 function next_active_track(id){ // id - номер столбика
 	// находим номер активного трека
 	//console.log("id="+id);
-	index = $(".player_form[data-name="+id+"]").children(".pf_list").children(".active").index()+1;
-	//console.log("smth="+ index);
-	//console.log("tr_num before = "+player[id].track_num);
+	index = $(".player_form[data-name="+id+"]").children(".pf_list").children(".active").index();
+	if(!$(".player_form[data-name="+id+"]").find(".cycle").prop("checked")) {
+		index++;
+		//console.log("smth="+ index);
+		//console.log("tr_num before = "+player[id].track_num);
 
-	// меняем номер активного трека в объекте плеера
-	player[id].track_num=index+1;
-	if(player[id].track_num > $(".player_form[data-name="+id+"]").children(".pf_list").children(".tr_line").length)
-		player[id].track_num=1;
-	//console.log("tr_num after = "+player[id].track_num);
+		// меняем номер активного трека в объекте плеера
+		player[id].track_num=index+1;
+		if(player[id].track_num > $(".player_form[data-name="+id+"]").children(".pf_list").children(".tr_line").length)
+			player[id].track_num=1;
+		//console.log("tr_num after = "+player[id].track_num);
 
-	//переключаем активный элемент
-	$(".player_form[data-name="+id+"]").children(".pf_list").children(".tr_line").removeClass("active");
-	$(".player_form[data-name="+id+"]").children(".pf_list").children(".tr_line").eq(player[id].track_num-1).addClass("active");
+		//переключаем активный элемент
+		$(".player_form[data-name="+id+"]").children(".pf_list").children(".tr_line").removeClass("active");
+		$(".player_form[data-name="+id+"]").children(".pf_list").children(".tr_line").eq(player[id].track_num-1).addClass("active");
+	}
 
 	// переключаем трек
 	start_play(id);
@@ -644,7 +647,8 @@ function a_ended(){
 	var ch_name=$(".player_form[data-name="+id+"]").find(".pf_name").text();
 	//console.log("id: "+id);
 	//console.log("ch_name: "+ch_name);
-	if($(".player_form[data-name="+id+"]").find("#ch_"+ch_name.replace(/\s*/g, "_")).prop("checked"))
+	/*/
+	if($(".player_form[data-name="+id+"]").find("#ch_"+ch_name.replace(/\s+/g, "_")).prop("checked"))
 		{
 		next_active_track(id);
 		start_play(id);
@@ -655,6 +659,10 @@ function a_ended(){
 		//player[id].f_play=1;
 		$(".player_form[data-name="+id+"]").find(".pf_play_bt").html("<i class='fa fa-play'></i>");
 		}
+		/**/
+		
+		next_active_track(id);
+		start_play(id);
 }
 function timelineUpdate() {
 	let music_id = $(this).closest(".player_form").find("audio").attr("id");
