@@ -9,3 +9,5 @@ js/db.js
 DeviantPlayer_LocalDB.txt
 fonts/fontawesome-free-5.1.0-web/_*
 js/db.js
+
+node_modules
