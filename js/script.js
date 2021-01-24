@@ -1,3 +1,9 @@
+const fs = require('fs');
+const $ = jQuery = require('jquery');
+const remote = require('electron').remote;
+let w = remote.getCurrentWindow();
+let Sortable = require ('sortablejs');
+
 var ROOT = 'D:/Cloud/DnD/Музыка/';
 var SOUNDS = '!звуки';
 var VERSION = "1.4.2";
@@ -13,32 +19,34 @@ var fKeyListen = true;
 var bShift = false, bCtrl = false;
 var Drug;
 
+
+
 var aGroups = [
-		{
-			name:"g0",
-			title:"Без группы"
-		},
-		{
-			name:"g1",
-			title:"Группа 1"
-		},
-		{
-			name:"g2",
-			title:"Группа 2"
-		},
-		{
-			name:"g3",
-			title:"Группа 3"
-		},
-		{
-			name:"g4",
-			title:"Группа 4"
-		},
-		{
-			name:"g5",
-			title:"Группа 5"
-		}
-	];
+	{
+		name:"g0",
+		title:"Без группы"
+	},
+	{
+		name:"g1",
+		title:"Группа 1"
+	},
+	{
+		name:"g2",
+		title:"Группа 2"
+	},
+	{
+		name:"g3",
+		title:"Группа 3"
+	},
+	{
+		name:"g4",
+		title:"Группа 4"
+	},
+	{
+		name:"g5",
+		title:"Группа 5"
+	}
+];
 function randd(min, max) {
   return Math.floor(arguments.length > 1 ? (max - min + 1) * Math.random() + min : (min + 1) * Math.random());
 };
@@ -1164,6 +1172,17 @@ function playSideSound(audioID){
 
 
 // manage playlists
+function openPrePlaylistsWindow() {
+  fKeyListen = false;
+  var aFolders = [];
+  var nIndex = 0;
+
+  var oButtons = "<div class='buttonsPlace'><button id='mw_pl_CancelButton'>Отменить</button><button id='mw_prepl_OkButton'>ОК</button></div>";
+  if($("#dbg").length<1)	{
+    $("body").append("<div id='dbg'></div><div class='mod_win' id='mw_playlists_manage' > <input type='file' multiple webkitdirectory id='playlist_loader' />"+oButtons+"</div>");
+  }
+  //recountMWPlaylistsWindow();
+}
 function openPlaylistsWindow() {
   fKeyListen = false;
   var aFolders = [];
@@ -1267,7 +1286,14 @@ function applyPlaylistsWindow(){
   addTrackListsFromDB(aSelectedPlaylists) ;
 }
 $("body").on("click", "#p_config", function(){
-  openPlaylistsWindow();
+	// openPrePlaylistsWindow();
+  //openPlaylistsWindow();
+	$("#playlist_loader").click();
+	return false;
+});
+$("body").on("click", "#p_config2", function(){
+  // $("#playlist_loader").click();
+	// return false;
 });
 $("body").on("click", "#mw_pl_CancelButton", function(){
   closePlaylistsWindow();
@@ -1276,6 +1302,72 @@ $("body").on("click", "#mw_pl_OkButton", function(){
   applyPlaylistsWindow();
   closePlaylistsWindow();
 });
+
+
+$("body").on("click", "#p_config2", function(oEvent){
+	$("#playlist_loader").click();
+});
+$("body").on("change", "#playlist_loader", function(oEvent){
+	//console.dir(oEvent.target);
+	//console.dir(oEvent);
+	for (const f of oEvent.target.files) {
+		_addSound(f);
+	}
+	//this._saveData();
+	
+	console.log(ROOT);
+	console.dir(musicDB);
+	openPlaylistsWindow();
+});
+
+	function _addSound (oPath){
+		let sPath = oPath.path.replace(/\\/g,"/");
+		let sRelativePath = oPath.webkitRelativePath.replace(/\\/g,"/");
+		let sName = oPath.name;
+		
+		
+		let sPathStart = sRelativePath.split("/")[0];
+		let sPathROOT = sPath.split(sPathStart)[0] + sPathStart;
+		let aFolderName = sRelativePath.split("/");
+		if(aFolderName.length>2){
+			aFolderName.pop();
+			aFolderName.shift();
+		
+			let sFolderNamme = aFolderName.join("/");
+			ROOT = sPathROOT + "/";
+			
+			if(!musicDB[sFolderNamme]) {
+				musicDB[sFolderNamme] = {
+					number: 0,
+					list: []
+				};
+			}
+			musicDB[sFolderNamme].number++;
+			musicDB[sFolderNamme].list.push(sName);
+		}
+		
+		
+		//console.log(sPath);
+		
+		/*
+		{
+			folder_name: {
+				number: 0,
+				list: [
+					"file"
+				]
+			}	
+		}		
+		*/
+		
+		//let o = {};
+		
+		// if(/.(mp3)|(flac)|(wav)$/.test(sPath) && !oItem.items.find(el=>el.src==sPath)){					
+			// oItem.items.push({
+				// src: sPath
+			// });
+		// }
+	};
 
 	// создание списка воспроизведение
 
@@ -1555,9 +1647,13 @@ function reorderBigSound(aList) { // sounds_big_panel
 }
 
 /**/
+/*
 $("body").on("click", "#p_config", function(){
-  openPlaylistsWindow();
+	$("#playlist_loader").click();
+	//openPrePlaylistsWindow();
+  //openPlaylistsWindow();
 });
+*/
 $("body").on("click", "#p_configSounds", function(){
   openSoundlistsWindow();
 });
@@ -2040,6 +2136,11 @@ function clickTopButtons() {
 	});
 	// / преремешать
 
+	// закрыть окно
+	
+	$("body").on("click", "#exit_button", function(){		
+		w.close();
+	});
 
 	// управление кнопками
 	$("body").keydown(function(eventObject){

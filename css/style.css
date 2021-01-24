@@ -394,6 +394,24 @@ body {
   font-family: Comic Sans MS, Comic Sans MS5, cursive;
   /* you can delete this =) */
 }
+html::-webkit-scrollbar,
+body::-webkit-scrollbar {
+  width: 0.3rem;
+  height: 0.3rem;
+}
+html::-webkit-scrollbar-thumb,
+body::-webkit-scrollbar-thumb {
+  background: grey;
+}
+html::-webkit-scrollbar-track,
+body::-webkit-scrollbar-track {
+  background: black;
+}
+html body,
+body body {
+  scrollbar-face-color: grey;
+  scrollbar-track-color: black;
+}
 img {
   border: none;
 }
@@ -1348,9 +1366,15 @@ img {
 .fa-pause {
   color: #fc801c;
 }
-#top_panel .bt {
+#top_panel {
+  -webkit-app-region: drag;
+}
+#top_panel .bt,
+#top_panel button,
+#top_panel input {
   min-width: 1em;
   min-height: 1em;
+  -webkit-app-region: no-drag;
 }
 #top_panel #p_name {
   -webkit-border-radius: 3px 3px 3px 3px;

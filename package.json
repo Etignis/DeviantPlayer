@@ -91,6 +91,8 @@
   },
   "dependencies": {
     "electron-squirrel-startup": "^1.0.0",
+    "jquery": "^3.5.1",
+    "naudiodon": "^2.2.1",
     "sortablejs": "^1.10.2",
     "update-electron-app": "^1.5.0"
   }

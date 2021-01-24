@@ -13,8 +13,9 @@
   <!-- <link href="fonts/fontawesome-free-5.0.6/web-fonts-with-css/css/fontawesome-all.min.css" rel="stylesheet"> -->
 
   <link rel="shortcut icon" href="favicon.ico" /><!-- include icon for browser -->
-  <script type='text/javascript' src='js/jquery-1.11.3.min.js'></script><!-- jQuery -->
-  <script type='text/javascript' src='js/Sortable.js'></script><!-- Sortable Drag'n'Drop-->
+  <!--<script type='text/javascript' src='js/jquery-1.11.3.min.js' defer></script><!-- jQuery -->
+	<!-- <script>window.$ = window.jQuery = require('js/jquery-1.11.3.min.js');</script> -->
+  <script type='text/javascript' src='js/Sortable.js' defer></script><!-- Sortable Drag'n'Drop-->
   <script type='text/javascript' src='js/db.js' defer></script><!-- Palylists Data -->
   <script type='text/javascript' src='js/script.js' defer></script><!-- script -->
 
@@ -38,16 +39,22 @@
 
 <body>
   <div id="top_panel">
-    <!--div id='p_conf' class='bt'><i class="fa fa-cog fa-lg"></i></div-->
-    <div id='p_config' title='Настройка плейлистов' class='bt'><i class="fa fa-cog fa-lg"></i></div>
+    <!-- <div id='p_conf' class='bt'><i class="fa fa-cog fa-lg"></i></div> -->
+		<!-- 
     <div id='p_configSounds' title='Настройка звуков' class='bt'><i class="fa fa-music fa-lg"></i></div>
     <div id='p_configMusicDB' title='Настройка базы данных музыки и звуков' class='bt'><i class="fa fa-database  fa-lg"></i></div>
+		 -->
+    <!-- <div id='p_config2' title='Настройка плейлистов' class='bt'><i class="fa fa-cog fa-lg"></i></div> -->
+		 <input type='file' multiple webkitdirectory id='playlist_loader' style='display: none'/>
+    <div id='p_config' title='Настройка плейлистов' class='bt'><i class="fa fa-cog fa-lg"></i></div>		    
+		<div id='p_configSounds' title='Настройка звуков' class='bt'><i class="fa fa-music fa-lg"></i></div>
     <div id='p_em_up' title='Увеличить элементы интерфейса' class='bt'><i class="fa fa-search-plus fa-lg"></i></div>
     <div id='p_em_dn' title='Уменьшить элементы интерфейса' class='bt'><i class="fa fa-search-minus fa-lg"></i></div>
     <div id='p_hide' title='Скрыть списки воспроизведения во всех плейлистах' class='bt'><i class="fa fa-eye-slash fa-lg"></i></div>
     <div id='p_rand' title='Перемещать музыку во всех плейлистах' class='bt'><i class="fa fa-random fa-lg"></i></div>
     <input type='checkbox' id='p_smooth'><label title='Включить плавное воспроизведение/остановку музыки'  for='p_smooth' ><i class='fas fa-sync-alt'></i></label>
-
+		
+		<button id='exit_button'>✖</button>
   </div>
 
   <div id='info'>
